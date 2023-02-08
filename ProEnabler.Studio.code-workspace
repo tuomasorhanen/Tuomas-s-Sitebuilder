@@ -1,8 +1,27 @@
 {
 	"folders": [
 		{
-			"path": "proenabler.ui"
-		}
+			"path": "_PSModules"
+		},
+		{
+			"path": "ci"
+		},
+		{
+			"path": "src"
+		},
 	],
-	"settings": {}
+	"settings": {
+		"powershell.cwd": "/Users/tuomasorhanen/Desktop/ProEnabler/ci",
+		"files.associations": {
+			"**/ci/**/*.yml": "azure-pipelines"
+		}
+	
+	},
+	"extensions": {
+		"recommendations": [
+			"ms-azuretools.vscode-bicep",
+			"ms-vscode.powershell",
+			"ms-azure-devops.azure-pipelines"
+		]
+	}
 }
