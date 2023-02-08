@@ -15,7 +15,7 @@ steps:
   - task: AzureCLI@2
     displayName: amban ${{ parameters.module }} ${{ parameters.task }} ${{ parameters.ENVIRONMENT }}
     inputs:
-      azureSubscription: "Amban - Web(f4c98ad1-4cd6-449f-8de1-ab6358fee8ac)"
+      azureSubscription: "Amban - Clients(4a8b6bf8-1474-497c-95c8-094df7016840)"
       scriptType: "pscore"
       scriptLocation: "inlineScript"
       inlineScript: ./.build.ps1 ${{ parameters.module }} ${{ parameters.task }} ${{ parameters.ENVIRONMENT }}
