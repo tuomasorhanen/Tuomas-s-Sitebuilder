@@ -3,8 +3,6 @@ import { IHeadingAndTitle, IHero, ITestimonial } from '_lib/types';
 import AboutSection from 'Components/AboutSection';
 import Header from 'Components/Header';
 import HeadingAndTitle from 'Components/HeadingAndTitle';
-import HeroSection from 'Components/HeroSection';
-import Testimonial from 'Components/Testimonial';
 import { GetServerSideProps } from 'next';
 import { groq } from 'next-sanity';
 
@@ -13,7 +11,7 @@ type IPageProps = {
   testimonials: ITestimonial[]
 }
 const About = (props: IPageProps) => {
-  const { content, testimonials } = props;
+  const { content } = props;
   return (
     <>
       <Header />

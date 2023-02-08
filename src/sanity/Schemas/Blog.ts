@@ -49,11 +49,6 @@ export default {
       type: 'datetime',
     },
     {
-      name: 'body',
-      title: 'Body',
-      type: 'blockContent',
-    },
-    {
       name: 'readingTime',
       title: 'Reading time',
       type: 'string',

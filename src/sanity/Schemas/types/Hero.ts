@@ -19,6 +19,17 @@ const Hero = {
       type: 'url',
     },
     {
+      name: 'imagePosition',
+      title: 'Image position',
+      type: 'string',
+      options: {
+        list:[
+          { title: 'left', value: 'left' },
+          { title: 'right', value: 'right' },
+        ]
+      }
+    },
+    {
       name: 'buttonText1',
       title: 'Button text',
       type: 'string',

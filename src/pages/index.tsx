@@ -1,10 +1,8 @@
 import { client } from '_lib/client';
 import { IBlog, IHeadingAndTitle, IHero, ITestimonial } from '_lib/types';
-import AboutSection from 'Components/AboutSection';
 import BlogSection from 'Components/BlogSection';
 import Header from 'Components/Header';
-import HeadingAndTitle from 'Components/HeadingAndTitle';
-import HeroSection from 'Components/HeroSection';
+import MapContent from 'Components/MapContent';
 import TestimonialHome from 'Components/TestimonialHome';
 import { GetServerSideProps } from 'next';
 import { groq } from 'next-sanity';
@@ -16,27 +14,11 @@ type IPageProps = {
 }
 const IndexPage = (props: IPageProps) => {
   const { content, testimonials, blogs } = props;
+
   return (
     <>
       <Header />
-      {content.map((item) => {
-        switch (item._type) {
-          case 'Hero':
-            return <HeroSection key={item._id} {...item} />;
-        }
-      })}
-      {content.map((item) => {
-        switch (item._type) {
-          case 'About':
-            return <AboutSection key={item._id} {...item} />;
-        }
-      })}
-      {content.map((item) => {
-        switch (item._type) {
-          case 'HeadingAndTitle':
-            return <HeadingAndTitle key={item._id} {...item} />;
-        }
-      })}
+      <MapContent content={content} />
       <TestimonialHome testimonials={testimonials} />
       <BlogSection blogs={blogs} />
     </>
