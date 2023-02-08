@@ -58,5 +58,15 @@ export default {
       title: 'Reading time',
       type: 'string',
     },
+    {
+      name: 'content',
+      title: 'Content',
+      type: 'array',
+      of: [
+        { type: 'BlogImage' },
+        { type: 'BlogHeading' },
+        { type: 'BlogParagraph' },
+      ],
+    },
   ],
 }

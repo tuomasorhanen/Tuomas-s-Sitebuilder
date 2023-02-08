@@ -8,6 +8,9 @@ import Services from './Services'
 import HeadingAndTitle from './types/HeadingAndTitle'
 import Button from './types/Button'
 import BlockContent from './types/BlockContent'
+import BlogHeading from './types/BlogHeading'
+import BlogImage from './types/BlogImage'
+import BlogParagraph from './types/BlogParagraph'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -20,5 +23,8 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     HeadingAndTitle,
     Button,
     BlockContent,
+    BlogHeading,
+    BlogImage,
+    BlogParagraph
   ],
 }
