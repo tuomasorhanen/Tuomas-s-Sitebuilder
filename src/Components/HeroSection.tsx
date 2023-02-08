@@ -11,7 +11,7 @@ const HeroSection = (props: IHero) => {
     heroImage,
   } = props;
   return (
-    <div key={props._key} className="relative bg-gray-900"> 
+    <div key={props._key} className="relative bg-gray-900">
       <div className="mx-auto max-w-7xl">
         <div className="relative z-10 lg:w-full lg:max-w-2xl">
           <svg
@@ -25,7 +25,7 @@ const HeroSection = (props: IHero) => {
           <div className="relative py-32 px-6 sm:py-40 lg:py-56 lg:px-8 lg:pr-0">
             <div className="mx-auto max-w-2xl text-center lg:mx-0 lg:max-w-xl lg:text-start">
               <h1 className="text-4xl font-bold tracking-tight text-gray-100 sm:text-6xl">
-                {title} {props._key}
+                {title}
               </h1>
               <p className="mt-6 text-lg leading-8 text-gray-100">
                 {description}

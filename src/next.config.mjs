@@ -8,7 +8,7 @@ const config = {
     config,
     { buildId, dev, isServer, defaultLoaders, nextRuntime, webpack }
   ) => {
-    config.cache = false
+    config.cache = true
     return config
   },
   experimental: { appDir: true },

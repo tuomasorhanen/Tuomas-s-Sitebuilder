@@ -64,8 +64,6 @@ export const getServerSideProps: GetServerSideProps<IPageProps> = async (
     ]
   );
 
-  console.log(pageResponse[0].content)
-
   return {
     props: {
       content: pageResponse[0].content,

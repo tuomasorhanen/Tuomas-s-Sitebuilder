@@ -34,13 +34,13 @@ export const getServerSideProps: GetServerSideProps<IPageProps> = async (
     client.fetch(blogsQuery).catch(console.error),
   ]);
 
-  blogsResponse.map(blog => {
+  blogsResponse.map((blog) => {
     blog.publishedAt = new Intl.DateTimeFormat('default', {
       year: 'numeric',
       month: 'long',
       day: 'numeric',
-    }).format(new Date(blog.publishedAt))
-  })
+    }).format(new Date(blog.publishedAt));
+  });
 
   return {
     props: {

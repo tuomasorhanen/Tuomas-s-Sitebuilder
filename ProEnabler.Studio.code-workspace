@@ -13,7 +13,9 @@
 	"settings": {
 		"powershell.cwd": "/Users/tuomasorhanen/Desktop/ProEnabler/ci",
 		"files.associations": {
-			"**/ci/**/*.yml": "azure-pipelines"
+			"**/ci/**/*.yml": "azure-pipelines",
+			"*.css": "tailwindcss",
+			"*.scss": "tailwindcss",
 		}
 	
 	},
