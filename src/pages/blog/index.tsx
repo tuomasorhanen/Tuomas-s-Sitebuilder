@@ -10,7 +10,7 @@ type IPageProps = {
   blogs: IBlog[]
 }
 const Blogs = (props: IPageProps) => {
-  const { content, blogs } = props;
+  const { blogs } = props;
   return (
     <>
       <Header />
@@ -33,6 +33,14 @@ export const getServerSideProps: GetServerSideProps<IPageProps> = async (
     client.fetch(pageQuery).catch(console.error),
     client.fetch(blogsQuery).catch(console.error),
   ]);
+
+  blogsResponse.map(blog => {
+    blog.publishedAt = new Intl.DateTimeFormat('default', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    }).format(new Date(blog.publishedAt))
+  })
 
   return {
     props: {

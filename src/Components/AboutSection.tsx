@@ -3,7 +3,7 @@ import { IAbout } from '_lib/types';
 const AboutSection = (props: IAbout) => {
   const { title, description, buttonText, url, aboutImage } = props;
   return (
-    <div className="bg-gray-900 pb-16 lg:relative lg:z-10 lg:pb-0">
+    <div key={props._key} className="bg-gray-900 pb-16 lg:relative lg:z-10 lg:pb-0">
       <div className="lg:mx-auto lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-8 lg:px-8">
         <div className="relative lg:-my-8">
           <div

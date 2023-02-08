@@ -1,6 +1,7 @@
 import { Image } from 'sanity'
 
 export type IHero = {
+  _key: string
   _type: string
   title: string
   description: string
@@ -11,6 +12,7 @@ export type IHero = {
   url2: string
 }
 export type IAbout = {
+  _key: string
   _type: string
   title: string
   description: string
@@ -19,6 +21,7 @@ export type IAbout = {
   url: string
 }
 export type IBlog = {
+  _id: string
   _type: string
   title: string
   slug: ISlug
@@ -33,6 +36,7 @@ export type IBlog = {
 }
 
 export type IHeadingAndTitle = {
+  key: string
   _type: string
   title: string
   heading: string

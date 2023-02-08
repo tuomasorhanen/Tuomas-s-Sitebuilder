@@ -22,19 +22,19 @@ const IndexPage = (props: IPageProps) => {
       {content.map((item) => {
         switch (item._type) {
           case 'Hero':
-            return <HeroSection {...item} />;
+            return <HeroSection key={item._id} {...item} />;
         }
       })}
       {content.map((item) => {
         switch (item._type) {
           case 'About':
-            return <AboutSection {...item} />;
+            return <AboutSection key={item._id} {...item} />;
         }
       })}
       {content.map((item) => {
         switch (item._type) {
           case 'HeadingAndTitle':
-            return <HeadingAndTitle {...item} />;
+            return <HeadingAndTitle key={item._id} {...item} />;
         }
       })}
       <TestimonialHome testimonials={testimonials} />
@@ -63,6 +63,8 @@ export const getServerSideProps: GetServerSideProps<IPageProps> = async (
       client.fetch(blogsQuery).catch(console.error),
     ]
   );
+
+  console.log(pageResponse[0].content)
 
   return {
     props: {
