@@ -5,7 +5,6 @@ import { IBlog, IHeadingAndTitle, IHero, ITestimonial } from '_lib/types';
 import BlogSection from 'Components/BlogSection';
 import Header, { IMenuItem } from 'Components/Header';
 import MapContent from 'Components/MapContent';
-import TestimonialHome from 'Components/TestimonialHome';
 import { GetServerSideProps } from 'next';
 import { groq } from 'next-sanity';
 import resolveReferences from '_lib/resolvers/resolveReferences';
