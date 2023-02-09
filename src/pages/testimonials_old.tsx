@@ -1,15 +1,15 @@
-import { client } from '_lib/client';
-import { IHeadingAndTitle, IHero, ITestimonial } from '_lib/types';
-import Header from 'Components/Header';
-import HeadingAndTitle from 'Components/HeadingAndTitle';
-import Testimonial from 'Components/Testimonial';
-import { GetServerSideProps } from 'next';
-import { groq } from 'next-sanity';
+import { client } from "_lib/client";
+import { IHeadingAndTitle, IHero, ITestimonial } from "_lib/types";
+import Header from "Components/Header";
+import HeadingAndTitle from "Components/HeadingAndTitle";
+import Testimonial from "Components/Testimonial";
+import { GetServerSideProps } from "next";
+import { groq } from "next-sanity";
 
 type IPageProps = {
-  content: IHero[] | IHeadingAndTitle[]
-  testimonials: ITestimonial[]
-}
+  content: IHero[] | IHeadingAndTitle[];
+  testimonials: ITestimonial[];
+};
 const Testimonials = (props: IPageProps) => {
   const { content, testimonials } = props;
   return (
@@ -17,7 +17,7 @@ const Testimonials = (props: IPageProps) => {
       <Header />
       {content.map((item) => {
         switch (item._type) {
-          case 'HeadingAndTitle':
+          case "HeadingAndTitle":
             return <HeadingAndTitle {...item} />;
         }
       })}

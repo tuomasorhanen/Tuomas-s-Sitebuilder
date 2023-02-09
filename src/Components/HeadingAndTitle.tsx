@@ -1,6 +1,10 @@
-import { IHeadingAndTitle } from '_lib/types';
+import { IHeadingAndTitle } from "_lib/types";
 
-const HeadingAndTitle = (props: IHeadingAndTitle) => {
+type IHeadingAndTitleProps = IHeadingAndTitle & {
+  key: string;
+};
+
+const HeadingAndTitle = (props: IHeadingAndTitleProps) => {
   const { title, heading } = props;
   return (
     <div key={props.key} className="bg-gray-900 lg:relative lg:z-10 lg:pb-0">

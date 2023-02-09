@@ -1,4 +1,4 @@
-import { ITestimonial } from '_lib/types';
+import { ITestimonial } from "_lib/types";
 
 const TestimonialHome = ({ testimonials }) => {
   return (

@@ -1,92 +1,81 @@
-import { Dialog } from '@headlessui/react';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import Link from 'next/link';
-import { useState } from 'react';
+import { ISlug } from "_lib/types";
+import Link from "next/link";
 
 const navigation = [
-  { name: 'Palvelut', href: '/services' },
-  { name: 'Asiakkaat', href: '/testimonials' },
-  { name: 'Minusta', href: '/about' },
-  { name: 'Blogi', href: '/blog' },
-  { name: 'Yhteystiedot', href: '/contacts' },
+  { name: "Palvelut", href: "/services" },
+  { name: "Asiakkaat", href: "/testimonials" },
+  { name: "Minusta", href: "/about" },
+  { name: "Blogi", href: "/blog" },
+  { name: "Yhteystiedot", href: "/contacts" },
 ];
 
-const Header = () => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+export type IMenuItem = {
+  name: string;
+  slug: ISlug;
+  menuOrder: number;
+};
+
+type IMenuProps = {
+  items: IMenuItem[];
+};
+
+const Header = (props: IMenuProps) => {
+  const { items } = props;
 
   return (
-    <div className="shadow-3xl relative z-[100] bg-gray-900">
-      <div className="mx-auto max-w-7xl">
-        <div className="relative z-10 lg:w-full lg:max-w-2xl">
-          <div className="relative px-6 pt-6 lg:pl-8 lg:pr-0">
-            <nav
-              className="flex items-center justify-between sm:h-10 lg:justify-start"
-              aria-label="Global"
-            >
-              <Link href="/" className="-m-1.5 p-1.5">
-                <img
-                  alt="ProEnabler"
-                  className="h-12"
-                  src="https://static.wixstatic.com/media/57a978_52041878612c44809440b9c8cbd400de~mv2.webp"
-                />
-              </Link>
-              <button
-                type="button"
-                className="-m-2.5 rounded-md p-2.5 text-gray-100 lg:hidden"
-                onClick={() => setMobileMenuOpen(true)}
-              >
-                <span className="sr-only">Open main menu</span>
-                <Bars3Icon className="h-6 w-6" aria-hidden="true" />
-              </button>
-              <div className="hidden lg:ml-12 lg:block lg:space-x-14">
-                {navigation.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className="text-sm font-light leading-6 text-gray-100"
+    <nav className="rounded border-gray-200 bg-white px-2 py-2.5 dark:bg-gray-900 sm:px-4">
+      <div className="container mx-auto flex flex-wrap items-center justify-between">
+        <Link href="/" className="flex items-center">
+          <img
+            alt="ProEnabler"
+            className="mr-3 h-6 sm:h-9"
+            src="https://static.wixstatic.com/media/57a978_52041878612c44809440b9c8cbd400de~mv2.webp"
+          />
+          <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+            ProEnabler
+          </span>
+        </Link>
+        <button
+          data-collapse-toggle="navbar-default"
+          type="button"
+          className="ml-3 inline-flex items-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 md:hidden"
+          aria-controls="navbar-default"
+          aria-expanded="false"
+        >
+          <span className="sr-only">Open main menu</span>
+          <svg
+            className="h-6 w-6"
+            aria-hidden="true"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fillRule="evenodd"
+              d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+              clipRule="evenodd"
+            ></path>
+          </svg>
+        </button>
+        <div className="hidden w-full md:block md:w-auto" id="navbar-default">
+          <ul className="mt-4 flex flex-col rounded-lg border border-gray-100 bg-gray-50 p-4 dark:border-gray-700 dark:bg-gray-800 md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-white md:text-sm md:font-medium md:dark:bg-gray-900">
+            {items.map((item) => {
+              return (
+                <li key={item.slug.current}>
+                  <Link
+                    href={"/" + item.slug.current}
+                    className="block rounded py-2 pl-3 pr-4 text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-white"
+                    aria-current="page"
                   >
                     {item.name}
-                  </a>
-                ))}
-              </div>
-            </nav>
-            <Dialog as="div" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
-              <Dialog.Panel className="fixed inset-0 z-10 overflow-y-auto bg-gray-900 px-6 py-6 lg:hidden">
-                <div className="flex flex-row-reverse items-center justify-between">
-                  <button
-                    type="button"
-                    className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-100"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    <span className="sr-only">Close menu</span>
-                    <XMarkIcon className="h-8 w-8" aria-hidden="true" />
-                  </button>
-                  <a href="#" className="-m-1.5 p-1.5">
-                    <span className="sr-only">Your Company</span>
-                    <img
-                      className="h-8"
-                      src="https://static.wixstatic.com/media/57a978_52041878612c44809440b9c8cbd400de~mv2.webp"
-                      alt=""
-                    />
-                  </a>
-                </div>
-                <div className="mt-6 space-y-2">
-                  {navigation.map((item) => (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      className="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-100 hover:bg-gray-200/10"
-                    >
-                      {item.name}
-                    </a>
-                  ))}
-                </div>
-              </Dialog.Panel>
-            </Dialog>
-          </div>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
         </div>
       </div>
-    </div>
+    </nav>
   );
 };
 

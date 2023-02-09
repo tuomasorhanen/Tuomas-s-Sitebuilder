@@ -1,31 +1,29 @@
-import { client } from '_lib/client';
-import { IHeadingAndTitle, IHero, ITestimonial } from '_lib/types';
-import AboutSection from 'Components/AboutSection';
-import Header from 'Components/Header';
-import HeadingAndTitle from 'Components/HeadingAndTitle';
-import HeroSection from 'Components/HeroSection';
-import Testimonial from 'Components/Testimonial';
-import { GetServerSideProps } from 'next';
-import { groq } from 'next-sanity';
+import { client } from "_lib/client";
+import { IHeadingAndTitle, IHero, ITestimonial } from "_lib/types";
+import AboutSection from "Components/AboutSection";
+import Header from "Components/Header";
+import HeadingAndTitle from "Components/HeadingAndTitle";
+import { GetServerSideProps } from "next";
+import { groq } from "next-sanity";
 
 type IPageProps = {
-  content: IHero[] | IHeadingAndTitle[]
-  testimonials: ITestimonial[]
-}
+  content: IHero[] | IHeadingAndTitle[];
+  testimonials: ITestimonial[];
+};
 const About = (props: IPageProps) => {
-  const { content, testimonials } = props;
+  const { content } = props;
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       {content.map((item) => {
         switch (item._type) {
-          case 'HeadingAndTitle':
+          case "HeadingAndTitle":
             return <HeadingAndTitle {...item} />;
         }
       })}
       {content.map((item) => {
         switch (item._type) {
-          case 'About':
+          case "About":
             return <AboutSection {...item} />;
         }
       })}

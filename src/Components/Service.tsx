@@ -1,4 +1,4 @@
-import { IService } from '_lib/types';
+import { IService } from "_lib/types";
 
 const Service = ({ services }) => {
   return (

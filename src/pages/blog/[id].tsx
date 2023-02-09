@@ -1,13 +1,13 @@
-import { client } from '_lib/client';
-import { IBlog } from '_lib/types';
-import BlogPost from 'Components/BlogPost';
-import Header from 'Components/Header';
-import { GetServerSideProps } from 'next';
-import { groq } from 'next-sanity';
+import { client } from "_lib/client";
+import { IBlog } from "_lib/types";
+import BlogPost from "Components/BlogPost";
+import Header from "Components/Header";
+import { GetServerSideProps } from "next";
+import { groq } from "next-sanity";
 
 type IPageProps = {
-  blog: IBlog[]
-}
+  blog: IBlog[];
+};
 
 const Post = (props: IPageProps) => {
   const { blog } = props;

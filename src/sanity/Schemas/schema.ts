@@ -1,30 +1,39 @@
-import { SchemaTypeDefinition } from 'sanity'
-import Blog from './Blog'
-import Page from './Page'
-import Hero from './types/Hero'
-import Testimonials from './Testimonials'
-import About from './types/About'
-import Services from './Services'
-import HeadingAndTitle from './types/HeadingAndTitle'
-import Button from './types/Button'
-import BlockContent from './types/BlockContent'
-import BlogHeading from './types/BlogHeading'
-import BlogImage from './types/BlogImage'
-import BlogParagraph from './types/BlogParagraph'
+import { SchemaTypeDefinition } from "sanity";
+import Blog from "./Blog";
+import Page from "./Page";
+import Hero from "./types/Hero";
+import Testimonial from "./Testimonial";
+import About from "./types/About";
+import Service from "./Service";
+import HeadingAndTitle from "./types/HeadingAndTitle";
+import Button from "./types/Button";
+import BlockContent from "./types/BlockContent";
+import BlogHeading from "./types/BlogHeading";
+import BlogImage from "./types/BlogImage";
+import BlogParagraph from "./types/BlogParagraph";
+import Company from "./Company";
+import Person from "./Person";
+import LandingPage from "./types/LandingPage";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
-    Blog,
     Page,
+
+    Testimonial,
+    Blog,
+    Company,
+    Person,
+
+    LandingPage,
+
     Hero,
-    Testimonials,
     About,
-    Services,
+    Service,
     HeadingAndTitle,
     Button,
     BlockContent,
     BlogHeading,
     BlogImage,
-    BlogParagraph
+    BlogParagraph,
   ],
-}
+};
