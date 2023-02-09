@@ -1,10 +1,10 @@
-import { IBlog } from '_lib/types';
-import React, { useState } from 'react';
+import { IBlog } from "_lib/types";
+import React, { useState } from "react";
 
-import { createRandomUUID } from '../sanity/lib/uuid';
+import { createRandomUUID } from "../sanity/lib/uuid";
 
 const BlogSection = ({ blogs }) => {
-  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [selectedCategory, setSelectedCategory] = useState("All");
   const getCategories = () => {
     return Array.from(
       new Set(
@@ -21,7 +21,7 @@ const BlogSection = ({ blogs }) => {
 
   const [shownBlogs, setShownBlogs] = useState(
     blogs.filter(
-      (blog) => selectedCategory === 'All' || blog.category === selectedCategory
+      (blog) => selectedCategory === "All" || blog.category === selectedCategory
     )
   );
 
@@ -41,12 +41,12 @@ const BlogSection = ({ blogs }) => {
         <div className="relative mx-auto max-w-7xl">
           <div className="mt-10 flex justify-center">
             <button
-              onClick={() => handleCategorySelection('All')}
+              onClick={() => handleCategorySelection("All")}
               className={`mx-2 rounded-full border border-white py-2 px-4 font-medium uppercase tracking-widest text-white transition duration-300 ease-in-out hover:bg-white hover:text-gray-900
                   ${
-                    selectedCategory === 'All'
-                      ? 'bg-white text-gray-900'
-                      : 'bg-transparent'
+                    selectedCategory === "All"
+                      ? "bg-white text-gray-900"
+                      : "bg-transparent"
                   }
                 `}
             >
@@ -59,8 +59,8 @@ const BlogSection = ({ blogs }) => {
                 className={`mx-2 rounded-full border border-white py-2 px-4 font-medium uppercase tracking-widest text-white transition duration-300 ease-in-out hover:bg-white hover:text-gray-900
                   ${
                     selectedCategory === category.name
-                      ? 'bg-white text-gray-900'
-                      : 'bg-transparent'
+                      ? "bg-white text-gray-900"
+                      : "bg-transparent"
                   }
                 `}
               >

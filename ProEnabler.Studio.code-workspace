@@ -1,29 +1,25 @@
 {
-	"folders": [
-		{
-			"path": "_PSModules"
-		},
-		{
-			"path": "ci"
-		},
-		{
-			"path": "src"
-		},
-	],
-	"settings": {
-		"powershell.cwd": "/Users/tuomasorhanen/Desktop/ProEnabler/ci",
-		"files.associations": {
-			"**/ci/**/*.yml": "azure-pipelines",
-			"*.css": "tailwindcss",
-			"*.scss": "tailwindcss",
-		}
-	
-	},
-	"extensions": {
-		"recommendations": [
-			"ms-azuretools.vscode-bicep",
-			"ms-vscode.powershell",
-			"ms-azure-devops.azure-pipelines"
-		]
-	}
+  "folders": [
+    {
+      "path": "_PSModules"
+    },
+    {
+      "path": "ci"
+    },
+    {
+      "path": "src"
+    }
+  ],
+  "settings": {
+    "powershell.cwd": "/Users/tuomasorhanen/Desktop/ProEnabler/ci",
+    "files.associations": {
+      "**/ci/**/*.yml": "azure-pipelines",
+      "*.css": "tailwindcss",
+      "*.scss": "tailwindcss"
+    },
+    "editor.formatOnSave": true
+  },
+  "extensions": {
+    "recommendations": ["ms-azuretools.vscode-bicep", "ms-vscode.powershell", "ms-azure-devops.azure-pipelines"]
+  }
 }

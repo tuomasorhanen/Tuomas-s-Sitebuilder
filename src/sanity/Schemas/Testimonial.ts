@@ -1,29 +1,33 @@
 export default {
-  name: 'Testimonial',
-  title: 'Testimonial',
-  type: 'document',
+  name: "Testimonial",
+  title: "Testimonial",
+  type: "document",
   fields: [
     {
-      name: 'title',
-      title: 'Title',
-      type: 'string',
+      name: "company",
+      title: "Company",
+      type: "reference",
+      to: [{ type: "Company" }],
+      validation: (Rule) => [Rule.required().error("Company is required.")],
     },
     {
-      name: 'showOnPages',
-      title: 'Show on pages',
-      type: 'array',
-      of: [{ type: 'reference', to:[{type:'Page'}] }],
+      name: "person",
+      title: "Person",
+      type: "reference",
+      to: [{ type: "Person" }],
+      validation: (Rule) => [Rule.required().error("Person is required.")],
     },
     {
-      name: 'quote',
-      title: 'Quote',
-      type: 'text',
+      name: "title",
+      title: "Title",
+      type: "string",
+      validation: (Rule) => [Rule.required().error("Title is required.")],
     },
     {
-      name: 'person',
-      title: 'Person',
-      type: 'reference',
-      to: [{type:'Person'}]
+      name: "quote",
+      title: "Quote",
+      type: "text",
+      validation: (Rule) => [Rule.required().error("Quote is required.")],
     },
   ],
-}
+};

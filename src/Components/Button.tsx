@@ -1,4 +1,4 @@
-import { IButton } from '_lib/types';
+import { IButton } from "_lib/types";
 
 const CustomButton = (props: IButton) => {
   const { buttonText, buttonUrl } = props;
