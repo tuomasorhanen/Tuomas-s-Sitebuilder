@@ -62,6 +62,7 @@ export type IHeadingAndTitle = {
 };
 
 export type ITestimonial = {
+  _ref: string;
   _type: 'Testimonial';
   title: string;
   quote: string;
