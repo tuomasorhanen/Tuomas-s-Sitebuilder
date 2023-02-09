@@ -8,8 +8,8 @@ const resolveCustomer = async (page: IPage) => {
   for (let i = 0; i < content.length; i++) {
     let item = content[i] as ITestimonial;
     if (content[i]._type == "Testimonial") {
-      item.company = await resolveCompany(item.company as IReference);
-      item.person = await resolvePerson(item.person as IReference);
+      item.company = await resolveCompany(item.company as unknown as IReference);
+      item.person = await resolvePerson(item.person as unknown as IReference);
     }
     content[i] = item;
   }
