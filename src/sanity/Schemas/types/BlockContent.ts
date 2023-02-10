@@ -1,33 +1,33 @@
 export default {
-  name: "blockContent",
-  title: "Block Content",
-  type: "array",
+  name: 'blockContent',
+  title: 'Block Content',
+  type: 'array',
   of: [
     {
-      type: "block",
+      type: 'block',
       styles: [
-        { title: "Normal", value: "normal" },
-        { title: "H1", value: "h1" },
-        { title: "H2", value: "h2" },
-        { title: "H3", value: "h3" },
-        { title: "Quote", value: "blockquote" },
+        { title: 'Normal', value: 'normal' },
+        { title: 'H1', value: 'h1' },
+        { title: 'H2', value: 'h2' },
+        { title: 'H3', value: 'h3' },
+        { title: 'Quote', value: 'blockquote' },
       ],
       marks: {
         decorators: [
-          { title: "Strong", value: "strong" },
-          { title: "Emphasis", value: "em" },
-          { title: "Code", value: "code" },
+          { title: 'Strong', value: 'strong' },
+          { title: 'Emphasis', value: 'em' },
+          { title: 'Code', value: 'code' },
         ],
         annotations: [
           {
-            name: "link",
-            title: "Link",
-            type: "object",
+            name: 'link',
+            title: 'Link',
+            type: 'object',
             fields: [
               {
-                name: "href",
-                type: "url",
-                title: "URL",
+                name: 'href',
+                type: 'url',
+                title: 'URL',
               },
             ],
           },
@@ -35,13 +35,13 @@ export default {
       },
       of: [
         {
-          type: "image",
+          type: 'image',
           options: {
             hotspot: true,
           },
         },
         {
-          type: "text",
+          type: 'text',
         },
       ],
     },

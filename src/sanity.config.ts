@@ -2,16 +2,16 @@
  * This config is used to set up Sanity Studio that's mounted on the `/pages/studio/[[...index]].tsx` route
  */
 
-import { visionTool } from "@sanity/vision";
-import { defineConfig } from "sanity";
-import { deskTool } from "sanity/desk";
+import { visionTool } from '@sanity/vision';
+import { defineConfig } from 'sanity';
+import { deskTool } from 'sanity/desk';
 
 // see https://www.sanity.io/docs/api-versioning for how versioning works
-import { apiVersion, dataset, projectId } from "./sanity/env";
-import { schema } from "./sanity/Schemas/schema";
+import { apiVersion, dataset, projectId } from './sanity/env';
+import { schema } from './sanity/Schemas/schema';
 
 export default defineConfig({
-  basePath: "/studio",
+  basePath: '/studio',
   projectId,
   dataset,
   //edit schemas in './sanity/schema'

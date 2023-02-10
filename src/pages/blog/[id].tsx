@@ -1,9 +1,9 @@
-import { client } from "_lib/client";
-import { IBlog } from "_lib/types";
-import BlogPost from "Components/BlogPost";
-import Header, { IMenuItem } from "Components/Header";
-import { GetServerSideProps } from "next";
-import { groq } from "next-sanity";
+import { client } from '_lib/client';
+import { IBlog } from '_lib/types';
+import BlogPost from 'Components/BlogPost';
+import Header, { IMenuItem } from 'Components/Header';
+import { GetServerSideProps } from 'next';
+import { groq } from 'next-sanity';
 
 type IPageProps = {
   blog: IBlog[];
@@ -20,13 +20,8 @@ const Post = (props: IPageProps) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps<IPageProps> = async (
-  context
-) => {
-  context.res.setHeader(
-    "Cache-Control",
-    "public, s-maxage=3600, stale-while-revalidate=7200"
-  );
+export const getServerSideProps: GetServerSideProps<IPageProps> = async context => {
+  context.res.setHeader('Cache-Control', 'public, s-maxage=3600, stale-while-revalidate=7200');
   const blogsQuery = groq`
     *[_type == 'blogPost']
   `;
@@ -43,11 +38,11 @@ export const getServerSideProps: GetServerSideProps<IPageProps> = async (
     client.fetch<IMenuItem[]>(menuQuery),
   ]);
 
-  blogsResponse.map((blog) => {
-    blog.publishedAt = new Intl.DateTimeFormat("default", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
+  blogsResponse.map(blog => {
+    blog.publishedAt = new Intl.DateTimeFormat('default', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
     }).format(new Date(blog.publishedAt));
   });
 

@@ -30,9 +30,7 @@ const resolveReferences = async (page: IPage) => {
         break;
     }
 
-    console.log(qry);
     item = await client.fetch(qry);
-    console.log(item);
     item._ref = _ref;
 
     content[i] = item as any;

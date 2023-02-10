@@ -1,13 +1,13 @@
 import { client } from '_lib/client';
 import resolveCustomers from '_lib/resolveCustomers';
 import resolveLinks from '_lib/resolveLinks';
+import resolveReferences from '_lib/resolvers/resolveReferences';
 import { IBlog, IHeadingAndTitle, IHero, ITestimonial } from '_lib/types';
 import BlogSection from 'Components/BlogSection';
 import Header, { IMenuItem } from 'Components/Header';
 import MapContent from 'Components/MapContent';
 import { GetServerSideProps } from 'next';
 import { groq } from 'next-sanity';
-import resolveReferences from '_lib/resolvers/resolveReferences';
 
 type IPageProps = {
   content: IHero[] | IHeadingAndTitle[];
@@ -37,6 +37,14 @@ export const getServerSideProps: GetServerSideProps<IPageProps> = async context 
     *[_type == 'Page' && slug.current == '${slug}'][0]
   `;
 
+  let pageResponse = await client.fetch(pageQuery);
+
+  if (pageResponse == null) {
+    return {
+      notFound: true,
+    };
+  }
+
   const testimonialsQuery = groq`
     *[_type == 'testimonials']
   `;
@@ -51,8 +59,7 @@ export const getServerSideProps: GetServerSideProps<IPageProps> = async context 
     menuOrder,
   } | order(menuOrder asc)`;
 
-  let [pageResponse, testimonialsResponse, blogsResponse, menuResponse] = await Promise.all([
-    client.fetch(pageQuery),
+  let [testimonialsResponse, blogsResponse, menuResponse] = await Promise.all([
     client.fetch(testimonialsQuery),
     client.fetch(blogsQuery),
     client.fetch<IMenuItem[]>(menuQuery),

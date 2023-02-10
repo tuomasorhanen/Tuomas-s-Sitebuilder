@@ -1,13 +1,13 @@
-import { Box, Text } from "@sanity/ui";
-import { ComponentProps, Suspense } from "react";
-import { isRecord, isString } from "sanity";
-import { UserViewComponent } from "sanity/desk";
-import { client } from "sanity/lib/client";
-import styled from "styled-components";
-import { suspend } from "suspend-react";
+import { Box, Text } from '@sanity/ui';
+import { ComponentProps, Suspense } from 'react';
+import { isRecord, isString } from 'sanity';
+import { UserViewComponent } from 'sanity/desk';
+import { client } from 'sanity/lib/client';
+import styled from 'styled-components';
+import { suspend } from 'suspend-react';
 
-import { previewSecretDocumentId } from "../env";
-import { getPreviewSecret } from "../lib/previewSecret";
+import { previewSecretDocumentId } from '../env';
+import { getPreviewSecret } from '../lib/previewSecret';
 
 const FETCH_SECRET = Symbol(previewSecretDocumentId);
 
@@ -26,10 +26,7 @@ export function IFramePreviewView(props: ComponentProps<UserViewComponent>) {
 
   const id = documentId;
   const type = schemaType.name;
-  const slug =
-    isRecord(displayed.slug) && isString(displayed.slug.current)
-      ? displayed.slug.current
-      : undefined;
+  const slug = isRecord(displayed.slug) && isString(displayed.slug.current) ? displayed.slug.current : undefined;
 
   if (!slug) {
     return (
@@ -46,11 +43,7 @@ export function IFramePreviewView(props: ComponentProps<UserViewComponent>) {
   );
 }
 
-function PagePreviewWithSecret(props: {
-  id: string;
-  slug: string;
-  type: string;
-}) {
+function PagePreviewWithSecret(props: { id: string; slug: string; type: string }) {
   const { id, slug, type } = props;
 
   // Use `suspend` to fetch the secret with a TTL of 1 minute, just to check if it's necessary to
@@ -62,7 +55,7 @@ function PagePreviewWithSecret(props: {
         id: previewSecretDocumentId,
         createIfNotExists: true,
       }),
-    ["getPreviewSecret", previewSecretDocumentId, FETCH_SECRET],
+    ['getPreviewSecret', previewSecretDocumentId, FETCH_SECRET],
     { lifespan: 60000 }
   );
 
@@ -70,9 +63,5 @@ function PagePreviewWithSecret(props: {
     return <div>No secret</div>;
   }
 
-  return (
-    <StyledIframe
-      src={`/api/sanity/preview?type=${type}&id=${id}&slug=${slug}&secret=${secret}`}
-    />
-  );
+  return <StyledIframe src={`/api/sanity/preview?type=${type}&id=${id}&slug=${slug}&secret=${secret}`} />;
 }

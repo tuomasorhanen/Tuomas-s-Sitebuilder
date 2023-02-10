@@ -1,17 +1,17 @@
 export default {
-  name: "BlogHeading",
-  title: "Blog heading",
-  type: "object",
+  name: 'BlogHeading',
+  title: 'Blog heading',
+  type: 'object',
   fields: [
     {
-      name: "text",
-      title: "Text",
-      type: "string",
+      name: 'text',
+      title: 'Text',
+      type: 'string',
     },
     {
-      name: "level",
-      title: "Level",
-      type: "number",
+      name: 'level',
+      title: 'Level',
+      type: 'number',
     },
   ],
 };

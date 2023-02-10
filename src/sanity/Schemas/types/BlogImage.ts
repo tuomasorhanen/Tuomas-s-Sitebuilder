@@ -1,20 +1,20 @@
 export default {
-  name: "BlogImage",
-  title: "Blog image",
-  type: "object",
+  name: 'BlogImage',
+  title: 'Blog image',
+  type: 'object',
   fields: [
     {
-      name: "image",
-      title: "Image",
-      type: "image",
+      name: 'image',
+      title: 'Image',
+      type: 'image',
       options: {
         hotspot: true,
       },
     },
     {
-      name: "alternativeText",
-      title: "Alternative text",
-      type: "string",
+      name: 'alternativeText',
+      title: 'Alternative text',
+      type: 'string',
     },
   ],
 };

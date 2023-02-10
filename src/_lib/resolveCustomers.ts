@@ -1,13 +1,13 @@
-import { groq } from "next-sanity";
-import { client } from "./client";
-import { ICompany, IPage, IReference, ITestimonial, IPerson } from "./types";
+import { groq } from 'next-sanity';
+import { client } from './client';
+import { ICompany, IPage, IReference, ITestimonial, IPerson } from './types';
 
 const resolveCustomer = async (page: IPage) => {
-  const { _id, content } = page;
+  const { content } = page;
 
   for (let i = 0; i < content.length; i++) {
     let item = content[i] as ITestimonial;
-    if (content[i]._type == "Testimonial") {
+    if (content[i]._type == 'Testimonial') {
       item.company = await resolveCompany(item.company as unknown as IReference);
       item.person = await resolvePerson(item.person as unknown as IReference);
     }

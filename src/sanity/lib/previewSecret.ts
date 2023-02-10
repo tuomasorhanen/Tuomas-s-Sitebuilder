@@ -1,13 +1,13 @@
-import { groq, SanityClient } from "next-sanity";
+import { groq, SanityClient } from 'next-sanity';
 
-import { createRandomUUID } from "./uuid";
+import { createRandomUUID } from './uuid';
 
 // updated within the hour, if it's older it'll create a new secret or return null
 const query = (ttl: number) => groq`
   *[_id == $id && dateTime(_updatedAt) > dateTime(now()) - ${ttl}][0].secret
 `;
 
-const tag = "preview.secret";
+const tag = 'preview.secret';
 
 export async function getPreviewSecret(options: {
   client: SanityClient;
@@ -25,8 +25,7 @@ export async function getPreviewSecret(options: {
   const secret = await client.fetch<string | null>(query(ttl), { id });
 
   if (!secret && createIfNotExists) {
-    const newSecret =
-      createIfNotExists === true ? createRandomUUID() : createIfNotExists();
+    const newSecret = createIfNotExists === true ? createRandomUUID() : createIfNotExists();
 
     try {
       const patch = client.patch(id).set({ secret: newSecret });
@@ -43,7 +42,7 @@ export async function getPreviewSecret(options: {
       return newSecret;
     } catch (err) {
       console.error(
-        "Failed to create a new preview secret. Ensure the `client` has a `token` specified that has `write` permissions.",
+        'Failed to create a new preview secret. Ensure the `client` has a `token` specified that has `write` permissions.',
         err
       );
     }
