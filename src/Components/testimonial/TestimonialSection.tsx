@@ -1,7 +1,7 @@
-import { useNextSanityImage } from 'next-sanity-image';
 import { client } from '_lib/client';
 import { IReference, ITestimonial } from '_lib/types';
 import Img from 'next/image';
+import { useNextSanityImage } from 'next-sanity-image';
 
 type ITestimonialSectionProps = ITestimonial &
   IReference & {
