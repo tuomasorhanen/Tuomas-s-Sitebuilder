@@ -84,6 +84,7 @@ export type IPerson = {
   name: string;
   role: string;
   company: ICompany;
+  image: ISanityImage;
 };
 
 export type IReference = {

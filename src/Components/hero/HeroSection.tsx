@@ -26,21 +26,19 @@ const HeroSection = (props: IHero) => {
                 <div className="text-center">
                   <h1 className="text-6xl font-bold">{title}</h1>
                   <p className="mt-4">{description}</p>
-                  {buttons && (
-                    <div className="mt-10 flex justify-center">
-                      {buttons.map(btn => {
+                  <div className="mt-10 flex justify-center">
+                    {buttons &&
+                      buttons.map(btn => {
                         return (
-                          <div key={btn.navigateToPage} className="flex">
-                            <Link
-                              href={btn.navigateToPage}
-                              className="mx-2 rounded-md border-2 p-2 shadow-xl hover:scale-105">
-                              {btn.callToAction}
-                            </Link>
-                          </div>
+                          <Link
+                            key={btn.navigateToPage}
+                            href={btn.navigateToPage}
+                            className="mx-2 rounded-md border-2 p-2 shadow-xl hover:scale-105">
+                            {btn.callToAction}
+                          </Link>
                         );
                       })}
-                    </div>
-                  )}
+                  </div>
                 </div>
               </div>
             </div>
