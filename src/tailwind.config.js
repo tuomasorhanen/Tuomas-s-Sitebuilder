@@ -11,11 +11,13 @@ module.exports = {
   ],
   theme: {
     ...theme,
+    darkMode: 'class',
     colors: {
       ...theme.colors,
       gray: colors.slate,
       indigo: colors.indigo,
     },
+
     screens: {
       /** iPad PRO 11" (portrait / 834 x 1194) */
       xs: '834px',
