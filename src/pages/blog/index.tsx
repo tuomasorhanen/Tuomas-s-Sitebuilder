@@ -1,7 +1,7 @@
 import { client } from '_lib/client';
 import { IBlog, IHeadingAndTitle, IHero } from '_lib/types';
-import BlogSection from 'components/BlogSection';
-import Header, { IMenuItem } from 'components/Header';
+import BlogSection from '../../components/BlogSection';
+import Header, { IMenuItem } from '../../components/Header';
 import { GetServerSideProps } from 'next';
 import { groq } from 'next-sanity';
 
