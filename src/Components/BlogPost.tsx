@@ -13,7 +13,7 @@ const BlogPost = ({ blog }) => {
               <img
                 src={blog.mainImage}
                 alt=""
-                className=" mx-auto mt-10 h-52 rounded-xl object-cover shadow-xl sm:w-64 lg:w-96"
+                className=" rounded-xl mx-auto mt-10 h-52 object-cover shadow-xl sm:w-64 lg:w-96"
               />
               <div className="mt-8 text-justify text-xl leading-8 text-gray-900">
                 <BlockContentRenderer blocks={blog.body} />

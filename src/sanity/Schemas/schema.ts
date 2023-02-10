@@ -38,6 +38,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     BlogParagraph,
 
     // Configuration objects
-    GridConfig
+    GridConfig,
   ],
 };

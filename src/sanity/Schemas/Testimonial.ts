@@ -29,6 +29,5 @@ export default {
       type: 'text',
       validation: Rule => [Rule.required().error('Quote is required.')],
     },
-
   ],
 };
