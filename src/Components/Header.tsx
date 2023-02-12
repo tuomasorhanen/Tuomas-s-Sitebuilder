@@ -1,6 +1,6 @@
 import { ISlug } from '_lib/types';
-import Link from 'next/link';
 import { Navbar } from 'flowbite-react';
+import Link from 'next/link';
 
 const navigation = [
   { name: 'Palvelut', href: '/services' },

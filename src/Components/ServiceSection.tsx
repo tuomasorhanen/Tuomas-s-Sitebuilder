@@ -1,7 +1,7 @@
-import { useNextSanityImage } from 'next-sanity-image';
 import { client } from '_lib/client';
 import { IService } from '_lib/types';
 import Img from 'next/image';
+import { useNextSanityImage } from 'next-sanity-image';
 
 const ServiceSection = (props: IService) => {
   const { image, _type, description, title } = props;
