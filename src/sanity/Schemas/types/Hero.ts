@@ -27,10 +27,8 @@ const Hero = {
       type: 'string',
       options: {
         list: [
-          { title: 'slash-left', value: 'slash-left' },
           { title: 'slash-right', value: 'slash-right' },
           { title: 'circle-left', value: 'circle-left' },
-          { title: 'circle-right', value: 'circle-right' },
         ],
       },
     },

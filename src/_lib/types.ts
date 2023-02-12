@@ -93,16 +93,11 @@ export type IReference = {
 };
 
 export type IService = {
+  _key: string;
   _type: string;
   title: string;
   description: string;
-  referenceImage: string;
-};
-
-export type IButton = {
-  _type: string;
-  buttonText: string;
-  buttonUrl: string;
+  image: ISanityImage;
 };
 
 export type ISlug = {
