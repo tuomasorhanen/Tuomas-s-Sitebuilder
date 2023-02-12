@@ -36,7 +36,7 @@ const Page = {
       of: [
         { type: 'Hero' },
         { type: 'HeadingAndTitle' },
-        { type: 'Button' },
+        { type: 'LandingPage' },
         {
           name: 'Testimonial',
           type: 'reference',
@@ -46,6 +46,11 @@ const Page = {
           name: 'Blog',
           type: 'reference',
           to: [{ type: 'blogPost' }],
+        },
+        {
+          name: 'Service',
+          type: 'reference',
+          to: [{ type: 'service' }],
         },
       ],
     },

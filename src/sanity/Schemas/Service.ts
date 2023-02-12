@@ -14,9 +14,9 @@ export default {
       type: 'text',
     },
     {
-      name: 'referenceImage',
+      name: 'image',
       title: 'Image',
-      type: 'url',
+      type: 'image',
     },
   ],
 };

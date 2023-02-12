@@ -3,6 +3,7 @@ import { IAbout, IHeadingAndTitle, IHero } from '_lib/types';
 import BlogReferenceSection from './blog/BlogReferenceSection';
 import HeadingAndTitle from './HeadingAndTitle';
 import HeroSection from './hero/HeroSection';
+import ServiceSection from './ServiceSection';
 import TestimonialSection from './testimonial/TestimonialSection';
 
 type IMapContentProps = {
@@ -38,6 +39,12 @@ const MapContent = (props: IMapContentProps) => {
             return (
               <div className="col-span-4">
                 <BlogReferenceSection key={item._id} {...item} />
+              </div>
+            );
+          case 'service':
+            return (
+              <div className="col-span-4">
+                <ServiceSection key={item._id} {...item} />
               </div>
             );
           default:
