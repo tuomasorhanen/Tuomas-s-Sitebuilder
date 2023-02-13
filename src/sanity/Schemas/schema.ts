@@ -14,6 +14,7 @@ import Person from './Person';
 import LandingPage from './types/LandingPage';
 import GridConfig from './types/GridConfig';
 import Social from './types/Social';
+import Contacts from './types/Contacts';
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -27,6 +28,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     LandingPage,
 
     Hero,
+    Contacts,
     Social,
     Service,
     HeadingAndTitle,

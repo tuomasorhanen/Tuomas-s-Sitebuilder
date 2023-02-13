@@ -4,6 +4,7 @@ import BlogReferenceSection from './blog/BlogReferenceSection';
 import HeadingAndTitle from './HeadingAndTitle';
 import HeroSection from './hero/HeroSection';
 import ServiceSection from './ServiceSection';
+import ContactsSection from './Contacts';
 import TestimonialSection from './testimonial/TestimonialSection';
 
 type IMapContentProps = {
@@ -45,6 +46,12 @@ const MapContent = (props: IMapContentProps) => {
             return (
               <div className="col-span-12 sm:col-span-6">
                 <ServiceSection key={item._id} {...item} />
+              </div>
+            );
+          case 'Contacts':
+            return (
+              <div className="col-start-1 col-end-13 -mx-24 -mt-6">
+                <ContactsSection key={item._id} {...item} />
               </div>
             );
           default:

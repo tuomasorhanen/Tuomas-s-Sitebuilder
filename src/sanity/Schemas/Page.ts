@@ -37,6 +37,7 @@ const Page = {
         { type: 'Hero' },
         { type: 'HeadingAndTitle' },
         { type: 'LandingPage' },
+        { type: 'Contacts' },
         {
           name: 'Testimonial',
           type: 'reference',

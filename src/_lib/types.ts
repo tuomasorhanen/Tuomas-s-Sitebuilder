@@ -35,6 +35,17 @@ export type IHero = {
   buttons: ICallToAction[];
   layout: 'slash-right' | 'circle-left';
 };
+export type IContacts = {
+  _key: string;
+  _type: string;
+  title: string;
+  description: string;
+  phone: string
+  email: string;
+  address: string;
+  businessId: string;
+  buttons: ICallToAction[];
+};
 
 export type IBlog = {
   _id: string;
