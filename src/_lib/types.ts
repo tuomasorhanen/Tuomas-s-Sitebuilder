@@ -17,7 +17,7 @@ type ISanityImage = {
   };
 };
 
-export type ICallToAction = {
+type ICallToAction = {
   callToAction: string;
   navigateToPage: string;
   name: string;
