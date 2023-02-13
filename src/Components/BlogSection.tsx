@@ -1,7 +1,8 @@
+import { IBlog } from '_lib/types';
 import React, { useState } from 'react';
+
 import { createRandomUUID } from '../sanity/lib/uuid';
 import BlogReferenceSection from './blog/BlogReferenceSection';
-import { IBlog } from '_lib/types';
 
 const BlogSection = ({ blogs }) => {
   const [selectedCategory, setSelectedCategory] = useState('All');

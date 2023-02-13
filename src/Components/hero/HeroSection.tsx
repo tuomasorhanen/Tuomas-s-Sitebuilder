@@ -83,7 +83,7 @@ const HeroSection = (props: IHero) => {
                 </div>
               </div>
               <div className=" sm:col-span-2 sm:m-0 sm:pl-8">
-                <div className="mx-auto max-w-md px-6 pt-8 sm:max-w-2xl sm:max-w-none sm:px-0 sm:py-12">
+                <div className="mx-auto max-w-md px-6 pt-8 sm:max-w-2xl sm:px-0 sm:py-12">
                   <blockquote>
                     <div>
                       <h2 className="text-center text-3xl font-medium sm:hidden">{title}</h2>

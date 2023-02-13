@@ -50,7 +50,7 @@ export type IBlog = {
   publishedAt: string;
   readingTime: string;
   category: string;
-  author: string
+  author: string;
 };
 
 export type IHeadingAndTitle = {
