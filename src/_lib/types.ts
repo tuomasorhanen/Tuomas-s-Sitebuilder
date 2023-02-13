@@ -40,7 +40,7 @@ export type IContacts = {
   _type: string;
   title: string;
   description: string;
-  phone: string
+  phone: string;
   email: string;
   address: string;
   businessId: string;
