@@ -7,9 +7,7 @@ export default {
       name: 'name',
       title: 'Name',
       type: 'string',
-      validation: Rule => [
-        Rule => Rule.required().error('Name is required.'),
-      ],
+      validation: Rule => [Rule => Rule.required().error('Name is required.')],
     },
     {
       name: 'people',

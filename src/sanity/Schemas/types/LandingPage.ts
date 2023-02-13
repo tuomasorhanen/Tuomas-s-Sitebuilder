@@ -7,9 +7,7 @@ export default {
       name: 'callToAction',
       title: 'Call to action text',
       type: 'string',
-      validation: Rule => [
-        Rule => Rule.required().error('CTA is required.'),
-      ],
+      validation: Rule => [Rule => Rule.required().error('CTA is required.')],
     },
 
     {
@@ -17,9 +15,7 @@ export default {
       title: 'Navigate to Page',
       type: 'reference',
       to: { type: 'Page' },
-      validation: Rule => [
-        Rule => Rule.required().error('navigation page is required.'),
-      ],
+      validation: Rule => [Rule => Rule.required().error('navigation page is required.')],
     },
   ],
 };
