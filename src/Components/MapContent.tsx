@@ -31,7 +31,7 @@ const MapContent = (props: IMapContentProps) => {
             );
           case 'Testimonial':
             return (
-              <div className="col-span-12 xs:col-span-6 sm:col-span-4">
+              <div className="col-span-12 xs:col-span-6 ">
                 <TestimonialSection key={item._id} {...item} />
               </div>
             );
