@@ -36,7 +36,7 @@ const Hero = {
       name: 'buttons',
       title: 'Buttons',
       type: 'array',
-      of: [{ type: 'reference', to: [{ type: 'LandingPage' }] }],
+      of: [{ type: 'reference', to: [{ type: 'LandingPage' }] }, { type: 'Social' }],
     },
   ],
 };

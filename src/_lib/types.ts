@@ -20,6 +20,10 @@ type ISanityImage = {
 type ICallToAction = {
   callToAction: string;
   navigateToPage: string;
+  name: string;
+  url: string;
+  image: ISanityImage;
+  _type: string;
 };
 
 export type IHero = {
@@ -87,7 +91,7 @@ export type IPerson = {
 
 export type IReference = {
   _ref: string;
-  _type: 'Testimonial' | 'blogPost';
+  _type: 'Testimonial' | 'blogPost' | 'Social';
 };
 
 export type IService = {

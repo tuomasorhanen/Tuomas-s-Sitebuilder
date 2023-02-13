@@ -25,11 +25,21 @@ const HeroSection = (props: IHero) => {
                 </svg>
                 <div className="relative py-32 px-6 sm:py-40 lg:py-56">
                   <div className="text-center">
-                    {title && <h1 className="text-6xl font-bold">{title}</h1>}
+                    {title && <h1 className="text-4xl font-bold sm:text-6xl">{title}</h1>}
                     {description && <p className="mt-4">{description}</p>}
                     <div className="mt-10 flex justify-center">
                       {buttons &&
                         buttons.map(btn => {
+                          if (btn._type === 'Social') {
+                            return (
+                              <Link
+                                key={btn.name}
+                                href={btn.url}
+                                className="mx-2 rounded-md border-2 p-2 shadow-xl hover:scale-105">
+                                {btn.name}
+                              </Link>
+                            );
+                          }
                           return (
                             <Link
                               key={btn.navigateToPage}
@@ -50,9 +60,19 @@ const HeroSection = (props: IHero) => {
               )}
             </div>
           ) : (
-            <div className="mx-auto flex justify-center">
+            <div className="mx-auto mt-24 flex justify-center">
               {buttons &&
                 buttons.map(btn => {
+                  if (btn._type === 'Social') {
+                    return (
+                      <Link
+                        key={btn.name}
+                        href={btn.url}
+                        className="mx-2 rounded-md border-2 p-2 shadow-xl hover:scale-105">
+                        {btn.name}
+                      </Link>
+                    );
+                  }
                   return (
                     <Link
                       key={btn.navigateToPage}
@@ -94,6 +114,16 @@ const HeroSection = (props: IHero) => {
                       {buttons && (
                         <div className="mt-10 flex justify-center sm:justify-start">
                           {buttons.map(btn => {
+                            if (btn._type === 'Social') {
+                              return (
+                                <Link
+                                  key={btn.name}
+                                  href={btn.url}
+                                  className="mx-2 rounded-md border-2 p-2 shadow-xl hover:scale-105">
+                                  {btn.name}
+                                </Link>
+                              );
+                            }
                             return (
                               <div key={btn.navigateToPage} className="flex">
                                 <Link
@@ -112,9 +142,19 @@ const HeroSection = (props: IHero) => {
               </div>
             </div>
           ) : (
-            <div className="flex justify-center">
+            <div className="mx-auto flex justify-center">
               {buttons &&
                 buttons.map(btn => {
+                  if (btn._type === 'Social') {
+                    return (
+                      <Link
+                        key={btn.name}
+                        href={btn.url}
+                        className="mx-2 rounded-md border-2 p-2 shadow-xl hover:scale-105">
+                        {btn.name}
+                      </Link>
+                    );
+                  }
                   return (
                     <Link
                       key={btn.navigateToPage}
