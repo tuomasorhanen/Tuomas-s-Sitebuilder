@@ -1,6 +1,6 @@
-import Link from 'next/link';
-import { Footer } from 'flowbite-react';
 import { ISlug } from '_lib/types';
+import { Footer } from 'flowbite-react';
+import Link from 'next/link';
 
 export type IMenuItem = {
   name: string;
