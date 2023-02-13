@@ -19,18 +19,13 @@ export default {
     },
     {
       name: 'author',
-      title: 'Author Name',
+      title: ' Author Name',
       type: 'string',
     },
     {
-      name: 'authorImage',
-      title: 'Author Image',
-      type: 'url',
-    },
-    {
-      name: 'mainImage',
+      name: 'image',
       title: 'Main Image',
-      type: 'url',
+      type: 'image',
     },
     {
       name: 'category',

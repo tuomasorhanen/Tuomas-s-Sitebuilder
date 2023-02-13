@@ -45,14 +45,12 @@ export type IBlog = {
   _type: string;
   title: string;
   slug: ISlug;
-  author: string;
-  authorImage: string;
-  mainImage: string;
+  image: ISanityImage;
   excerpt: string;
   publishedAt: string;
-  body: object;
   readingTime: string;
   category: string;
+  author: string
 };
 
 export type IHeadingAndTitle = {
