@@ -21,6 +21,9 @@ const Page = {
         source: 'name',
         maxLength: 200,
       },
+      validation: Rule => [
+        Rule => Rule.required().error('Slug is required for navigation to page.'),
+      ],
     },
     {
       name: 'menuOrder',
