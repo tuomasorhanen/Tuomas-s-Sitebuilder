@@ -3,7 +3,6 @@ import Blog from './Blog';
 import Page from './Page';
 import Hero from './types/Hero';
 import Testimonial from './Testimonial';
-import About from './types/About';
 import Service from './Service';
 import HeadingAndTitle from './types/HeadingAndTitle';
 import BlockContent from './types/BlockContent';
@@ -29,7 +28,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
 
     Hero,
     Social,
-    About,
     Service,
     HeadingAndTitle,
     BlockContent,

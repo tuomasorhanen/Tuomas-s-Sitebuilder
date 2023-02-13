@@ -35,15 +35,7 @@ export type IHero = {
   buttons: ICallToAction[];
   layout: 'slash-right' | 'circle-left';
 };
-export type IAbout = {
-  _key: string;
-  _type: string;
-  title: string;
-  description: string;
-  aboutImage: string;
-  buttonText: string;
-  url: string;
-};
+
 export type IBlog = {
   _id: string;
   _type: string;
