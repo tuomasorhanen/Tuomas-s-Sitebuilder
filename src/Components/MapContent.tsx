@@ -1,4 +1,4 @@
-import { IAbout, IHeadingAndTitle, IHero } from '_lib/types';
+import { IHeadingAndTitle, IHero } from '_lib/types';
 
 import BlogReferenceSection from './blog/BlogReferenceSection';
 import HeadingAndTitle from './HeadingAndTitle';
@@ -7,7 +7,7 @@ import ServiceSection from './ServiceSection';
 import TestimonialSection from './testimonial/TestimonialSection';
 
 type IMapContentProps = {
-  content: IHero[] | IHeadingAndTitle[] | IAbout[];
+  content: IHero[] | IHeadingAndTitle[];
 };
 
 const MapContent = (props: IMapContentProps) => {

@@ -2,14 +2,6 @@ import { ISlug } from '_lib/types';
 import { Navbar } from 'flowbite-react';
 import Link from 'next/link';
 
-const navigation = [
-  { name: 'Palvelut', href: '/services' },
-  { name: 'Asiakkaat', href: '/testimonials' },
-  { name: 'Minusta', href: '/about' },
-  { name: 'Blogi', href: '/blog' },
-  { name: 'Yhteystiedot', href: '/contacts' },
-];
-
 export type IMenuItem = {
   name: string;
   slug: ISlug;
