@@ -17,7 +17,7 @@ const TestimonialSection = (props: ITestimonialSectionProps) => {
 
   if (_ref) {
     return (
-      <div key={key} className="aspect-[4/3] h-full">
+      <div key={key} className=" h-full">
         <div className="text-center text-sm">
           <Img {...imageProps} className="m-auto h-16 w-16 rounded-full shadow-xl" alt="" />
           <h1 className="mt-4 text-3xl ">{company.name}</h1>
