@@ -1,10 +1,9 @@
 import { IHeadingAndTitle, IHero } from '_lib/types';
-
 import BlogReferenceSection from './blog/BlogReferenceSection';
+import ContactsSection from './Contacts';
 import HeadingAndTitle from './HeadingAndTitle';
 import HeroSection from './hero/HeroSection';
 import ServiceSection from './ServiceSection';
-import ContactsSection from './Contacts';
 import TestimonialSection from './testimonial/TestimonialSection';
 
 type IMapContentProps = {
