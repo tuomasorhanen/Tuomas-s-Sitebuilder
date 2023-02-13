@@ -15,9 +15,9 @@ const HeroSection = (props: IHero) => {
         <div key={props._key} className="relative">
           {title || description || imageProps ? (
             <div className="mx-auto max-w-7xl">
-              <div className="relative z-10 lg:w-full lg:max-w-2xl">
+              <div className="relative z-10 sm:w-full sm:max-w-2xl">
                 <svg
-                  className="absolute inset-y-0 right-8 hidden h-full w-80 translate-x-1/2 transform fill-gray-900 md:block"
+                  className="absolute inset-y-0 right-8 hidden h-full w-80 translate-x-1/2 transform fill-gray-900 sm:block"
                   viewBox="0 0 100 100"
                   preserveAspectRatio="none"
                   aria-hidden="true">
@@ -44,8 +44,8 @@ const HeroSection = (props: IHero) => {
                 </div>
               </div>
               {imageProps && (
-                <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-                  <Img {...imageProps} className="hidden aspect-[6/2]  object-cover lg:block lg:h-full" alt="" />
+                <div className="sm:absolute sm:inset-y-0 sm:right-0 sm:w-1/2">
+                  <Img {...imageProps} className="hidden aspect-[6/2]  object-cover sm:block sm:h-full" alt="" />
                 </div>
               )}
             </div>
@@ -68,31 +68,31 @@ const HeroSection = (props: IHero) => {
       );
     case 'circle-left':
       return (
-        <div key={props._key} className="pb-16 lg:relative lg:z-10 lg:pb-0">
+        <div key={props._key} className="pb-16 sm:relative sm:z-10 sm:px-16">
           {title || description || imageProps ? (
-            <div className="lg:mx-auto lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-8 lg:px-8">
-              <div className="relative lg:-my-8">
-                <div aria-hidden="true" className="absolute inset-x-0 top-0 h-1/2 lg:hidden" />
-                <div className="mx-auto max-w-md px-6 sm:max-w-3xl lg:h-full lg:p-0">
+            <div className="sm:mx-auto sm:grid sm:max-w-7xl sm:grid-cols-3 sm:gap-8 sm:px-8">
+              <div className="relative sm:-my-8">
+                <div aria-hidden="true" className="absolute inset-x-0 top-0 h-1/2 sm:hidden" />
+                <div className="mx-auto max-w-md px-6 sm:h-full sm:max-w-3xl sm:p-0">
                   {imageProps && imageProps.src && (
-                    <div className="aspect-w-10 aspect-h-6 sm:aspect-w-16 sm:aspect-h-7 lg:aspect-none hidden overflow-hidden rounded-full shadow-2xl lg:block">
-                      <Img {...imageProps} className="object-cover lg:h-full lg:w-full" alt="" />
+                    <div className="aspect-w-10 aspect-h-6 sm:aspect-w-16 sm:aspect-h-7 sm:aspect-none hidden overflow-hidden rounded-full shadow-2xl sm:block">
+                      <Img {...imageProps} className="object-cover sm:h-full sm:w-full" alt="" />
                     </div>
                   )}
-                  <h2 className="mt-4 mb-16 hidden text-center text-4xl font-medium lg:block">{title}</h2>
+                  <h2 className="mt-4 mb-16 hidden text-center text-4xl font-medium sm:block">{title}</h2>
                 </div>
               </div>
-              <div className=" lg:col-span-2 lg:m-0 lg:pl-8">
-                <div className="mx-auto max-w-md px-6 pt-8 sm:max-w-2xl lg:max-w-none lg:px-0 lg:py-12">
+              <div className=" sm:col-span-2 sm:m-0 sm:pl-8">
+                <div className="mx-auto max-w-md px-6 pt-8 sm:max-w-2xl sm:px-0 sm:py-12">
                   <blockquote>
                     <div>
-                      <h2 className="text-center text-3xl font-medium lg:hidden">{title}</h2>
+                      <h2 className="text-center text-3xl font-medium sm:hidden">{title}</h2>
 
                       <p className="text-md mt-6 font-light">{description}</p>
                     </div>
                     <footer className="mt-6">
                       {buttons && (
-                        <div className="mt-10 flex justify-center lg:justify-start">
+                        <div className="mt-10 flex justify-center sm:justify-start">
                           {buttons.map(btn => {
                             return (
                               <div key={btn.navigateToPage} className="flex">
