@@ -37,10 +37,10 @@ const ContactsSection = (props: IContacts) => {
           <h3 className="text-6xl font-bold">{title}</h3>
           <h3 className="mt-6 text-xl ">{description}</h3>
           <div className="mt-6">
-            <p className="">{phone}</p>
-            <p className="">{email}</p>
-            <p className="">{address}</p>
-            <p className="">{businessId}</p>
+            <p>{phone}</p>
+            <p>{email}</p>
+            <p>{address}</p>
+            <p>{businessId}</p>
           </div>
         </div>
         <ul role="list" className="mt-6 flex space-x-4 pl-16">

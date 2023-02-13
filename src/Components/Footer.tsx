@@ -22,7 +22,7 @@ const MyFooter = (props: IMenuProps) => {
           {items.map(item => {
             return (
               <div key={item.slug.current}>
-                <Link href={'/' + item.slug.current} className="">
+                <Link href={'/' + item.slug.current} className="text-gray-300 hover:text-white">
                   {item.name}
                 </Link>
               </div>
