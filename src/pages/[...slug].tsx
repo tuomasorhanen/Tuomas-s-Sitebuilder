@@ -3,13 +3,12 @@ import resolveCustomers from '_lib/resolveCustomers';
 import resolveLinks from '_lib/resolveLinks';
 import resolveReferences from '_lib/resolvers/resolveReferences';
 import { IBlog, IHeadingAndTitle, IHero, ITestimonial } from '_lib/types';
-
 import { GetServerSideProps } from 'next';
 import { groq } from 'next-sanity';
 
-import MapContent from '../components/MapContent';
-import Header, { IMenuItem } from '../components/Header';
 import MyFooter from '../components/Footer';
+import Header, { IMenuItem } from '../components/Header';
+import MapContent from '../components/MapContent';
 
 type IPageProps = {
   content: IHero[] | IHeadingAndTitle[];

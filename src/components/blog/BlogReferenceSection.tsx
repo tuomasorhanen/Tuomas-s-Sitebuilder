@@ -9,7 +9,7 @@ type IBlogSectionProps = IBlog &
   };
 
 const BlogReferenceSection = (props: IBlogSectionProps) => {
-  const { excerpt, image, publishedAt, category, readingTime, title, author } = props;
+  const { excerpt, image, category, readingTime, title, author } = props;
   const { key } = props;
 
   const imageProps = useNextSanityImage(client, image);

@@ -50,7 +50,7 @@ const MapContent = (props: IMapContentProps) => {
             );
           case 'Contacts':
             return (
-              <div className="col-start-1 col-end-13 -mx-24 -mt-6">
+              <div className="col-span-12">
                 <ContactsSection key={item._id} {...item} />
               </div>
             );

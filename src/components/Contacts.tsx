@@ -1,8 +1,7 @@
-import { client } from '_lib/client';
 import { IContacts } from '_lib/types';
 import Link from 'next/link';
-import { useNextSanityImage } from 'next-sanity-image';
 
+import Calendly from './Calendly';
 import Image from './Image';
 
 const ContactsSection = (props: IContacts) => {
@@ -29,9 +28,9 @@ const ContactsSection = (props: IContacts) => {
   });
 
   return (
-    <div key={props._key} className="relative py-32 sm:py-40">
+    <div key={props._key} className="relative flex py-20 lg:px-32">
       <div className="mx-auto max-w-7xl">
-        <div className="pl-16">
+        <div className=" pt-32">
           <h3 className="text-6xl font-bold">{title}</h3>
           <h3 className="mt-6 text-xl ">{description}</h3>
           <div className="mt-6">
@@ -40,10 +39,13 @@ const ContactsSection = (props: IContacts) => {
             <p>{address}</p>
             <p>{businessId}</p>
           </div>
+          <ul role="list" className="mt-6 flex space-x-4">
+            {buttonElements}
+          </ul>
         </div>
-        <ul role="list" className="mt-6 flex space-x-4 pl-16">
-          {buttonElements}
-        </ul>
+      </div>
+      <div className="h-full w-full">
+        <Calendly />
       </div>
     </div>
   );

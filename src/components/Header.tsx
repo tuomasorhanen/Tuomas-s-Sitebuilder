@@ -10,6 +10,7 @@ export type IMenuItem = {
 
 type IMenuProps = {
   items: IMenuItem[];
+  key: string;
 };
 
 const Header = (props: IMenuProps) => {
@@ -17,7 +18,7 @@ const Header = (props: IMenuProps) => {
 
   return (
     <>
-      <nav className="rounded max-xs:hidden">
+      <nav key={props.key} className="rounded max-xs:hidden">
         <div className="flex justify-between">
           <Link href="/" className="flex items-center">
             <img
@@ -54,18 +55,16 @@ const Header = (props: IMenuProps) => {
             />
           </Navbar.Brand>
         </div>
-        <div className="">
-          <button>
-            <span className="sr-only">Open main menu</span>
-            <Navbar.Toggle
-              data-collapse-toggle="navbar-hamburger"
-              type="button"
-              className="mx-10"
-              aria-controls="navbar-hamburger"
-              aria-expanded="false"
-            />
-          </button>
-        </div>
+        <button className="flex flex-wrap">
+          <span className="sr-only">Open main menu</span>
+          <Navbar.Toggle
+            data-collapse-toggle="navbar-hamburger"
+            type="button"
+            className="mx-10"
+            aria-controls="navbar-hamburger"
+            aria-expanded="false"
+          />
+        </button>
         <Navbar.Collapse>
           <div className="flex flex-col ">
             {items.map(item => {
