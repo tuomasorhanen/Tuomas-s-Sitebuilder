@@ -9,7 +9,7 @@ export type IMenuItem = {
 
 type IMenuProps = {
   items: IMenuItem[];
-  key: string;
+  key?: string;
 };
 
 const MyFooter = (props: IMenuProps) => {

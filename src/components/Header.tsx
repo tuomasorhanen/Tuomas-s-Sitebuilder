@@ -10,7 +10,7 @@ export type IMenuItem = {
 
 type IMenuProps = {
   items: IMenuItem[];
-  key: string;
+  key?: string;
 };
 
 const Header = (props: IMenuProps) => {
