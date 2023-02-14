@@ -7,16 +7,19 @@ export default {
       name: 'title',
       title: 'Title',
       type: 'string',
+      validation: Rule => [Rule => Rule.required().error('Title is required.')],
     },
     {
       name: 'description',
       title: 'Description',
       type: 'text',
+      validation: Rule => [Rule => Rule.required().error('Description is required.')],
     },
     {
       name: 'image',
       title: 'Image',
       type: 'image',
+      validation: Rule => [Rule => Rule.required().error('Image is required.')],
     },
   ],
 };

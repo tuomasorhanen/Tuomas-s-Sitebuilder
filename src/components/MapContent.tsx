@@ -1,13 +1,14 @@
-import { IAbout, IHeadingAndTitle, IHero } from '_lib/types';
+import { IHeadingAndTitle, IHero } from '_lib/types';
 
 import BlogReferenceSection from './blog/BlogReferenceSection';
+import ContactsSection from './Contacts';
 import HeadingAndTitle from './HeadingAndTitle';
 import HeroSection from './hero/HeroSection';
 import ServiceSection from './ServiceSection';
 import TestimonialSection from './testimonial/TestimonialSection';
 
 type IMapContentProps = {
-  content: IHero[] | IHeadingAndTitle[] | IAbout[];
+  content: IHero[] | IHeadingAndTitle[];
 };
 
 const MapContent = (props: IMapContentProps) => {
@@ -31,13 +32,13 @@ const MapContent = (props: IMapContentProps) => {
             );
           case 'Testimonial':
             return (
-              <div className="col-span-12 xs:col-span-6 sm:col-span-4">
+              <div className="col-span-12 xs:col-span-6 ">
                 <TestimonialSection key={item._id} {...item} />
               </div>
             );
           case 'blogPost':
             return (
-              <div className="col-span-12 xs:col-span-6 sm:col-span-4">
+              <div className="col-span-12 sm:col-span-6 md:col-span-4">
                 <BlogReferenceSection key={item._id} {...item} />
               </div>
             );
@@ -45,6 +46,12 @@ const MapContent = (props: IMapContentProps) => {
             return (
               <div className="col-span-12 sm:col-span-6">
                 <ServiceSection key={item._id} {...item} />
+              </div>
+            );
+          case 'Contacts':
+            return (
+              <div className="col-start-1 col-end-13 -mx-24 -mt-6">
+                <ContactsSection key={item._id} {...item} />
               </div>
             );
           default:

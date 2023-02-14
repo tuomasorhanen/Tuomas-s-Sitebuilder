@@ -7,7 +7,10 @@ const Hero = {
       name: 'title',
       title: 'Title',
       type: 'string',
+      description:
+        '⚡ Optional: Herosection should have a title, but a Hero component with no other content but button can be used to create buttons.',
     },
+
     {
       name: 'description',
       title: 'Description',
@@ -30,13 +33,14 @@ const Hero = {
           { title: 'slash-right', value: 'slash-right' },
           { title: 'circle-left', value: 'circle-left' },
         ],
+        validation: Rule => [Rule => Rule.required().error('Choosing a layout is required.')],
       },
     },
     {
       name: 'buttons',
       title: 'Buttons',
       type: 'array',
-      of: [{ type: 'reference', to: [{ type: 'LandingPage' }] }],
+      of: [{ type: 'reference', to: [{ type: 'LandingPage' }] }, { type: 'Social' }],
     },
   ],
 };

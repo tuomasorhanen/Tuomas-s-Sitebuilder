@@ -9,7 +9,7 @@ export type IPage = {
   content: IHeadingAndTitle[] | ITestimonial[] | IHero[];
 };
 
-type ISanityImage = {
+export type ISanityImage = {
   _type: string;
   asset: {
     _ref: string;
@@ -20,6 +20,11 @@ type ISanityImage = {
 type ICallToAction = {
   callToAction: string;
   navigateToPage: string;
+  name: string;
+  url: string;
+  image: ISanityImage;
+  imageText: string;
+  _type: string;
 };
 
 export type IHero = {
@@ -31,15 +36,18 @@ export type IHero = {
   buttons: ICallToAction[];
   layout: 'slash-right' | 'circle-left';
 };
-export type IAbout = {
+export type IContacts = {
   _key: string;
   _type: string;
   title: string;
   description: string;
-  aboutImage: string;
-  buttonText: string;
-  url: string;
+  phone: string;
+  email: string;
+  address: string;
+  businessId: string;
+  buttons: ICallToAction[];
 };
+
 export type IBlog = {
   _id: string;
   _type: string;
@@ -87,7 +95,7 @@ export type IPerson = {
 
 export type IReference = {
   _ref: string;
-  _type: 'Testimonial' | 'blogPost';
+  _type: 'Testimonial' | 'blogPost' | 'Social';
 };
 
 export type IService = {

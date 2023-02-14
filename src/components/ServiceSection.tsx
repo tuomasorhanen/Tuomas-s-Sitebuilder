@@ -8,11 +8,11 @@ const ServiceSection = (props: IService) => {
   const imageProps = useNextSanityImage(client, image);
 
   return (
-    <div key={props._key} className="m-4 h-full px-16">
-      <div className="text-center text-sm">
-        <Img {...imageProps} className="m-auto h-16 w-16 rounded-full shadow-xl" alt="" />
-        <h1 className="mt-4 text-3xl ">{title}</h1>
-        <p className="mt-4">{description}</p>
+    <div className="sm:px-16">
+      <div key={props._key} className="mx-auto my-12 text-center">
+        <Img {...imageProps} className="mx-auto h-32 w-32 rounded-full shadow-xl" alt="" />
+        <h2 className="mt-8 text-4xl">{title}</h2>
+        <h2 className="mt-4 font-light tracking-widest">{description}</h2>
       </div>
     </div>
   );
