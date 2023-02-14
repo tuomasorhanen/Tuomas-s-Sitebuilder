@@ -7,8 +7,8 @@ import MyFooter from 'components/Footer';
 import { GetServerSideProps } from 'next';
 import { groq } from 'next-sanity';
 
-import Header, { IMenuItem } from '../components/Header';
 import MapContent from '../components/MapContent';
+import Header, { IMenuItem } from 'components/Header';
 
 type IPageProps = {
   content: IHero[] | IHeadingAndTitle[];
