@@ -16,6 +16,12 @@ export default {
       validation: Rule => [Rule => Rule.required().error('image is required.')],
     },
     {
+      name: 'imageText',
+      title: 'Image text',
+      description: 'Used by search engines and improves visibility in search results. Include keywords.',
+      type: 'string',
+    },
+    {
       name: 'url',
       title: 'Url',
       type: 'url',

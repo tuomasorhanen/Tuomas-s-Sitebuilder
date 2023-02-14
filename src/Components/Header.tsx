@@ -45,7 +45,7 @@ const Header = (props: IMenuProps) => {
         </div>
       </nav>
       <Navbar className="hidden max-xs:block">
-        <div className="">
+        <div className="flex justify-between">
           <Navbar.Brand href="/">
             <img
               alt="ProEnabler"
@@ -54,18 +54,20 @@ const Header = (props: IMenuProps) => {
             />
           </Navbar.Brand>
         </div>
-        <button>
-          <span className="sr-only">Open main menu</span>
-          <Navbar.Toggle
-            data-collapse-toggle="navbar-hamburger"
-            type="button"
-            className="mx-10"
-            aria-controls="navbar-hamburger"
-            aria-expanded="false"
-          />
-        </button>
+        <div className="">
+          <button>
+            <span className="sr-only">Open main menu</span>
+            <Navbar.Toggle
+              data-collapse-toggle="navbar-hamburger"
+              type="button"
+              className="mx-10"
+              aria-controls="navbar-hamburger"
+              aria-expanded="false"
+            />
+          </button>
+        </div>
         <Navbar.Collapse>
-          <div className="flex flex-col">
+          <div className="flex flex-col ">
             {items.map(item => {
               return (
                 <Navbar.Link key={item.slug.current} href={'/' + item.slug.current} className="">

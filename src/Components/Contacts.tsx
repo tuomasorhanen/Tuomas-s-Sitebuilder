@@ -1,21 +1,19 @@
 import { client } from '_lib/client';
 import { IContacts } from '_lib/types';
-import Img from 'next/image';
 import Link from 'next/link';
 import { useNextSanityImage } from 'next-sanity-image';
+
+import Image from './Image';
 
 const ContactsSection = (props: IContacts) => {
   const { title, address, businessId, buttons, description, email, phone } = props;
 
   const buttonElements = buttons.map(button => {
-    const { image } = button;
-    const imageProps = useNextSanityImage(client, image);
-
     if (button._type === 'Social') {
       return (
         <div key={button.name}>
           <Link key={button.name} href={button.url} className="flex">
-            <Img {...imageProps} className="h-10 w-10 rounded-full" alt="" />
+            <Image {...button.image} alt={button.imageText} className="h-10 w-10 rounded-full" />
           </Link>
         </div>
       );

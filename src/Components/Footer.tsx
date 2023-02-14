@@ -14,7 +14,6 @@ type IMenuProps = {
 
 const MyFooter = (props: IMenuProps) => {
   const { items } = props;
-
   return (
     <footer className="">
       <div className="mx-auto max-w-7xl overflow-hidden py-16 px-6 ">

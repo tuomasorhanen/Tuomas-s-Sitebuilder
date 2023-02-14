@@ -31,7 +31,6 @@ export default {
       title: 'Company',
       type: 'reference',
       to: [{ type: 'Company' }],
-      validation: Rule => [Rule => Rule.required().error('Company is required.')],
     },
   ],
 };

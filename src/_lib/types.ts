@@ -9,7 +9,7 @@ export type IPage = {
   content: IHeadingAndTitle[] | ITestimonial[] | IHero[];
 };
 
-type ISanityImage = {
+export type ISanityImage = {
   _type: string;
   asset: {
     _ref: string;
@@ -23,6 +23,7 @@ type ICallToAction = {
   name: string;
   url: string;
   image: ISanityImage;
+  imageText: string;
   _type: string;
 };
 
