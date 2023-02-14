@@ -28,9 +28,9 @@ const ContactsSection = (props: IContacts) => {
   });
 
   return (
-    <div key={props._key} className="relative flex py-20 lg:px-32">
-      <div className="mx-auto max-w-7xl">
-        <div className=" pt-32">
+    <div key={props._key}>
+      <div className="mx-auto grid text-center md:max-w-7xl md:grid-cols-3 md:text-left">
+        <div className="pt-24">
           <h3 className="text-6xl font-bold">{title}</h3>
           <h3 className="mt-6 text-xl ">{description}</h3>
           <div className="mt-6">
@@ -39,13 +39,15 @@ const ContactsSection = (props: IContacts) => {
             <p>{address}</p>
             <p>{businessId}</p>
           </div>
-          <ul role="list" className="mt-6 flex space-x-4">
+          <ul role="list" className="mt-6 flex justify-center space-x-4 md:justify-start">
             {buttonElements}
           </ul>
         </div>
-      </div>
-      <div className="h-full w-full">
-        <Calendly />
+        <div className="mt-6 md:col-span-2 md:pl-12">
+          <div className="mx-auto">
+            <Calendly />
+          </div>
+        </div>
       </div>
     </div>
   );
