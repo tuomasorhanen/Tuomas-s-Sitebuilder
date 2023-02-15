@@ -21,14 +21,13 @@ const Page = {
         source: 'name',
         maxLength: 200,
       },
-      validation: Rule => [Rule => Rule.required().error('Slug is required for navigation to page.')],
+      validation: Rule => [Rule.required().error('Slug is required for navigation to page.')],
     },
     {
       name: 'menuOrder',
       title: 'Menu order',
-      type: 'number',
-      default: 0,
       description: 'Order in which this page is shown on menu. Leave empty if not wanted in menu.',
+      type: 'number',
     },
     {
       name: 'content',

@@ -15,6 +15,7 @@ export default {
     {
       name: 'description',
       title: 'Description',
+      description: 'The image description will be visible bellow the picture',
       type: 'string',
       validation: Rule => [
         Rule.min(10).error('Description is too short.'),

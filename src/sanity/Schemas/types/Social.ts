@@ -7,13 +7,13 @@ export default {
       name: 'name',
       title: 'Name',
       type: 'string',
-      validation: Rule => [Rule => Rule.required().error('title is required.')],
+      validation: Rule => [Rule.required().error('title is required.')],
     },
     {
       name: 'image',
       title: 'Image',
       type: 'image',
-      validation: Rule => [Rule => Rule.required().error('image is required.')],
+      validation: Rule => [Rule.required().error('image is required.')],
     },
     {
       name: 'imageText',
@@ -25,7 +25,7 @@ export default {
       name: 'url',
       title: 'Url',
       type: 'url',
-      validation: Rule => [Rule => Rule.required().error('url is required.')],
+      validation: Rule => [Rule.required().error('url is required.')],
     },
   ],
 };

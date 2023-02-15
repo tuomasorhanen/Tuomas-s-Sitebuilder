@@ -7,7 +7,7 @@ export default {
       name: 'name',
       title: 'Full name',
       type: 'string',
-      validation: Rule => [Rule => Rule.required().error('Name is required.')],
+      validation: Rule => [Rule.required().error('Name is required.')],
     },
     {
       name: 'image',
@@ -24,7 +24,7 @@ export default {
       name: 'role',
       title: 'Role',
       type: 'string',
-      validation: Rule => [Rule => Rule.required().error('Role is required.')],
+      validation: Rule => [Rule.required().error('Role is required.')],
     },
     {
       name: 'company',

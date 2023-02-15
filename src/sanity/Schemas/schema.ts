@@ -11,7 +11,6 @@ import BlogParagraph from './types/BlogParagraph';
 import Company from './Company';
 import Person from './Person';
 import LandingPage from './types/LandingPage';
-import GridConfig from './types/GridConfig';
 import Social from './types/Social';
 import Contacts from './types/Contacts';
 
@@ -34,8 +33,5 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     BlogHeading,
     BlogImage,
     BlogParagraph,
-
-    // Configuration objects
-    GridConfig,
   ],
 };

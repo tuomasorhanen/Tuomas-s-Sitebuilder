@@ -7,10 +7,12 @@ export default {
       name: 'text',
       title: 'Text',
       type: 'string',
+      validation: Rule => [Rule.required().error('Heading is required')],
     },
     {
       name: 'level',
       title: 'Level',
+      description: 'The level of heading can be used to change the styling of the heading.',
       type: 'number',
       validation: Rule => [Rule.required().error('Level is required')],
       options: {
