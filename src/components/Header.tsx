@@ -24,11 +24,12 @@ const Header = (props: IMenuProps) => {
             <img
               alt="ProEnabler"
               className="mx-10 h-12"
-              src="https://static.wixstatic.com/media/57a978_52041878612c44809440b9c8cbd400de~mv2.webp"
+              src="https://amban.fi/wp-content/uploads/2023/01/Enabler-logo-ei-taustaa-e1676467699355.webp"
             />
+            <p className="-ml-6 text-xl font-bold">ProEnabler</p>
           </Link>
           <div className="hidden w-auto xs:block" id="navbar-default">
-            <ul className="my-2 mx-10 flex space-x-4 p-4 text-sm font-medium ">
+            <ul className="my-2 mx-10 flex p-4 text-sm font-medium md:space-x-4 ">
               {items.map(item => {
                 return (
                   <li key={item.slug.current}>
@@ -50,9 +51,10 @@ const Header = (props: IMenuProps) => {
           <Navbar.Brand href="/">
             <img
               alt="ProEnabler"
-              className="mx-10 h-12"
-              src="https://static.wixstatic.com/media/57a978_52041878612c44809440b9c8cbd400de~mv2.webp"
+              className="mx-10 h-16"
+              src="https://amban.fi/wp-content/uploads/2023/01/Enabler-logo-ei-taustaa-e1676467699355.webp"
             />
+            <p className=" -ml-6 text-lg font-bold">ProEnabler</p>
           </Navbar.Brand>
         </div>
         <div className="flex flex-wrap">
