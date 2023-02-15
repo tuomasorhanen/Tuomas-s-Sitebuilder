@@ -1,8 +1,9 @@
 import { IBlog, IReference } from '_lib/types';
-import Image from './Image';
-import { useState } from 'react';
-import { createRandomUUID } from '../sanity/lib/uuid';
 import Link from 'next/link';
+import { useState } from 'react';
+
+import { createRandomUUID } from '../sanity/lib/uuid';
+import Image from './Image';
 
 type IBlogSectionProps = {
   blogs: IBlog[];
@@ -59,7 +60,7 @@ const BlogSection = ({ blogs, ...props }: IBlogSectionProps) => {
         <div className="px-4">
           {shownBlogs.map(blog => (
             <div className="rounded-lg border-2 bg-gray-100" key={blog._key}>
-              <Image {...blog.image} className="h-48 w-full rounded-t-lg object-cover" />
+              <Image {...blog.image} alt="" className="h-48 w-full rounded-t-lg object-cover" />
               <Link href={`/blog/${blog.slug.current}`}>
                 <div className="m-4 p-2 text-black">
                   <h2 className="text-3xl font-bold">{blog.title}</h2>

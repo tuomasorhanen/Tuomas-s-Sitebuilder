@@ -51,7 +51,7 @@ export type IContacts = {
 export type IBlog = {
   _id: string;
   _type: string;
-  _key: string
+  _key: string;
   title: string;
   slug: ISlug;
   image: ISanityImage;

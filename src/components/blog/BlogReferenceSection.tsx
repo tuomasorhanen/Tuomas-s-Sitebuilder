@@ -1,8 +1,8 @@
 import { client } from '_lib/client';
 import { IBlog, IReference } from '_lib/types';
 import Img from 'next/image';
-import { useNextSanityImage } from 'next-sanity-image';
 import Link from 'next/link';
+import { useNextSanityImage } from 'next-sanity-image';
 
 type IBlogSectionProps = IBlog & IReference & {};
 

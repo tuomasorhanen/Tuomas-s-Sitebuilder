@@ -1,10 +1,11 @@
 import { client } from '_lib/client';
 import { IBlog } from '_lib/types';
+import MyFooter from 'components/Footer';
 import { GetServerSideProps } from 'next';
 import { groq } from 'next-sanity';
-import Header, { IMenuItem } from '../../components/Header';
-import MyFooter from 'components/Footer';
+
 import BlogSection from '../../components/BlogSection';
+import Header, { IMenuItem } from '../../components/Header';
 
 type IPageProps = {
   blogs: IBlog[];

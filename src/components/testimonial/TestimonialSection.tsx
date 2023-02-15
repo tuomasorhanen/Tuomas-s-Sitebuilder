@@ -1,4 +1,5 @@
 import { IReference, ITestimonial } from '_lib/types';
+
 import Image from '../Image';
 
 type ITestimonialSectionProps = ITestimonial & IReference & {};
