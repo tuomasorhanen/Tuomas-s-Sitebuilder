@@ -64,7 +64,7 @@ const BlogSection = ({ blogs }: BlogSectionProps) => {
             <div key={blog._key}>
               <Image {...blog.image} alt="" className="h-48 w-full rounded-t-lg object-cover" />
               <Link href={`/blog/${blog.slug.current}`}>
-                <article className="rounded-lg border border-gray-700 bg-gray-800 p-6 shadow-md">
+                <article className="rounded-b-lg border border-gray-700 bg-gray-800 p-6 shadow-md">
                   <h2 className="mb-2 text-2xl font-bold tracking-tight text-white">{blog.title}</h2>
                   <p className="mb-5 font-light text-gray-300">{blog.excerpt}</p>
                   <div className="flex items-center justify-between">
