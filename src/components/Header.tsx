@@ -28,13 +28,13 @@ const Header = (props: IMenuProps) => {
             />
           </Link>
           <div className="hidden w-auto xs:block" id="navbar-default">
-            <ul className="my-2 mx-10 flex space-x-4 p-4 text-sm font-medium">
+            <ul className="my-2 mx-10 flex space-x-4 p-4 text-sm font-medium ">
               {items.map(item => {
                 return (
                   <li key={item.slug.current}>
                     <Link
                       href={'/' + item.slug.current}
-                      className="block py-2 px-4 text-gray-300 hover:text-white"
+                      className="block py-2 px-4 pb-6 text-gray-300 hover:text-white"
                       aria-current="page">
                       {item.name}
                     </Link>
@@ -66,7 +66,7 @@ const Header = (props: IMenuProps) => {
           />
         </div>
         <Navbar.Collapse>
-          <div className="flex flex-col ">
+          <div className="ml-12 flex flex-col">
             {items.map(item => {
               return (
                 <Navbar.Link key={item.slug.current} href={'/' + item.slug.current} className="">

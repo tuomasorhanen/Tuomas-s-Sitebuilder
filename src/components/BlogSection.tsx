@@ -36,9 +36,9 @@ const BlogSection = ({ blogs }: BlogSectionProps) => {
   };
 
   return (
-    <div className="grid grid-cols-12 gap-6 px-24">
-      <div className="col-start-1 col-end-13 -mx-24 -mt-6">
-        <div className="mt-10 flex justify-center">
+    <div className="grid grid-cols-12 gap-6 px-4 sm:px-24">
+      <div className="col-start-1 col-end-13">
+        <div className="mt-10 flex flex-wrap justify-center">
           <button
             onClick={() => handleCategorySelection('All')}
             className={`mx-2 rounded-full border border-white py-2 px-4 font-medium uppercase tracking-widest text-white transition duration-300 ease-in-out hover:bg-white hover:text-gray-900
@@ -59,23 +59,23 @@ const BlogSection = ({ blogs }: BlogSectionProps) => {
         </div>
       </div>
       <div className="col-span-12">
-        <div className="px-4">
+        <div className="mx-auto grid max-w-screen-lg grid-cols-1 gap-6 py-8 sm:px-4 md:grid-cols-2 lg:grid-cols-3 lg:py-16 lg:px-6">
           {filteredBlogs.map(blog => (
-            <div key={blog._key} className="mt-6 rounded-lg border-2 bg-gray-100">
+            <div key={blog._key}>
               <Image {...blog.image} alt="" className="h-48 w-full rounded-t-lg object-cover" />
               <Link href={`/blog/${blog.slug.current}`}>
-                <div className="m-4 p-2 text-black">
-                  <h2 className="text-3xl font-bold">{blog.title}</h2>
-                  <p className="mt-4">{blog.excerpt}</p>
-                  <div className="mt-4">
-                    <p className="text-sm ">{blog.author}</p>
-                    <div className=" text-sm text-gray-500">
+                <article className="rounded-lg border border-gray-700 bg-gray-800 p-6 shadow-md">
+                  <h2 className="mb-2 text-2xl font-bold tracking-tight text-white">{blog.title}</h2>
+                  <p className="mb-5 font-light text-gray-300">{blog.excerpt}</p>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-4">
+                      <span className="font-medium dark:text-white">{blog.author}</span>
                       <span>
                         {blog.readingTime} min &middot; {blog.category}
                       </span>
                     </div>
                   </div>
-                </div>
+                </article>
               </Link>
             </div>
           ))}

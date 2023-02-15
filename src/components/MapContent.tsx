@@ -1,6 +1,7 @@
 import { IHeadingAndTitle, IHero } from '_lib/types';
 
 import BlogReferenceSection from './blog/BlogReferenceSection';
+import BlogSection from './BlogSection';
 import ContactsSection from './Contacts';
 import HeadingAndTitle from './HeadingAndTitle';
 import HeroSection from './hero/HeroSection';
@@ -15,7 +16,7 @@ const MapContent = (props: IMapContentProps) => {
   const { content } = props;
 
   return (
-    <div className="grid grid-cols-12 gap-6 px-24">
+    <div className="mx-auto grid max-w-screen-lg grid-cols-12 gap-6 px-24 ">
       {content.map(item => {
         switch (item._type) {
           case 'Hero':
