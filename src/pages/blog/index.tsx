@@ -45,14 +45,6 @@ export const getServerSideProps: GetServerSideProps<IPageProps> = async context 
     client.fetch<IMenuItem[]>(menuQuery),
   ]);
 
-  blogsResponse.map(blog => {
-    blog.publishedAt = new Intl.DateTimeFormat('default', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    }).format(new Date(blog.publishedAt));
-  });
-
   return {
     props: {
       blogs: blogsResponse,
