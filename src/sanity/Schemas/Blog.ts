@@ -6,6 +6,7 @@ export default {
     {
       name: 'title',
       title: 'Title',
+      description: 'Tähän voi laittaa selkeät ohjeet mitä kenttään tulee ja miksi. ',
       type: 'string',
       validation: Rule => [Rule.required().error('Title is required.')],
     },
