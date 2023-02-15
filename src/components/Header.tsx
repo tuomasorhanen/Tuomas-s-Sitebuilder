@@ -23,10 +23,10 @@ const Header = (props: IMenuProps) => {
           <Link href="/" className="flex items-center">
             <img
               alt="ProEnabler"
-              className="mx-10 h-12"
+              className="mx-10 -mt-6 h-12"
               src="https://amban.fi/wp-content/uploads/2023/01/Enabler-logo-ei-taustaa-e1676467699355.webp"
             />
-            <p className="-ml-6 text-xl font-bold">ProEnabler</p>
+            <p className="-ml-6  -mt-6 text-xl font-bold">ProEnabler</p>
           </Link>
           <div className="hidden w-auto xs:block" id="navbar-default">
             <ul className="my-2 mx-10 flex p-4 text-sm font-medium md:space-x-4 ">

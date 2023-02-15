@@ -6,12 +6,13 @@ const ServiceSection = (props: IService) => {
   const { image, description, title } = props;
 
   return (
-    <div key={props._key} className="sm:px-16">
-      <figure className="rounded-lg border border-gray-300 bg-gray-800 shadow-2xl">
-        <div className="mx-auto my-12 text-center">
-          <Image {...image} className="mx-auto h-32 w-32 rounded-full shadow-xl" alt="" />
-          <p className="mt-8 text-4xl">{title}</p>
-          <p className="mt-4 font-light tracking-widest">{description}</p>
+    <div key={props._key} className="">
+      <Image {...image} className="mx-auto h-32 w-32 rounded-full object-cover shadow-xl" alt="" />
+
+      <figure className="-mt-16 rounded-lg border border-gray-900 bg-gradient-to-br from-gray-700 via-gray-800 to-gray-900 shadow-2xl">
+        <div className="mx-auto p-4 text-center">
+          <p className="mt-16 text-4xl">{title}</p>
+          <p className="my-4 font-light tracking-widest">{description}</p>
         </div>
       </figure>
     </div>

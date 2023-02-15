@@ -169,6 +169,43 @@ const HeroSection = (props: IHero) => {
           )}
         </div>
       );
+    case 'image_bg-center':
+      return (
+        <div className="relative isolate overflow-hidden ">
+          <Img {...imageProps} className="absolute inset-0 -z-10 h-full w-full object-cover opacity-50" alt="" />
+          <div className="px-6 lg:px-8">
+            <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+              <div className="text-center">
+                <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">{title}</h1>
+                <p className="mt-6 text-lg leading-8 text-gray-300">{description}</p>
+                <div className="mt-10 flex items-center justify-center gap-x-6">
+                  {buttons &&
+                    buttons.map(btn => {
+                      if (btn._type === 'Social') {
+                        return (
+                          <Link
+                            key={btn.name}
+                            href={btn.url}
+                            className="border-gray-200] mx-2 rounded-md border-2 p-2 text-white shadow-xl hover:scale-105">
+                            {btn.name}
+                          </Link>
+                        );
+                      }
+                      return (
+                        <Link
+                          key={btn.navigateToPage}
+                          href={btn.navigateToPage}
+                          className="mx-2 rounded-md border-2 border-gray-200 p-2 text-white shadow-xl hover:scale-105">
+                          {btn.callToAction}
+                        </Link>
+                      );
+                    })}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
 
     default:
       return <></>;
