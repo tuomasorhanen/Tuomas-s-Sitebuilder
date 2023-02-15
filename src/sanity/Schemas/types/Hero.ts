@@ -32,6 +32,7 @@ const Hero = {
         list: [
           { title: 'slash-right', value: 'slash-right' },
           { title: 'circle-left', value: 'circle-left' },
+          { title: 'simple-right', value: 'simple-right' },
         ],
         validation: Rule => [Rule => Rule.required().error('Choosing a layout is required.')],
       },
