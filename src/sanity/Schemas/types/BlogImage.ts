@@ -10,11 +10,16 @@ export default {
       options: {
         hotspot: true,
       },
+      validation: Rule => [Rule.required().error('Image is required.')],
     },
     {
-      name: 'alternativeText',
-      title: 'Alternative text',
+      name: 'description',
+      title: 'Description',
       type: 'string',
+      validation: Rule => [
+        Rule.min(10).error('Description is too short.'),
+        Rule.max(100).error('Description is too long.'),
+      ],
     },
   ],
 };

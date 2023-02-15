@@ -60,6 +60,28 @@ export type IBlog = {
   readingTime: string;
   category: string;
   author: string;
+  content: IBlogImage[] | IBlogHeading[] | IBlogParagraph[];
+};
+
+export type IBlogImage = {
+  _type: string;
+  _key: string;
+  image: ISanityImage;
+  description: string;
+};
+
+export type IBlogHeading = {
+  _type: string;
+  _key: string;
+  text: string;
+  level: number;
+};
+
+export type IBlogParagraph = {
+  _type: string;
+  _key: string;
+  text: string;
+  style: string;
 };
 
 export type IHeadingAndTitle = {

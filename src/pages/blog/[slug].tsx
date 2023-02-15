@@ -7,7 +7,7 @@ import BlogPost from '../../components/BlogPost';
 import Header, { IMenuItem } from '../../components/Header';
 
 type IPageProps = {
-  blog: IBlog[];
+  blog: IBlog;
   menu: IMenuItem[];
 };
 
@@ -16,15 +16,17 @@ const Post = (props: IPageProps) => {
   return (
     <>
       <Header items={menu} />
-      <BlogPost blog={blog} />
+      <BlogPost {...blog} />
     </>
   );
 };
 
 export const getServerSideProps: GetServerSideProps<IPageProps> = async context => {
   context.res.setHeader('Cache-Control', 'public, s-maxage=3600, stale-while-revalidate=7200');
-  const blogsQuery = groq`
-    *[_type == 'blogPost']
+  let { slug } = context.query;
+
+  const query = groq`
+    *[_type == 'blogPost' && slug.current == '${slug}'][0]
   `;
 
   const menuQuery = groq`
@@ -34,23 +36,12 @@ export const getServerSideProps: GetServerSideProps<IPageProps> = async context 
     menuOrder,
   } | order(menuOrder asc)`;
 
-  const [blogsResponse, menuResponse] = await Promise.all([
-    client.fetch(blogsQuery).catch(console.error),
-    client.fetch<IMenuItem[]>(menuQuery),
-  ]);
-
-  blogsResponse.map(blog => {
-    blog.publishedAt = new Intl.DateTimeFormat('default', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    }).format(new Date(blog.publishedAt));
-  });
+  const [blog, menu] = await Promise.all([client.fetch<IBlog>(query), client.fetch<IMenuItem[]>(menuQuery)]);
 
   return {
     props: {
-      blog: blogsResponse,
-      menu: menuResponse,
+      blog,
+      menu,
     },
   };
 };

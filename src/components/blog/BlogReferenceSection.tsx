@@ -18,7 +18,7 @@ const BlogReferenceSection = (props: IBlog) => {
               <p className="text-sm ">{author}</p>
               <div className=" text-sm text-gray-500">
                 <span>
-                  {readingTime} &middot; {category}
+                  {readingTime} min &middot; {category}
                 </span>
               </div>
             </div>

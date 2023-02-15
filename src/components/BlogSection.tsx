@@ -71,7 +71,7 @@ const BlogSection = ({ blogs }: BlogSectionProps) => {
                     <p className="text-sm ">{blog.author}</p>
                     <div className=" text-sm text-gray-500">
                       <span>
-                        {blog.readingTime} &middot; {blog.category}
+                        {blog.readingTime} min &middot; {blog.category}
                       </span>
                     </div>
                   </div>

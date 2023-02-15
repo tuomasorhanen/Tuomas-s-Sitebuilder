@@ -55,7 +55,7 @@ const Header = (props: IMenuProps) => {
             />
           </Navbar.Brand>
         </div>
-        <button className="flex flex-wrap">
+        <div className="flex flex-wrap">
           <span className="sr-only">Open main menu</span>
           <Navbar.Toggle
             data-collapse-toggle="navbar-hamburger"
@@ -64,7 +64,7 @@ const Header = (props: IMenuProps) => {
             aria-controls="navbar-hamburger"
             aria-expanded="false"
           />
-        </button>
+        </div>
         <Navbar.Collapse>
           <div className="flex flex-col ">
             {items.map(item => {
