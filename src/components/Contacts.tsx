@@ -12,7 +12,7 @@ const ContactsSection = (props: IContacts) => {
       return (
         <div key={button.name}>
           <Link key={button.name} href={button.url} className="flex">
-            <Image {...button.image} alt={button.imageText} className="h-10 w-10 rounded-full" />
+            <Image {...button.image} alt={button.imageText} className="h-10 w-10 rounded-full object-cover" />
           </Link>
         </div>
       );
@@ -30,9 +30,9 @@ const ContactsSection = (props: IContacts) => {
   return (
     <div key={props._key}>
       <div className="mx-auto grid text-center md:max-w-7xl md:grid-cols-3 md:text-left">
-        <div className="pt-24">
+        <div className="pt-24 lg:pt-48">
           <h3 className="text-6xl font-bold">{title}</h3>
-          <h3 className="mt-6 text-xl ">{description}</h3>
+          <h3 className="mx-auto mt-6 max-w-3xl text-xl ">{description}</h3>
           <div className="mt-6">
             <p>{phone}</p>
             <p>{email}</p>
