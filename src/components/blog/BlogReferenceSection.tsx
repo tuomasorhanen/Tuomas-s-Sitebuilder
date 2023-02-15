@@ -1,20 +1,15 @@
-import { client } from '_lib/client';
-import { IBlog, IReference } from '_lib/types';
-import Img from 'next/image';
+import { IBlog } from '_lib/types';
 import Link from 'next/link';
-import { useNextSanityImage } from 'next-sanity-image';
 
-type IBlogSectionProps = IBlog & IReference & {};
+import Image from '../Image';
 
-const BlogReferenceSection = (props: IBlogSectionProps) => {
+const BlogReferenceSection = (props: IBlog) => {
   const { excerpt, image, category, readingTime, title, author, slug } = props;
-
-  const imageProps = useNextSanityImage(client, image);
 
   return (
     <div key={props._key} className="px-4">
       <div className="rounded-lg border-2 bg-gray-100">
-        <Img {...imageProps} className="h-48 w-full rounded-t-lg object-cover" alt="" />
+        <Image {...image} alt="" className="h-48 w-full rounded-t-lg object-cover" />
         <Link href={`/blog/${slug.current}`}>
           <div className="m-4 p-2 text-black">
             <h2 className="text-3xl font-bold">{title}</h2>

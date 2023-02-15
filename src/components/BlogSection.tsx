@@ -1,65 +1,67 @@
-import { IBlog, IReference } from '_lib/types';
+import { IBlog } from '_lib/types';
 import Link from 'next/link';
 import { useState } from 'react';
 
-import { createRandomUUID } from '../sanity/lib/uuid';
 import Image from './Image';
 
-type IBlogSectionProps = {
+type BlogSectionProps = {
   blogs: IBlog[];
 };
 
-const BlogSection = ({ blogs, ...props }: IBlogSectionProps) => {
+const BlogSection = ({ blogs }: BlogSectionProps) => {
   const [selectedCategory, setSelectedCategory] = useState('All');
+
   const getCategories = () => {
-    return Array.from(
-      new Set(
-        blogs.map(blog => {
-          return {
-            _id: createRandomUUID(),
-            name: blog.category,
-          };
-        })
-      )
-    );
+    const allCategories = blogs.map(blog => blog.category.toLowerCase());
+    const uniqueCategories = [...new Set(allCategories)];
+    return uniqueCategories;
   };
+
   const [categories, setCategories] = useState(getCategories());
 
-  const [shownBlogs, setShownBlogs] = useState(
-    blogs.filter(blog => selectedCategory === 'All' || blog.category === selectedCategory)
-  );
-
-  const handleCategorySelection = category => {
-    setSelectedCategory(category.name);
-    setShownBlogs(blogs.filter(blog => category.name === 'All' || blog.category === category.name));
+  const handleCategorySelection = (category: string) => {
+    setSelectedCategory(category);
   };
+
+  const filteredBlogs =
+    selectedCategory === 'All'
+      ? blogs
+      : blogs.filter(blog => blog.category.toLowerCase() === selectedCategory.toLowerCase());
+
+  const addCategory = (category: string) => {
+    const newCategory = category.toLowerCase();
+    if (!categories.includes(newCategory)) {
+      setCategories([...categories, newCategory]);
+    }
+  };
+
   return (
     <div className="grid grid-cols-12 gap-6 px-24">
       <div className="col-start-1 col-end-13 -mx-24 -mt-6">
         <div className="mt-10 flex justify-center">
           <button
-            onClick={() => handleCategorySelection({ name: 'All' })}
+            onClick={() => handleCategorySelection('All')}
             className={`mx-2 rounded-full border border-white py-2 px-4 font-medium uppercase tracking-widest text-white transition duration-300 ease-in-out hover:bg-white hover:text-gray-900
-                  ${selectedCategory === 'All' ? 'bg-white text-gray-900' : 'bg-transparent'}
-                `}>
+            ${selectedCategory === 'All' ? 'bg-white text-gray-900' : 'bg-transparent'}
+          `}>
             All
           </button>
-          {categories.map((category: { _id: string; name: string }) => (
+          {categories.map(category => (
             <button
-              key={category._id}
+              key={category}
               onClick={() => handleCategorySelection(category)}
               className={`mx-2 rounded-full border border-white py-2 px-4 font-medium uppercase tracking-widest text-white transition duration-300 ease-in-out hover:bg-white hover:text-gray-900
-                  ${selectedCategory === category.name ? 'bg-white text-gray-900' : 'bg-transparent'}
-                `}>
-              {category.name}
+              ${selectedCategory.toLowerCase() === category ? 'bg-white text-gray-900' : 'bg-transparent'}
+            `}>
+              {category}
             </button>
           ))}
         </div>
       </div>
       <div className="col-span-12">
         <div className="px-4">
-          {shownBlogs.map(blog => (
-            <div className="rounded-lg border-2 bg-gray-100" key={blog._key}>
+          {filteredBlogs.map(blog => (
+            <div key={blog._key} className="mt-6 rounded-lg border-2 bg-gray-100">
               <Image {...blog.image} alt="" className="h-48 w-full rounded-t-lg object-cover" />
               <Link href={`/blog/${blog.slug.current}`}>
                 <div className="m-4 p-2 text-black">
