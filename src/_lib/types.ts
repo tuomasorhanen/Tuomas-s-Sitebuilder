@@ -34,7 +34,7 @@ export type IHero = {
   description: string;
   image: ISanityImage;
   buttons: ICallToAction[];
-  layout: 'slash-right' | 'circle-left' | 'simple-right';
+  layout: 'slash-right' | 'circle-left';
 };
 export type IContacts = {
   _key: string;

@@ -87,17 +87,63 @@ const HeroSection = (props: IHero) => {
           )}
         </div>
       );
-    case 'simple-right':
+    case 'circle-left':
       return (
-        <section key={props._key} className="bg-white dark:bg-gray-900">
-          <div className="mx-auto grid max-w-screen-xl px-4 py-8 lg:grid-cols-12 lg:gap-8 lg:py-16 xl:gap-0">
-            <div className="mr-auto place-self-center lg:col-span-7">
-              <h1 className="mb-4 max-w-2xl text-4xl font-extrabold leading-none tracking-tight dark:text-white md:text-5xl xl:text-6xl">
-                {title}
-              </h1>
-              <p className="mb-6 max-w-2xl font-light text-gray-500 dark:text-gray-400 md:text-lg lg:mb-8 lg:text-xl">
-                {description}
-              </p>
+        <div key={props._key} className="pb-16 sm:relative sm:z-10 sm:px-16">
+          {title || description || imageProps ? (
+            <div className="sm:mx-auto sm:grid sm:max-w-7xl sm:grid-cols-3 sm:gap-8 sm:px-8">
+              <div className="relative sm:-my-8">
+                <div aria-hidden="true" className="absolute inset-x-0 top-0 h-1/2 sm:hidden" />
+                <div className="mx-auto max-w-md px-6 sm:h-full sm:max-w-3xl sm:p-0">
+                  {imageProps && imageProps.src && (
+                    <div className="aspect-w-10 aspect-h-6 sm:aspect-w-16 sm:aspect-h-7 sm:aspect-none hidden overflow-hidden rounded-full shadow-2xl sm:block">
+                      <Img {...imageProps} className="object-cover sm:h-full sm:w-full" alt="" />
+                    </div>
+                  )}
+                  <h2 className="mt-4 mb-16 hidden text-center text-4xl font-medium sm:block">{title}</h2>
+                </div>
+              </div>
+              <div className=" sm:col-span-2 sm:m-0 sm:pl-8">
+                <div className="mx-auto max-w-3xl px-6 pt-8 text-center sm:px-0 sm:py-12 sm:text-left">
+                  <blockquote>
+                    <div>
+                      <h2 className="text-center text-3xl font-medium sm:hidden">{title}</h2>
+
+                      <p className="text-md mt-6 font-light">{description}</p>
+                    </div>
+                    <footer className="mt-6">
+                      {buttons && (
+                        <div className="mt-10 flex justify-center sm:justify-start">
+                          {buttons.map(btn => {
+                            if (btn._type === 'Social') {
+                              return (
+                                <Link
+                                  key={btn.name}
+                                  href={btn.url}
+                                  className="mx-2 rounded-md border-2 p-2 shadow-xl hover:scale-105">
+                                  {btn.name}
+                                </Link>
+                              );
+                            }
+                            return (
+                              <div key={btn.navigateToPage} className="flex">
+                                <Link
+                                  href={btn.navigateToPage}
+                                  className="mx-2 rounded-md border-2 p-2 shadow-xl hover:scale-105">
+                                  {btn.callToAction}
+                                </Link>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      )}
+                    </footer>
+                  </blockquote>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="mx-auto flex justify-center">
               {buttons &&
                 buttons.map(btn => {
                   if (btn._type === 'Social') {
@@ -120,13 +166,8 @@ const HeroSection = (props: IHero) => {
                   );
                 })}
             </div>
-            <div className="hidden lg:col-span-5 lg:mt-0 lg:flex">
-              {imageProps && (
-                <Img {...imageProps} className="hidden aspect-[6/2]  object-cover sm:block sm:h-full" alt="" />
-              )}
-            </div>
-          </div>
-        </section>
+          )}
+        </div>
       );
 
     default:
