@@ -1,21 +1,23 @@
 import { client } from '_lib/client';
-import { IBlog, IHeadingAndTitle, IHero } from '_lib/types';
+import { IBlog } from '_lib/types';
 import { GetServerSideProps } from 'next';
 import { groq } from 'next-sanity';
-
-import BlogSection from '../../components/BlogSection';
 import Header, { IMenuItem } from '../../components/Header';
+import MyFooter from 'components/Footer';
+import BlogSection from '../../components/BlogSection';
 
 type IPageProps = {
   blogs: IBlog[];
   menu: IMenuItem[];
 };
+
 const Blogs = (props: IPageProps) => {
   const { blogs, menu } = props;
   return (
     <>
       <Header items={menu} />
       <BlogSection blogs={blogs} />
+      <MyFooter items={menu} />
     </>
   );
 };

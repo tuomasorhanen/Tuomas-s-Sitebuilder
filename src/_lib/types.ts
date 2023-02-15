@@ -51,6 +51,7 @@ export type IContacts = {
 export type IBlog = {
   _id: string;
   _type: string;
+  _key: string
   title: string;
   slug: ISlug;
   image: ISanityImage;
@@ -63,6 +64,7 @@ export type IBlog = {
 
 export type IHeadingAndTitle = {
   _type: string;
+  _key: string;
   title: string;
   heading: string;
 };
@@ -70,6 +72,7 @@ export type IHeadingAndTitle = {
 export type ITestimonial = {
   _ref: string;
   _type: 'Testimonial';
+  _key: string;
   title: string;
   quote: string;
   company: ICompany;

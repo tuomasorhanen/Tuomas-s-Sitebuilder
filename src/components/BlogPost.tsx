@@ -1,7 +1,5 @@
-import React from 'react';
-
 const BlogPost = ({ blog }) => {
-  return <div>blog post</div>;
+  return <div>blogPost goes here</div>;
 };
 
 export default BlogPost;
