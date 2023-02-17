@@ -2,10 +2,10 @@ import { IBlog, IBlogHeading, IBlogImage, IBlogParagraph } from '_lib/types';
 
 import Image from './Image';
 
-const BlogPost = ({ content }: IBlog) => {
+const BlogPost = ({ content, category, author, readingTime }: IBlog) => {
   return (
     <div className="bg-white text-black">
-      <div className="sm:-px-6 mx-auto max-w-3xl px-6 lg:max-w-4xl xl:max-w-6xl">
+      <div className="sm:-px-6 mx-auto max-w-3xl px-6 py-12 lg:max-w-4xl xl:max-w-6xl">
         {content.map(item => {
           switch (item._type) {
             case 'BlogHeading':
@@ -68,6 +68,11 @@ const BlogPost = ({ content }: IBlog) => {
               return <></>;
           }
         })}
+        <div className="mt-12 flex flex-col items-center text-sm text-gray-500">
+          <span>{author}</span>
+          <span>{readingTime} min</span>
+          <span>{category}</span>
+        </div>
       </div>
     </div>
   );
