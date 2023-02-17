@@ -15,7 +15,7 @@ type IMenuProps = {
 const MyFooter = (props: IMenuProps) => {
   const { items } = props;
   return (
-    <div key={props.key} className="mx-auto max-w-7xl overflow-hidden py-16 px-6 ">
+    <div key={props.key} className="mx-auto max-w-7xl overflow-hidden px-6 pb-12 pt-24 ">
       <nav className=" flex flex-wrap justify-center space-x-4 sm:space-x-12">
         {items.map(item => {
           return (
@@ -27,7 +27,7 @@ const MyFooter = (props: IMenuProps) => {
           );
         })}
       </nav>
-      <p className="mt-4 text-center text-xs leading-5 text-gray-500">
+      <p className="mt-4 text-center text-xs leading-5 text-gray-300">
         &copy; 2023 ProEnabler, Inc. All rights reserved.
       </p>
     </div>

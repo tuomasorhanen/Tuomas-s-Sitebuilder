@@ -36,7 +36,7 @@ const BlogSection = ({ blogs }: BlogSectionProps) => {
   };
 
   return (
-    <div className="grid grid-cols-12 gap-6 px-4 sm:px-24">
+    <div className="grid grid-cols-12 gap-6 px-4">
       <div className="col-start-1 col-end-13">
         <div className="mt-10 flex flex-wrap justify-center">
           <button
@@ -59,19 +59,19 @@ const BlogSection = ({ blogs }: BlogSectionProps) => {
         </div>
       </div>
       <div className="col-span-12">
-        <div className="mx-auto grid max-w-screen-lg grid-cols-1 gap-6 py-8 sm:px-4 md:grid-cols-2 lg:grid-cols-3 lg:py-16 lg:px-6">
+        <div className="mx-auto grid max-w-screen-lg grid-cols-1 gap-6 py-8 sm:grid-cols-2 sm:px-4 md:grid-cols-3 lg:py-16 lg:px-6">
           {filteredBlogs.map(blog => (
             <div key={blog._key}>
               <Image {...blog.image} alt="" className="h-48 w-full rounded-t-lg object-cover" />
               <Link href={`/blog/${blog.slug.current}`}>
-                <article className="rounded-b-lg border border-gray-700 bg-gray-800 p-6 shadow-md">
-                  <h2 className="mb-2 text-2xl font-bold tracking-tight text-white">{blog.title}</h2>
-                  <p className="mb-5 font-light text-gray-300">{blog.excerpt}</p>
+                <article className="rounded-b-lg border border-gray-500 bg-white p-6 shadow-2xl">
+                  <h2 className="mb-2 text-2xl font-bold tracking-tight text-black">{blog.title}</h2>
+                  <p className="mb-5 font-light text-gray-800">{blog.excerpt}</p>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-4">
-                      <span className="font-medium dark:text-white">{blog.author}</span>
-                      <span>
-                        {blog.readingTime} min &middot; {blog.category}
+                      <span className="font-medium text-black">{blog.author}</span>
+                      <span className="text-black">
+                        &middot; {blog.readingTime} min &middot; {blog.category}
                       </span>
                     </div>
                   </div>

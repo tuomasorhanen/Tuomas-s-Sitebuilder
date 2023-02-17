@@ -61,7 +61,7 @@ const HeroSection = (props: IHero) => {
               )}
             </div>
           ) : (
-            <div className="mx-auto mt-6 flex justify-center">
+            <div className="mx-auto mt-12 flex justify-center">
               {buttons &&
                 buttons.map(btn => {
                   if (btn._type === 'Social') {

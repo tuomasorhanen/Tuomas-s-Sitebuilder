@@ -16,12 +16,12 @@ const MapContent = (props: IMapContentProps) => {
   const { content } = props;
 
   return (
-    <div className="mx-auto grid max-w-screen-lg grid-cols-12 gap-6">
+    <div className="mx-auto grid max-w-screen-lg grid-cols-12">
       {content.map(item => {
         switch (item._type) {
           case 'Hero':
             return (
-              <div className="col-start-1 col-end-13 -mb-6 ">
+              <div className="col-start-1 col-end-13 ">
                 <HeroSection key={item._id} {...item} />
               </div>
             );
@@ -33,7 +33,7 @@ const MapContent = (props: IMapContentProps) => {
             );
           case 'Testimonial':
             return (
-              <div className="col-span-12 xs:col-span-6 ">
+              <div className="col-span-12 xs:col-span-6">
                 <TestimonialSection key={item._id} {...item} />
               </div>
             );

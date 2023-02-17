@@ -10,8 +10,8 @@ const TestimonialSection = (props: ITestimonialSectionProps) => {
 
   if (_ref) {
     return (
-      <div key={props._key} className="col-span-12 mx-auto px-4 sm:col-span-6 md:col-span-4 lg:col-span-2 ">
-        <div className="grid grid-cols-1 gap-6 rounded-lg border border-gray-700 bg-gray-800 p-6 shadow-md ">
+      <div key={props._key} className="mx-auto px-4 ">
+        <div className="rounded-lg border border-gray-700 bg-gray-800 p-6 shadow-2xl ">
           <div className="mt-4">
             <h2 className="text-2xl font-bold tracking-tight text-white">{company.name}</h2>
             <p className="mt-2 font-light text-gray-300">{quote}</p>
