@@ -29,9 +29,9 @@ const ContactsSection = (props: IContacts) => {
 
   return (
     <div key={props._key}>
-      <div className="mx-auto grid text-center md:max-w-7xl md:grid-cols-3 md:text-left">
+      <div className="mx-auto grid px-4 text-center md:max-w-7xl md:grid-cols-3 md:text-left">
         <div className="pt-24 lg:pt-48">
-          <h3 className="text-6xl font-bold">{title}</h3>
+          <h3 className="text-4xl font-bold xs:text-6xl">{title}</h3>
           <h3 className="mx-auto mt-6 max-w-3xl text-xl ">{description}</h3>
           <div className="mt-6">
             <p>{phone}</p>

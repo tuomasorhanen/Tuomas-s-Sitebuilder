@@ -26,7 +26,7 @@ const HeroSection = (props: IHero) => {
                 </svg>
                 <div className="relative py-32 px-6 sm:py-40 lg:py-56">
                   <div className="text-center">
-                    {title && <h1 className="text-4xl font-bold sm:text-6xl">{title}</h1>}
+                    {title && <h1 className="text-2xl font-bold xs:text-4xl sm:text-6xl">{title}</h1>}
                     {description && <p className="mt-4">{description}</p>}
                     <div className="mt-10 flex justify-center">
                       {buttons &&
@@ -36,7 +36,7 @@ const HeroSection = (props: IHero) => {
                               <Link
                                 key={btn.name}
                                 href={btn.url}
-                                className="mx-2 rounded-md border-2 border-gray-200 bg-[#C07C2E] p-2 text-white shadow-xl hover:scale-105">
+                                className="mx-2 rounded-md border-2 border-gray-200 bg-[#C07C2E] p-2 text-sm text-white shadow-xl hover:scale-105">
                                 {btn.name}
                               </Link>
                             );
@@ -45,7 +45,7 @@ const HeroSection = (props: IHero) => {
                             <Link
                               key={btn.navigateToPage}
                               href={btn.navigateToPage}
-                              className="mx-2 rounded-md border-2 border-gray-200 bg-[#C07C2E] p-2 text-white shadow-xl hover:scale-105">
+                              className="mx-2 rounded-md border-2 border-gray-200 bg-[#C07C2E] p-2 text-sm text-white shadow-xl hover:scale-105">
                               {btn.callToAction}
                             </Link>
                           );
@@ -61,7 +61,7 @@ const HeroSection = (props: IHero) => {
               )}
             </div>
           ) : (
-            <div className="mx-auto mt-24 flex justify-center">
+            <div className="mx-auto mt-6 flex justify-center">
               {buttons &&
                 buttons.map(btn => {
                   if (btn._type === 'Social') {
@@ -69,7 +69,7 @@ const HeroSection = (props: IHero) => {
                       <Link
                         key={btn.name}
                         href={btn.url}
-                        className="mx-2 rounded-md border-2 border-gray-200 bg-[#C07C2E] p-2 text-white shadow-xl hover:scale-105">
+                        className="mx-2 rounded-md border-2 border-gray-200 bg-[#C07C2E] p-2 text-sm text-white shadow-xl hover:scale-105">
                         {btn.name}
                       </Link>
                     );
@@ -78,7 +78,7 @@ const HeroSection = (props: IHero) => {
                     <Link
                       key={btn.navigateToPage}
                       href={btn.navigateToPage}
-                      className="mx-2 rounded-md border-2 border-gray-200 bg-[#C07C2E] p-2 text-white shadow-xl hover:scale-105">
+                      className="mx-2 rounded-md border-2 border-gray-200 bg-[#C07C2E] p-2 text-sm text-white shadow-xl hover:scale-105">
                       {btn.callToAction}
                     </Link>
                   );
@@ -109,7 +109,7 @@ const HeroSection = (props: IHero) => {
                     <div>
                       <h2 className="text-center text-3xl font-medium sm:hidden">{title}</h2>
 
-                      <p className="text-md mt-6 font-light">{description}</p>
+                      <p className="text-md mt-6 text-left font-light">{description}</p>
                     </div>
                     <footer className="mt-6">
                       {buttons && (
@@ -120,7 +120,7 @@ const HeroSection = (props: IHero) => {
                                 <Link
                                   key={btn.name}
                                   href={btn.url}
-                                  className=" mx-2 rounded-md border-2 bg-[#C07C2E] p-2 shadow-xl hover:scale-105">
+                                  className=" mx-2 rounded-md border-2 bg-[#C07C2E] p-2 text-sm shadow-xl hover:scale-105">
                                   {btn.name}
                                 </Link>
                               );
@@ -129,7 +129,7 @@ const HeroSection = (props: IHero) => {
                               <div key={btn.navigateToPage} className="flex">
                                 <Link
                                   href={btn.navigateToPage}
-                                  className="mx-2 rounded-md border-2 border-gray-200 bg-[#C07C2E] p-2 text-white shadow-xl hover:scale-105">
+                                  className="mx-2 rounded-md border-2 border-gray-200 bg-[#C07C2E] p-2 text-sm text-white shadow-xl hover:scale-105">
                                   {btn.callToAction}
                                 </Link>
                               </div>
@@ -151,7 +151,7 @@ const HeroSection = (props: IHero) => {
                       <Link
                         key={btn.name}
                         href={btn.url}
-                        className="mx-2 rounded-md border-2 border-gray-200 bg-[#C07C2E] p-2 text-white shadow-xl hover:scale-105">
+                        className="mx-2 rounded-md border-2 border-gray-200 bg-[#C07C2E] p-2 text-sm text-white shadow-xl hover:scale-105">
                         {btn.name}
                       </Link>
                     );
@@ -160,7 +160,7 @@ const HeroSection = (props: IHero) => {
                     <Link
                       key={btn.navigateToPage}
                       href={btn.navigateToPage}
-                      className="mx-2 rounded-md border-2 border-gray-200 bg-[#C07C2E] p-2 text-white shadow-xl hover:scale-105">
+                      className="mx-2 rounded-md border-2 border-gray-200 bg-[#C07C2E] p-2 text-sm text-white shadow-xl hover:scale-105">
                       {btn.callToAction}
                     </Link>
                   );
@@ -186,7 +186,7 @@ const HeroSection = (props: IHero) => {
                           <Link
                             key={btn.name}
                             href={btn.url}
-                            className="border-gray-200] mx-2 rounded-md border-2 p-2 text-white shadow-xl hover:scale-105">
+                            className="border-gray-200] mx-2 rounded-md border-2 p-2 text-sm text-white shadow-xl hover:scale-105">
                             {btn.name}
                           </Link>
                         );
@@ -195,7 +195,7 @@ const HeroSection = (props: IHero) => {
                         <Link
                           key={btn.navigateToPage}
                           href={btn.navigateToPage}
-                          className="mx-2 rounded-md border-2 border-gray-200 p-2 text-white shadow-xl hover:scale-105">
+                          className="mx-2 rounded-md border-2 border-gray-200 p-2 text-sm text-white shadow-xl hover:scale-105">
                           {btn.callToAction}
                         </Link>
                       );

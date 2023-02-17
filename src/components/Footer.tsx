@@ -16,7 +16,7 @@ const MyFooter = (props: IMenuProps) => {
   const { items } = props;
   return (
     <div key={props.key} className="mx-auto max-w-7xl overflow-hidden py-16 px-6 ">
-      <nav className=" flex justify-center space-x-4 sm:space-x-12">
+      <nav className=" flex flex-wrap justify-center space-x-4 sm:space-x-12">
         {items.map(item => {
           return (
             <div key={item.slug.current}>

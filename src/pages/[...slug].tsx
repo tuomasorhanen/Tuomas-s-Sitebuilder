@@ -9,7 +9,6 @@ import { groq } from 'next-sanity';
 import MyFooter from '../components/Footer';
 import Header, { IMenuItem } from '../components/Header';
 import MapContent from '../components/MapContent';
-import NewHeader from 'components/NewHeader';
 
 type IPageProps = {
   content: IHero[] | IHeadingAndTitle[];
@@ -23,7 +22,6 @@ const IndexPage = (props: IPageProps) => {
   return (
     <>
       <Header items={menu} />
-      <NewHeader items={menu} />
       <MapContent content={content} />
       <MyFooter items={menu} />
       {/* <TestimonialHome testimonials={testimonials} />

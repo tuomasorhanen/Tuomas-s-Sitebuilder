@@ -48,21 +48,21 @@ const Header = (props: IMenuProps) => {
       </nav>
       <Navbar className="hidden max-xs:block">
         <div className="flex justify-between">
-          <Navbar.Brand href="/">
+          <Navbar.Brand href="/" className="flex shrink flex-wrap">
             <img
               alt="ProEnabler"
-              className="mx-10 h-16"
+              className="h-16"
               src="https://amban.fi/wp-content/uploads/2023/01/Enabler-logo-ei-taustaa-e1676467699355.webp"
             />
-            <p className=" -ml-6 text-lg font-bold">ProEnabler</p>
+            <p className="ml-4 text-lg font-bold">ProEnabler</p>
           </Navbar.Brand>
         </div>
-        <div className="flex flex-wrap">
+        <div className="">
           <span className="sr-only">Open main menu</span>
           <Navbar.Toggle
             data-collapse-toggle="navbar-hamburger"
             type="button"
-            className="mx-10"
+            className="mr-4"
             aria-controls="navbar-hamburger"
             aria-expanded="false"
           />
