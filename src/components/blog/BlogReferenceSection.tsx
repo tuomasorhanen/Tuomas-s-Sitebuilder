@@ -7,7 +7,7 @@ const BlogReferenceSection = (props: IBlog) => {
   const { excerpt, image, category, readingTime, title, author, slug } = props;
 
   return (
-    <div key={props._key} className="col-span-12 mx-auto px-4 sm:col-span-6 md:col-span-4 lg:col-span-4 ">
+    <div key={props._key} className="col-span-12 mx-auto p-4 sm:col-span-6 md:col-span-4 lg:col-span-4 ">
       <div className="grid grid-cols-1 rounded-lg border border-gray-300 bg-gray-100 shadow-md ">
         <Image {...image} alt="" className="h-48 w-full rounded-t-lg object-cover" />
         <div className="py-4 px-6">
