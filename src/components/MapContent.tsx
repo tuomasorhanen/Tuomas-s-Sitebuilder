@@ -1,7 +1,6 @@
 import { IHeadingAndTitle, IHero } from '_lib/types';
 
 import BlogReferenceSection from './blog/BlogReferenceSection';
-import BlogSection from './BlogSection';
 import ContactsSection from './Contacts';
 import HeadingAndTitle from './HeadingAndTitle';
 import HeroSection from './hero/HeroSection';

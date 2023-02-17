@@ -23,19 +23,19 @@ const Header = (props: IMenuProps) => {
           <Link href="/" className="flex items-center">
             <img
               alt="ProEnabler"
-              className="mx-10 -mt-6 h-12"
+              className="mx-10 h-12"
               src="https://amban.fi/wp-content/uploads/2023/01/Enabler-logo-ei-taustaa-e1676467699355.webp"
             />
-            <p className="-ml-6  -mt-6 text-xl font-bold">ProEnabler</p>
+            <p className="-ml-6 text-xl font-bold">ProEnabler</p>
           </Link>
           <div className="hidden w-auto xs:block" id="navbar-default">
-            <ul className="my-2 mx-10 flex p-4 text-sm font-medium md:space-x-4 ">
+            <ul className="my-2 mx-10 flex text-sm font-medium md:space-x-4 ">
               {items.map(item => {
                 return (
                   <li key={item.slug.current}>
                     <Link
                       href={'/' + item.slug.current}
-                      className="block py-2 px-4 pb-6 text-gray-300 hover:text-white"
+                      className="block py-2 px-4 text-gray-300 hover:text-white"
                       aria-current="page">
                       {item.name}
                     </Link>
@@ -51,7 +51,7 @@ const Header = (props: IMenuProps) => {
           <Navbar.Brand href="/" className="flex shrink flex-wrap">
             <img
               alt="ProEnabler"
-              className="h-16"
+              className="h-12"
               src="https://amban.fi/wp-content/uploads/2023/01/Enabler-logo-ei-taustaa-e1676467699355.webp"
             />
             <p className="ml-4 text-lg font-bold">ProEnabler</p>
