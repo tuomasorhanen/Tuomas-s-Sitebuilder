@@ -7,7 +7,6 @@ export default function Document() {
       <body className="bg-[#000b33] text-white">
         <Main />
         <NextScript />
-        <script src="../node_modules/flowbite/dist/flowbite.min.js"></script>
       </body>
     </Html>
   );
