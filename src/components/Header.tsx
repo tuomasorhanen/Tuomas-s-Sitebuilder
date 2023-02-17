@@ -19,7 +19,7 @@ const Header = (props: IMenuProps) => {
   return (
     <>
       <nav key={props.key} className="rounded max-xs:hidden">
-        <div className="flex justify-between">
+        <div className="flex justify-between py-2">
           <Link href="/" className="flex items-center">
             <img
               alt="ProEnabler"
@@ -47,7 +47,7 @@ const Header = (props: IMenuProps) => {
         </div>
       </nav>
       <Navbar className="hidden max-xs:block">
-        <div className="flex justify-between">
+        <div className="flex justify-between py-2">
           <Navbar.Brand href="/" className="flex shrink flex-wrap">
             <img
               alt="ProEnabler"
