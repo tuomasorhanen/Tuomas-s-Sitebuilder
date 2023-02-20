@@ -41,7 +41,7 @@ const BlogSection = ({ blogs }: BlogSectionProps) => {
         <div className="mt-10 flex flex-wrap justify-center">
           <button
             onClick={() => handleCategorySelection('All')}
-            className={`mx-2 rounded-full border border-white py-2 px-4 font-medium uppercase tracking-widest text-white transition duration-300 ease-in-out hover:bg-white hover:text-gray-900
+            className={`mx-2 my-2 rounded-full border border-white py-2 px-4 font-medium uppercase tracking-widest text-white transition duration-300 ease-in-out hover:bg-white hover:text-gray-900
             ${selectedCategory === 'All' ? 'bg-white text-gray-900' : 'bg-transparent'}
           `}>
             All
@@ -50,7 +50,7 @@ const BlogSection = ({ blogs }: BlogSectionProps) => {
             <button
               key={category}
               onClick={() => handleCategorySelection(category)}
-              className={`mx-2 rounded-full border border-white p-4 py-2 font-medium uppercase tracking-widest text-white transition duration-300 ease-in-out hover:bg-white hover:text-gray-900
+              className={`mx-2 my-2 rounded-full border border-white p-4 py-2 font-medium uppercase tracking-widest text-white transition duration-300 ease-in-out hover:bg-white hover:text-gray-900
               ${selectedCategory.toLowerCase() === category ? 'bg-white text-gray-900' : 'bg-transparent'}
             `}>
               {category}
