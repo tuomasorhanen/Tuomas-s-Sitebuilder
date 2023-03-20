@@ -1,4 +1,4 @@
-import {RiPagesLine} from 'react-icons/ri';
+import { RiPagesLine } from 'react-icons/ri';
 
 export default {
   name: 'landingPage',

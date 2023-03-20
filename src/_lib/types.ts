@@ -8,13 +8,13 @@ export type ISiteSettings = {
   defaultBgColor: IColor;
   defaultTextColor: IColor;
   defaultHighlightColor: IColor;
-  };
+};
 
 export type IColor = {
   _type: 'color';
   hex: string;
   alpha: number;
-  };
+};
 
 export type IMetaFields = {
   metaTitle?: string;
@@ -22,7 +22,7 @@ export type IMetaFields = {
   openGraphImage?: ISanityImage;
   openGraphTitle?: string;
   openGraphDescription?: string;
-  };     
+};
 
 export type ISocialFields = {
   twitter?: string;
@@ -30,7 +30,7 @@ export type ISocialFields = {
   facebook?: string;
   linkedIn?: string;
   youtube?: string;
-  };
+};
 
 export type IPage = {
   _createdAt: Date;
@@ -71,18 +71,11 @@ export type IHero = {
   description: string;
   image: ISanityImage;
   buttons: ICallToAction[];
-  layout: 'image-bg' | 'image-right' | 'image_bg-center';
-};
-export type IContacts = {
-  _key: string;
-  _type: string;
-  title: string;
-  description: string;
-  phone: string;
-  email: string;
-  address: string;
-  businessId: string;
-  buttons: ICallToAction[];
+  layout: 'image-bg' | 'image-right' | 'image-left' | 'new-hero';
+  bgColor: IColor;
+  textColor: IColor;
+  highlightColor: IColor;
+  opacity: number;
 };
 
 export type IBlog = {
@@ -157,7 +150,7 @@ export type IPerson = {
 
 export type IReference = {
   _ref: string;
-  _type: 'Testimonial' | 'blogPost' | 'Social';
+  _type: 'Testimonial' | 'blogPost';
 };
 
 export type IService = {

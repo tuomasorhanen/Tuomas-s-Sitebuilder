@@ -11,8 +11,6 @@ import BlogParagraph from './types/BlogParagraph';
 import Company from './Company';
 import Person from './Blog/Person';
 import LandingPage from './Page Builder/LandingPage';
-import Social from './types/Social';
-import Contacts from './types/Contacts';
 import meta from './types/meta';
 import socialFields from './types/social-fields';
 import siteSettings from './Site Settings/site-settings';
@@ -30,8 +28,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     LandingPage,
 
     Hero,
-    Contacts,
-    Social,
     Service,
     HeadingAndTitle,
     BlogHeading,

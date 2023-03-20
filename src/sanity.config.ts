@@ -1,6 +1,6 @@
 import { visionTool } from '@sanity/vision';
 import { defineConfig } from 'sanity';
-import { colorInput } from "@sanity/color-input";
+import { colorInput } from '@sanity/color-input';
 import { deskTool } from 'sanity/desk';
 import { myTheme } from 'theme';
 import { apiVersion, dataset, projectId } from './sanity/env';
@@ -12,10 +12,6 @@ export default defineConfig({
   projectId,
   dataset,
   schema,
-  plugins: [
-    deskTool({structure}),
-    colorInput(),
-    visionTool({ defaultApiVersion: apiVersion }),
-  ],
-  theme: myTheme
+  plugins: [deskTool({ structure }), colorInput(), visionTool({ defaultApiVersion: apiVersion })],
+  theme: myTheme,
 });

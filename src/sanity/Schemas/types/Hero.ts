@@ -1,3 +1,5 @@
+import { defineField } from 'sanity';
+
 const Hero = {
   name: 'Hero',
   title: 'Hero',
@@ -32,7 +34,8 @@ const Hero = {
         list: [
           { title: 'image-bg', value: 'image-bg' },
           { title: 'image-right', value: 'image-right' },
-          { title: 'image_bg-center', value: 'image_bg-center' },
+          { title: 'image-left', value: 'image-left' },
+          { title: 'new-hero', value: 'new-hero' },
         ],
         validation: Rule => [Rule.required().error('A layout is required.')],
       },
@@ -41,8 +44,42 @@ const Hero = {
       name: 'buttons',
       title: 'Buttons',
       type: 'array',
-      of: [{ type: 'reference', to: [{ type: 'landingPage' }] }, { type: 'Social' }],
+      of: [{ type: 'reference', to: [{ type: 'landingPage' }] }],
     },
+    defineField({
+      name: 'bgColor',
+      title: 'Background Color',
+      type: 'color',
+    }),
+    {
+      name: 'opacity',
+      title: 'Background Opacity',
+      type: 'number',
+      options: {
+        list: [
+          { title: '0', value: '0' },
+          { title: '10', value: '10' },
+          { title: '20', value: '20' },
+          { title: '30', value: '30' },
+          { title: '40', value: '40' },
+          { title: '50', value: '50' },
+          { title: '75', value: '75' },
+          { title: '80', value: '80' },
+          { title: '90', value: '90' },
+          { title: '100', value: '100' },
+        ],
+      },
+    },
+    defineField({
+      name: 'textColor',
+      title: 'Text Color',
+      type: 'color',
+    }),
+    defineField({
+      name: 'highlightColor',
+      title: 'Highlight Color',
+      type: 'color',
+    }),
   ],
 };
 export default Hero;
