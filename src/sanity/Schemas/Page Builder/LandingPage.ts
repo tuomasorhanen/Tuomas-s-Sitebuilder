@@ -1,7 +1,10 @@
+import {RiPagesLine} from 'react-icons/ri';
+
 export default {
-  name: 'LandingPage',
+  name: 'landingPage',
   title: 'Landing Page',
   type: 'document',
+  icon: RiPagesLine,
   fields: [
     {
       name: 'callToAction',

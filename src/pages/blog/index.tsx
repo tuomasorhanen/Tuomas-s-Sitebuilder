@@ -1,6 +1,5 @@
 import { client } from '_lib/client';
 import { IBlog } from '_lib/types';
-import MyFooter from 'components/Footer';
 import { GetServerSideProps } from 'next';
 import { groq } from 'next-sanity';
 
@@ -18,7 +17,6 @@ const Blogs = (props: IPageProps) => {
     <>
       <Header items={menu} />
       <BlogSection blogs={blogs} />
-      <MyFooter items={menu} />
     </>
   );
 };

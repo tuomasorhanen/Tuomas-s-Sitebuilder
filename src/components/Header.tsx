@@ -18,24 +18,24 @@ const Header = (props: IMenuProps) => {
 
   return (
     <>
-      <nav key={props.key} className="rounded max-xs:hidden">
+      <nav key={props.key} className="rounded max-xs:hidden ">
         <div className="flex justify-between py-2">
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex items-center z-20">
             <img
-              alt="ProEnabler"
-              className="mx-10 h-12"
-              src="https://amban.fi/wp-content/uploads/2023/01/Enabler-logo-ei-taustaa-e1676467699355.webp"
+              alt="Tuomas's Site"
+              className="mx-10 h-12 rounded-full"
+              src="https://amban.fi/wp-content/uploads/2022/06/Tuomas-Orhanen-Amban.jpeg"
             />
-            <p className="-ml-6 text-xl font-bold">ProEnabler</p>
+            <p className="-ml-6 text-xl text-gray-100 hover:text-white font-bold">Tuomas's Site</p>
           </Link>
-          <div className="hidden w-auto xs:block" id="navbar-default">
-            <ul className="my-2 mx-10 flex text-sm font-medium md:space-x-4 ">
+          <div className="hidden w-auto xs:block z-20" id="navbar-default">
+            <ul className="my-2 mx-10 flex text-sm font-medium md:space-x-4">
               {items.map(item => {
                 return (
                   <li key={item.slug.current}>
                     <Link
                       href={'/' + item.slug.current}
-                      className="block py-2 px-4 text-gray-300 hover:text-white"
+                      className="block py-2 px-4 lg:text-xl text-gray-100 hover:text-white"
                       aria-current="page">
                       {item.name}
                     </Link>
@@ -47,14 +47,14 @@ const Header = (props: IMenuProps) => {
         </div>
       </nav>
       <Navbar className="hidden max-xs:block">
-        <div className="flex justify-between py-2">
+        <div className="flex justify-between py-2 ">
           <Navbar.Brand href="/" className="flex shrink flex-wrap">
             <img
-              alt="ProEnabler"
-              className="h-12"
-              src="https://amban.fi/wp-content/uploads/2023/01/Enabler-logo-ei-taustaa-e1676467699355.webp"
+              alt="Tuomas's Site"
+              className="h-12 rounded-full"
+              src="https://amban.fi/wp-content/uploads/2022/06/Tuomas-Orhanen-Amban.jpeg"
             />
-            <p className="ml-4 text-lg font-bold">ProEnabler</p>
+            <p className="ml-4 text-lg text-white font-bold">Tuomas's Site</p>
           </Navbar.Brand>
         </div>
         <div className="">

@@ -1,17 +1,54 @@
+export type ISiteSettings = {
+  _id: string;
+  title: string;
+  description: string;
+  logo: ISanityImage;
+  meta: IMetaFields;
+  socialFields: ISocialFields;
+  defaultBgColor: IColor;
+  defaultTextColor: IColor;
+  defaultHighlightColor: IColor;
+  };
+
+export type IColor = {
+  _type: 'color';
+  hex: string;
+  alpha: number;
+  };
+
+export type IMetaFields = {
+  metaTitle?: string;
+  metaDescription?: string;
+  openGraphImage?: ISanityImage;
+  openGraphTitle?: string;
+  openGraphDescription?: string;
+  };     
+
+export type ISocialFields = {
+  twitter?: string;
+  instagram?: string;
+  facebook?: string;
+  linkedIn?: string;
+  youtube?: string;
+  };
+
 export type IPage = {
   _createdAt: Date;
   _id: string;
   _rev: string;
   _type: 'Page';
   _updatedAt: Date;
+  meta: IMetaFields;
   name: string;
   menuOrder: number;
   content: IHeadingAndTitle[] | ITestimonial[] | IHero[];
 };
 
 export type ISanityImage = {
+  url: any;
   _type: string;
   asset: {
+    url(url: any): unknown;
     _ref: string;
     _type: string;
   };

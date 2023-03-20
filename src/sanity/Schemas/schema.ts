@@ -1,6 +1,6 @@
 import { SchemaTypeDefinition } from 'sanity';
-import Blog from './Blog';
-import Page from './Page';
+import Blog from './Blog/Blog';
+import Page from './Page Builder/Page';
 import Hero from './types/Hero';
 import Testimonial from './Testimonial';
 import Service from './Service';
@@ -9,17 +9,21 @@ import BlogHeading from './types/BlogHeading';
 import BlogImage from './types/BlogImage';
 import BlogParagraph from './types/BlogParagraph';
 import Company from './Company';
-import Person from './Person';
-import LandingPage from './types/LandingPage';
+import Person from './Blog/Person';
+import LandingPage from './Page Builder/LandingPage';
 import Social from './types/Social';
 import Contacts from './types/Contacts';
+import meta from './types/meta';
+import socialFields from './types/social-fields';
+import siteSettings from './Site Settings/site-settings';
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
+    siteSettings,
     Page,
+    Blog,
 
     Testimonial,
-    Blog,
     Company,
     Person,
 
@@ -33,5 +37,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     BlogHeading,
     BlogImage,
     BlogParagraph,
+    meta,
+    socialFields,
   ],
 };

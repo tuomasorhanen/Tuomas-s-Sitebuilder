@@ -15,7 +15,7 @@ const MapContent = (props: IMapContentProps) => {
   const { content } = props;
 
   return (
-    <div className="mx-auto grid max-w-screen-lg grid-cols-12">
+    <div className="mx-auto grid grid-cols-12">
       {content.map(item => {
         switch (item._type) {
           case 'Hero':
