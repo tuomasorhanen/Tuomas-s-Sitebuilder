@@ -71,7 +71,7 @@ export type IHero = {
   description: string;
   image: ISanityImage;
   buttons: ICallToAction[];
-  layout: 'slash-right' | 'circle-left' | 'image_bg-center';
+  layout: 'image-bg' | 'image-right' | 'image_bg-center';
 };
 export type IContacts = {
   _key: string;
