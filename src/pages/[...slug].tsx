@@ -2,7 +2,7 @@ import { client } from '_lib/client';
 import resolveCustomers from '_lib/resolveCustomers';
 import resolveLinks from '_lib/resolveLinks';
 import resolveReferences from '_lib/resolvers/resolveReferences';
-import { IBlog, IHeadingAndTitle, IHero, ITestimonial } from '_lib/types';
+import { IBlog, IColor, IHeadingAndTitle, IHero, ITestimonial } from '_lib/types';
 import { GetServerSideProps } from 'next';
 import { groq } from 'next-sanity';
 
@@ -14,14 +14,27 @@ type IPageProps = {
   testimonials: ITestimonial[];
   blogs: IBlog[];
   menu: IMenuItem[];
+  colors: {
+    defaultBgColor: IColor;
+    defaultTextColor: IColor;
+    defaultHighlightColor: IColor;
+  };
 };
+
 const IndexPage = (props: IPageProps) => {
-  const { content, menu } = props;
+  const { content, menu, colors } = props;
 
   return (
     <>
       <Header items={menu} />
-      <MapContent content={content} />
+      <MapContent content={content} defaultColors={colors} />
+      <style jsx global>{`
+        body {
+          background-color: ${colors.defaultBgColor.hex};
+          color: ${colors.defaultTextColor.hex};
+        }
+        // Add any other styles using the colors here
+      `}</style>
     </>
   );
 };
@@ -56,12 +69,21 @@ export const getServerSideProps: GetServerSideProps<IPageProps> = async context 
     slug,
     menuOrder,
   } | order(menuOrder asc)`;
+  
+  const siteSettingsQuery = groq`
+  *[_type == 'siteSettings'][0] {
+    defaultBgColor,
+    defaultTextColor,
+    defaultHighlightColor
+  }
+`;
 
-  let [testimonialsResponse, blogsResponse, menuResponse] = await Promise.all([
-    client.fetch(testimonialsQuery),
-    client.fetch(blogsQuery),
-    client.fetch<IMenuItem[]>(menuQuery),
-  ]);
+let [testimonialsResponse, blogsResponse, menuResponse, siteSettingsResponse] = await Promise.all([
+  client.fetch(testimonialsQuery),
+  client.fetch(blogsQuery),
+  client.fetch<IMenuItem[]>(menuQuery),
+  client.fetch(siteSettingsQuery),
+]);
 
   // Resolve call to action links in the content
   pageResponse = await resolveLinks(pageResponse);
@@ -75,6 +97,7 @@ export const getServerSideProps: GetServerSideProps<IPageProps> = async context 
       testimonials: testimonialsResponse,
       blogs: blogsResponse,
       menu: menuResponse,
+      colors: siteSettingsResponse,
     },
   };
 };

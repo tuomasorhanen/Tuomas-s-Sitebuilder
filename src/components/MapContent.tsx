@@ -1,5 +1,4 @@
-import { IHeadingAndTitle, IHero } from '_lib/types';
-
+import { IColor, IHeadingAndTitle, IHero } from '_lib/types';
 import BlogReferenceSection from './blog/BlogReferenceSection';
 import HeadingAndTitle from './HeadingAndTitle';
 import HeroSection from './hero/HeroSection';
@@ -8,11 +7,14 @@ import TestimonialSection from './testimonial/TestimonialSection';
 
 type IMapContentProps = {
   content: IHero[] | IHeadingAndTitle[];
-};
+  defaultColors: {
+    defaultBgColor: IColor;
+    defaultTextColor: IColor;
+    defaultHighlightColor: IColor;
+  };
+}
 
-const MapContent = (props: IMapContentProps) => {
-  const { content } = props;
-
+const MapContent = ({ content, defaultColors }: IMapContentProps) => {
   return (
     <div className="mx-auto grid grid-cols-12">
       {content.map(item => {
@@ -20,7 +22,7 @@ const MapContent = (props: IMapContentProps) => {
           case 'Hero':
             return (
               <div className="col-start-1 col-end-13 ">
-                <HeroSection key={item._id} {...item} />
+                <HeroSection key={item._id} {...item} defaultColors={defaultColors} />
               </div>
             );
           case 'HeadingAndTitle':

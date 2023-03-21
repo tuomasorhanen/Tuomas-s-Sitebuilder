@@ -71,7 +71,7 @@ export type IHero = {
   description: string;
   image: ISanityImage;
   buttons: ICallToAction[];
-  layout: 'image-bg' | 'image-right' | 'image-left' | 'new-hero';
+  layout: 'image-bg' | 'image-right' | 'image-left' | 'hero-slash-bg' | 'hero-right-simple';
   bgColor: IColor;
   textColor: IColor;
   highlightColor: IColor;
