@@ -7,7 +7,6 @@ const HeadingAndTitle = {
       name: 'title',
       title: 'Title',
       type: 'string',
-      validation: Rule => [Rule.required().error('Title is required.')],
     },
     {
       name: 'heading',

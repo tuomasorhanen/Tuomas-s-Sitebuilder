@@ -2,7 +2,7 @@ import { client } from '_lib/client';
 import resolveCustomers from '_lib/resolveCustomers';
 import resolveLinks from '_lib/resolveLinks';
 import resolveReferences from '_lib/resolvers/resolveReferences';
-import { IBlog, IColor, IHeadingAndTitle, IHero, ITestimonial } from '_lib/types';
+import { IBlog, IColor, IHeadingAndTitle, IHero } from '_lib/types';
 import { GetServerSideProps } from 'next';
 import { groq } from 'next-sanity';
 
@@ -11,7 +11,6 @@ import MapContent from '../components/MapContent';
 
 type IPageProps = {
   content: IHero[] | IHeadingAndTitle[];
-  testimonials: ITestimonial[];
   blogs: IBlog[];
   menu: IMenuItem[];
   colors: {
@@ -33,7 +32,6 @@ const IndexPage = (props: IPageProps) => {
           background-color: ${colors.defaultBgColor.hex};
           color: ${colors.defaultTextColor.hex};
         }
-        // Add any other styles using the colors here
       `}</style>
     </>
   );
@@ -56,9 +54,6 @@ export const getServerSideProps: GetServerSideProps<IPageProps> = async context 
     };
   }
 
-  const testimonialsQuery = groq`
-    *[_type == 'testimonials']
-  `;
   const blogsQuery = groq`
     *[_type == 'blogPost']
   `;
@@ -78,8 +73,7 @@ export const getServerSideProps: GetServerSideProps<IPageProps> = async context 
   }
 `;
 
-let [testimonialsResponse, blogsResponse, menuResponse, siteSettingsResponse] = await Promise.all([
-  client.fetch(testimonialsQuery),
+let [blogsResponse, menuResponse, siteSettingsResponse] = await Promise.all([
   client.fetch(blogsQuery),
   client.fetch<IMenuItem[]>(menuQuery),
   client.fetch(siteSettingsQuery),
@@ -94,7 +88,6 @@ let [testimonialsResponse, blogsResponse, menuResponse, siteSettingsResponse] = 
   return {
     props: {
       content: pageResponse.content,
-      testimonials: testimonialsResponse,
       blogs: blogsResponse,
       menu: menuResponse,
       colors: siteSettingsResponse,

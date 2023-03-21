@@ -78,6 +78,33 @@ export type IHero = {
   opacity: number;
 };
 
+export type ICard = {
+  _key: string;
+  _type: string;
+  title: string; 
+  description: string; 
+  image: ISanityImage;
+  layout: 'simple' | 'image-top';
+  bgColor: IColor;
+  textColor: IColor;
+  highlightColor: IColor;
+  opacity: number;
+}
+
+export type IGrid = {
+  _key: string;
+  title: string;
+  columns: IColumns;
+  items: IHero[] | ICard;
+}
+
+export type IColumns = {
+  small: string;
+  medium: string;
+  large: string;
+};
+
+
 export type IBlog = {
   _id: string;
   _type: string;
@@ -151,14 +178,6 @@ export type IPerson = {
 export type IReference = {
   _ref: string;
   _type: 'Testimonial' | 'blogPost';
-};
-
-export type IService = {
-  _key: string;
-  _type: string;
-  title: string;
-  description: string;
-  image: ISanityImage;
 };
 
 export type ISlug = {

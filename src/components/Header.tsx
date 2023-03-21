@@ -26,7 +26,7 @@ const Header = (props: IMenuProps) => {
               className="mx-10 h-12 rounded-full"
               src="https://amban.fi/wp-content/uploads/2022/06/Tuomas-Orhanen-Amban.jpeg"
             />
-            <p className="-ml-6 text-xl font-bold text-gray-100 hover:text-white">Tuomas's Site</p>
+            <p className="-ml-6 text-xl font-bold">Tuomas's Site</p>
           </Link>
           <div className="z-40 hidden w-auto xs:block" id="navbar-default">
             <ul className="my-2 mx-10 flex text-sm font-medium md:space-x-4">
@@ -35,7 +35,7 @@ const Header = (props: IMenuProps) => {
                   <li key={item.slug.current}>
                     <Link
                       href={'/' + item.slug.current}
-                      className="block py-2 px-4 text-gray-100 hover:text-white lg:text-xl"
+                      className="block py-2 px-4 lg:text-xl"
                       aria-current="page">
                       {item.name}
                     </Link>

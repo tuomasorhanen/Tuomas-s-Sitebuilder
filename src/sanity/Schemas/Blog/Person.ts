@@ -26,11 +26,6 @@ export default {
       type: 'string',
       validation: Rule => [Rule.required().error('Role is required.')],
     },
-    {
-      name: 'company',
-      title: 'Company',
-      type: 'reference',
-      to: [{ type: 'Company' }],
-    },
+
   ],
 };

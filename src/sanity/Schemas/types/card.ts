@@ -1,16 +1,14 @@
 import { defineField } from 'sanity';
 
-const Hero = {
-  name: 'Hero',
-  title: 'Hero',
+const Card = {
+  name: 'card',
+  title: 'Card',
   type: 'object',
   fields: [
     {
       name: 'title',
       title: 'Title',
       type: 'string',
-      description:
-        '⚡ Optional: Herosection should have a title, but a Hero component with no other content but button can be used to create buttons.',
     },
 
     {
@@ -28,25 +26,17 @@ const Hero = {
     },
     {
       name: 'layout',
-      title: 'Hero Layout',
+      title: 'Card Layout',
       type: 'string',
       options: {
         list: [
-          { title: 'image-bg', value: 'image-bg' },
-          { title: 'image-right', value: 'image-right' },
-          { title: 'image-left', value: 'image-left' },
-          { title: 'hero-slash-bg', value: 'hero-slash-bg' },
-          { title: 'hero-right-simple', value: 'hero-right-simple' },
+          { title: 'simple', value: 'simple' },
+          { title: 'image-top', value: 'image-top' },
         ],
         validation: Rule => [Rule.required().error('A layout is required.')],
       },
     },
-    {
-      name: 'buttons',
-      title: 'Buttons',
-      type: 'array',
-      of: [{ type: 'reference', to: [{ type: 'landingPage' }] }],
-    },
+
     defineField({
       name: 'bgColor',
       title: 'Background Color',
@@ -82,4 +72,4 @@ const Hero = {
     }),
   ],
 };
-export default Hero;
+export default Card;

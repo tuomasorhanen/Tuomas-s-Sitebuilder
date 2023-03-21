@@ -59,22 +59,13 @@ const Page = {
       group: 'content',
       of: [
         { type: 'Hero' },
+        { type: 'grid' },
         { type: 'HeadingAndTitle' },
         { type: 'landingPage' },
-        {
-          name: 'Testimonial',
-          type: 'reference',
-          to: [{ type: 'Testimonial' }],
-        },
         {
           name: 'Blog',
           type: 'reference',
           to: [{ type: 'blogPost' }],
-        },
-        {
-          name: 'Service',
-          type: 'reference',
-          to: [{ type: 'service' }],
         },
       ],
     }),
