@@ -1,7 +1,7 @@
 import { IColor, IHeadingAndTitle, IHero } from '_lib/types';
 import BlogReferenceSection from './blog/BlogReferenceSection';
 import GridSection from './grid/GridSection';
-import HeadingAndTitle from './HeadingAndTitle';
+import HeadingAndTitle from './Heading and Title/HeadingAndTitle';
 import HeroSection from './hero/HeroSection';
 
 type IMapContentProps = {
