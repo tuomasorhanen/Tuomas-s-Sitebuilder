@@ -1,5 +1,4 @@
 import { client } from '_lib/client';
-import resolveCustomers from '_lib/resolveCustomers';
 import resolveLinks from '_lib/resolveLinks';
 import resolveReferences from '_lib/resolvers/resolveReferences';
 import { IBlog, IColor, IHeadingAndTitle, IHero } from '_lib/types';
@@ -81,8 +80,6 @@ let [blogsResponse, menuResponse, siteSettingsResponse] = await Promise.all([
 
   // Resolve call to action links in the content
   pageResponse = await resolveLinks(pageResponse);
-  pageResponse = await resolveCustomers(pageResponse);
-
   pageResponse = await resolveReferences(pageResponse);
 
   return {

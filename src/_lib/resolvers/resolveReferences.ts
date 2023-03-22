@@ -16,13 +16,6 @@ const resolveReferences = async (page: IPage) => {
     }[0]`;
 
     switch (_type) {
-      case 'Testimonial':
-        qry = groq`*[_id == '${_ref}']{
-            ...,
-            company->,
-            person->
-        }[0]`;
-        break;
       case 'blogPost':
         break;
 

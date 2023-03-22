@@ -41,7 +41,7 @@ export type IPage = {
   meta: IMetaFields;
   name: string;
   menuOrder: number;
-  content: IHeadingAndTitle[] | ITestimonial[] | IHero[];
+  content: IHeadingAndTitle[] | IHero[];
 };
 
 export type ISanityImage = {
@@ -148,36 +148,17 @@ export type IHeadingAndTitle = {
   heading: string;
 };
 
-export type ITestimonial = {
-  _ref: string;
-  _type: 'Testimonial';
-  _key: string;
-  title: string;
-  quote: string;
-  company: ICompany;
-  person: IPerson;
-  referenceImage: string;
-};
-
-export type ICompany = {
-  _id: string;
-  _type: 'Company';
-  name: string;
-  people: IPerson[];
-};
-
 export type IPerson = {
   _id: string;
   _type: 'Person';
   name: string;
   role: string;
-  company: ICompany;
   image: ISanityImage;
 };
 
 export type IReference = {
   _ref: string;
-  _type: 'Testimonial' | 'blogPost';
+  _type: 'blogPost';
 };
 
 export type ISlug = {
