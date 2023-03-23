@@ -1,5 +1,5 @@
-import React from 'react';
 import { ISpacer } from '_lib/types';
+import React from 'react';
 
 interface SpacerProps extends ISpacer {}
 
@@ -8,7 +8,6 @@ const Spacer: React.FC<SpacerProps> = (props: SpacerProps) => {
   const bgColorStyle = bgColor ? { backgroundColor: bgColor.hex } : {};
 
   return <div className={`py-${size}`} style={bgColorStyle}></div>;
-
 };
 
 export default Spacer;

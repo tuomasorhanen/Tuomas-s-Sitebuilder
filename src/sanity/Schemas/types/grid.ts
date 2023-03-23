@@ -27,7 +27,8 @@ const grid = defineField({
     {
       name: 'columns',
       title: 'Columns',
-      description: 'There are some issues currently with the grid component. Please check if you got the expected amoint of columns.',
+      description:
+        'There are some issues currently with the grid component. Please check if you got the expected amoint of columns.',
       type: 'columns',
       group: 'columns',
     },

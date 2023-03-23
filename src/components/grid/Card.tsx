@@ -1,7 +1,7 @@
 // Card.tsx
 import { ICard, IColor } from '_lib/types';
-import Image from 'components/Image';
 import BlockContentRenderer from 'components/BlockContentRenderer';
+import Image from 'components/Image';
 
 interface CardProps extends ICard {
   defaultColors: {
@@ -26,9 +26,12 @@ const Card = (props: CardProps) => {
   switch (layout) {
     case 'simple':
       return (
-        <div key={props._key} className="rounded-lg border-2 p-6 shadow-2xl" style={{ ...highlightColorStyle, ...bgColorStyle }}>
+        <div
+          key={props._key}
+          className="rounded-lg border-2 p-6 shadow-2xl"
+          style={{ ...highlightColorStyle, ...bgColorStyle }}>
           <div className="mt-4">
-          <BlockContentRenderer blockContent={blockContent} />
+            <BlockContentRenderer blockContent={blockContent} />
           </div>
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4 pt-4">
@@ -42,8 +45,8 @@ const Card = (props: CardProps) => {
         <div key={props._key} className="grid p-4">
           <div className="rounded-lg border shadow-md " style={{ ...highlightColorStyle, ...bgColorStyle }}>
             <Image {...image} alt="" className="h-48 w-full rounded-t-lg object-cover" />
-            <div className="py-4 px-6" style={{...textColorStyle}}>
-            <BlockContentRenderer blockContent={blockContent} />
+            <div className="py-4 px-6" style={{ ...textColorStyle }}>
+              <BlockContentRenderer blockContent={blockContent} />
             </div>
           </div>
         </div>

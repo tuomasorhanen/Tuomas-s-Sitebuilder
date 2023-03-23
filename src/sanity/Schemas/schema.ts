@@ -43,6 +43,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     columns,
     spacer,
     uiElement,
-    blockContent
+    blockContent,
   ],
 };

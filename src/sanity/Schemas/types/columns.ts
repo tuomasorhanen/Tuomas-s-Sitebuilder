@@ -97,14 +97,13 @@ const columns = defineField({
             value: '2',
           },
         ],
-
       },
     },
   ],
   initialValue: {
     small: '12',
-    medium: '6', 
-    large: '4', 
+    medium: '6',
+    large: '4',
   },
 });
 

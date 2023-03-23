@@ -1,8 +1,8 @@
-import { IBall, ICard, IColor,IGrid, IHero } from '_lib/types';
+import { IBall, ICard, IColor, IGrid, IHero } from '_lib/types';
 import HeroSection from 'components/hero/HeroSection';
 
-import Card from './Card';
 import Ball from './Ball';
+import Card from './Card';
 
 interface GridSectionProps extends IGrid {
   defaultColors: {
@@ -45,7 +45,9 @@ const GridSection = (props: GridSectionProps) => {
     <section className="mt-10">
       <div className={`grid grid-cols-12`}>
         {itemsArray.map(item => (
-          <div key={item._key} className={`col-span-${columns.small} xs:col-span-${columns.medium} md:col-span-${columns.large}`}>
+          <div
+            key={item._key}
+            className={`col-span-${columns.small} xs:col-span-${columns.medium} md:col-span-${columns.large}`}>
             {renderGridItem(item)}
           </div>
         ))}

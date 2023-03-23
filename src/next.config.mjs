@@ -8,7 +8,8 @@ const config = {
     config.cache = true;
     return config;
   },
-  experimental: { appDir: true }, optimizeFonts: true,
+  experimental: { appDir: true },
+  optimizeFonts: true,
 };
 
 export default config;

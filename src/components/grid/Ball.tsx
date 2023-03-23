@@ -22,15 +22,17 @@ const Ball = (props: BallProps) => {
     ? { borderColor: highlightColor.hex }
     : { borderColor: props.defaultColors.defaultHighlightColor.hex };
 
-      return (
-        <div key={props._key} className="p-4">
-        <div className="rounded-full aspect-square border-2 p-6 shadow-2xl" style={{ ...highlightColorStyle, ...bgColorStyle }}>
-          <div className="flex justify-center">
+  return (
+    <div key={props._key} className="p-4">
+      <div
+        className="aspect-square rounded-full border-2 p-6 shadow-2xl"
+        style={{ ...highlightColorStyle, ...bgColorStyle }}>
+        <div className="flex justify-center">
           <BlockContentRenderer blockContent={blockContent} />
-          </div>
         </div>
-        </div>
-      );
-  };
+      </div>
+    </div>
+  );
+};
 
 export default Ball;

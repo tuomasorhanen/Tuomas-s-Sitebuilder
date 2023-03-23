@@ -1,4 +1,5 @@
 import { IColor, IHeadingAndTitle, IHero } from '_lib/types';
+
 import BlogReferenceSection from './blog/BlogReferenceSection';
 import GridSection from './grid/GridSection';
 import HeadingAndTitle from './Heading and Title/HeadingAndTitle';
@@ -17,7 +18,7 @@ type IMapContentProps = {
 
 const MapContent = ({ content, defaultColors }: IMapContentProps) => {
   return (
-    <div >
+    <div>
       {content.map(item => {
         switch (item._type) {
           case 'Hero':

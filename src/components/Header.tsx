@@ -1,7 +1,7 @@
 import { ISlug } from '_lib/types';
 import { Navbar } from 'flowbite-react';
-import Link from 'next/link';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export type IMenuItem = {
   name: string;
@@ -23,7 +23,7 @@ const Header = (props: IMenuProps) => {
         <div className="flex justify-between py-2">
           <Link href="/" className="z-40 flex items-center">
             <Image
-              alt="Tuomas&apos;s Site"
+              alt="Tuomas's Site"
               className="mx-10 h-12 rounded-full"
               src="https://amban.fi/wp-content/uploads/2022/06/Tuomas-Orhanen-Amban.jpeg"
               width={48}
@@ -50,7 +50,7 @@ const Header = (props: IMenuProps) => {
         <div className="flex justify-between py-2 ">
           <Navbar.Brand href="/" className="flex shrink flex-wrap">
             <Image
-              alt="Tuomas&apos;s Site"
+              alt="Tuomas's Site"
               className="h-12 rounded-full"
               src="https://amban.fi/wp-content/uploads/2022/06/Tuomas-Orhanen-Amban.jpeg"
               width={48}

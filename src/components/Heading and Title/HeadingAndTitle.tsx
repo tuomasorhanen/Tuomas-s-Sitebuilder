@@ -1,7 +1,6 @@
+import { IHeadingAndTitle } from '_lib/types';
 import BlockContentRenderer from 'components/BlockContentRenderer';
 import React from 'react';
-import { IHeadingAndTitle } from '_lib/types';
-
 
 const HeadingAndTitle = (props: IHeadingAndTitle) => {
   const { blockContent, bgColor, textColor, _key, _type } = props;
@@ -10,12 +9,8 @@ const HeadingAndTitle = (props: IHeadingAndTitle) => {
   const textStyle = textColor ? { color: textColor.hex } : {};
 
   return (
-    <div
-      key={props._key}
-      className=""
-      style={bgColorStyle}
-    >
-      <div className='max-w-screen-sm text-center px-4 mx-auto'>
+    <div key={props._key} className="" style={bgColorStyle}>
+      <div className="mx-auto max-w-screen-sm px-4 text-center">
         <div style={textStyle}>
           <BlockContentRenderer blockContent={blockContent} />
         </div>

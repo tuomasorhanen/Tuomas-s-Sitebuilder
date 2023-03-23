@@ -1,7 +1,7 @@
 import { IColor, IHero } from '_lib/types';
+import BlockContentRenderer from 'components/BlockContentRenderer';
 import Image from 'components/Image';
 import Link from 'next/link';
-import BlockContentRenderer from 'components/BlockContentRenderer';
 
 interface HeroSectionProps extends IHero {
   defaultColors: {
@@ -34,7 +34,7 @@ const HeroSection = (props: HeroSectionProps) => {
           </div>
           <div className="absolute top-0 left-0 z-20 h-full w-full" style={bgColorStyle}></div>
           <div className="z-30 text-center">
-          <BlockContentRenderer blockContent={blockContent} />
+            <BlockContentRenderer blockContent={blockContent} />
             <div className="mt-6 mb-2">
               {buttons &&
                 buttons.map(btn => {
@@ -59,7 +59,7 @@ const HeroSection = (props: HeroSectionProps) => {
             className="flex items-center justify-center md:w-1/2"
             style={{ backgroundColor: `${bgColor.hex}${Math.round(bgColor.alpha * 255).toString(16)}` }}>
             <div className="text-center">
-            <BlockContentRenderer blockContent={blockContent} />
+              <BlockContentRenderer blockContent={blockContent} />
               <div className="mt-6 mb-2">
                 {buttons &&
                   buttons.map(btn => {
@@ -91,7 +91,7 @@ const HeroSection = (props: HeroSectionProps) => {
             className="flex items-center justify-center md:w-1/2"
             style={{ backgroundColor: `${bgColor.hex}${Math.round(bgColor.alpha * 255).toString(16)}` }}>
             <div className="z-10 text-center">
-            <BlockContentRenderer blockContent={blockContent} />
+              <BlockContentRenderer blockContent={blockContent} />
               <div className="mt-6 mb-2">
                 {buttons &&
                   buttons.map(btn => {
@@ -121,7 +121,7 @@ const HeroSection = (props: HeroSectionProps) => {
             <div className="mx-auto max-w-7xl px-6 py-32 lg:px-8">
               <div className="mx-auto max-w-2xl md:mx-0 md:grid md:max-w-none md:grid-cols-2 md:gap-x-16 md:gap-y-6 xl:grid-cols-1 xl:grid-rows-1 xl:gap-x-8">
                 <div className="mt-6 max-w-xl lg:mt-0 xl:col-end-1 xl:row-start-1">
-                <BlockContentRenderer blockContent={blockContent} />
+                  <BlockContentRenderer blockContent={blockContent} />
                   <div className="mt-10 flex items-center gap-x-6">
                     {buttons &&
                       buttons.map(btn => {
@@ -151,23 +151,23 @@ const HeroSection = (props: HeroSectionProps) => {
     case 'hero-right-simple':
       return (
         <section key={props._key} className="" style={bgColorStyle}>
-          <div className="mx-auto md:grid max-w-screen-md px-4 py-8 xs:grid-cols-12 xs:gap-8 xs:px-20 xs:py-16 xl:gap-0">
+          <div className="mx-auto max-w-screen-md px-4 py-8 xs:grid-cols-12 xs:gap-8 xs:px-20 xs:py-16 md:grid xl:gap-0">
             <div className="place-self-center xs:col-span-7">
-            <BlockContentRenderer blockContent={blockContent} />
-            <div className='mt-4'>
-              {buttons &&
-                buttons.map(btn => {
-                  return (
-                    <Link
-                      key={btn.navigateToPage}
-                      href={btn.navigateToPage}
-                      className="rounded-md border-2 p-2 text-xl font-bold  shadow-xl  hover:scale-105"
-                      style={{ ...textColorStyle, ...highlightColorStyle }}>
-                      {btn.callToAction}
-                    </Link>
-                  );
-                })}
-                </div>
+              <BlockContentRenderer blockContent={blockContent} />
+              <div className="mt-4">
+                {buttons &&
+                  buttons.map(btn => {
+                    return (
+                      <Link
+                        key={btn.navigateToPage}
+                        href={btn.navigateToPage}
+                        className="rounded-md border-2 p-2 text-xl font-bold  shadow-xl  hover:scale-105"
+                        style={{ ...textColorStyle, ...highlightColorStyle }}>
+                        {btn.callToAction}
+                      </Link>
+                    );
+                  })}
+              </div>
             </div>
             <div className="hidden xs:col-span-5 md:mt-0 md:block">
               <Image {...image} className="rounded-lg" alt="" />
