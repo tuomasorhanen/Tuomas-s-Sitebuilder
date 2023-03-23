@@ -1,6 +1,7 @@
 import { ISlug } from '_lib/types';
 import { Navbar } from 'flowbite-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export type IMenuItem = {
   name: string;
@@ -21,22 +22,21 @@ const Header = (props: IMenuProps) => {
       <nav key={props.key} className="rounded max-xs:hidden ">
         <div className="flex justify-between py-2">
           <Link href="/" className="z-40 flex items-center">
-            <img
-              alt="Tuomas's Site"
+            <Image
+              alt="Tuomas&apos;s Site"
               className="mx-10 h-12 rounded-full"
               src="https://amban.fi/wp-content/uploads/2022/06/Tuomas-Orhanen-Amban.jpeg"
+              width={48}
+              height={48}
             />
-            <p className="-ml-6 text-xl font-bold">Tuomas's Site</p>
+            <p className="-ml-6 text-xl font-bold">Tuomas&apos;s Site</p>
           </Link>
           <div className="z-40 hidden w-auto xs:block" id="navbar-default">
             <ul className="my-2 mx-10 flex text-sm font-medium md:space-x-4">
               {items.map(item => {
                 return (
                   <li key={item.slug.current}>
-                    <Link
-                      href={'/' + item.slug.current}
-                      className="block py-2 px-4 lg:text-xl"
-                      aria-current="page">
+                    <Link href={'/' + item.slug.current} className="block py-2 px-4 lg:text-xl" aria-current="page">
                       {item.name}
                     </Link>
                   </li>
@@ -49,12 +49,14 @@ const Header = (props: IMenuProps) => {
       <Navbar className="hidden max-xs:block">
         <div className="flex justify-between py-2 ">
           <Navbar.Brand href="/" className="flex shrink flex-wrap">
-            <img
-              alt="Tuomas's Site"
+            <Image
+              alt="Tuomas&apos;s Site"
               className="h-12 rounded-full"
               src="https://amban.fi/wp-content/uploads/2022/06/Tuomas-Orhanen-Amban.jpeg"
+              width={48}
+              height={48}
             />
-            <p className="ml-4 text-lg font-bold text-white">Tuomas's Site</p>
+            <p className="ml-4 text-lg font-bold text-white">Tuomas&apos;s Site</p>
           </Navbar.Brand>
         </div>
         <div className="">

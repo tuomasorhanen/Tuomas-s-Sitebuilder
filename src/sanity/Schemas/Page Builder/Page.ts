@@ -61,6 +61,8 @@ const Page = {
         { type: 'Hero' },
         { type: 'grid' },
         { type: 'HeadingAndTitle' },
+        { type: 'spacer' },
+        { type: 'uiElement' },
         { type: 'landingPage' },
         {
           name: 'Blog',

@@ -1,18 +1,27 @@
+import { defineField } from "sanity";
+
 const HeadingAndTitle = {
   name: 'HeadingAndTitle',
   title: 'Heading And Title',
   type: 'object',
   fields: [
     {
-      name: 'title',
-      title: 'Title',
-      type: 'string',
+      name: 'blockContent',
+      title: 'Block Content',
+      type: 'array',
+      of: [{ type: 'block' }],
     },
-    {
-      name: 'heading',
-      title: 'Heading',
-      type: 'string',
-    },
+    defineField({
+      name: 'bgColor',
+      title: 'Background Color',
+      type: 'color',
+    }),
+    defineField({
+      name: 'textColor',
+      title: 'Text Color',
+      type: 'color',
+    }),
   ],
 };
+
 export default HeadingAndTitle;

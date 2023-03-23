@@ -63,7 +63,7 @@ export const getServerSideProps: GetServerSideProps<IPageProps> = async context 
     slug,
     menuOrder,
   } | order(menuOrder asc)`;
-  
+
   const siteSettingsQuery = groq`
   *[_type == 'siteSettings'][0] {
     defaultBgColor,
@@ -72,11 +72,11 @@ export const getServerSideProps: GetServerSideProps<IPageProps> = async context 
   }
 `;
 
-let [blogsResponse, menuResponse, siteSettingsResponse] = await Promise.all([
-  client.fetch(blogsQuery),
-  client.fetch<IMenuItem[]>(menuQuery),
-  client.fetch(siteSettingsQuery),
-]);
+  let [blogsResponse, menuResponse, siteSettingsResponse] = await Promise.all([
+    client.fetch(blogsQuery),
+    client.fetch<IMenuItem[]>(menuQuery),
+    client.fetch(siteSettingsQuery),
+  ]);
 
   // Resolve call to action links in the content
   pageResponse = await resolveLinks(pageResponse);

@@ -14,6 +14,11 @@ import siteSettings from './Site Settings/site-settings';
 import grid from './types/grid';
 import columns from './types/columns';
 import Card from './types/card';
+import spacer from './types/spacer';
+import UiElement from 'components/UI elements/uiElements';
+import uiElement from './types/UiElement';
+import blockContent from './types/block-content';
+import Ball from './types/ball';
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -27,6 +32,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
 
     Hero,
     Card,
+    Ball,
     HeadingAndTitle,
     BlogHeading,
     BlogImage,
@@ -34,6 +40,9 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     meta,
     socialFields,
     grid,
-    columns
+    columns,
+    spacer,
+    uiElement,
+    blockContent
   ],
 };

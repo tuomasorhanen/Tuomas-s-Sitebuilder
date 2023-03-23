@@ -6,17 +6,10 @@ const Hero = {
   type: 'object',
   fields: [
     {
-      name: 'title',
-      title: 'Title',
-      type: 'string',
-      description:
-        '⚡ Optional: Herosection should have a title, but a Hero component with no other content but button can be used to create buttons.',
-    },
-
-    {
-      name: 'description',
-      title: 'Description',
-      type: 'text',
+      name: 'blockContent',
+      title: 'Block Content',
+      type: 'array',
+      of: [{ type: 'block' }],
     },
     {
       name: 'image',

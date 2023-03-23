@@ -3,6 +3,8 @@ import BlogReferenceSection from './blog/BlogReferenceSection';
 import GridSection from './grid/GridSection';
 import HeadingAndTitle from './Heading and Title/HeadingAndTitle';
 import HeroSection from './hero/HeroSection';
+import Spacer from './spacer/spacer';
+import UiElement from './UI elements/uiElements';
 
 type IMapContentProps = {
   content: IHero[] | IHeadingAndTitle[];
@@ -11,11 +13,11 @@ type IMapContentProps = {
     defaultTextColor: IColor;
     defaultHighlightColor: IColor;
   };
-}
+};
 
 const MapContent = ({ content, defaultColors }: IMapContentProps) => {
   return (
-    <div>
+    <div >
       {content.map(item => {
         switch (item._type) {
           case 'Hero':
@@ -34,6 +36,18 @@ const MapContent = ({ content, defaultColors }: IMapContentProps) => {
             return (
               <div>
                 <HeadingAndTitle key={item._id} {...item} />
+              </div>
+            );
+          case 'spacer':
+            return (
+              <div>
+                <Spacer key={item._id} {...item} />
+              </div>
+            );
+          case 'uiElement':
+            return (
+              <div>
+                <UiElement key={item._id} {...item} />
               </div>
             );
           case 'blogPost':

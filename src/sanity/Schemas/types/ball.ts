@@ -1,8 +1,8 @@
 import { defineField } from 'sanity';
 
-const Card = {
-  name: 'card',
-  title: 'Card',
+const Ball = {
+  name: 'ball',
+  title: 'Ball',
   type: 'object',
   fields: [
     {
@@ -11,27 +11,6 @@ const Card = {
       type: 'array',
       of: [{ type: 'block' }],
     },
-    {
-      name: 'image',
-      title: 'Image',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
-    },
-    {
-      name: 'layout',
-      title: 'Card Layout',
-      type: 'string',
-      options: {
-        list: [
-          { title: 'simple', value: 'simple' },
-          { title: 'image-top', value: 'image-top' },
-        ],
-        validation: Rule => [Rule.required().error('A layout is required.')],
-      },
-    },
-
     defineField({
       name: 'bgColor',
       title: 'Background Color',
@@ -67,4 +46,4 @@ const Card = {
     }),
   ],
 };
-export default Card;
+export default Ball;

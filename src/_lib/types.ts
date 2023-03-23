@@ -11,12 +11,29 @@ export type ISiteSettings = {
 };
 
 export type IColor = {
+  _id: string;
   _type: 'color';
   hex: string;
   alpha: number;
 };
 
+export interface ISpacer {
+  _key: string;
+  _type: 'spacer';
+  size: '4' | '8' | '16' | '24';
+  bgColor: IColor;
+}
+
+export interface IUiElement {
+  _key: string;
+  _type: 'uiElement';
+  style: 'wave';
+  bgColor: IColor;
+  highlightColor: IColor;
+}
+
 export type IMetaFields = {
+  _id: string;
   metaTitle?: string;
   metaDescription?: string;
   openGraphImage?: ISanityImage;
@@ -25,6 +42,7 @@ export type IMetaFields = {
 };
 
 export type ISocialFields = {
+  _id: string;
   twitter?: string;
   instagram?: string;
   facebook?: string;
@@ -41,10 +59,11 @@ export type IPage = {
   meta: IMetaFields;
   name: string;
   menuOrder: number;
-  content: IHeadingAndTitle[] | IHero[];
+  content: IHeadingAndTitle[] | IHero[] | ISpacer[] | IGrid[];
 };
 
 export type ISanityImage = {
+  _id: string;
   url: any;
   _type: string;
   asset: {
@@ -55,6 +74,7 @@ export type ISanityImage = {
 };
 
 type ICallToAction = {
+  _id: string;
   callToAction: string;
   navigateToPage: string;
   name: string;
@@ -65,10 +85,10 @@ type ICallToAction = {
 };
 
 export type IHero = {
+  _id: string;
   _key: string;
   _type: string;
-  title: string;
-  description: string;
+  blockContent: any;
   image: ISanityImage;
   buttons: ICallToAction[];
   layout: 'image-bg' | 'image-right' | 'image-left' | 'hero-slash-bg' | 'hero-right-simple';
@@ -79,31 +99,42 @@ export type IHero = {
 };
 
 export type ICard = {
+  _id: string;
   _key: string;
   _type: string;
-  title: string; 
-  description: string; 
+  blockContent: any;
   image: ISanityImage;
   layout: 'simple' | 'image-top';
   bgColor: IColor;
   textColor: IColor;
   highlightColor: IColor;
   opacity: number;
-}
+};
+
+export type IBall = {
+  _id: string;
+  _key: string;
+  _type: string;
+  blockContent: any;
+  bgColor: IColor;
+  textColor: IColor;
+  highlightColor: IColor;
+  opacity: number;
+};
 
 export type IGrid = {
+  _id: string;
   _key: string;
   title: string;
   columns: IColumns;
   items: IHero[] | ICard;
-}
-
-export type IColumns = {
-  small: string;
-  medium: string;
-  large: string;
 };
 
+export type IColumns = {
+  small: '12' | '6' | '4' | '3' | '2' ;
+  medium: '12' | '6' | '4' | '3' | '2' ;
+  large: '12' | '6' | '4' | '3' | '2' ;
+};
 
 export type IBlog = {
   _id: string;
@@ -121,6 +152,7 @@ export type IBlog = {
 };
 
 export type IBlogImage = {
+  _id: string;
   _type: string;
   _key: string;
   image: ISanityImage;
@@ -128,6 +160,7 @@ export type IBlogImage = {
 };
 
 export type IBlogHeading = {
+  _id: string;
   _type: string;
   _key: string;
   text: string;
@@ -135,6 +168,7 @@ export type IBlogHeading = {
 };
 
 export type IBlogParagraph = {
+  _id: string;
   _type: string;
   _key: string;
   text: string;
@@ -142,10 +176,12 @@ export type IBlogParagraph = {
 };
 
 export type IHeadingAndTitle = {
+  _id: string;
   _type: string;
   _key: string;
-  title: string;
-  heading: string;
+  blockContent: any;
+  bgColor: IColor;
+  textColor: IColor;
 };
 
 export type IPerson = {
@@ -157,6 +193,7 @@ export type IPerson = {
 };
 
 export type IReference = {
+  _id: string;
   _ref: string;
   _type: 'blogPost';
 };
