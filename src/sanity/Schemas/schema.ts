@@ -19,6 +19,7 @@ import UiElement from 'components/UI elements/uiElements';
 import uiElement from './types/UiElement';
 import blockContent from './types/block-content';
 import Ball from './types/ball';
+import lineBreak from './types/lineBreak';
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -44,5 +45,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     spacer,
     uiElement,
     blockContent,
+    lineBreak
   ],
 };

@@ -7,6 +7,11 @@ const BlockContentRenderer = ({ blockContent }) => {
       block: props => {
         const style = props.node.style || 'normal';
 
+        // Check if the block is empty
+        if (props.children.length === 1 && props.children[0] === '') {
+          return <br />;
+        }
+
         switch (style) {
           case 'h1':
             return <h1 className="text-8xl">{props.children}</h1>;
@@ -33,21 +38,9 @@ const BlockContentRenderer = ({ blockContent }) => {
           case 'h6+center':
             return <h6 className="text-center">{props.children}</h6>;
           default:
-            return <p>{props.children.map(child => (child === '\n' ? <br key="line-break" /> : child))}</p>;
+            return <p>{props.children}</p>;
         }
       },
-    },
-    marks: {
-      lineBreak: props => (
-        <>
-          {props.children.split('\n').map((text, index) => (
-            <React.Fragment key={`${props.mark._key}-fragment-${index}`}>
-              {text}
-              {index !== props.children.split('\n').length - 1 && <br />}
-            </React.Fragment>
-          ))}
-        </>
-      ),
     },
   };
 

@@ -1,5 +1,6 @@
 import { RiFileTextLine } from 'react-icons/ri';
 import { defineField } from 'sanity';
+import lineBreak from './lineBreak';
 
 const blockContent = defineField({
   title: 'Block Content',
@@ -82,6 +83,7 @@ const blockContent = defineField({
             ],
           },
         },
+        lineBreak,
       ],
     },
   ],
