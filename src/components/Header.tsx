@@ -19,7 +19,7 @@ const Header = (props: IMenuProps) => {
 
   return (
     <>
-      <nav key={props.key} className="rounded max-xs:hidden ">
+      <nav key={props.key} className="rounded max-xs:hidden bg-bg ">
         <div className="flex justify-between py-2">
           <Link href="/" className="z-40 flex items-center">
             <Image
@@ -29,10 +29,10 @@ const Header = (props: IMenuProps) => {
               width={48}
               height={48}
             />
-            <p className="-ml-6 text-xl font-bold">Tuomas&apos;s Site</p>
+            <p className="-ml-6 text-xl text-text font-bold">Tuomas&apos;s Site</p>
           </Link>
           <div className="z-40 hidden w-auto xs:block" id="navbar-default">
-            <ul className="my-2 mx-10 flex text-sm font-medium md:space-x-4">
+            <ul className="my-2 mx-10 flex text-md font-bold text-text md:space-x-4">
               {items.map(item => {
                 return (
                   <li key={item.slug.current}>

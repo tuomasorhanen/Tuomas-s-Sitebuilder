@@ -1,7 +1,7 @@
 import { client } from '_lib/client';
 import resolveLinks from '_lib/resolveLinks';
 import resolveReferences from '_lib/resolvers/resolveReferences';
-import { IBlog, IColor, IHeadingAndTitle, IHero } from '_lib/types';
+import { IPost, IColor, IHeadingAndTitle, IHero } from '_lib/types';
 import { GetServerSideProps } from 'next';
 import { groq } from 'next-sanity';
 
@@ -10,7 +10,7 @@ import MapContent from '../components/MapContent';
 
 type IPageProps = {
   content: IHero[] | IHeadingAndTitle[];
-  blogs: IBlog[];
+  blogs: IPost[];
   menu: IMenuItem[];
   colors: {
     defaultBgColor: IColor;
@@ -27,10 +27,11 @@ const IndexPage = (props: IPageProps) => {
       <Header items={menu} />
       <MapContent content={content} defaultColors={colors} />
       <style jsx global>{`
-        body {
-          background-color: ${colors.defaultBgColor.hex};
-          color: ${colors.defaultTextColor.hex};
-        }
+              :root {
+                --bg-color: ${colors.defaultBgColor.hex};
+                --text-color: ${colors.defaultTextColor.hex};
+                --highlight-color: ${colors.defaultHighlightColor.hex};
+              }
       `}</style>
     </>
   );
@@ -54,7 +55,7 @@ export const getServerSideProps: GetServerSideProps<IPageProps> = async context 
   }
 
   const blogsQuery = groq`
-    *[_type == 'blogPost']
+    *[_type == 'Post']
   `;
 
   const menuQuery = groq`

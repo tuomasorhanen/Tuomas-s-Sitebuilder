@@ -7,7 +7,7 @@ const Spacer: React.FC<SpacerProps> = (props: SpacerProps) => {
   const { size, bgColor } = props;
   const bgColorStyle = bgColor ? { backgroundColor: bgColor.hex } : {};
 
-  return <div className={`py-${size}`} style={bgColorStyle}></div>;
+  return <div className={`py-${size} bg-bg`}></div>;
 };
 
 export default Spacer;

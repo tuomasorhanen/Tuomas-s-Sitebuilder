@@ -3,15 +3,12 @@ import BlockContentRenderer from 'components/BlockContentRenderer';
 import React from 'react';
 
 const HeadingAndTitle = (props: IHeadingAndTitle) => {
-  const { blockContent, bgColor, textColor, _key, _type } = props;
-
-  const bgColorStyle = bgColor ? { backgroundColor: bgColor.hex } : {};
-  const textStyle = textColor ? { color: textColor.hex } : {};
+  const { blockContent} = props;
 
   return (
-    <div key={props._key} className="" style={bgColorStyle}>
+    <div key={props._key} className="bg-bg">
       <div className="mx-auto max-w-screen-sm px-4 text-center">
-        <div style={textStyle}>
+        <div className='text-text'>
           <BlockContentRenderer blockContent={blockContent} />
         </div>
       </div>

@@ -40,11 +40,6 @@ const Hero = {
       type: 'array',
       of: [{ type: 'reference', to: [{ type: 'landingPage' }] }],
     },
-    defineField({
-      name: 'bgColor',
-      title: 'Background Color',
-      type: 'color',
-    }),
     {
       name: 'opacity',
       title: 'Background Opacity',
@@ -63,16 +58,6 @@ const Hero = {
         ],
       },
     },
-    defineField({
-      name: 'textColor',
-      title: 'Text Color',
-      type: 'color',
-    }),
-    defineField({
-      name: 'highlightColor',
-      title: 'Highlight Color',
-      type: 'color',
-    }),
   ],
 };
 export default Hero;

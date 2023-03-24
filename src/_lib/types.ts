@@ -11,25 +11,20 @@ export type ISiteSettings = {
 };
 
 export type IColor = {
-  _id: string;
-  _type: 'color';
-  hex: string;
   alpha: number;
+  hex: string;
 };
 
 export interface ISpacer {
   _key: string;
   _type: 'spacer';
   size: '4' | '8' | '16' | '24';
-  bgColor: IColor;
 }
 
 export interface IUiElement {
   _key: string;
   _type: 'uiElement';
   style: 'wave';
-  bgColor: IColor;
-  highlightColor: IColor;
 }
 
 export type IMetaFields = {
@@ -92,9 +87,6 @@ export type IHero = {
   image: ISanityImage;
   buttons: ICallToAction[];
   layout: 'image-bg' | 'image-right' | 'image-left' | 'hero-slash-bg' | 'hero-right-simple';
-  bgColor: IColor;
-  textColor: IColor;
-  highlightColor: IColor;
   opacity: number;
 };
 
@@ -105,9 +97,6 @@ export type ICard = {
   blockContent: any;
   image: ISanityImage;
   layout: 'simple' | 'image-top';
-  bgColor: IColor;
-  textColor: IColor;
-  highlightColor: IColor;
   opacity: number;
 };
 
@@ -116,9 +105,6 @@ export type IBall = {
   _key: string;
   _type: string;
   blockContent: any;
-  bgColor: IColor;
-  textColor: IColor;
-  highlightColor: IColor;
   opacity: number;
 };
 
@@ -141,8 +127,6 @@ export type IHeadingAndTitle = {
   _type: string;
   _key: string;
   blockContent: any;
-  bgColor: IColor;
-  textColor: IColor;
 };
 
 export type IPost = {
@@ -168,7 +152,9 @@ export type IPerson = {
 };
 
 export type ICategory = {
+  _key: string;
   _ref: string;
+  _id: string;
   _type: 'category';
   name: string;
   description: string; 
@@ -177,7 +163,7 @@ export type ICategory = {
 export type IReference = {
   _id: string;
   _ref: string;
-  _type: 'blogPost';
+  _type: 'Post';
 };
 
 export type ISlug = {

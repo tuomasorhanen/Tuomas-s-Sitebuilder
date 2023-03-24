@@ -1,11 +1,8 @@
-import { IPost, IPerson, ICategory } from '_lib/types';
-import BlockContentRenderer from './BlockContentRenderer';
+import { IPost, IPerson, ICategory, } from '_lib/types';
+import BlockContentRenderer from '../BlockContentRenderer';
 
-interface BlogPostProps {
-  post: IPost;
-}
 
-const BlogPost = ({ post }: BlogPostProps) => {
+const BlogPost = (props: IPost) => {
   const {
     title,
     mainImage,
@@ -13,10 +10,10 @@ const BlogPost = ({ post }: BlogPostProps) => {
     readingTime,
     categories,
     blockContent,
-  } = post;
+  } = props;
 
   return (
-    <div className="bg-white text-black">
+    <div className={`bg-bg text-text`}>
       <div className="sm:-px-6 mx-auto max-w-3xl px-6 pb-12 lg:max-w-4xl xl:max-w-6xl">
         <BlockContentRenderer blockContent={blockContent} />
         <div className="flex items-center space-x-4 pt-12 text-sm text-gray-700">
