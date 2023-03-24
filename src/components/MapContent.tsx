@@ -22,41 +22,17 @@ const MapContent = ({ content, defaultColors }: IMapContentProps) => {
       {content.map(item => {
         switch (item._type) {
           case 'Hero':
-            return (
-              <div>
-                <HeroSection key={item._id} {...item} defaultColors={defaultColors} />
-              </div>
-            );
+            return <HeroSection key={item._key} {...item} defaultColors={defaultColors} />;
           case 'grid':
-            return (
-              <div>
-                <GridSection key={item._id} {...item} defaultColors={defaultColors} />
-              </div>
-            );
+            return <GridSection key={item._key} {...item} defaultColors={defaultColors} />;
           case 'HeadingAndTitle':
-            return (
-              <div>
-                <HeadingAndTitle key={item._id} {...item} />
-              </div>
-            );
+            return <HeadingAndTitle key={item._key} {...item} />;
           case 'spacer':
-            return (
-              <div>
-                <Spacer key={item._id} {...item} />
-              </div>
-            );
+            return <Spacer key={item._key} {...item} />;
           case 'uiElement':
-            return (
-              <div>
-                <UiElement key={item._id} {...item} />
-              </div>
-            );
+            return <UiElement key={item._key} {...item} />;
           case 'blogPost':
-            return (
-              <div>
-                <BlogReferenceSection key={item._id} {...item} />
-              </div>
-            );
+            return <BlogReferenceSection key={item._key} {...item} />;
           default:
             break;
         }
