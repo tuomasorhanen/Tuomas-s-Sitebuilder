@@ -67,7 +67,7 @@ const Page = {
         {
           name: 'Blog',
           type: 'reference',
-          to: [{ type: 'blogPost' }],
+          to: [{ type: 'Post' }],
         },
       ],
     }),

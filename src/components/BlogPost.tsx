@@ -1,78 +1,34 @@
-import { IBlog, IBlogHeading, IBlogImage, IBlogParagraph } from '_lib/types';
+import { IPost, IPerson, ICategory } from '_lib/types';
+import BlockContentRenderer from './BlockContentRenderer';
 
-import Image from './Image';
+interface BlogPostProps {
+  post: IPost;
+}
 
-const BlogPost = ({ content, category, author, readingTime, image }: IBlog) => {
+const BlogPost = ({ post }: BlogPostProps) => {
+  const {
+    title,
+    mainImage,
+    person,
+    readingTime,
+    categories,
+    blockContent,
+  } = post;
+
   return (
     <div className="bg-white text-black">
       <div className="sm:-px-6 mx-auto max-w-3xl px-6 pb-12 lg:max-w-4xl xl:max-w-6xl">
-        {content.map(item => {
-          switch (item._type) {
-            case 'BlogHeading':
-              const heading = item as IBlogHeading;
-              let headingClass = 'text-lg font-bold';
-              switch (heading.level) {
-                case 1:
-                  headingClass = 'text-3xl font-bold text-center py-10';
-                  break;
-                case 2:
-                  headingClass = 'text-xl font-bold';
-                  break;
-                case 3:
-                  headingClass = 'text-xl font-medium';
-                  break;
-                case 4:
-                  headingClass = 'text-lg font-medium';
-                  break;
-                case 5:
-                  headingClass = 'text-md font-bold';
-                  break;
-                case 6:
-                  headingClass = 'text-sm font-bold';
-                  break;
-                default:
-                  break;
-              }
-              return (
-                <div key={heading._key}>
-                  <h2 className={`pt-12 ${headingClass}`}>{heading.text}</h2>
-                </div>
-              );
-            case 'BlogParagraph':
-              const paragraph = item as IBlogParagraph;
-              let paragraphClass = 'text-md';
-              switch (paragraph.style) {
-                case 'normal':
-                  paragraphClass = 'text-md';
-                  break;
-                case 'quote':
-                  paragraphClass = 'text-lg italic border-l-4 pl-4';
-                  break;
-                default:
-                  break;
-              }
-              return (
-                <div key={paragraph._key}>
-                  <h2 className={`mt-4 ${paragraphClass}`}>{paragraph.text}</h2>
-                </div>
-              );
-            case 'BlogImage':
-              const image = item as IBlogImage;
-              return (
-                <div key={image._key}>
-                  <Image {...image.image} alt="" className=" mt-4 h-full object-cover" />
-                  <p className="text-sm font-medium tracking-widest">{image.description}</p>
-                </div>
-              );
-            default:
-              return <></>;
-          }
-        })}
+        <BlockContentRenderer blockContent={blockContent} />
         <div className="flex items-center space-x-4 pt-12 text-sm text-gray-700">
-          <div className="">
-            {author}
+          <div>
+            {person && (
+              <>
+                <div className="font-semibold">{person.name}</div>
+                <div>{person.role}</div>
+              </>
+            )}
             <div>
-              {readingTime} min read &middot; {category}
+              {readingTime} min read &middot; {categories.map((category: ICategory) => category.name).join(', ')}
             </div>
           </div>
         </div>
@@ -80,4 +36,5 @@ const BlogPost = ({ content, category, author, readingTime, image }: IBlog) => {
     </div>
   );
 };
+
 export default BlogPost;

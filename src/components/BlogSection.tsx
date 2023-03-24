@@ -1,23 +1,32 @@
-import { IBlog } from '_lib/types';
+import { ICategory, IPost } from '_lib/types';
 import Link from 'next/link';
 import { useState } from 'react';
 
 import Image from './Image';
 
 type BlogSectionProps = {
-  blogs: IBlog[];
+  blogs: IPost[];
+  categories: ICategory[];
 };
 
-const BlogSection = ({ blogs }: BlogSectionProps) => {
+const BlogSection = ({ blogs, categories }: BlogSectionProps) => {
   const [selectedCategory, setSelectedCategory] = useState('All');
 
   const getCategories = () => {
-    const allCategories = blogs.map(blog => blog.category.toLowerCase());
+    const allCategories = blogs.flatMap(blog =>
+      blog.categories
+        .filter(categoryRef => categoryRef && categoryRef._ref)
+        .map(categoryRef => {
+          const category = categories.find(cat => cat._ref === categoryRef._ref);
+          return category ? category.name.toLowerCase() : '';
+        })
+        .filter(categoryName => categoryName)
+    );
     const uniqueCategories = [...new Set(allCategories)];
     return uniqueCategories;
   };
 
-  const [categories, setCategories] = useState(getCategories());
+  const [categoryList, setCategoryList] = useState(getCategories());
 
   const handleCategorySelection = (category: string) => {
     setSelectedCategory(category);
@@ -26,14 +35,9 @@ const BlogSection = ({ blogs }: BlogSectionProps) => {
   const filteredBlogs =
     selectedCategory === 'All'
       ? blogs
-      : blogs.filter(blog => blog.category.toLowerCase() === selectedCategory.toLowerCase());
-
-  const addCategory = (category: string) => {
-    const newCategory = category.toLowerCase();
-    if (!categories.includes(newCategory)) {
-      setCategories([...categories, newCategory]);
-    }
-  };
+      : blogs.filter(blog =>
+          blog.categories.some(category => category.name.toLowerCase() === selectedCategory.toLowerCase())
+        );
 
   return (
     <div className="grid grid-cols-12 gap-6 px-4">
@@ -46,7 +50,7 @@ const BlogSection = ({ blogs }: BlogSectionProps) => {
           `}>
             All
           </button>
-          {categories.map(category => (
+          {categoryList.map(category => (
             <button
               key={category}
               onClick={() => handleCategorySelection(category)}
@@ -62,16 +66,17 @@ const BlogSection = ({ blogs }: BlogSectionProps) => {
         <div className="mx-auto grid max-w-screen-lg grid-cols-1 gap-6 py-8 sm:grid-cols-2 sm:px-4 md:grid-cols-3 lg:py-16 lg:px-6">
           {filteredBlogs.map(blog => (
             <div key={blog._key}>
-              <Image {...blog.image} alt="" className="h-48 w-full rounded-t-lg object-cover" />
+              <Image {...blog.mainImage} alt="" className="h-48 w-full rounded-t-lg object-cover" />
               <Link href={`/blog/${blog.slug.current}`}>
                 <article className="rounded-b-lg border border-gray-500 bg-white p-6 shadow-2xl">
                   <h2 className="mb-2 text-2xl font-bold tracking-tight text-black">{blog.title}</h2>
                   <p className="mb-5 font-light text-gray-800">{blog.excerpt}</p>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-4">
-                      <span className="font-medium text-black">{blog.author}</span>
+                      <span className="font-medium text-black">{blog.person.name}</span>
                       <span className="text-black">
-                        &middot; {blog.readingTime} min &middot; {blog.category}
+                        &middot; {blog.readingTime} min &middot;{' '}
+                        {blog.categories.map(category => category.name).join(', ')}
                       </span>
                     </div>
                   </div>

@@ -1,5 +1,5 @@
 import { client } from '_lib/client';
-import { IBlog } from '_lib/types';
+import { IPost } from '_lib/types';
 import { GetServerSideProps } from 'next';
 import { groq } from 'next-sanity';
 
@@ -7,7 +7,7 @@ import BlogPost from '../../components/BlogPost';
 import Header, { IMenuItem } from '../../components/Header';
 
 type IPageProps = {
-  blog: IBlog;
+  blog: IPost;
   menu: IMenuItem[];
 };
 
@@ -16,7 +16,7 @@ const Post = (props: IPageProps) => {
   return (
     <>
       <Header items={menu} />
-      <BlogPost {...blog} />
+      <BlogPost post={blog} />
     </>
   );
 };
@@ -26,7 +26,7 @@ export const getServerSideProps: GetServerSideProps<IPageProps> = async context 
   let { slug } = context.query;
 
   const query = groq`
-    *[_type == 'blogPost' && slug.current == '${slug}'][0]
+    *[_type == 'Post' && slug.current == '${slug}'][0]
   `;
 
   const menuQuery = groq`
@@ -36,7 +36,7 @@ export const getServerSideProps: GetServerSideProps<IPageProps> = async context 
     menuOrder,
   } | order(menuOrder asc)`;
 
-  const [blog, menu] = await Promise.all([client.fetch<IBlog>(query), client.fetch<IMenuItem[]>(menuQuery)]);
+  const [blog, menu] = await Promise.all([client.fetch<IPost>(query), client.fetch<IMenuItem[]>(menuQuery)]);
 
   return {
     props: {

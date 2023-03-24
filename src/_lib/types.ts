@@ -136,45 +136,6 @@ export type IColumns = {
   large: '12' | '6' | '4' | '3' | '2';
 };
 
-export type IBlog = {
-  _id: string;
-  _type: string;
-  _key: string;
-  title: string;
-  slug: ISlug;
-  image: ISanityImage;
-  excerpt: string;
-  publishedAt: string;
-  readingTime: string;
-  category: string;
-  author: string;
-  content: IBlogImage[] | IBlogHeading[] | IBlogParagraph[];
-};
-
-export type IBlogImage = {
-  _id: string;
-  _type: string;
-  _key: string;
-  image: ISanityImage;
-  description: string;
-};
-
-export type IBlogHeading = {
-  _id: string;
-  _type: string;
-  _key: string;
-  text: string;
-  level: number;
-};
-
-export type IBlogParagraph = {
-  _id: string;
-  _type: string;
-  _key: string;
-  text: string;
-  style: string;
-};
-
 export type IHeadingAndTitle = {
   _id: string;
   _type: string;
@@ -184,12 +145,33 @@ export type IHeadingAndTitle = {
   textColor: IColor;
 };
 
+export type IPost = {
+  _type: string;
+  _key: string;
+  title: string;
+  slug: ISlug;
+  person: IPerson;
+  mainImage: ISanityImage;
+  categories: ICategory[];
+  excerpt: string;
+  publishedAt: string;
+  readingTime: string;
+  blockContent: any;
+};
+
 export type IPerson = {
   _id: string;
   _type: 'Person';
   name: string;
   role: string;
   image: ISanityImage;
+};
+
+export type ICategory = {
+  _ref: string;
+  _type: 'category';
+  name: string;
+  description: string; 
 };
 
 export type IReference = {
