@@ -11,11 +11,6 @@ const Ball = {
       type: 'array',
       of: [{ type: 'block' }],
     },
-    defineField({
-      name: 'bgColor',
-      title: 'Background Color',
-      type: 'color',
-    }),
     {
       name: 'opacity',
       title: 'Background Opacity',
@@ -34,16 +29,6 @@ const Ball = {
         ],
       },
     },
-    defineField({
-      name: 'textColor',
-      title: 'Text Color',
-      type: 'color',
-    }),
-    defineField({
-      name: 'highlightColor',
-      title: 'Highlight Color',
-      type: 'color',
-    }),
   ],
 };
 export default Ball;

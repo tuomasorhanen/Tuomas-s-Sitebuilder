@@ -23,11 +23,6 @@ const spacer = defineField({
         layout: 'radio',
       },
     },
-    defineField({
-      name: 'bgColor',
-      title: 'Background Color',
-      type: 'color',
-    }),
   ],
   preview: {
     select: {

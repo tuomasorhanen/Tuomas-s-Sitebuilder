@@ -1,4 +1,4 @@
-import { IColor, IHero } from '_lib/types';
+import { IHero } from '_lib/types';
 import BlockContentRenderer from 'components/BlockContentRenderer';
 import Image from 'components/Image';
 import Link from 'next/link';
@@ -6,18 +6,16 @@ import Link from 'next/link';
 const HeroSection = (props: IHero) => {
   const { blockContent, image, buttons, layout, opacity } = props;
 
-  const overlayOpacity = opacity ? opacity / 100 : 1;
-
   switch (layout) {
     case 'image-bg':
       return (
         <div
           key={props._key}
           className="relative flex aspect-video max-h-screen w-full items-center justify-center xs:-mt-20">
-          <div className="absolute top-0 left-0 z-10 h-full w-full">
-            <Image {...image} className="h-full w-full object-cover" alt="" />
+          <div className="absolute top-0 left-0 z-10 h-full w-full bg-bg ">
+            <Image {...image} className="h-full w-full object-cover" alt="" opacity={opacity} />
           </div>
-          <div className="absolute top-0 left-0 z-20 h-full w-full bg-bg"></div>
+          <div className="absolute top-0 left-0 z-20 h-full w-full "></div>
           <div className="z-30 text-center">
             <BlockContentRenderer blockContent={blockContent} />
             <div className="mt-6 mb-2">

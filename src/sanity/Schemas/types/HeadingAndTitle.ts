@@ -11,16 +11,6 @@ const HeadingAndTitle = {
       type: 'array',
       of: [{ type: 'block' }],
     },
-    defineField({
-      name: 'bgColor',
-      title: 'Background Color',
-      type: 'color',
-    }),
-    defineField({
-      name: 'textColor',
-      title: 'Text Color',
-      type: 'color',
-    }),
   ],
 };
 

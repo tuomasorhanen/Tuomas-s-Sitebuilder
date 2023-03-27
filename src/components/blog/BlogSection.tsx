@@ -19,7 +19,7 @@ const BlogSection = ({ blogs, categories}: BlogSectionProps) => {
     : blogs;
 
   return (
-    <div className="max-w-screen-md mx-auto">
+    <div className="bg-bg min-h-screen  mx-auto">
       <div className="flex justify-center mb-6">
         {categories.map(category => (
           <button
@@ -33,7 +33,7 @@ const BlogSection = ({ blogs, categories}: BlogSectionProps) => {
           </button>
         ))}
       </div>
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-3 gap-4 mx-auto max-w-screen-md">
         {filteredBlogs.map(blog => (
           <div key={blog._key}>
             <Image

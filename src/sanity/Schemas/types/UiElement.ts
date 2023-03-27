@@ -21,16 +21,6 @@ const uiElement = defineField({
         validation: Rule => [Rule.required().error('A style is required.')],
       },
     },
-    defineField({
-      name: 'bgColor',
-      title: 'Background Color',
-      type: 'color',
-    }),
-    defineField({
-      name: 'highlightColor',
-      title: 'Highlight Color',
-      type: 'color',
-    }),
   ],
 });
 

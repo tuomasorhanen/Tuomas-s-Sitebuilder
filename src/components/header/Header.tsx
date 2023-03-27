@@ -23,13 +23,12 @@ const Header = (props: IMenuProps) => {
         <div className="flex justify-between py-2">
           <Link href="/" className="z-40 flex items-center">
             <Image
-              alt="Tuomas's Site"
+              alt="Amban"
               className="mx-10 h-12 rounded-full"
-              src="https://amban.fi/wp-content/uploads/2022/06/Tuomas-Orhanen-Amban.jpeg"
+              src="https://amban.fi/wp-content/uploads/2017/11/cropped-amban-profilepic-biggerlogo.png"
               width={48}
               height={48}
             />
-            <p className="-ml-6 text-xl text-text font-bold">Tuomas&apos;s Site</p>
           </Link>
           <div className="z-40 hidden w-auto xs:block" id="navbar-default">
             <ul className="my-2 mx-10 flex text-md font-bold text-text md:space-x-4">
@@ -50,13 +49,12 @@ const Header = (props: IMenuProps) => {
         <div className="flex justify-between py-2 ">
           <Navbar.Brand href="/" className="flex shrink flex-wrap">
             <Image
-              alt="Tuomas's Site"
+              alt="Amban"
               className="h-12 rounded-full"
-              src="https://amban.fi/wp-content/uploads/2022/06/Tuomas-Orhanen-Amban.jpeg"
+              src="https://amban.fi/wp-content/uploads/2017/11/cropped-amban-profilepic-biggerlogo.png"
               width={48}
               height={48}
             />
-            <p className="ml-4 text-lg font-bold text-white">Tuomas&apos;s Site</p>
           </Navbar.Brand>
         </div>
         <div className="">

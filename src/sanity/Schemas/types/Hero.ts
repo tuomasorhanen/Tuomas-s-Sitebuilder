@@ -1,5 +1,3 @@
-import { defineField } from 'sanity';
-
 const Hero = {
   name: 'Hero',
   title: 'Hero',

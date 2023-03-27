@@ -5,8 +5,8 @@ export default {
     type: 'object',
     fields: [
         {
-            name: 'name',
-            title: 'Name',
+            name: 'linebreak',
+            title: 'Linebreak',
             type: 'string',
         },
     ],

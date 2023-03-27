@@ -4,7 +4,7 @@ import { GetServerSideProps } from 'next';
 import { groq } from 'next-sanity';
 
 import BlogSection from '../../components/blog/BlogSection';
-import Header, { IMenuItem } from '../../components/Header';
+import Header, { IMenuItem } from '../../components/header/Header';
 
 type IPageProps = {
   blogs: IPost[];
@@ -22,12 +22,13 @@ const Blogs = (props: IPageProps) => {
   return (
 <>
   <Header items={menu} />
-  <BlogSection blogs={blogs} categories={categories} colors={colors} />
+  <BlogSection blogs={blogs} categories={categories}/>
   <style jsx global>{`
-    body {
-      background-color: ${colors.defaultBgColor.hex};
-      color: ${colors.defaultTextColor.hex};
-    }
+              :root {
+                --bg-color: ${colors.defaultBgColor.hex};
+                --text-color: ${colors.defaultTextColor.hex};
+                --highlight-color: ${colors.defaultHighlightColor.hex};
+              }
   `}</style>
 </>
   );

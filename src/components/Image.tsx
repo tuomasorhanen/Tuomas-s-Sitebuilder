@@ -6,13 +6,26 @@ import { useNextSanityImage } from 'next-sanity-image';
 type IImgProps = {
   className: string;
   alt?: string;
+  opacity?: number;
 };
 
+
 const Image = (props: ISanityImage & IImgProps) => {
-  const { className, alt } = props;
+  const { className, alt, opacity } = props;
   const imageProps = useNextSanityImage(client, props);
 
-  return <Img key={props.asset._ref} {...imageProps} className={className} alt={alt} />;
+  // Apply the opacity as an inline style if it's provided
+  const imageStyles = opacity ? { opacity: opacity / 100 } : {};
+
+  return (
+    <Img
+      key={props.asset._ref}
+      {...imageProps}
+      className={className}
+      alt={alt}
+      style={imageStyles}
+    />
+  );
 };
 
 export default Image;

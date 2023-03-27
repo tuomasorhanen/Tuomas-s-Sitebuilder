@@ -5,7 +5,7 @@ import { IPost, IColor, IHeadingAndTitle, IHero } from '_lib/types';
 import { GetServerSideProps } from 'next';
 import { groq } from 'next-sanity';
 
-import Header, { IMenuItem } from '../components/Header';
+import Header, { IMenuItem } from '../components/header/Header';
 import MapContent from '../components/MapContent';
 
 type IPageProps = {
@@ -25,7 +25,7 @@ const IndexPage = (props: IPageProps) => {
   return (
     <>
       <Header items={menu} />
-      <MapContent content={content} defaultColors={colors} />
+      <MapContent content={content} />
       <style jsx global>{`
               :root {
                 --bg-color: ${colors.defaultBgColor.hex};
@@ -53,18 +53,15 @@ export const getServerSideProps: GetServerSideProps<IPageProps> = async context 
       notFound: true,
     };
   }
-
   const blogsQuery = groq`
     *[_type == 'Post']
   `;
-
   const menuQuery = groq`
   *[_type == 'Page' && defined(menuOrder)]{
     name,
     slug,
     menuOrder,
   } | order(menuOrder asc)`;
-
   const siteSettingsQuery = groq`
   *[_type == 'siteSettings'][0] {
     defaultBgColor,
@@ -79,7 +76,6 @@ export const getServerSideProps: GetServerSideProps<IPageProps> = async context 
     client.fetch(siteSettingsQuery),
   ]);
 
-  // Resolve call to action links in the content
   pageResponse = await resolveLinks(pageResponse);
   pageResponse = await resolveReferences(pageResponse);
 

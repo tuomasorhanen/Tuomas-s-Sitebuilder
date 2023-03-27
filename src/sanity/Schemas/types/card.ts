@@ -31,12 +31,6 @@ const Card = {
         validation: Rule => [Rule.required().error('A layout is required.')],
       },
     },
-
-    defineField({
-      name: 'bgColor',
-      title: 'Background Color',
-      type: 'color',
-    }),
     {
       name: 'opacity',
       title: 'Background Opacity',
@@ -55,16 +49,6 @@ const Card = {
         ],
       },
     },
-    defineField({
-      name: 'textColor',
-      title: 'Text Color',
-      type: 'color',
-    }),
-    defineField({
-      name: 'highlightColor',
-      title: 'Highlight Color',
-      type: 'color',
-    }),
   ],
 };
 export default Card;

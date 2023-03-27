@@ -1,13 +1,13 @@
 export type ISiteSettings = {
-  _id: string;
-  title: string;
-  description: string;
-  logo: ISanityImage;
-  meta: IMetaFields;
-  socialFields: ISocialFields;
-  defaultBgColor: IColor;
-  defaultTextColor: IColor;
-  defaultHighlightColor: IColor;
+  _id?: string;
+  title?: string;
+  description?: string;
+  logo?: ISanityImage;
+  meta?: IMetaFields;
+  socialFields?: ISocialFields;
+  defaultBgColor?: IColor;
+  defaultTextColor?: IColor;
+  defaultHighlightColor?: IColor;
 };
 
 export type IColor = {
