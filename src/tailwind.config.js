@@ -19,7 +19,7 @@ module.exports = {
       bg: 'var(--bg-color)',
       text: 'var(--text-color)',
       highlight: 'var(--highlight-color)',
-      opacity: 'var(--opacity-val)'
+      power: 'var(--power-color)',
     },
     screens: {
       xs: '834px',
@@ -34,7 +34,8 @@ module.exports = {
       sans: 'var(--font-sans)',
       serif: 'var(--font-serif)',
     },
-    extend: {},
+    extend: {
+    },
   },
   plugins: [require('flowbite/plugin')],
 };

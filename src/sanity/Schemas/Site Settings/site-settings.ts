@@ -12,10 +12,6 @@ const siteSettings = defineType({
       title: 'Meta Data',
     },
     {
-      name: 'social',
-      title: 'Social',
-    },
-    {
       name: 'general',
       title: 'General',
     },
@@ -39,7 +35,6 @@ const siteSettings = defineType({
       type: 'text',
       description: 'Description for search engines and social media.',
       group: 'general',
-      validation: Rule => Rule.required(),
     }),
     defineField({
       name: 'logo',
@@ -52,12 +47,6 @@ const siteSettings = defineType({
       title: 'Meta',
       name: 'meta',
       group: 'meta',
-    }),
-    defineField({
-      name: 'socialFields',
-      type: 'socialFields',
-      description: 'Social media',
-      group: 'social',
     }),
     defineField({
       name: 'defaultBgColor',
@@ -74,6 +63,12 @@ const siteSettings = defineType({
     defineField({
       name: 'defaultHighlightColor',
       title: 'Default Highlight Color',
+      type: 'color',
+      group: 'theme',
+    }),
+    defineField({
+      name: 'defaultPowerColor',
+      title: 'Default Power Color',
       type: 'color',
       group: 'theme',
     }),

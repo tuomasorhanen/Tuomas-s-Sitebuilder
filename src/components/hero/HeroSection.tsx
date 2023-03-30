@@ -24,8 +24,8 @@ const HeroSection = (props: IHero) => {
                   return (
                     <Link
                       key={btn.navigateToPage}
-                      href={btn.navigateToPage}
-                      className="mx-2 rounded-md border-2 border-highlight p-2 text-xl text-text font-bold shadow-xl hover:scale-105">
+                      href={btn.navigateToPage ? btn.navigateToPage : '/home'}
+                      className="mx-2 rounded-md border-2 border-highlight border-b-power border-r-power p-2 text-xl font-bold text-text shadow-xl hover:scale-105">
                       {btn.callToAction}
                     </Link>
                   );
@@ -36,9 +36,8 @@ const HeroSection = (props: IHero) => {
       );
     case 'image-right':
       return (
-        <div key={props._key} className="flex flex-col md:flex-row">
-          <div
-            className="flex items-center justify-center md:w-1/2 bg-bg">
+        <div key={props._key} className="flex flex-col md:flex-row py-16">
+          <div className="flex items-center justify-center bg-bg md:w-1/2">
             <div className="text-center">
               <BlockContentRenderer blockContent={blockContent} />
               <div className="mt-6 mb-2">
@@ -48,7 +47,7 @@ const HeroSection = (props: IHero) => {
                       <Link
                         key={btn.navigateToPage}
                         href={btn.navigateToPage}
-                        className="mx-2 rounded-md border-2 border-highlight p-2 text-xl text-text font-bold shadow-xl hover:scale-105">
+                        className="mx-2 rounded-md border-2 border-highlight border-b-power border-r-power p-2 text-xl font-bold text-text shadow-xl hover:scale-105">
                         {btn.callToAction}
                       </Link>
                     );
@@ -56,19 +55,18 @@ const HeroSection = (props: IHero) => {
               </div>
             </div>
           </div>
-          <div className="relative md:w-1/2 bg-bg">
+          <div className="relative bg-bg md:w-1/2">
             <Image {...image} className="h-full w-full object-cover" alt="" />
           </div>
         </div>
       );
     case 'image-left':
       return (
-        <div key={props._key} className="flex flex-col md:flex-row">
-          <div className="relative md:w-1/2 bg-bg">
+        <div key={props._key} className="flex flex-col md:flex-row py-16">
+          <div className="relative bg-bg md:w-1/2">
             <Image {...image} className="h-full w-full object-cover" alt="" />
           </div>
-          <div
-            className="flex items-center justify-center md:w-1/2 bg-bg">
+          <div className="flex items-center justify-center bg-bg md:w-1/2">
             <div className="z-10 text-center">
               <BlockContentRenderer blockContent={blockContent} />
               <div className="mt-6 mb-2">
@@ -78,7 +76,7 @@ const HeroSection = (props: IHero) => {
                       <Link
                         key={btn.navigateToPage}
                         href={btn.navigateToPage}
-                        className="mx-2 rounded-md border-2 border-highlight p-2 text-xl text-text font-bold shadow-xl hover:scale-105">
+                        className="mx-2 rounded-md border-2 border-highlight border-b-power border-r-power p-2 text-xl font-bold text-text shadow-xl hover:scale-105">
                         {btn.callToAction}
                       </Link>
                     );
@@ -90,8 +88,8 @@ const HeroSection = (props: IHero) => {
       );
     case 'hero-slash-bg':
       return (
-        <div key={props._key} className="bg-bg" >
-          <div className="relative isolate overflow-hidden bg-gradient-to-b from-indigo-100/20 pt-14">
+        <div key={props._key} className="bg-bg">
+          <div className="relative isolate overflow-hidden bg-gradient-to-b from-indigo-100/20 py-16">
             <div
               className="absolute inset-y-0 right-1/2 -z-10 -mr-96 w-[200%] origin-top-right skew-x-[-30deg] bg-highlight shadow-xl shadow-indigo-900/10 sm:-mr-80 lg:-mr-96"
               aria-hidden="true"
@@ -107,7 +105,7 @@ const HeroSection = (props: IHero) => {
                           <Link
                             key={btn.navigateToPage}
                             href={btn.navigateToPage}
-                            className=" rounded-md border-2 border-highlight p-2 text-xl text-text font-bold shadow-xl hover:scale-105">
+                            className=" rounded-md border-2 border-highlight border-b-power border-r-power p-2 text-xl font-bold text-text shadow-xl hover:scale-105">
                             {btn.callToAction}
                           </Link>
                         );
@@ -125,32 +123,34 @@ const HeroSection = (props: IHero) => {
           </div>
         </div>
       );
-    case 'hero-right-simple':
-      return (
-        <section key={props._key} className="bg-bg">
-          <div className="mx-auto max-w-screen-md px-4 py-8 xs:grid-cols-12 xs:gap-8 xs:px-20 xs:py-16 md:grid xl:gap-0">
-            <div className="place-self-center xs:col-span-7">
-              <BlockContentRenderer blockContent={blockContent} />
-              <div className="mt-4">
-                {buttons &&
-                  buttons.map(btn => {
-                    return (
-                      <Link
-                        key={btn.navigateToPage}
-                        href={btn.navigateToPage} 
-                        className="rounded-md border-2 border-highlight p-2 text-xl text-text font-bold  shadow-xl  hover:scale-105">
-                        {btn.callToAction}
-                      </Link>
-                    );
-                  })}
+      case 'hero-right-simple':
+        return (
+          <section key={props._key} className="bg-bg">
+            <div className="mx-auto max-w-screen-md px-4 py-16 xs:grid-cols-12 xs:gap-8 xs:px-20 xs:py-16 md:grid xl:gap-0">
+              <div className="place-self-center xs:col-span-7">
+                <BlockContentRenderer blockContent={blockContent} />
+                <div className="mt-4">
+                  {buttons &&
+                    buttons.map(btn => {
+                      return (
+                        <Link
+                          key={btn.navigateToPage}
+                          href={btn.navigateToPage}
+                          className="relative inline-block rounded-full border-2 border-highlight border-b-power border-r-power py-4 px-6 text-xl text-text shadow-xl hover:scale-105">
+                          {btn.callToAction}
+                        </Link>
+                      );
+                    })}
+                </div>
+              </div>
+              <div className="hidden xs:col-span-5 md:mt-0 md:block">
+                <Image {...image} className="rounded-lg" alt="" />
               </div>
             </div>
-            <div className="hidden xs:col-span-5 md:mt-0 md:block">
-              <Image {...image} className="rounded-lg" alt="" />
-            </div>
-          </div>
-        </section>
-      );
+          </section>
+        );
+      
+      
 
     default:
       return <></>;

@@ -1,8 +1,11 @@
 import { IColor, IHeadingAndTitle, IHero } from '_lib/types';
+import BlogReferenceSection from './blog/BlogReferenceSection';
+import BlogSection from './blog/BlogSection';
 import GridSection from './grid/GridSection';
 import HeadingAndTitle from './Heading and Title/HeadingAndTitle';
 import HeroSection from './hero/HeroSection';
-import Spacer from './spacer/spacer';
+import CustomButton from './landingPage/CustomButton';
+import SocialSection from './Social Links/SocialSection';
 import UiElement from './UI elements/uiElements';
 
 type IMapContentProps = {
@@ -20,10 +23,12 @@ const MapContent = ({ content}: IMapContentProps) => {
             return <GridSection key={item._key} {...item} />;
           case 'HeadingAndTitle':
             return <HeadingAndTitle key={item._key} {...item} />;
-          case 'spacer':
-            return <Spacer key={item._key} {...item} />;
           case 'uiElement':
             return <UiElement key={item._key} {...item} />;
+          case 'customButton':
+            return <CustomButton key={item._key} {...item} />;
+          case 'socialButton':
+            return <SocialSection key={item._key} {...item} />;
           default:
             break;
         }

@@ -1,6 +1,6 @@
-import { defineField } from 'sanity';
+import { defineField} from 'sanity';
 
-const Card = {
+const Card = defineField({
   name: 'card',
   title: 'Card',
   type: 'object',
@@ -20,6 +20,12 @@ const Card = {
       },
     },
     {
+      name: 'buttons',
+      title: 'Buttons',
+      type: 'array',
+      of: [{ type: 'reference', to: [{ type: 'landingPage' }] }],
+    },
+    {
       name: 'layout',
       title: 'Card Layout',
       type: 'string',
@@ -31,24 +37,7 @@ const Card = {
         validation: Rule => [Rule.required().error('A layout is required.')],
       },
     },
-    {
-      name: 'opacity',
-      title: 'Background Opacity',
-      type: 'number',
-      options: {
-        list: [
-          { title: '10', value: 10 },
-          { title: '20', value: 20 },
-          { title: '30', value: 30 },
-          { title: '40', value: 40 },
-          { title: '50', value: 50 },
-          { title: '75', value: 75 },
-          { title: '80', value: 80 },
-          { title: '90', value: 90 },
-          { title: '100', value: 100 },
-        ],
-      },
-    },
   ],
-};
+  
+});
 export default Card;

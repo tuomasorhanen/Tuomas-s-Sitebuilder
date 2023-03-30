@@ -63,7 +63,8 @@ const Page = {
         { type: 'HeadingAndTitle' },
         { type: 'spacer' },
         { type: 'uiElement' },
-        { type: 'landingPage' },
+        { type: 'customButton' },
+        { type: 'socialButton' },
         {
           name: 'Blog',
           type: 'reference',

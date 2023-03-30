@@ -1,13 +1,13 @@
 export type ISiteSettings = {
+  defaultPowerColor: IColor;
+  defaultHighlightColor: IColor;
+  defaultTextColor: IColor;
+  defaultBgColor: IColor;
   _id?: string;
   title?: string;
   description?: string;
   logo?: ISanityImage;
   meta?: IMetaFields;
-  socialFields?: ISocialFields;
-  defaultBgColor?: IColor;
-  defaultTextColor?: IColor;
-  defaultHighlightColor?: IColor;
 };
 
 export type IColor = {
@@ -15,16 +15,11 @@ export type IColor = {
   hex: string;
 };
 
-export interface ISpacer {
-  _key: string;
-  _type: 'spacer';
-  size: '4' | '8' | '16' | '24';
-}
-
 export interface IUiElement {
   _key: string;
   _type: 'uiElement';
-  style: 'wave';
+  style: 'wave' | "transparent-overlap" | 'window';
+  image?: ISanityImage;
 }
 
 export type IMetaFields = {
@@ -36,13 +31,11 @@ export type IMetaFields = {
   openGraphDescription?: string;
 };
 
-export type ISocialFields = {
+export type IExternalPage = {
   _id: string;
-  twitter?: string;
-  instagram?: string;
-  facebook?: string;
-  linkedIn?: string;
-  youtube?: string;
+  externalLinkName: string; 
+  navigateToUrl: string;
+  image: ISanityImage;
 };
 
 export type IPage = {
@@ -54,7 +47,7 @@ export type IPage = {
   meta: IMetaFields;
   name: string;
   menuOrder: number;
-  content: IHeadingAndTitle[] | IHero[] | ISpacer[] | IGrid[];
+  content: IHeadingAndTitle[] | IHero[] | IGrid[] | IUiElement[] | IPerson[];
 };
 
 export type ISanityImage = {
@@ -79,6 +72,19 @@ type ICallToAction = {
   _type: string;
 };
 
+export type ICustomButton = {
+  _id: string;
+  _key: string;
+  buttons: ICallToAction[];
+}
+
+export type ISocialSection = {
+  _key: string;
+  _type: string;
+  buttons: IExternalPage[];
+};
+
+
 export type IHero = {
   _id: string;
   _key: string;
@@ -96,6 +102,7 @@ export type ICard = {
   _type: string;
   blockContent: any;
   image: ISanityImage;
+  buttons: ICallToAction[];
   layout: 'simple' | 'image-top';
   opacity: number;
 };
@@ -149,6 +156,8 @@ export type IPerson = {
   name: string;
   role: string;
   image: ISanityImage;
+  number: string;
+  email: string;
 };
 
 export type ICategory = {

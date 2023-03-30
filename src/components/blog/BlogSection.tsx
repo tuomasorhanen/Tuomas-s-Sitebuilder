@@ -1,4 +1,4 @@
-import { ICategory, IPost, IColor } from '_lib/types';
+import { ICategory, IPost, IColor, IPerson } from '_lib/types';
 import Link from 'next/link';
 import Image from '../Image';
 import { useState } from 'react';
@@ -33,7 +33,7 @@ const BlogSection = ({ blogs, categories}: BlogSectionProps) => {
           </button>
         ))}
       </div>
-      <div className="grid grid-cols-3 gap-4 mx-auto max-w-screen-md">
+      <div className="grid grid-cols-3 gap-4 mx-auto max-w-screen-md py-16">
         {filteredBlogs.map(blog => (
           <div key={blog._key}>
             <Image
@@ -55,6 +55,9 @@ const BlogSection = ({ blogs, categories}: BlogSectionProps) => {
                     <span className="text-black">
                       &middot; {blog.readingTime} min &middot;{' '}
                     </span>
+                    <p>{blog.person.name}</p>
+                    <p>{blog.person.role}</p>
+                    <p>{blog.publishedAt}</p>
                   </div>
                 </div>
               </article>

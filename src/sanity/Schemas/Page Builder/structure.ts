@@ -9,5 +9,8 @@ export const builderStructure = (S: any) =>
           S.listItem()
             .title('Landing Pages')
             .child(S.documentList().title('Landing Pages').filter('_type == "landingPage"')),
+          S.listItem()
+            .title('External Pages')
+            .child(S.documentList().title('External Pages').filter('_type == "externalPage"')),
         ])
     );

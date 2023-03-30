@@ -5,31 +5,83 @@ import { IPage } from '_lib/types';
 const resolveReferences = async (page: IPage) => {
   const { content } = page;
 
-  for (let i = 0; i < content.length; i++) {
-    let item = content[i] as any;
+  const resolvedContent = await Promise.all(
+    content.map(async (item: any) => {
+      const { _type } = item;
 
-    const { _ref, _type } = item;
-    if (!_ref) continue;
+      switch (_type) {
+        case 'grid':
+          item.items = await Promise.all(
+            item.items.map(async (gridItem: any) => {
+              const { _ref } = gridItem;
+              if (gridItem._type === 'Blog' && _ref) {
+                const blogQry = groq`*[_id == '${_ref}']{
+                  _id,
+                  title,
+                  excerpt,
+                  mainImage,
+                  slug,
+                  person,
+                  ...
+                }[0]`;
+                const blogData = await client.fetch(blogQry);
 
-    let qry = groq`*[_id == '${_ref}']{
-        ...
-    }[0]`;
+                // Fetch person data separately
+                if (blogData.person && blogData.person._ref) {
+                  const personQry = groq`*[_id == '${blogData.person._ref}']{
+                    _id,
+                    name,
+                    role,
+                    image,
+                    _type,
+                    email,
+                    number
+                  }[0]`;
+                  const personData = await client.fetch(personQry);
+                  blogData.person = personData;
+                }
+                return blogData;
+              } else if (gridItem._type === 'Person' && _ref) {
+                const personQry = groq`*[_id == '${_ref}']{
+                  _id,
+                  name,
+                  role,
+                  image,
+                  _type,
+                  email,
+                    number
+                }[0]`;
+                const personData = await client.fetch(personQry);
+                return personData;
+              } else {
+                return gridItem;
+              }
+            })
+          );
+          break;
+        case 'Blog':
+          if (item.person && item.person._ref) {
+            const personQry = groq`*[_id == '${item.person._ref}']{
+              _id,
+              name,
+              role,
+              image
+            }[0]`;
+            const personData = await client.fetch(personQry);
+            item.person = personData;
+          }
+          break;
+        case 'Person':
+          break;
+        default:
+          break;
+      }
 
-    switch (_type) {
-      case 'blogPost':
-        break;
+      return item;
+    })
+  );
 
-      default:
-        break;
-    }
-
-    item = await client.fetch(qry);
-    item._ref = _ref;
-
-    content[i] = item as any;
-  }
-
-  page.content = content;
+  page.content = resolvedContent;
   return page;
 };
 

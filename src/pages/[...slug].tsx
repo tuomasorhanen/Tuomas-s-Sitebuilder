@@ -1,7 +1,7 @@
 import { client } from '_lib/client';
 import resolveLinks from '_lib/resolveLinks';
 import resolveReferences from '_lib/resolvers/resolveReferences';
-import { IPost, IColor, IHeadingAndTitle, IHero } from '_lib/types';
+import { IPost, IHeadingAndTitle, IHero, IPerson, ISiteSettings } from '_lib/types';
 import { GetServerSideProps } from 'next';
 import { groq } from 'next-sanity';
 
@@ -12,26 +12,23 @@ type IPageProps = {
   content: IHero[] | IHeadingAndTitle[];
   blogs: IPost[];
   menu: IMenuItem[];
-  colors: {
-    defaultBgColor: IColor;
-    defaultTextColor: IColor;
-    defaultHighlightColor: IColor;
-  };
+  settings: ISiteSettings;
 };
 
 const IndexPage = (props: IPageProps) => {
-  const { content, menu, colors } = props;
+  const { content, menu, settings } = props;
 
   return (
     <>
       <Header items={menu} />
-      <MapContent content={content} />
+      <MapContent content={content}/>
       <style jsx global>{`
-              :root {
-                --bg-color: ${colors.defaultBgColor.hex};
-                --text-color: ${colors.defaultTextColor.hex};
-                --highlight-color: ${colors.defaultHighlightColor.hex};
-              }
+        :root {
+          --bg-color: ${settings.defaultBgColor.hex};
+          --text-color: ${settings.defaultTextColor.hex};
+          --highlight-color: ${settings.defaultHighlightColor.hex};
+          --power-color: ${settings.defaultPowerColor.hex};
+        }
       `}</style>
     </>
   );
@@ -56,6 +53,7 @@ export const getServerSideProps: GetServerSideProps<IPageProps> = async context 
   const blogsQuery = groq`
     *[_type == 'Post']
   `;
+
   const menuQuery = groq`
   *[_type == 'Page' && defined(menuOrder)]{
     name,
@@ -63,11 +61,7 @@ export const getServerSideProps: GetServerSideProps<IPageProps> = async context 
     menuOrder,
   } | order(menuOrder asc)`;
   const siteSettingsQuery = groq`
-  *[_type == 'siteSettings'][0] {
-    defaultBgColor,
-    defaultTextColor,
-    defaultHighlightColor
-  }
+  *[_type == 'siteSettings'][0]
 `;
 
   let [blogsResponse, menuResponse, siteSettingsResponse] = await Promise.all([
@@ -84,7 +78,7 @@ export const getServerSideProps: GetServerSideProps<IPageProps> = async context 
       content: pageResponse.content,
       blogs: blogsResponse,
       menu: menuResponse,
-      colors: siteSettingsResponse,
+      settings: siteSettingsResponse,
     },
   };
 };

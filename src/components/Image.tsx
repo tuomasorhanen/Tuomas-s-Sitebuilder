@@ -14,7 +14,6 @@ const Image = (props: ISanityImage & IImgProps) => {
   const { className, alt, opacity } = props;
   const imageProps = useNextSanityImage(client, props);
 
-  // Apply the opacity as an inline style if it's provided
   const imageStyles = opacity ? { opacity: opacity / 100 } : {};
 
   return (

@@ -7,15 +7,19 @@ const Ball = (props: IBall) => {
   const overlayOpacity = opacity ? opacity / 100 : 1;
 
   return (
-    <div key={props._key} className="p-4">
+    <div key={props._key} className="mx-auto max-w-xs p-4">
       <div
-        className="aspect-square rounded-full border-2 border-highlight bg-bg p-6 shadow-2xl">
-        <div className="flex justify-center text-text">
+        className="aspect-square rounded-full bg-gradient-to-br from-highlight to-power shadow-2xl text-center"
+        style={{ opacity: overlayOpacity }}>
+        <div className="flex items-center justify-center h-full text-bg">
           <BlockContentRenderer blockContent={blockContent} />
         </div>
       </div>
     </div>
   );
 };
+
+
+
 
 export default Ball;

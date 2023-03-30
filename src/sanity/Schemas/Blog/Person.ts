@@ -26,5 +26,15 @@ export default {
       type: 'string',
       validation: Rule => [Rule.required().error('Role is required.')],
     },
+    {
+      name: 'email',
+      title: 'Email',
+      type: 'email',
+    },
+    {
+      name: 'number',
+      title: 'Phone Number',
+      type: 'string',
+    },
   ],
 };

@@ -42,7 +42,7 @@ export default defineType({
       },
     }),
     defineField({
-      name: 'categories',
+      name: 'category',
       title: 'Categories',
       description: 'Choose one or several categories that apply to this post.',
       type: 'array',
