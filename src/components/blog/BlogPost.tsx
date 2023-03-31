@@ -11,7 +11,7 @@ const BlogPost = (props: IPost) => {
   } = props;
 
   return (
-    <div className="bg-bg text-text">
+    <div className="">
       <div className="sm:-px-6 mx-auto max-w-3xl px-6 pb-12 lg:max-w-4xl xl:max-w-6xl">
         <BlockContentRenderer blockContent={blockContent} />
         <div className="flex items-center space-x-4 pt-12 text-sm text-gray-700">

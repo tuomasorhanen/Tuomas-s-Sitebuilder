@@ -7,7 +7,7 @@ const SocialSection = (props: ISocialSection) => {
   const { _key, _type, buttons } = props;
 
   return (
-    <div className="flex justify-center bg-bg">
+    <div className="flex justify-center">
       {buttons &&
         buttons.map(item => {
           return (

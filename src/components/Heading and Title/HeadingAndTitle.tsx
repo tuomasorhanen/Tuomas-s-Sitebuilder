@@ -6,9 +6,9 @@ const HeadingAndTitle = (props: IHeadingAndTitle) => {
   const { blockContent} = props;
 
   return (
-    <div key={props._key} className="bg-bg py-16 ">
+    <div key={props._key} className="py-16 ">
       <div className="mx-auto max-w-screen-xs px-4 text-center">
-        <div className='text-text'>
+        <div className=''>
           <BlockContentRenderer blockContent={blockContent} />
         </div>
       </div>

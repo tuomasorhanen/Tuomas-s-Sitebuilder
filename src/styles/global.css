@@ -4,8 +4,20 @@
 
 @layer base {
   body {
-    @apply bg-gray-900 tracking-wide text-[#1f2937];
+    @apply bg-bg text-text text-xl;
   }
+}
+@layer components {
+  .button {
+    @apply relative inline-block mx-2 rounded-full bg-bg borderstyle py-2 px-4 shadow-xl hover:scale-105;
+  }
+  .borderstyle {
+    @apply border-2 border-highlight border-b-power border-r-power
+  }
+  .customgradient {
+    @apply bg-gradient-to-br from-highlight to-power
+  }
+  
 }
 
 html,

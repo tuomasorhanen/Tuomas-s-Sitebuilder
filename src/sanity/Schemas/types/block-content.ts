@@ -26,34 +26,6 @@ const blockContent = defineField({
             { title: 'H4', value: 'h4' },
             { title: 'H5', value: 'h5' },
             { title: 'H6', value: 'h6' },
-            {
-              title: 'Normal Center',
-              value: 'normal+center',
-            },
-            {
-              title: 'H1 Center',
-              value: 'h1+center',
-            },
-            {
-              title: 'H2 Center',
-              value: 'h2+center',
-            },
-            {
-              title: 'H3 Center',
-              value: 'h3+center',
-            },
-            {
-              title: 'H4 Center',
-              value: 'h4+center',
-            },
-            {
-              title: 'H5 Center',
-              value: 'h5+center',
-            },
-            {
-              title: 'H6 Center',
-              value: 'h6+center',
-            },
             { title: 'Quote', value: 'blockquote' },
           ],
           marks: {

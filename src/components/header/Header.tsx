@@ -19,23 +19,23 @@ const Header = (props: IMenuProps) => {
 
   return (
     <>
-      <nav key={props.key} className="rounded max-xs:hidden bg-bg ">
+      <nav key={props.key} className="hidden xs:block">
         <div className="flex justify-between py-2">
           <Link href="/" className="z-40 flex items-center">
             <Image
               alt="Amban"
-              className="mx-10 h-12 rounded-full"
+              className="mx-10 rounded-full shadow-lg"
               src="https://amban.fi/wp-content/uploads/2017/11/cropped-amban-profilepic-biggerlogo.png"
-              width={48}
-              height={48}
+              width={80}
+              height={80}
             />
           </Link>
-          <div className="z-40 hidden w-auto xs:block" id="navbar-default">
-            <ul className="my-2 mx-10 flex text-md font-bold text-text md:space-x-4">
+          <div className="z-40 hidden xs:block" id="navbar-default">
+            <ul className="my-2 mx-10 flex text-2xl font-bold sm:space-x-4">
               {items.map(item => {
                 return (
                   <li key={item.slug.current}>
-                    <Link href={'/' + item.slug.current} className="block py-2 px-4 lg:text-xl" aria-current="page">
+                    <Link href={'/' + item.slug.current} className="block py-2 px-4" aria-current="page">
                       {item.name}
                     </Link>
                   </li>
@@ -50,10 +50,10 @@ const Header = (props: IMenuProps) => {
           <Navbar.Brand href="/" className="flex shrink flex-wrap">
             <Image
               alt="Amban"
-              className="h-12 rounded-full"
+              className="rounded-full"
               src="https://amban.fi/wp-content/uploads/2017/11/cropped-amban-profilepic-biggerlogo.png"
-              width={48}
-              height={48}
+              width={60}
+              height={60}
             />
           </Navbar.Brand>
         </div>
@@ -71,7 +71,7 @@ const Header = (props: IMenuProps) => {
           <div className="ml-12 flex flex-col">
             {items.map(item => {
               return (
-                <Navbar.Link key={item.slug.current} href={'/' + item.slug.current} className="">
+                <Navbar.Link key={item.slug.current} href={'/' + item.slug.current}>
                   {item.name}
                 </Navbar.Link>
               );

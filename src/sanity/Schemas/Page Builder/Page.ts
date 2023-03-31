@@ -61,7 +61,6 @@ const Page = {
         { type: 'Hero' },
         { type: 'grid' },
         { type: 'HeadingAndTitle' },
-        { type: 'spacer' },
         { type: 'uiElement' },
         { type: 'customButton' },
         { type: 'socialButton' },

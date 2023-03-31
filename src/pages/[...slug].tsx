@@ -1,7 +1,7 @@
 import { client } from '_lib/client';
 import resolveLinks from '_lib/resolveLinks';
 import resolveReferences from '_lib/resolvers/resolveReferences';
-import { IPost, IHeadingAndTitle, IHero, IPerson, ISiteSettings } from '_lib/types';
+import { IPost, IHeadingAndTitle, IHero, ISiteSettings } from '_lib/types';
 import { GetServerSideProps } from 'next';
 import { groq } from 'next-sanity';
 

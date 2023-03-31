@@ -2,15 +2,18 @@ import { client } from '_lib/client';
 import { ICategory, IColor, IPost } from '_lib/types';
 import { GetServerSideProps } from 'next';
 import { groq } from 'next-sanity';
+import { useState } from 'react';
 
 import BlogSection from '../../components/blog/BlogSection';
 import Header, { IMenuItem } from '../../components/header/Header';
+import CategoryFilter from 'components/blog/CategoryFilter';
 
 type IPageProps = {
   blogs: IPost[];
   categories: ICategory[];
   menu: IMenuItem[];
-  colors: {
+  settings: {
+    defaultPowerColor: any;
     defaultBgColor: IColor;
     defaultTextColor: IColor;
     defaultHighlightColor: IColor;
@@ -18,19 +21,37 @@ type IPageProps = {
 };
 
 const Blogs = (props: IPageProps) => {
-  const { blogs, menu, categories, colors } = props;
+  const { blogs, menu, categories, settings } = props;
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+
+  const filteredBlogs = selectedCategory
+    ? blogs.filter(blog =>
+        blog.categories.some(category => category._ref === selectedCategory)
+      )
+    : blogs;
+
   return (
-<>
-  <Header items={menu} />
-  <BlogSection blogs={blogs} categories={categories}/>
-  <style jsx global>{`
-              :root {
-                --bg-color: ${colors.defaultBgColor.hex};
-                --text-color: ${colors.defaultTextColor.hex};
-                --highlight-color: ${colors.defaultHighlightColor.hex};
-              }
-  `}</style>
-</>
+    <>
+      <Header items={menu} />
+      <div className="container mx-auto">
+        <CategoryFilter
+          categories={categories}
+          selectedCategory={selectedCategory}
+          onCategorySelect={setSelectedCategory}
+        />
+        {filteredBlogs.map((post) => (
+          <BlogSection key={post._key} post={post} categories={categories} />
+        ))}
+      </div>
+      <style jsx global>{`
+        :root {
+          --bg-color: ${settings.defaultBgColor.hex};
+          --text-color: ${settings.defaultTextColor.hex};
+          --highlight-color: ${settings.defaultHighlightColor.hex};
+          --power-color: ${settings.defaultPowerColor.hex};
+        }
+      `}</style>
+    </>
   );
 };
 
@@ -40,9 +61,24 @@ export const getServerSideProps: GetServerSideProps<IPageProps> = async context 
   const pageQuery = groq`
     *[_type == 'Page' && name == 'Blog']
   `;
-  const blogsQuery = groq`
-    *[_type == 'Post']
-  `;
+const blogsQuery = groq`
+*[_type == 'Post']{
+  _id,
+  _key,
+  excerpt,
+  mainImage,
+  readingTime,
+  title,
+  slug,
+  categories,
+  person->{
+    _id,
+    name,
+    role,
+    image
+  }
+}
+`;
   const categoriesQuery = groq`
   *[_type == 'category']
 `;
@@ -57,7 +93,8 @@ const siteSettingsQuery = groq`
   *[_type == 'siteSettings'][0] {
     defaultBgColor,
     defaultTextColor,
-    defaultHighlightColor
+    defaultHighlightColor,
+    defaultPowerColor
   }
 `;
 
@@ -74,7 +111,7 @@ return {
     blogs: blogsResponse,
     menu: menuResponse,
     categories: categoriesResponse,
-    colors: siteSettingsResponse,
+    settings: siteSettingsResponse,
   },
 };
 };

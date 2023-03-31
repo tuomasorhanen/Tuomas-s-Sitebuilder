@@ -11,8 +11,8 @@ const HeroSection = (props: IHero) => {
       return (
         <div
           key={props._key}
-          className="relative flex aspect-video max-h-screen w-full items-center justify-center xs:-mt-20">
-          <div className="absolute top-0 left-0 z-10 h-full w-full bg-bg ">
+          className="relative flex aspect-video max-h-screen w-full items-center justify-center xs:-mt-32">
+          <div className="absolute top-0 left-0 z-10 h-full w-full">
             <Image {...image} className="h-full w-full object-cover" alt="" opacity={opacity} />
           </div>
           <div className="absolute top-0 left-0 z-20 h-full w-full "></div>
@@ -25,7 +25,7 @@ const HeroSection = (props: IHero) => {
                     <Link
                       key={btn.navigateToPage}
                       href={btn.navigateToPage ? btn.navigateToPage : '/home'}
-                      className="mx-2 rounded-md border-2 border-highlight border-b-power border-r-power p-2 text-xl font-bold text-text shadow-xl hover:scale-105">
+                      className="button">
                       {btn.callToAction}
                     </Link>
                   );
@@ -37,7 +37,7 @@ const HeroSection = (props: IHero) => {
     case 'image-right':
       return (
         <div key={props._key} className="flex flex-col md:flex-row py-16">
-          <div className="flex items-center justify-center bg-bg md:w-1/2">
+          <div className="flex items-center justify-center md:w-1/2">
             <div className="text-center">
               <BlockContentRenderer blockContent={blockContent} />
               <div className="mt-6 mb-2">
@@ -47,7 +47,7 @@ const HeroSection = (props: IHero) => {
                       <Link
                         key={btn.navigateToPage}
                         href={btn.navigateToPage}
-                        className="mx-2 rounded-md border-2 border-highlight border-b-power border-r-power p-2 text-xl font-bold text-text shadow-xl hover:scale-105">
+                        className="button">
                         {btn.callToAction}
                       </Link>
                     );
@@ -55,7 +55,7 @@ const HeroSection = (props: IHero) => {
               </div>
             </div>
           </div>
-          <div className="relative bg-bg md:w-1/2">
+          <div className="relative md:w-1/2">
             <Image {...image} className="h-full w-full object-cover" alt="" />
           </div>
         </div>
@@ -63,10 +63,10 @@ const HeroSection = (props: IHero) => {
     case 'image-left':
       return (
         <div key={props._key} className="flex flex-col md:flex-row py-16">
-          <div className="relative bg-bg md:w-1/2">
+          <div className="relative md:w-1/2">
             <Image {...image} className="h-full w-full object-cover" alt="" />
           </div>
-          <div className="flex items-center justify-center bg-bg md:w-1/2">
+          <div className="flex items-center justify-center md:w-1/2">
             <div className="z-10 text-center">
               <BlockContentRenderer blockContent={blockContent} />
               <div className="mt-6 mb-2">
@@ -76,7 +76,7 @@ const HeroSection = (props: IHero) => {
                       <Link
                         key={btn.navigateToPage}
                         href={btn.navigateToPage}
-                        className="mx-2 rounded-md border-2 border-highlight border-b-power border-r-power p-2 text-xl font-bold text-text shadow-xl hover:scale-105">
+                        className="button">
                         {btn.callToAction}
                       </Link>
                     );
@@ -88,7 +88,7 @@ const HeroSection = (props: IHero) => {
       );
     case 'hero-slash-bg':
       return (
-        <div key={props._key} className="bg-bg">
+        <div key={props._key} className="">
           <div className="relative isolate overflow-hidden bg-gradient-to-b from-indigo-100/20 py-16">
             <div
               className="absolute inset-y-0 right-1/2 -z-10 -mr-96 w-[200%] origin-top-right skew-x-[-30deg] bg-highlight shadow-xl shadow-indigo-900/10 sm:-mr-80 lg:-mr-96"
@@ -105,7 +105,7 @@ const HeroSection = (props: IHero) => {
                           <Link
                             key={btn.navigateToPage}
                             href={btn.navigateToPage}
-                            className=" rounded-md border-2 border-highlight border-b-power border-r-power p-2 text-xl font-bold text-text shadow-xl hover:scale-105">
+                            className="button">
                             {btn.callToAction}
                           </Link>
                         );
@@ -125,7 +125,7 @@ const HeroSection = (props: IHero) => {
       );
       case 'hero-right-simple':
         return (
-          <section key={props._key} className="bg-bg">
+          <section key={props._key} className="">
             <div className="mx-auto max-w-screen-md px-4 py-16 xs:grid-cols-12 xs:gap-8 xs:px-20 xs:py-16 md:grid xl:gap-0">
               <div className="place-self-center xs:col-span-7">
                 <BlockContentRenderer blockContent={blockContent} />
@@ -136,7 +136,7 @@ const HeroSection = (props: IHero) => {
                         <Link
                           key={btn.navigateToPage}
                           href={btn.navigateToPage}
-                          className="relative inline-block rounded-full border-2 border-highlight border-b-power border-r-power py-4 px-6 text-xl text-text shadow-xl hover:scale-105">
+                          className="button">
                           {btn.callToAction}
                         </Link>
                       );

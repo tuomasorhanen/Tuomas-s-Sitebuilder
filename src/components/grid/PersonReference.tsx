@@ -5,15 +5,17 @@ const PersonReferenceSection = (props: IPerson) => {
   const { image, name, role, _id, number, email } = props;
 
   return (
-    <div key={props._id} className="grid p-4">
+    <div key={props._id}>
         <div className='flex justify-center py-4'>
         <Image {...image} alt="" className="h-40 w-40 rounded-full object-cover" />
         </div>
-        <div className="text-center px-6 text-text">
-            <h2 className="text-2xl font-bold tracking-tight text-text">{name}</h2>
-          <p className='mt-2 text-2xl'>{role}</p>
-          <p className='mt-2 text-2xl'>{number}</p>
-          <p className='mt-2 text-2xl'>{email}</p>
+        <div className="text-center">
+            <h2 className="text-2xl font-bold">{name}</h2>
+            <div className='mt-2 text-2xl'>
+          <p>{role}</p>
+          <p>{number}</p>
+          <p>{email}</p>
+          </div>
           </div>
         </div>
   );

@@ -12,19 +12,15 @@ interface GridSectionProps extends IGrid {}
 const CardItem = (item: ICard) => {
   return <Card {...item} />;
 };
-
 const HeroItem = (item: IHero) => {
   return <HeroSection {...item} />;
 };
-
 const BallItem = (item: IBall) => {
   return <Ball {...item} />;
 };
-
 const PostItem = (item: IPost) => {
   return <BlogReferenceSection {...item} />;
 };
-
 const PersonItem = (item: IPerson) => {
   return <PersonReferenceSection {...item} />;
 };
@@ -65,18 +61,17 @@ const GridSection = (props: GridSectionProps) => {
       }
     };
 
-    handleResize(); // Initialize column styles on component mount
+    handleResize();
     window.addEventListener('resize', handleResize);
 
-    // Clean up the event listener on component unmount
     return () => {
       window.removeEventListener('resize', handleResize);
     };
   }, [columns]);
 
   return (
-    <section className="bg-bg">
-      <div className="grid grid-cols-12 max-w-7xl lg:max-w-screen-lg mx-auto py-12">
+    <section className="">
+      <div className="grid grid-cols-12 gap-8 max-w-screen-lg mx-auto p-8">
         {itemsArray.map(item => (
           <div key={item._key} style={columnStyles}>
             {renderGridItem(item)}
