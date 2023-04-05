@@ -1,4 +1,4 @@
-import { RiCheckboxIndeterminateLine } from 'react-icons/ri';
+import { SiStyleshare } from 'react-icons/si';
 import { defineField } from 'sanity';
 
 const uiElement = defineField({
@@ -7,7 +7,7 @@ const uiElement = defineField({
   title: 'UI Element',
   hidden: true,
   description: 'A styling element to enhance the UI',
-  icon: RiCheckboxIndeterminateLine,
+  icon: SiStyleshare,
   fields: [
     {
       name: 'style',

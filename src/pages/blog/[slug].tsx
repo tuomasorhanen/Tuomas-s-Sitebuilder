@@ -1,34 +1,31 @@
 import { client } from '_lib/client';
-import { IPost } from '_lib/types';
+import { IPost, ISiteSettings } from '_lib/types';
 import { GetServerSideProps } from 'next';
 import { groq } from 'next-sanity';
 
 import BlogPost from '../../components/blog/BlogPost';
 import Header, { IMenuItem } from '../../components/header/Header';
-import { IColor } from '_lib/types';
 
 type IPageProps = {
   blog: IPost;
   menu: IMenuItem[];
-  colors: {
-    defaultBgColor: IColor;
-    defaultTextColor: IColor;
-    defaultHighlightColor: IColor;
-  };
+  settings: ISiteSettings;
 };
 
 const Post = (props: IPageProps) => {
-  const { blog, menu, colors } = props;
+  const { blog, menu, settings } = props;
   return (
     <>
       <Header items={menu} />
       <BlogPost {...blog} />
       <style jsx global>{`
-              :root {
-                --bg-color: ${colors.defaultBgColor.hex};
-                --text-color: ${colors.defaultTextColor.hex};
-                --highlight-color: ${colors.defaultHighlightColor.hex};
-              }
+        :root {
+          --bg-color: ${settings.bgColor.hex};
+          --text-color: ${settings.textColor.hex};
+          --primary-color: ${settings.primaryColor.hex};
+          --secondary-color: ${settings.secondaryColor.hex};
+          --accent-color: ${settings.accentColor.hex};
+        }
       `}</style>
     </>
   );
@@ -46,11 +43,7 @@ export const getServerSideProps: GetServerSideProps<IPageProps> = async (context
     menuOrder,
   } | order(menuOrder asc)`;
 
-  const siteSettingsQuery = groq`*[_type == 'siteSettings'][0] {
-    defaultBgColor,
-    defaultTextColor,
-    defaultHighlightColor
-  }`;
+  const siteSettingsQuery = groq`*[_type == 'siteSettings'][0]`;
 
   const [blog, menu, colors] = await Promise.all([
     client.fetch<IPost>(query),
@@ -62,7 +55,7 @@ export const getServerSideProps: GetServerSideProps<IPageProps> = async (context
     props: {
       blog,
       menu,
-      colors,
+      settings,
     },
   };
 };

@@ -25,7 +25,7 @@ const BlogSection = (props: BlogSectionProps) => {
           <p className="mt-2">{excerpt}</p>
           <div className="flex mt-4">
             <Image {...person.image} alt={person.name} className="h-16 w-16 rounded-full shadow-md mr-4" />
-            <div className="flex flex-col text-gray-500">
+            <div className="flex flex-col text-opacity-50">
               <p>{readingTime} min read</p>
               <p>{person.name}</p>
               <p>{person.role}</p>

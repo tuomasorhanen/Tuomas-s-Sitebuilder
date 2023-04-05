@@ -1,7 +1,10 @@
+import { GiNinjaHeroicStance } from 'react-icons/gi';
+
 const Hero = {
   name: 'Hero',
   title: 'Hero',
   type: 'object',
+  icon: GiNinjaHeroicStance,
   fields: [
     {
       name: 'blockContent',

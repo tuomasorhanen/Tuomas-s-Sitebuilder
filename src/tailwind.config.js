@@ -13,26 +13,33 @@ module.exports = {
     ...theme,
     darkMode: 'class',
     colors: {
-      ...theme.colors,
-      gray: colors.slate,
-      indigo: colors.indigo,
-      bg: 'var(--bg-color)',
-      text: 'var(--text-color)',
-      highlight: 'var(--highlight-color)',
-      power: 'var(--power-color)',
+      bg: {
+        light: 'var(--bg-color-light)', // Light background color
+        dark: 'var(--bg-color-dark)', // Dark background color
+      },
+      text: {
+        light: 'var(--text-color-light)', // Light text color
+        dark: 'var(--text-color-dark)', // Dark text color
+      },
+      primary: {
+        light: 'var(--primary-color-light)', // Light primary theme color
+        dark: 'var(--primary-color-dark)', // Dark primary theme color
+      },
+      secondary: {
+        light: 'var(--secondary-color-light)', // Light secondary theme color
+        dark: 'var(--secondary-color-dark)', // Dark secondary theme color
+      },
+      accent: {
+        light: 'var(--accent-color-light)', // Light accent color
+        dark: 'var(--accent-color-dark)', // Dark accent color
+      },
     },
     screens: {
-      xs: '834px',
-      sm: '1194px',
-      md: '1440px',
-      lg: '1920px',
-      xl: '2560px',
-      xxl: '3840px',
+      sm: '834px', //tablet
+      md: '1440px', //small desktop or laptop
+      lg: '1920px', // bigger desktop
     },
     fontFamily: {
-      mono: 'var(--font-mono)',
-      sans: 'var(--font-sans)',
-      serif: 'var(--font-serif)',
     },
     extend: {
     },

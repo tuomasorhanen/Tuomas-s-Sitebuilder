@@ -1,4 +1,6 @@
 import 'styles/global.css';
+import 'swiper/swiper.min.css';
+
 
 import { AppProps } from 'next/app';
 

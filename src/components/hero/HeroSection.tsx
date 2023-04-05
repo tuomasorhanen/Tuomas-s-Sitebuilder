@@ -11,7 +11,7 @@ const HeroSection = (props: IHero) => {
       return (
         <div
           key={props._key}
-          className="relative flex aspect-video max-h-screen w-full items-center justify-center xs:-mt-32">
+          className="relative flex aspect-video max-h-screen w-full items-center justify-center sm:-mt-24">
           <div className="absolute top-0 left-0 z-10 h-full w-full">
             <Image {...image} className="h-full w-full object-cover" alt="" opacity={opacity} />
           </div>
@@ -126,8 +126,8 @@ const HeroSection = (props: IHero) => {
       case 'hero-right-simple':
         return (
           <section key={props._key} className="">
-            <div className="mx-auto max-w-screen-md px-4 py-16 xs:grid-cols-12 xs:gap-8 xs:px-20 xs:py-16 md:grid xl:gap-0">
-              <div className="place-self-center xs:col-span-7">
+            <div className="mx-auto max-w-screen-md px-4 py-16 sm:grid-cols-12 sm:gap-8 xs:px-20 sm:py-16 md:grid lg:gap-0">
+              <div className="place-self-center sm:col-span-7">
                 <BlockContentRenderer blockContent={blockContent} />
                 <div className="mt-4">
                   {buttons &&
@@ -143,7 +143,7 @@ const HeroSection = (props: IHero) => {
                     })}
                 </div>
               </div>
-              <div className="hidden xs:col-span-5 md:mt-0 md:block">
+              <div className="hidden sm:col-span-5 md:mt-0 md:block">
                 <Image {...image} className="rounded-lg" alt="" />
               </div>
             </div>

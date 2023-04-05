@@ -1,8 +1,14 @@
 export type ISiteSettings = {
-  defaultPowerColor: IColor;
-  defaultHighlightColor: IColor;
-  defaultTextColor: IColor;
-  defaultBgColor: IColor;
+  accentColorLight: IColor;
+  secondaryColorLight: IColor;
+  primaryColorLight: IColor;
+  textColorLight: IColor;
+  bgColorLight: IColor;
+  accentColorDark: IColor;
+  secondaryColorDark: IColor;
+  primaryColorDark: IColor;
+  textColorDark: IColor;
+  bgColorDark: IColor;
   _id?: string;
   title?: string;
   description?: string;
@@ -51,6 +57,7 @@ export type IPage = {
 };
 
 export type ISanityImage = {
+  _key: string;
   _id: string;
   url: any;
   _type: string;
@@ -77,14 +84,7 @@ export type ICustomButton = {
   _key: string;
   buttons: ICallToAction[];
 }
-
-export type ISocialSection = {
-  _key: string;
-  _type: string;
-  buttons: IExternalPage[];
-};
-
-
+  
 export type IHero = {
   _id: string;
   _key: string;
@@ -95,6 +95,20 @@ export type IHero = {
   layout: 'image-bg' | 'image-right' | 'image-left' | 'hero-slash-bg' | 'hero-right-simple';
   opacity: number;
 };
+
+export type ICarousel = {
+  _id: string;
+  _type: string;
+  items: ISimpleImage[];
+  layout: 'SimpleImage';
+};
+
+export type ISimpleImage = {
+  _id: string;
+  _type: string;
+  image: ISanityImage;
+}
+
 
 export type ICard = {
   _id: string;
@@ -120,7 +134,7 @@ export type IGrid = {
   _key: string;
   title: string;
   columns: IColumns;
-  items: IHero[] | ICard;
+  items: IHero[] | ICard [] | IBall[];
 };
 
 export type IColumns = {

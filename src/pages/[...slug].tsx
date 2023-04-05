@@ -1,7 +1,7 @@
 import { client } from '_lib/client';
 import resolveLinks from '_lib/resolveLinks';
 import resolveReferences from '_lib/resolvers/resolveReferences';
-import { IPost, IHeadingAndTitle, IHero, ISiteSettings } from '_lib/types';
+import { IPost, IHeadingAndTitle, IHero, ISiteSettings} from '_lib/types';
 import { GetServerSideProps } from 'next';
 import { groq } from 'next-sanity';
 
@@ -24,11 +24,19 @@ const IndexPage = (props: IPageProps) => {
       <MapContent content={content}/>
       <style jsx global>{`
         :root {
-          --bg-color: ${settings.defaultBgColor.hex};
-          --text-color: ${settings.defaultTextColor.hex};
-          --highlight-color: ${settings.defaultHighlightColor.hex};
-          --power-color: ${settings.defaultPowerColor.hex};
+          --bg-color-light: ${settings.bgColorLight.hex};
+          --text-color-light: ${settings.textColorLight.hex};
+          --primary-color-light: ${settings.primaryColorLight.hex};
+          --secondary-color-light: ${settings.secondaryColorLight.hex};
+          --accent-color-light: ${settings.accentColorLight.hex};
+
+          --bg-color-dark: ${settings.bgColorDark.hex};
+          --text-color-dark: ${settings.textColorDark.hex};
+          --primary-color-dark: ${settings.primaryColorDark.hex};
+          --secondary-color-dark: ${settings.secondaryColorDark.hex};
+          --accent-color-dark: ${settings.accentColorDark.hex};
         }
+
       `}</style>
     </>
   );
@@ -53,7 +61,6 @@ export const getServerSideProps: GetServerSideProps<IPageProps> = async context 
   const blogsQuery = groq`
     *[_type == 'Post']
   `;
-
   const menuQuery = groq`
   *[_type == 'Page' && defined(menuOrder)]{
     name,

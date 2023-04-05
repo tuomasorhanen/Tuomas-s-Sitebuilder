@@ -17,28 +17,30 @@ import Person from './Blog/Person';
 import category from './Blog/category';
 import CustomButton from './types/customButton';
 import ExternalPages from './Page Builder/ExternalPages';
-import SocialButton from './types/socialButton';
+import SimpleImage from './types/SimpleImage';
+import Carousel from './types/carousel';
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
     siteSettings,
-    Page,
-    post,
-    Person,
-    LandingPage,
-    Hero,
-    Card,
-    Ball,
-    HeadingAndTitle,
     meta,
+    Page,
+    LandingPage,
     ExternalPages,
+    post,
+    category,
+    Person,
+    Hero,
+    HeadingAndTitle,
+    uiElement,
+    CustomButton,
     grid,
     columns,
-    uiElement,
+    Card,
+    Ball,
+    Carousel,
+    SimpleImage,
     blockContent,
-    lineBreak,
-    category,
-    CustomButton,
-    SocialButton
+    lineBreak
   ],
 };
