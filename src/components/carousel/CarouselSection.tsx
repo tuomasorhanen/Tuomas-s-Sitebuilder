@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import ImageGallery from './imageGallery';
+import ImageGallery from './ImageGallery';
 
 SwiperCore.use([Navigation]);
 
@@ -11,7 +11,7 @@ const CarouselSection = (props: ICarousel) => {
   const {items} = props;
 
   const renderCarouselItem = (item: ICarousel | ISimpleImage) => {
-    if (item._type === 'SimpleImage') {
+    if (item._type === 'simpleImage') {
       return <ImageGallery {...item as ISimpleImage} />;
     } else {
       return <></>;
@@ -21,10 +21,10 @@ const CarouselSection = (props: ICarousel) => {
   const itemsArray = Array.isArray(items) ? items : [items];
 
     return (
-      <div className='px-4 sm:px-24'>
+      <div className=''>
       <Swiper
       slidesPerView={3}
-      spaceBetween={30}
+      spaceBetween={8}
       navigation
       loop={true}
       className="mySwiper"

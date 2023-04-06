@@ -31,13 +31,13 @@ const GridSection = (props: GridSectionProps) => {
   const renderGridItem = (item: ICard | IHero | IBall | IPost | IPerson) => {
     if (item._type === 'card') {
       return CardItem(item as ICard);
-    } else if (item._type === 'Hero') {
+    } else if (item._type === 'hero') {
       return HeroItem(item as IHero);
     } else if (item._type === 'ball') {
       return BallItem(item as IBall);
-    } else if (item._type === 'Post') {
+    } else if (item._type === 'post') {
       return PostItem(item as IPost);
-    } else if (item._type === 'Person') {
+    } else if (item._type === 'person') {
       return PersonItem(item as IPerson);
     } else {
       return <>void</>;

@@ -48,7 +48,7 @@ export type IPage = {
   _createdAt: Date;
   _id: string;
   _rev: string;
-  _type: 'Page';
+  _type: 'page';
   _updatedAt: Date;
   meta: IMetaFields;
   name: string;
@@ -100,7 +100,7 @@ export type ICarousel = {
   _id: string;
   _type: string;
   items: ISimpleImage[];
-  layout: 'SimpleImage';
+  layout: 'simpleImage';
 };
 
 export type ISimpleImage = {
@@ -166,7 +166,7 @@ export type IPost = {
 
 export type IPerson = {
   _id: string;
-  _type: 'Person';
+  _type: 'person';
   name: string;
   role: string;
   image: ISanityImage;
@@ -186,7 +186,7 @@ export type ICategory = {
 export type IReference = {
   _id: string;
   _ref: string;
-  _type: 'Post';
+  _type: 'post';
 };
 
 export type ISlug = {

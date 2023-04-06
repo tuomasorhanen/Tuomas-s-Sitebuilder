@@ -1,5 +1,5 @@
 export default {
-  name: 'Person',
+  name: 'person',
   title: 'Person',
   type: 'document',
   fields: [

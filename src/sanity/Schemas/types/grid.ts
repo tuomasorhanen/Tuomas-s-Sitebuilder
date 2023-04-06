@@ -40,15 +40,15 @@ const grid = defineField({
       options: {
         layout: 'grid',
       },
-      of: [{ type: 'Hero' }, { type: 'card' }, { type: 'ball' },         {
-        name: 'Blog',
+      of: [{ type: 'hero' }, { type: 'card' }, { type: 'ball' },         {
+        name: 'blog',
         type: 'reference',
-        to: [{ type: 'Post' }],
+        to: [{ type: 'post' }],
       },
       {
-        name: 'Person',
+        name: 'person',
         type: 'reference',
-        to: [{ type: 'Person' }],
+        to: [{ type: 'person' }],
       },],
     },
   ],

@@ -47,7 +47,7 @@ const Header = (props: IMenuProps) => {
             <Image
               alt="Amban"
               className="mx-10 rounded-full shadow-lg"
-              src="https://amban.fi/wp-content/uploads/2017/11/cropped-amban-profilepic-biggerlogo.png"
+              src="https://amban.fi/wp-content/uploads/2022/09/Tuomas-Orhanen-Amban-web.jpg"
               width={80}
               height={80}
             />
@@ -80,7 +80,7 @@ const Header = (props: IMenuProps) => {
             <Image
               alt="Amban"
               className="rounded-full"
-              src="https://amban.fi/wp-content/uploads/2017/11/cropped-amban-profilepic-biggerlogo.png"
+              src="https://amban.fi/wp-content/uploads/2022/09/Tuomas-Orhanen-Amban-web.jpg"
               width={60}
               height={60}
             />

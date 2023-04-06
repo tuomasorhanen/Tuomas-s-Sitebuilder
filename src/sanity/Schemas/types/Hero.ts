@@ -1,7 +1,7 @@
 import { GiNinjaHeroicStance } from 'react-icons/gi';
 
 const Hero = {
-  name: 'Hero',
+  name: 'hero',
   title: 'Hero',
   type: 'object',
   icon: GiNinjaHeroicStance,

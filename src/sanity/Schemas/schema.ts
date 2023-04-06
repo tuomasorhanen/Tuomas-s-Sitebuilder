@@ -1,46 +1,50 @@
 import { SchemaTypeDefinition } from 'sanity';
-import Page from './Page Builder/Page';
-import Hero from './types/Hero';
-import HeadingAndTitle from './types/HeadingAndTitle';
-import LandingPage from './Page Builder/LandingPage';
-import meta from './types/meta';
-import siteSettings from './Site Settings/site-settings';
-import grid from './types/grid';
-import columns from './types/columns';
-import Card from './types/card';
-import uiElement from './types/UiElement';
-import blockContent from './types/block-content';
-import Ball from './types/ball';
-import lineBreak from './types/lineBreak';
+import Page from './Page Builder/page';
+import LandingPage from './Page Builder/landingPage';
+import externalPage from './Page Builder/externalPage';
+import siteSettings from './Site Settings/siteSettings';
 import post from './Blog/post';
-import Person from './Blog/Person';
+import person from './Blog/person';
 import category from './Blog/category';
-import CustomButton from './types/customButton';
-import ExternalPages from './Page Builder/ExternalPages';
-import SimpleImage from './types/SimpleImage';
+import Ball from './types/ball';
+import blockContent from './types/block-content';
+import Card from './types/card';
 import Carousel from './types/carousel';
+import columns from './types/columns';
+import CustomButton from './types/customButton';
+import grid from './types/grid';
+import HeadingAndTitle from './types/headingAndTitle';
+import Hero from './types/hero';
+import lineBreak from './types/lineBreak';
+import SimpleImage from './types/simpleImage';
+import meta from './types/meta';
+import uiElement from './types/uiElement';
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
-    siteSettings,
-    meta,
+
+    //Documents
     Page,
+    externalPage,
     LandingPage,
-    ExternalPages,
+    siteSettings,
     post,
+    person,
     category,
-    Person,
-    Hero,
-    HeadingAndTitle,
-    uiElement,
+
+    //Objects
+    Ball,
+    blockContent,
+    Card,
+    Carousel,
+    columns,
     CustomButton,
     grid,
-    columns,
-    Card,
-    Ball,
-    Carousel,
+    HeadingAndTitle,
+    Hero,
+    lineBreak,
+    meta,
     SimpleImage,
-    blockContent,
-    lineBreak
+    uiElement
   ],
 };

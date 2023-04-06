@@ -20,11 +20,17 @@ const Post = (props: IPageProps) => {
       <BlogPost {...blog} />
       <style jsx global>{`
         :root {
-          --bg-color: ${settings.bgColor.hex};
-          --text-color: ${settings.textColor.hex};
-          --primary-color: ${settings.primaryColor.hex};
-          --secondary-color: ${settings.secondaryColor.hex};
-          --accent-color: ${settings.accentColor.hex};
+          --bg-color-light: ${settings.bgColorLight.hex};
+          --text-color-light: ${settings.textColorLight.hex};
+          --primary-color-light: ${settings.primaryColorLight.hex};
+          --secondary-color-light: ${settings.secondaryColorLight.hex};
+          --accent-color-light: ${settings.accentColorLight.hex};
+
+          --bg-color-dark: ${settings.bgColorDark.hex};
+          --text-color-dark: ${settings.textColorDark.hex};
+          --primary-color-dark: ${settings.primaryColorDark.hex};
+          --secondary-color-dark: ${settings.secondaryColorDark.hex};
+          --accent-color-dark: ${settings.accentColorDark.hex};
         }
       `}</style>
     </>
@@ -35,9 +41,9 @@ export const getServerSideProps: GetServerSideProps<IPageProps> = async (context
   context.res.setHeader('Cache-Control', 'public, s-maxage=3600, stale-while-revalidate=7200');
   const { slug } = context.query;
 
-  const query = groq`*[_type == 'Post' && slug.current == '${slug}'][0]`;
+  const query = groq`*[_type == 'post' && slug.current == '${slug}'][0]`;
 
-  const menuQuery = groq`*[_type == 'Page' && defined(menuOrder)] {
+  const menuQuery = groq`*[_type == 'page' && defined(menuOrder)] {
     name,
     slug,
     menuOrder,

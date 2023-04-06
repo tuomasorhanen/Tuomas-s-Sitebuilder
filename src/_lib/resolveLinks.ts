@@ -6,10 +6,10 @@ const resolveUrl = navResult => {
 
   let navigateToPage = '';
   switch (navResult._type) {
-    case 'Page':
+    case 'page':
       navigateToPage = `${navResult.slug.current}`;
       break;
-    case 'Blog':
+    case 'blog':
       navigateToPage = `/blog/${navResult.slug.current}`;
       break;
     default:
@@ -69,13 +69,13 @@ const resolveLinks = async page => {
   for (let i = 0; i < page.content.length; i++) {
     let cnt = page.content[i];
 
-    if (cnt._type == 'Hero' || cnt._type == 'customButton') {
+    if (cnt._type == 'hero' || cnt._type == 'customButton') {
       cnt = await processButtons(cnt);
       page.content[i] = cnt;
     } else if (cnt._type == 'grid') {
       for (let k = 0; k < cnt.items.length; k++) {
         let item = cnt.items[k];
-        if (item._type == 'card' || item._type == 'Hero') {
+        if (item._type == 'card' || item._type == 'hero') {
           item = await processButtons(item);
           cnt.items[k] = item;
         }

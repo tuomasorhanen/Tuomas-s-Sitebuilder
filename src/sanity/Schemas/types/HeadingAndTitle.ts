@@ -1,7 +1,7 @@
 import { TbHeading } from 'react-icons/tb';
 
 const HeadingAndTitle = {
-  name: 'HeadingAndTitle',
+  name: 'headingAndTitle',
   title: 'Heading And Title',
   type: 'object',
   icon: TbHeading,

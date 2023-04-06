@@ -48,7 +48,7 @@ export const getServerSideProps: GetServerSideProps<IPageProps> = async context 
   let { slug } = context.query;
 
   const pageQuery = groq`
-    *[_type == 'Page' && slug.current == '${slug}'][0]
+    *[_type == 'page' && slug.current == '${slug}'][0]
   `;
 
   let pageResponse = await client.fetch(pageQuery);
@@ -59,10 +59,10 @@ export const getServerSideProps: GetServerSideProps<IPageProps> = async context 
     };
   }
   const blogsQuery = groq`
-    *[_type == 'Post']
+    *[_type == 'post']
   `;
   const menuQuery = groq`
-  *[_type == 'Page' && defined(menuOrder)]{
+  *[_type == 'page' && defined(menuOrder)]{
     name,
     slug,
     menuOrder,

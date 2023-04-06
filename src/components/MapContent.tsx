@@ -15,11 +15,11 @@ const MapContent = ({ content}: IMapContentProps) => {
     <div>
       {content.map(item => {
         switch (item._type) {
-          case 'Hero':
+          case 'hero':
             return <HeroSection key={item._key} {...item} />;
           case 'grid':
             return <GridSection key={item._key} {...item} />;
-          case 'HeadingAndTitle':
+          case 'headingAndTitle':
             return <HeadingAndTitle key={item._key} {...item} />;
           case 'uiElement':
             return <UiElement key={item._key} {...item} />;

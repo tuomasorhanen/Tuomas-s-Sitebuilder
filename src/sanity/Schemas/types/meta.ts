@@ -2,8 +2,8 @@ import { RiShareLine } from 'react-icons/ri';
 import { defineField } from 'sanity';
 
 const meta = defineField({
-  title: 'Meta Information',
   name: 'metaFields',
+  title: 'Meta Information',
   type: 'object',
   icon: RiShareLine,
   groups: [
@@ -15,7 +15,7 @@ const meta = defineField({
   fields: [
     {
       name: 'metaTitle',
-      title: 'Meta Title (Overrides to default title)',
+      title: 'Meta Title',
       type: 'string',
     },
     {

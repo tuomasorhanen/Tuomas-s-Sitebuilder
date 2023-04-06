@@ -1,7 +1,7 @@
 import {defineField, defineType} from 'sanity'
 
 export default defineType({
-  name: 'Post',
+  name: 'post',
   title: 'Post',
   type: 'document',
   fields: [
@@ -25,10 +25,10 @@ export default defineType({
     }),
     defineField({
       name: 'person',
-      title: 'Author',
+      title: 'Person',
       description: 'Add the Author of this post.',
       type: 'reference',
-      to: {type: 'Person'},
+      to: {type: 'person'},
       validation: Rule => [Rule.required().error('Author is required.')],
     }),
     defineField({

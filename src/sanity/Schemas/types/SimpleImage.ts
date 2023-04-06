@@ -1,7 +1,7 @@
 import {defineField, defineType} from 'sanity'
 
 export default defineType({
-  name: 'SimpleImage',
+  name: 'simpleImage',
   title: 'Image',
   type: 'object',
   fields: [

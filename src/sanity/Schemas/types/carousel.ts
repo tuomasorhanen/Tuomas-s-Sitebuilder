@@ -10,8 +10,8 @@ const Carousel = defineField({
 
   fields: [
     {
-      title: 'Title',
       name: 'title',
+      title: 'Title',
       type: 'string',
     },
     {
@@ -21,7 +21,7 @@ const Carousel = defineField({
       options: {
         layout: 'carousel',
       },
-      of: [{ type: 'SimpleImage' }],
+      of: [{ type: 'simpleImage' }],
     },
   ],
   preview: {

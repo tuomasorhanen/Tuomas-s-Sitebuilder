@@ -17,7 +17,7 @@ export default {
       name: 'navigateToPage',
       title: 'Navigate to Page',
       type: 'reference',
-      to: { type: 'Page' },
+      to: { type: 'page' },
       validation: Rule => [Rule.required().error('navigation page is required.')],
     },
   ],

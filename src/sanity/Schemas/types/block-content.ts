@@ -3,8 +3,8 @@ import { defineField } from 'sanity';
 import lineBreak from './lineBreak';
 
 const blockContent = defineField({
-  title: 'Block Content',
   name: 'blockContent',
+  title: 'Block Content',
   description: 'Text Block',
   type: 'object',
   hidden: false,

@@ -2,8 +2,8 @@ import { RiPagesLine } from 'react-icons/ri';
 import { defineField } from 'sanity';
 
 const Page = {
-  name: 'Page',
-  title: 'Pages',
+  name: 'page',
+  title: 'Page',
   type: 'document',
   icon: RiPagesLine,
   groups: [
@@ -32,7 +32,6 @@ const Page = {
     defineField({
       name: 'slug',
       title: 'Slug',
-      description: 'Some frontends will require a slug to be set to be able to show the page',
       type: 'slug',
       options: {
         source: 'title',
@@ -58,8 +57,8 @@ const Page = {
       type: 'array',
       group: 'content',
       of: [
-        { type: 'Hero' },
-        { type: 'HeadingAndTitle' },
+        { type: 'hero' },
+        { type: 'headingAndTitle' },
         { type: 'customButton' },
         { type: 'uiElement' },
         { type: 'grid' },

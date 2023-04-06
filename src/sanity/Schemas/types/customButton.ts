@@ -1,7 +1,6 @@
 import { defineField} from 'sanity';
 import { RxButton } from 'react-icons/rx';
 
-
 const CustomButton = defineField({
   name: 'customButton',
   title: 'Custom Button',

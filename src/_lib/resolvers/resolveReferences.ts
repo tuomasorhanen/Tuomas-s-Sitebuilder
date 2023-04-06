@@ -14,7 +14,7 @@ const resolveReferences = async (page: IPage) => {
           item.items = await Promise.all(
             item.items.map(async (gridItem: any) => {
               const { _ref } = gridItem;
-              if (gridItem._type === 'Blog' && _ref) {
+              if (gridItem._type === 'blog' && _ref) {
                 const blogQry = groq`*[_id == '${_ref}']{
                   _id,
                   title,
@@ -41,7 +41,7 @@ const resolveReferences = async (page: IPage) => {
                   blogData.person = personData;
                 }
                 return blogData;
-              } else if (gridItem._type === 'Person' && _ref) {
+              } else if (gridItem._type === 'person' && _ref) {
                 const personQry = groq`*[_id == '${_ref}']{
                   _id,
                   name,
@@ -59,7 +59,7 @@ const resolveReferences = async (page: IPage) => {
             })
           );
           break;
-        case 'Blog':
+        case 'blog':
           if (item.person && item.person._ref) {
             const personQry = groq`*[_id == '${item.person._ref}']{
               _id,
@@ -71,7 +71,7 @@ const resolveReferences = async (page: IPage) => {
             item.person = personData;
           }
           break;
-        case 'Person':
+        case 'person':
           break;
         default:
           break;
