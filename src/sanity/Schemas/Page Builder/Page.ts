@@ -32,12 +32,13 @@ const Page = {
     defineField({
       name: 'slug',
       title: 'Slug',
+      description: 'Slug creates a navigation path to your page.',
       type: 'slug',
+      validation: Rule => [Rule.required().error('A page without a slug can not be navigated to.')],
       options: {
         source: 'title',
+        maxLength: 96,
       },
-      group: 'general',
-      validation: Rule => Rule.required(),
     }),
     defineField({
       type: 'metaFields',

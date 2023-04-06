@@ -11,6 +11,7 @@ const CustomButton = defineField({
       name: 'buttons',
       title: 'Buttons',
       type: 'array',
+      validation: Rule => [Rule.required().error('button is required.')],
       of: [
         { type: 'reference', to: [{ type: 'landingPage' }, { type: 'externalPage' }] },
       ],

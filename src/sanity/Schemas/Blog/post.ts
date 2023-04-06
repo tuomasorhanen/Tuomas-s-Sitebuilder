@@ -54,19 +54,20 @@ export default defineType({
         title: 'Block Content',
         type: 'array',
         of: [{ type: 'block' }],
-      validation: Rule => [Rule.required().error('Body is required.')],
+      validation: Rule => [Rule.required().error('A blog post has to have content.')],
     }),
         defineField({
       name: 'excerpt',
       title: 'Excerpt',
       type: 'text',
+      validation: Rule => [Rule.required().error('A blog post has to have an excerpt.')],
     }),
     defineField({
       name: 'publishedAt',
       title: 'Published at',
       description: 'The date at which the post is published.',
       type: 'datetime',
-      validation: Rule => [Rule.required().error('Date is required.')],
+      validation: Rule => [Rule.required().error('Published at Date is required.')],
     }),
     defineField({
       name: 'readingTime',

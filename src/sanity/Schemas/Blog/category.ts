@@ -15,7 +15,7 @@ export default defineType({
     defineField({
       name: 'description',
       title: 'Description',
-      description: 'Descripe the content in this category.',
+      description: 'Descripe the category to clarify its purpose.',
       type: 'text',
     }),
   ],

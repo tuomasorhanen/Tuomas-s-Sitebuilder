@@ -1,4 +1,9 @@
 export type ISiteSettings = {
+  _id: string;
+  title: string;
+  description: string;
+  logo: ISanityImage;
+  meta: IMetaFields;
   accentColorLight: IColor;
   secondaryColorLight: IColor;
   primaryColorLight: IColor;
@@ -9,16 +14,35 @@ export type ISiteSettings = {
   primaryColorDark: IColor;
   textColorDark: IColor;
   bgColorDark: IColor;
-  _id?: string;
-  title?: string;
-  description?: string;
-  logo?: ISanityImage;
-  meta?: IMetaFields;
 };
 
 export type IColor = {
   alpha: number;
   hex: string;
+};
+
+export type IPage = {
+  _id: string;
+  _rev: string;
+  _type: 'page';
+  name: string;
+  meta?: IMetaFields;
+  menuOrder?: number;
+  content?: IHeadingAndTitle[] | IHero[] | IGrid[] | IUiElement[] | IPerson[];
+};
+
+export type IExternalPage = {
+  _id: string;
+  externalLinkName: string; 
+  navigateToUrl: string;
+  image?: ISanityImage;
+};
+
+type ICallToAction = {
+  _id: string;
+  _type: string;
+  callToAction: string;
+  navigateToPage: string;
 };
 
 export interface IUiElement {
@@ -37,25 +61,6 @@ export type IMetaFields = {
   openGraphDescription?: string;
 };
 
-export type IExternalPage = {
-  _id: string;
-  externalLinkName: string; 
-  navigateToUrl: string;
-  image: ISanityImage;
-};
-
-export type IPage = {
-  _createdAt: Date;
-  _id: string;
-  _rev: string;
-  _type: 'page';
-  _updatedAt: Date;
-  meta: IMetaFields;
-  name: string;
-  menuOrder: number;
-  content: IHeadingAndTitle[] | IHero[] | IGrid[] | IUiElement[] | IPerson[];
-};
-
 export type ISanityImage = {
   _key: string;
   _id: string;
@@ -68,17 +73,6 @@ export type ISanityImage = {
   };
 };
 
-type ICallToAction = {
-  _id: string;
-  callToAction: string;
-  navigateToPage: string;
-  name: string;
-  url: string;
-  image: ISanityImage;
-  imageText: string;
-  _type: string;
-};
-
 export type ICustomButton = {
   _id: string;
   _key: string;
@@ -89,11 +83,11 @@ export type IHero = {
   _id: string;
   _key: string;
   _type: string;
-  blockContent: any;
-  image: ISanityImage;
-  buttons: ICallToAction[];
+  blockContent?: any;
+  image?: ISanityImage;
+  buttons?: ICallToAction[];
   layout: 'image-bg' | 'image-right' | 'image-left' | 'hero-slash-bg' | 'hero-right-simple';
-  opacity: number;
+  opacity?: number;
 };
 
 export type ICarousel = {
@@ -103,22 +97,20 @@ export type ICarousel = {
   layout: 'simpleImage';
 };
 
-export type ISimpleImage = {
+export type ISimpleImage = {
   _id: string;
   _type: string;
   image: ISanityImage;
 }
-
 
 export type ICard = {
   _id: string;
   _key: string;
   _type: string;
   blockContent: any;
-  image: ISanityImage;
-  buttons: ICallToAction[];
+  image?: ISanityImage;
+  buttons?: ICallToAction[];
   layout: 'simple' | 'image-top';
-  opacity: number;
 };
 
 export type IBall = {
@@ -126,7 +118,7 @@ export type IBall = {
   _key: string;
   _type: string;
   blockContent: any;
-  opacity: number;
+  opacity?: number;
 };
 
 export type IGrid = {
@@ -170,8 +162,8 @@ export type IPerson = {
   name: string;
   role: string;
   image: ISanityImage;
-  number: string;
-  email: string;
+  number?: string;
+  email?: string;
 };
 
 export type ICategory = {
@@ -180,7 +172,7 @@ export type ICategory = {
   _id: string;
   _type: 'category';
   name: string;
-  description: string; 
+  description?: string; 
 };
 
 export type IReference = {

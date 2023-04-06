@@ -16,7 +16,7 @@ const HeroSection = (props: IHero) => {
             <Image {...image} className="h-full w-full object-cover" alt="" opacity={opacity} />
           </div>
           <div className="absolute top-0 left-0 z-20 h-full w-full "></div>
-          <div className="z-30 text-center">
+          <div className="z-30 text-center max-w-5xl">
             <BlockContentRenderer blockContent={blockContent} />
             <div className="mt-6 mb-2">
               {buttons &&

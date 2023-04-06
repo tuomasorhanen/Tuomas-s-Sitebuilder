@@ -8,6 +8,8 @@ const Ball = {
       title: 'Block Content',
       type: 'array',
       of: [{ type: 'block' }],
+      validation: Rule => [Rule.required().error('Content is required.')],
+
     },
     {
       name: 'opacity',

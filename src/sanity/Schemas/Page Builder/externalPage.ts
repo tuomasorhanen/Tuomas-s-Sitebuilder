@@ -10,12 +10,15 @@ export default {
       name: 'externalLinkName',
       title: 'Extarnal Link Name',
       type: 'string',
+      validation: Rule => [Rule.required().error('CTA is required.')],
     },
 
     {
       name: 'navigateToUrl',
       title: 'Navigate to Url',
       type: 'url',
+      validation: Rule => [Rule.required().error('URL is required.')],
+
     },
     {
         name: 'image',

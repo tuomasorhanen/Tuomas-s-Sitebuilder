@@ -13,6 +13,7 @@ const Carousel = defineField({
       name: 'title',
       title: 'Title',
       type: 'string',
+      validation: Rule => [Rule.required().error('The title will make it easier to identify the content of the carousel.')],
     },
     {
       name: 'items',
@@ -22,6 +23,7 @@ const Carousel = defineField({
         layout: 'carousel',
       },
       of: [{ type: 'simpleImage' }],
+      validation: Rule => [Rule.required().error('content is required.')],
     },
   ],
   preview: {

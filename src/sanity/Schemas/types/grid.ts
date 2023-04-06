@@ -23,6 +23,7 @@ const grid = defineField({
       title: 'Title',
       name: 'title',
       type: 'string',
+      validation: Rule => [Rule.required().error('Title is required.')],
     },
     {
       name: 'columns',
@@ -37,6 +38,7 @@ const grid = defineField({
       title: 'Items',
       group: 'items',
       type: 'array',
+      validation: Rule => [Rule.required().error('content is required.')],
       options: {
         layout: 'grid',
       },
