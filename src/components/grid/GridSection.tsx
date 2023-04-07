@@ -40,7 +40,7 @@ const GridSection = (props: GridSectionProps) => {
     } else if (item._type === 'person') {
       return PersonItem(item as IPerson);
     } else {
-      return <>void</>;
+      return <>Empty grid</>;
     }
   };
 

@@ -20,14 +20,16 @@ const Blogs = (props: IPageProps) => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
   const filteredBlogs = selectedCategory
-    ? blogs.filter(blog =>
-        blog.categories.some(category => category._ref === selectedCategory)
-      )
-    : blogs;
+  ? blogs.filter(
+      (blog) =>
+        blog.categories &&
+        blog.categories.some((category) => category._ref === selectedCategory)
+    )
+  : blogs;
 
   return (
     <>
-      <Header items={menu} />
+      <Header items={menu} settings={settings} />
       <div className="container mx-auto">
         <CategoryFilter
           categories={categories}
@@ -92,12 +94,7 @@ const blogsQuery = groq`
   } | order(menuOrder asc)`;
 
 const siteSettingsQuery = groq`
-  *[_type == 'siteSettings'][0] {
-    defaultBgColor,
-    defaultTextColor,
-    defaultHighlightColor,
-    defaultPowerColor
-  }
+  *[_type == 'siteSettings'][0]
 `;
 
 let [pageResponse, blogsResponse, menuResponse, categoriesResponse, siteSettingsResponse] = await Promise.all([

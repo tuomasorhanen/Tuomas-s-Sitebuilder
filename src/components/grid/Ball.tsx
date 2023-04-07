@@ -1,5 +1,4 @@
-// Card.tsx
-import { IBall, IColor } from '_lib/types';
+import { IBall} from '_lib/types';
 import BlockContentRenderer from 'components/BlockContentRenderer';
 
 const Ball = (props: IBall) => {
@@ -18,8 +17,5 @@ const Ball = (props: IBall) => {
     </div>
   );
 };
-
-
-
 
 export default Ball;

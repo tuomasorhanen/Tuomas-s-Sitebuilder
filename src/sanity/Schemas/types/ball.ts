@@ -1,7 +1,10 @@
+import { GrFireball } from 'react-icons/gr';
+
 const Ball = {
   name: 'ball',
   title: 'Ball',
   type: 'object',
+  icon: GrFireball,
   fields: [
     {
       name: 'blockContent',

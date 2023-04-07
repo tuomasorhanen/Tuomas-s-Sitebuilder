@@ -16,7 +16,7 @@ const Post = (props: IPageProps) => {
   const { blog, menu, settings } = props;
   return (
     <>
-      <Header items={menu} />
+      <Header items={menu} settings={settings} />
       <BlogPost {...blog} />
       <style jsx global>{`
         :root {
@@ -51,7 +51,7 @@ export const getServerSideProps: GetServerSideProps<IPageProps> = async (context
 
   const siteSettingsQuery = groq`*[_type == 'siteSettings'][0]`;
 
-  const [blog, menu, colors] = await Promise.all([
+  const [blog, menu, settings] = await Promise.all([
     client.fetch<IPost>(query),
     client.fetch<IMenuItem[]>(menuQuery),
     client.fetch(siteSettingsQuery),

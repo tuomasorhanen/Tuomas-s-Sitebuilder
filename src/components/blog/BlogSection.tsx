@@ -11,14 +11,11 @@ const BlogSection = (props: BlogSectionProps) => {
   const { post} = props;
   const { excerpt, mainImage, readingTime, title, person, slug } = post;
 
-  console.log('post data:', post);
-
-
   return (
-    <div className="grid grid-cols-12 mx-auto max-w-screen-lg gap-8 px-4 py-16">
-      <div className="rounded-lg borderstyle shadow-lg col-span-12 xs:col-span-6 sm:col-span-4">
+    <div className="grid grid-cols-12 gap-8 max-w-screen-lg mx-auto p-8">
+      <div className="rounded-lg shadow-lg col-span-12 sm:col-span-6 md:col-span-4">
         <Image {...mainImage} alt="" className="h-48 w-full rounded-t-lg object-cover" />
-        <div className="py-4 px-6">
+        <div className="px-6 pb-8 pt-4">
           <Link href={`/blog/${slug.current}`}>
             <h2 className="text-2xl font-bold">{title}</h2>
           </Link>

@@ -1,9 +1,11 @@
 import { defineField } from 'sanity';
+import { BsCardText } from 'react-icons/bs';
 
 const Card = defineField({
   name: 'card',
   title: 'Card',
   type: 'object',
+  icon: BsCardText,
   fields: [
     {
       name: 'layout',

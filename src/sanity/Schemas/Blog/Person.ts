@@ -1,7 +1,10 @@
+import { BsFillPersonFill } from 'react-icons/bs';
+
 export default {
   name: 'person',
   title: 'Person',
   type: 'document',
+icon: BsFillPersonFill,
   fields: [
     {
       name: 'name',

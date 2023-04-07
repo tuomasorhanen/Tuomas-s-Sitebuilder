@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import { ISlug } from '_lib/types';
+import { ISiteSettings, ISlug } from '_lib/types';
 import { Navbar } from 'flowbite-react';
-import Image from 'next/image';
 import Link from 'next/link';
+import Image from 'components/Image';
 import { FaMoon, FaSun } from 'react-icons/fa';
 
 export type IMenuItem = {
@@ -16,8 +16,8 @@ type IMenuProps = {
   key?: string;
 };
 
-const Header = (props: IMenuProps) => {
-  const { items } = props;
+const Header = (props: IMenuProps & { settings: ISiteSettings }) => {
+  const { items, settings } = props;
 
   const [darkMode, setDarkMode] = useState(false);
 
@@ -45,11 +45,9 @@ const Header = (props: IMenuProps) => {
         <div className="flex justify-between py-2">
           <Link href="/" className="z-40 flex items-center">
             <Image
-              alt="Amban"
-              className="mx-10 rounded-full shadow-lg"
-              src="https://amban.fi/wp-content/uploads/2022/09/Tuomas-Orhanen-Amban-web.jpg"
-              width={80}
-              height={80}
+            {...settings.logo}
+              alt={settings.title}
+              className="mx-10 rounded-full shadow-lg max-h-20 w-20"
             />
           </Link>
           <div className="z-40 hidden sm:block" id="navbar-default">
@@ -77,12 +75,10 @@ const Header = (props: IMenuProps) => {
       <Navbar className="hidden max-sm:block">
         <div className="flex justify-between py-2 ">
           <Navbar.Brand href="/" className="flex shrink flex-wrap">
-            <Image
-              alt="Amban"
-              className="rounded-full"
-              src="https://amban.fi/wp-content/uploads/2022/09/Tuomas-Orhanen-Amban-web.jpg"
-              width={60}
-              height={60}
+          <Image
+            {...settings.logo}
+              alt={settings.title}
+              className="mx-10 rounded-full shadow-lg h-16 w-16"
             />
           </Navbar.Brand>
         </div>

@@ -20,7 +20,7 @@ const IndexPage = (props: IPageProps) => {
 
   return (
     <>
-      <Header items={menu} />
+      <Header items={menu} settings={settings} />
       <MapContent content={content}/>
       <style jsx global>{`
         :root {

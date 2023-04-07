@@ -13,7 +13,9 @@ const HeroSection = (props: IHero) => {
           key={props._key}
           className="relative flex aspect-video max-h-screen w-full items-center justify-center sm:-mt-24">
           <div className="absolute top-0 left-0 z-10 h-full w-full">
+            {image && 
             <Image {...image} className="h-full w-full object-cover" alt="" opacity={opacity} />
+  }
           </div>
           <div className="absolute top-0 left-0 z-20 h-full w-full "></div>
           <div className="z-30 text-center max-w-5xl">
@@ -56,7 +58,9 @@ const HeroSection = (props: IHero) => {
             </div>
           </div>
           <div className="relative md:w-1/2">
+          {image &&
             <Image {...image} className="h-full w-full object-cover" alt="" />
+          }
           </div>
         </div>
       );
@@ -64,7 +68,9 @@ const HeroSection = (props: IHero) => {
       return (
         <div key={props._key} className="flex flex-col md:flex-row py-16">
           <div className="relative md:w-1/2">
+          {image &&
             <Image {...image} className="h-full w-full object-cover" alt="" />
+          }
           </div>
           <div className="flex items-center justify-center md:w-1/2">
             <div className="z-10 text-center">
@@ -112,11 +118,13 @@ const HeroSection = (props: IHero) => {
                       })}
                   </div>
                 </div>
+                {image &&
                 <Image
                   {...image}
                   className="mt-10 aspect-[6/5] w-full max-w-lg rounded-lg object-cover sm:mt-16 lg:mt-0 lg:max-w-none xl:row-span-2 xl:row-end-2 xl:mt-36"
                   alt=""
                 />
+  }
               </div>
             </div>
             <div className="absolute inset-x-0 bottom-0 -z-10 h-24 bg-gradient-to-t sm:h-32" />
@@ -144,7 +152,9 @@ const HeroSection = (props: IHero) => {
                 </div>
               </div>
               <div className="hidden sm:col-span-5 md:mt-0 md:block">
+              {image &&
                 <Image {...image} className="rounded-lg" alt="" />
+              }
               </div>
             </div>
           </section>

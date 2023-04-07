@@ -1,9 +1,11 @@
 import {defineField, defineType} from 'sanity'
+import { ImBlogger2 } from 'react-icons/im';
 
 export default defineType({
   name: 'post',
   title: 'Post',
   type: 'document',
+  icon: ImBlogger2,
   fields: [
     defineField({
       name: 'title',
@@ -42,7 +44,7 @@ export default defineType({
       },
     }),
     defineField({
-      name: 'category',
+      name: 'categories',
       title: 'Categories',
       description: 'Choose one or several categories that apply to this post.',
       type: 'array',

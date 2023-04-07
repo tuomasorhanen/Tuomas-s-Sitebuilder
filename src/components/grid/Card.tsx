@@ -5,44 +5,38 @@ import Image from 'components/Image';
 import Link from 'next/link';
 
 const Card = (props: ICard) => {
-  const { blockContent, image, layout, opacity, buttons } = props;
+  const { blockContent, image, layout, buttons } = props;
 
   switch (layout) {
     case 'simple':
       return (
-        <div key={props._key} className="rounded-lg border-2 border-highlight p-6 shadow-2xl">
-          <div className="mt-4">
-            <BlockContentRenderer blockContent={blockContent} />
-          </div>
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4 pt-4">
-              <Image {...image} alt="" className="h-12 w-12 object-cover" />
-            </div>
-          </div>
+        <div key={props._key} className="rounded-lg border-2 p-6 shadow-2xl">
+          <BlockContentRenderer blockContent={blockContent} />
         </div>
       );
     case 'image-top':
       return (
         <div key={props._key}>
-          <div className="rounded-lg border border-highlight shadow-lg ">
-            <Image {...image} alt="" className="h-48 w-full rounded-t-lg object-cover" opacity={opacity} />
+        {image && (
+          <div className="rounded-lg shadow-lg ">
+            <Image {...image} alt="" className="h-48 w-full rounded-t-lg object-cover" />
             <div className="px-6 pb-8 pt-4">
               <BlockContentRenderer blockContent={blockContent} />
             </div>
           </div>
+        )}
+        {buttons.length > 0 && (
           <div className="-mt-6 flex justify-center">
-            {buttons &&
-              buttons.map(btn => {
-                return (
-                  <Link
-                    key={btn.navigateToPage}
-                    href={btn.navigateToPage ? btn.navigateToPage : '/home'}
-                    className="button">
-                    {btn.callToAction}
-                  </Link>
-                );
-              })}
+            {buttons.map(btn => (
+              <Link
+                key={btn.navigateToPage}
+                href={btn.navigateToPage || '/home'}
+                className="button">
+                {btn.callToAction}
+              </Link>
+            ))}
           </div>
+        )}
         </div>
       );
     default:
