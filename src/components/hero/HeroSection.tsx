@@ -1,35 +1,10 @@
 import { IHero } from '_lib/types';
 import BlockContentRenderer from 'components/BlockContentRenderer';
 import Image from 'components/Image';
-import Link from 'next/link';
+import ButtonRenderer from 'components/ButtonRenderer';
 
 const HeroSection = (props: IHero) => {
   const { blockContent, image, buttons, layout, opacity } = props;
-
-  const renderButton = btn => {
-    if (btn.linkType === 'internal') {
-      return (
-        <Link key={btn.navigateToPage} href={btn.navigateToPage || '/home'}>
-          {btn.image ? (
-            <Image {...btn.image} alt="" className="h-12 w-12 object-cover" />
-          ) : (
-            <span className="button">{btn.callToAction}</span>
-          )}
-        </Link>
-      );
-    } else if (btn.linkType === 'external') {
-      return (
-        <a key={btn.navigateToUrl} href={btn.navigateToUrl} target="_blank" rel="noopener noreferrer">
-          {btn.image ? (
-            <Image {...btn.image} alt="" className="h-12 w-12 object-cover" />
-          ) : (
-            <span className="button">{btn.callToAction}</span>
-          )}
-        </a>
-      );
-    }
-    return null;
-  };
 
   switch (layout) {
     case 'image-bg':
@@ -43,7 +18,11 @@ const HeroSection = (props: IHero) => {
           <div className="absolute left-0 top-0 z-20 h-full w-full "></div>
           <div className="z-30 max-w-5xl text-center">
             <BlockContentRenderer blockContent={blockContent} />
-            <div className="flex justify-center mb-2 mt-6">{buttons.map(renderButton)}</div>
+            <div className='flex justify-center mb-2 mt-6'>
+            {buttons.map(btn => (
+              <ButtonRenderer key={btn.navigateToPage || btn.navigateToUrl} btn={btn} />
+            ))}{' '}
+            </div>
           </div>
         </div>
       );
@@ -53,7 +32,11 @@ const HeroSection = (props: IHero) => {
           <div className="flex items-center justify-center md:w-1/2">
             <div className="text-center">
               <BlockContentRenderer blockContent={blockContent} />
-              <div className="mb-2 mt-6">{buttons.map(renderButton)}</div>
+            <div className='flex justify-center mb-2 mt-6'>
+            {buttons.map(btn => (
+              <ButtonRenderer key={btn.navigateToPage || btn.navigateToUrl} btn={btn} />
+            ))}{' '}
+            </div>
             </div>
           </div>
           <div className="relative md:w-1/2">
@@ -70,7 +53,11 @@ const HeroSection = (props: IHero) => {
           <div className="flex items-center justify-center md:w-1/2">
             <div className="z-10 text-center">
               <BlockContentRenderer blockContent={blockContent} />
-              <div className="mb-2 mt-6">{buttons.map(renderButton)}</div>
+            <div className='flex justify-center mb-2 mt-6'>
+            {buttons.map(btn => (
+              <ButtonRenderer key={btn.navigateToPage || btn.navigateToUrl} btn={btn} />
+            ))}{' '}
+            </div>
             </div>
           </div>
         </div>
@@ -87,7 +74,11 @@ const HeroSection = (props: IHero) => {
               <div className="xl:grid-cols-1 xl:grid-rows-1 xl:gap-x-8 mx-auto max-w-2xl md:mx-0 md:grid md:max-w-none md:grid-cols-2 md:gap-x-16 md:gap-y-6">
                 <div className="xl:col-end-1 xl:row-start-1 mt-6 max-w-xl lg:mt-0">
                   <BlockContentRenderer blockContent={blockContent} />
-                  <div className="mt-10 flex items-center gap-x-6">{buttons.map(renderButton)}</div>
+                  <div className='flex justify-center mb-2 mt-6'>
+            {buttons.map(btn => (
+              <ButtonRenderer key={btn.navigateToPage || btn.navigateToUrl} btn={btn} />
+            ))}{' '}
+            </div>
                 </div>
                 {image && (
                   <Image
@@ -108,7 +99,11 @@ const HeroSection = (props: IHero) => {
           <div className="xs:px-20 mx-auto max-w-screen-md px-4 py-16 sm:grid-cols-12 sm:gap-8 sm:py-16 md:grid lg:gap-0">
             <div className="place-self-center sm:col-span-7">
               <BlockContentRenderer blockContent={blockContent} />
-              <div className="mt-4">{buttons.map(renderButton)}</div>
+            <div className='flex justify-center mb-2 mt-6'>
+            {buttons.map(btn => (
+              <ButtonRenderer key={btn.navigateToPage || btn.navigateToUrl} btn={btn} />
+            ))}{' '}
+            </div>
             </div>
             <div className="hidden sm:col-span-5 md:mt-0 md:block">
               {image && <Image {...image} className="rounded-lg" alt="" />}

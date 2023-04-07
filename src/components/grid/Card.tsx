@@ -1,8 +1,8 @@
 // Card.tsx
 import { ICard } from '_lib/types';
 import BlockContentRenderer from 'components/BlockContentRenderer';
+import ButtonRenderer from 'components/ButtonRenderer';
 import Image from 'components/Image';
-import Link from 'next/link';
 
 const Card = (props: ICard) => {
   const { blockContent, image, layout, buttons } = props;
@@ -25,34 +25,11 @@ const Card = (props: ICard) => {
               </div>
             </div>
           )}
-          {buttons.length > 0 && (
-            <div className="-mt-6 flex justify-center">
-              {buttons.map(btn => {
-                if (btn.linkType === 'internal') {
-                  return (
-                    <Link key={btn.navigateToPage} href={btn.navigateToPage || '/home'}>
-                      {btn.image ? (
-                        <Image {...btn.image} alt="" className="h-12 w-12 object-cover" />
-                      ) : (
-                        <span className="button">{btn.callToAction}</span>
-                      )}
-                    </Link>
-                  );
-                } else if (btn.linkType === 'external') {
-                  return (
-                    <a key={btn.navigateToUrl} href={btn.navigateToUrl} target="_blank" rel="noopener noreferrer">
-                      {btn.image ? (
-                        <Image {...btn.image} alt="" className="h-12 w-12 object-cover" />
-                      ) : (
-                        <span className="button">{btn.callToAction}</span>
-                      )}
-                    </a>
-                  );
-                }
-                return null;
-              })}
-            </div>
-          )}
+          <div className="-mt-6 flex justify-center">
+            {buttons.map(btn => (
+              <ButtonRenderer key={btn.navigateToPage || btn.navigateToUrl} btn={btn} />
+            ))}
+          </div>
         </div>
       );
     default:
