@@ -12,10 +12,6 @@ const Page = {
       title: 'General',
     },
     {
-      name: 'meta',
-      title: 'Meta data',
-    },
-    {
       name: 'content',
       title: 'Content',
     },
@@ -39,12 +35,6 @@ const Page = {
         source: 'title',
         maxLength: 96,
       },
-    }),
-    defineField({
-      type: 'metaFields',
-      title: 'Meta',
-      name: 'meta',
-      group: 'meta',
     }),
     defineField({
       name: 'menuOrder',

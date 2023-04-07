@@ -3,7 +3,6 @@ export type ISiteSettings = {
   title: string;
   description: string;
   logo: ISanityImage;
-  meta: IMetaFields;
   accentColorLight: IColor;
   secondaryColorLight: IColor;
   primaryColorLight: IColor;
@@ -26,7 +25,6 @@ export type IPage = {
   _rev: string;
   _type: 'page';
   name: string;
-  meta?: IMetaFields;
   menuOrder?: number;
   content?: IHeadingAndTitle[] | IHero[] | IGrid[] | IUiElement[] | IPerson[];
 };
@@ -48,15 +46,6 @@ export interface IUiElement {
   style: 'wave' | "transparent-overlap" | 'window';
   image?: ISanityImage;
 }
-
-export type IMetaFields = {
-  _id: string;
-  metaTitle?: string;
-  metaDescription?: string;
-  openGraphImage?: ISanityImage;
-  openGraphTitle?: string;
-  openGraphDescription?: string;
-};
 
 export type ISanityImage = {
   _key: string;

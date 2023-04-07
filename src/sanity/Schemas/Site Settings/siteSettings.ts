@@ -8,10 +8,6 @@ const siteSettings = defineType({
   icon: RiSettings5Line,
   groups: [
     {
-      name: 'meta',
-      title: 'Meta Data',
-    },
-    {
       name: 'general',
       title: 'General',
     },
@@ -48,14 +44,7 @@ const siteSettings = defineType({
       description: 'The logo image for the website, displayed in the header and used for branding purposes.',
       group: 'general',
       validation: Rule => Rule.required()    }),
-    defineField({
-      type: 'metaFields',
-      title: 'Meta',
-      name: 'meta',
-      group: 'meta',
-      validation: Rule => Rule.required()
-,
-    }),
+
     defineField({
       name: 'bgColorLight',
       title: 'Background Color',

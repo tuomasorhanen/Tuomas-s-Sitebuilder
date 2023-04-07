@@ -16,7 +16,6 @@ import HeadingAndTitle from './types/headingAndTitle';
 import Hero from './types/hero';
 import lineBreak from './types/lineBreak';
 import SimpleImage from './types/simpleImage';
-import meta from './types/meta';
 import uiElement from './types/uiElement';
 
 export const schema: { types: SchemaTypeDefinition[] } = {
@@ -41,7 +40,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     HeadingAndTitle,
     Hero,
     lineBreak,
-    meta,
     SimpleImage,
     uiElement
   ],
