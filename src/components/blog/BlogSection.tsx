@@ -12,7 +12,7 @@ const BlogSection = (props: BlogSectionProps) => {
   const { excerpt, mainImage, readingTime, title, person, slug } = post;
 
   return (
-    <div className="grid grid-cols-12 gap-8 max-w-screen-lg mx-auto p-8">
+    <div className="grid grid-cols-12 gap-8 mx-auto p-8 py-16">
       <div className="rounded-lg shadow-lg col-span-12 sm:col-span-6 md:col-span-4">
         <Image {...mainImage} alt="" className="h-48 w-full rounded-t-lg object-cover" />
         <div className="px-6 pb-8 pt-4">

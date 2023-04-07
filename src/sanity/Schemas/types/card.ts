@@ -39,7 +39,7 @@ const Card = defineField({
       name: 'buttons',
       title: 'Buttons',
       type: 'array',
-      of: [{ type: 'reference', to: [{ type: 'landingPage' }, { type: 'externalPage' }] }],
+      of: [{ type: 'reference', to: [{ type: 'landingPage' }] }],
     },
   ],
 });

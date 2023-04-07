@@ -12,13 +12,68 @@ export default {
       type: 'string',
       validation: Rule => [Rule.required().error('CTA is required.')],
     },
-
+    {
+      name: 'linkType',
+      title: 'Link Type',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Internal', value: 'internal' },
+          { title: 'External', value: 'external' },
+        ],
+        layout: 'radio',
+      },
+      validation: Rule => [Rule.required().error('Link type is required.')],
+    },
     {
       name: 'navigateToPage',
       title: 'Navigate to Page',
       type: 'reference',
       to: { type: 'page' },
-      validation: Rule => [Rule.required().error('navigation page is required.')],
+      validation: Rule => [
+        Rule.custom((value, context) => {
+          if (context.parent.linkType === 'internal' && !value) {
+            return 'Navigation page is required.';
+          }
+          return true;
+        }),
+      ],
+    },
+    {
+      name: 'navigateToUrl',
+      title: 'Navigate to Url',
+      type: 'url',
+      validation: Rule => [
+        Rule.custom((value, context) => {
+          if (context.parent.linkType === 'external' && !value) {
+            return 'URL is required.';
+          }
+          return true;
+        }),
+      ],
+    },
+    
+    {
+      name: 'buttonContent',
+      title: 'Button Content',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Text', value: 'text' },
+          { title: 'Image', value: 'image' },
+        ],
+        layout: 'radio',
+      },
+      validation: Rule => [Rule.required().error('Button content is required.')],
+    },
+    {
+      name: 'image',
+      title: 'Image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+      hidden: ({ parent }) => parent?.buttonContent !== 'image',
     },
   ],
 };

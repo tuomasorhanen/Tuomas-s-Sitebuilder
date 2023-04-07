@@ -1,7 +1,6 @@
 import { SchemaTypeDefinition } from 'sanity';
 import Page from './Page Builder/page';
 import LandingPage from './Page Builder/landingPage';
-import externalPage from './Page Builder/externalPage';
 import siteSettings from './Site Settings/siteSettings';
 import post from './Blog/post';
 import person from './Blog/person';
@@ -25,7 +24,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
 
     //Documents
     Page,
-    externalPage,
     LandingPage,
     siteSettings,
     post,

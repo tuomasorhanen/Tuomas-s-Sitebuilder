@@ -19,44 +19,32 @@ const resolveUrl = navResult => {
   return navigateToPage;
 };
 
-const resolveSocialButtons = async (cnt) => {
-  if (cnt.buttons) {
-    for (let j = 0; j < cnt.buttons.length; j++) {
-      const { _ref } = cnt.buttons[j];
-      if (cnt.buttons[j]._type === 'reference') {
-        const ref = cnt.buttons[j]._ref;
-        const buttonQuery = groq`*[_id == '${ref}'][0]{
-          _id,
-          externalLinkName,
-          navigateToUrl,
-          image
-        }`;
-        const buttonResult = await client.fetch(buttonQuery);
-        cnt.buttons[j] = buttonResult;
-      }
-    }
-  }
-  return cnt;
-};
-
 const processButtons = async (cnt) => {
   if (cnt.buttons) {
     for (let j = 0; j < cnt.buttons.length; j++) {
       const { _ref } = cnt.buttons[j];
       if (cnt.buttons[j]._type == 'reference') {
         const ref = cnt.buttons[j]._ref;
-        const ctaQuery = groq`*[_id == '${ref}'][0]`;
+        const ctaQuery = groq`*[_id == '${ref}'][0]{
+          callToAction,
+          navigateToUrl,
+          image
+        }`;
         const ctaResult = await client.fetch(ctaQuery);
-        const { callToAction } = ctaResult;
+        const { callToAction, navigateToUrl, image } = ctaResult;
         const navQuery = groq`*[_id == '${_ref}']{
               navigateToPage->
             }[0].navigateToPage
             `;
         const navResult = await client.fetch(navQuery);
         const navigateToPage = resolveUrl(navResult);
+        const linkType = navigateToUrl ? 'external' : 'internal';
         cnt.buttons[j] = {
           callToAction,
           navigateToPage,
+          linkType,
+          navigateToUrl,
+          image
         };
       }
     }
@@ -80,9 +68,6 @@ const resolveLinks = async page => {
           cnt.items[k] = item;
         }
       }
-      page.content[i] = cnt;
-    } else if (cnt._type == 'socialButton') {
-      cnt = await resolveSocialButtons(cnt);
       page.content[i] = cnt;
     }
   }

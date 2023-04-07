@@ -1,4 +1,4 @@
-import { defineField} from 'sanity';
+import { defineField } from 'sanity';
 import { RxButton } from 'react-icons/rx';
 
 const CustomButton = defineField({
@@ -11,11 +11,22 @@ const CustomButton = defineField({
       name: 'buttons',
       title: 'Buttons',
       type: 'array',
-      validation: Rule => [Rule.required().error('button is required.')],
+      validation: Rule => [Rule.required().error('At least one button is required.')],
       of: [
-        { type: 'reference', to: [{ type: 'landingPage' }, { type: 'externalPage' }] },
+        { type: 'reference', to: [{ type: 'landingPage' }] },
       ],
     },
   ],
+  preview: {
+    select: {
+      buttons: 'buttons',
+    },
+    prepare() {
+      return {
+        title: 'Buttons',
+      };
+    },
+  },
 });
+
 export default CustomButton;
