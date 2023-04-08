@@ -13,8 +13,8 @@ const BlogSection = (props: BlogSectionProps) => {
 
   return (
     <div className="grid grid-cols-12 gap-8 mx-auto p-8 py-16">
-      <div className="rounded-lg shadow-lg col-span-12 sm:col-span-6 md:col-span-4">
-        <Image {...mainImage} alt="" className="h-48 w-full rounded-t-lg object-cover" />
+      <div className="shadow-lg col-span-12 sm:col-span-6 md:col-span-4">
+        <Image {...mainImage} alt="" className="h-48 w-full object-cover" />
         <div className="px-6 pb-8 pt-4">
           <Link href={`/blog/${slug.current}`}>
             <h2 className="text-2xl font-bold">{title}</h2>

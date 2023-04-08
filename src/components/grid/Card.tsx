@@ -10,7 +10,7 @@ const Card = (props: ICard) => {
   switch (layout) {
     case 'simple':
       return (
-        <div key={props._key} className="rounded-lg border-2 p-6 shadow-2xl">
+        <div key={props._key} className="border-2 p-6 shadow-2xl">
           <BlockContentRenderer blockContent={blockContent} />
         </div>
       );
@@ -18,8 +18,8 @@ const Card = (props: ICard) => {
       return (
         <div key={props._key}>
           {image && (
-            <div className="rounded-lg shadow-lg ">
-              <Image {...image} alt="" className="h-48 w-full rounded-t-lg object-cover" />
+            <div className="shadow-lg ">
+              <Image {...image} alt="" className="h-48 w-full object-cover" />
               <div className="px-6 pb-8 pt-4">
                 <BlockContentRenderer blockContent={blockContent} />
               </div>

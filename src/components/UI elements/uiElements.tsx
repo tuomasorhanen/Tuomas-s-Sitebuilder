@@ -1,17 +1,21 @@
 import { IUiElement } from '_lib/types';
 import React from 'react';
 import Image from 'components/Image';
+import { useTheme } from 'next-themes';
 
 
 const UiElement = (props: IUiElement) => {
   const { style, image} = props;
+
+  const { theme } = useTheme();
+const isDark = theme === 'dark';
 
   switch (style) {
     case 'wave':
       return (
         <div className="">
           <svg viewBox="0 0 1240 175">
-            <path  fill="var(--primary-color-light)"
+            <path  fill={isDark ? 'var(--primary-color-dark' : 'var(--primary-color-light)'}
               d="M0,32L60,58.7C120,85,240,139,360,144C480,149,600,107,720,106.7C840,107,960,149,1080,144C1200,139,1320,85,1380,58.7L1440,32L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
           </svg>
         </div>
@@ -23,7 +27,7 @@ const UiElement = (props: IUiElement) => {
               <svg viewBox="0 0 1440 317">
                 <path fillOpacity="0.2" d="M0,224L360,288L720,192L1080,288L1440,128L1440,320L1080,320L720,320L360,320L0,320Z"></path>
                 <svg  viewBox="0 0 1440 190" className="absolute top-0 left-0">
-                  <path fill="var(--bg-color)" fillOpacity="1" d="M0,256L360,224L720,128L1080,192L1440,192L1440,320L1080,320L720,320L360,320L0,320Z"></path>
+                  <path fill={isDark ? 'var(--primary-color-dark' : 'var(--primary-color-light)'} fillOpacity="1" d="M0,256L360,224L720,128L1080,192L1440,192L1440,320L1080,320L720,320L360,320L0,320Z"></path>
                 </svg>
               </svg>
             </div>
@@ -55,15 +59,7 @@ const UiElement = (props: IUiElement) => {
               </div>
             </div>
           );
-        
-        
-        
-        
-        
-      
-      
-      
-      
+
     default:
       return <></>;
   }

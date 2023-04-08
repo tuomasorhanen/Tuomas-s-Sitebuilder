@@ -7,8 +7,8 @@ const BlogReferenceSection = (props: IPost) => {
 
   return (
     <div key={props._key} className="py-16">
-      <div className="rounded-lg borderstyle shadow-lg">
-        <Image {...mainImage} alt="" className="h-48 w-full rounded-t-lg object-cover" />
+      <div className="borderstyle shadow-lg">
+        <Image {...mainImage} alt="" className="h-48 w-full object-cover" />
         <div className="py-4 px-6">
           <Link href={`/blog/${slug.current}`}>
             <h2 className="text-2xl font-bold">{title}</h2>
