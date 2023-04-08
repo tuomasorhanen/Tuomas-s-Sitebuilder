@@ -12,10 +12,10 @@
     @apply relative inline-block mx-2 rounded-full bg-bg-light dark:bg-bg-dark borderstyle py-2 px-4 shadow-xl hover:scale-105;
   }
   .borderstyle {
-    @apply border-2 border-primary-light dark:border-primary-dark border-b-secondary-light dark:border-b-secondary-dark border-r-secondary-light dark:border-r-secondary-dark;
+    @apply border;
   }
   .customgradient {
-    @apply bg-gradient-to-br from-primary-light dark:from-primary-dark to-secondary-light dark:to-secondary-dark;
+    @apply bg-gradient-to-br from-primary-light to-secondary-light dark:from-primary-dark dark:to-secondary-dark;
   }
 }
 

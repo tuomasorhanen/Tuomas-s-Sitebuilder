@@ -4,6 +4,7 @@ import { Navbar } from 'flowbite-react';
 import Link from 'next/link';
 import Image from 'components/Image';
 import { FaMoon, FaSun } from 'react-icons/fa';
+import { useTheme } from 'next-themes';
 
 export type IMenuItem = {
   name: string;
@@ -18,46 +19,34 @@ type IMenuProps = {
 
 const Header = (props: IMenuProps & { settings: ISiteSettings }) => {
   const { items, settings } = props;
+  
+  const { theme, setTheme } = useTheme();
 
-  const [darkMode, setDarkMode] = useState(false);
-  const [navBackground, setNavBackground] = useState('bg-transparent');
-
-  useEffect(() => {
-    const isDark = localStorage.getItem('darkMode') === 'true';
-    setDarkMode(isDark);
-  }, []);
-
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('darkMode', 'true');
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('darkMode', 'false');
-    }
-  }, [darkMode]);
+  const isDark = theme === 'dark';
 
   const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
+    setTheme(isDark ? 'light' : 'dark');
   };
+
+  const [navBackground, setNavBackground] = useState('bg-transparent');
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       if (scrollPosition > 0) {
-        setNavBackground(darkMode ? 'bg-bg-dark' : 'bg-bg-light');
+        setNavBackground(isDark ? 'bg-bg-dark' : 'bg-bg-light');
       } else {
         setNavBackground('bg-transparent');
       }
     };
-    
+
     window.addEventListener('scroll', handleScroll);
     handleScroll(); // Call the function manually to apply the correct background color immediately.
-  
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [darkMode]);
+  }, [isDark]);
 
   return (
     <>
@@ -85,13 +74,13 @@ const Header = (props: IMenuProps & { settings: ISiteSettings }) => {
                   </li>
                 );
               })}
-              <button
-                onClick={toggleDarkMode}
-                className="p-2 rounded-full focus:outline-none focus:borderstyle  "
-                aria-label="Toggle dark mode"
-              >
-                {darkMode ? <FaSun size={24} /> : <FaMoon size={24} />}
-              </button>
+             <button
+        onClick={toggleDarkMode}
+        className="p-2 rounded-full focus:outline-none focus:borderstyle"
+        aria-label="Toggle dark mode"
+      >
+        {isDark ? <FaSun size={24} /> : <FaMoon size={24} />}
+      </button>
             </ul>
           </div>
         </div>
@@ -120,7 +109,7 @@ const Header = (props: IMenuProps & { settings: ISiteSettings }) => {
   className="p-2 rounded-full focus:outline-none focus:borderstyle  "
   aria-label="Toggle dark mode"
 >
-  {darkMode ? <FaSun size={24} /> : <FaMoon size={24} />}
+  {isDark ? <FaSun size={24} /> : <FaMoon size={24} />}
 </button>
         </div>
 

@@ -19,6 +19,10 @@ const siteSettings = defineType({
       name: 'themeDark',
       title: 'Dark Theme',
     },
+    {
+      name: 'pageStyle',
+      title: 'Page Style',
+    },
   ],
   fields: [
     defineField({
