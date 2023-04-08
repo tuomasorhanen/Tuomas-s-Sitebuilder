@@ -20,6 +20,7 @@ const Header = (props: IMenuProps & { settings: ISiteSettings }) => {
   const { items, settings } = props;
 
   const [darkMode, setDarkMode] = useState(false);
+  const [navBackground, setNavBackground] = useState('bg-transparent');
 
   useEffect(() => {
     const isDark = localStorage.getItem('darkMode') === 'true';
@@ -39,20 +40,43 @@ const Header = (props: IMenuProps & { settings: ISiteSettings }) => {
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
   };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      if (scrollPosition > 0) {
+        setNavBackground(darkMode ? 'bg-bg-dark' : 'bg-bg-light');
+      } else {
+        setNavBackground('bg-transparent');
+      }
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Call the function manually to apply the correct background color immediately.
+  
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [darkMode]);
+
   return (
     <>
-      <nav key={props.key} className="hidden sm:block">
+<nav
+  key={props.key}
+  className={`hidden sm:block fixed top-0 w-full z-40 ${navBackground} transition ease-in-out delay-150 duration-500 `}
+>
+
         <div className="flex justify-between py-2">
           <Link href="/" className="z-40 flex items-center">
             <Image
-            {...settings.logo}
+              {...settings.logo}
               alt={settings.title}
               className="mx-10 rounded-full shadow-lg max-h-20 w-20"
             />
           </Link>
           <div className="z-40 hidden sm:block" id="navbar-default">
             <ul className="my-2 mx-10 flex text-2xl font-bold sm:space-x-4">
-              {items.map(item => {
+              {items.map((item) => {
                 return (
                   <li key={item.slug.current}>
                     <Link href={'/' + item.slug.current} className="block py-2 px-4" aria-current="page">
@@ -61,13 +85,13 @@ const Header = (props: IMenuProps & { settings: ISiteSettings }) => {
                   </li>
                 );
               })}
-                          <button
-  onClick={toggleDarkMode}
-  className="p-2 rounded-full focus:outline-none focus:borderstyle  "
-  aria-label="Toggle dark mode"
->
-  {darkMode ? <FaSun size={24} /> : <FaMoon size={24} />}
-</button>
+              <button
+                onClick={toggleDarkMode}
+                className="p-2 rounded-full focus:outline-none focus:borderstyle  "
+                aria-label="Toggle dark mode"
+              >
+                {darkMode ? <FaSun size={24} /> : <FaMoon size={24} />}
+              </button>
             </ul>
           </div>
         </div>
