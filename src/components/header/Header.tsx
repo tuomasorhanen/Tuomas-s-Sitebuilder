@@ -52,7 +52,7 @@ const Header = (props: IMenuProps & { settings: ISiteSettings }) => {
     <>
 <nav
   key={props.key}
-  className={`hidden sm:block fixed top-0 w-full z-40 ${navBackground} transition ease-in-out delay-150 duration-500 `}
+  className={`hidden sm:block fixed top-0 w-full z-40 ${navBackground} transition ease-in-out delay-150 duration-500`}
 >
 
         <div className="flex justify-between py-2">
@@ -85,7 +85,7 @@ const Header = (props: IMenuProps & { settings: ISiteSettings }) => {
           </div>
         </div>
       </nav>
-      <Navbar className="hidden max-sm:block">
+      <Navbar className="sm:hidden bg-bg-light dark:bg-bg-dark">
         <div className="flex justify-between py-2 ">
           <Navbar.Brand href="/" className="flex shrink flex-wrap">
           <Image

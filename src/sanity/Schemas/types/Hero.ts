@@ -10,7 +10,7 @@ const Hero = {
       name: 'blockContent',
       title: 'Block Content',
       type: 'array',
-      of: [{ type: 'block' }],
+      of: [{ type: 'blockContent' }],
     },
     {
       name: 'image',

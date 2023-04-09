@@ -10,7 +10,7 @@ const Ball = {
       name: 'blockContent',
       title: 'Block Content',
       type: 'array',
-      of: [{ type: 'block' }],
+      of: [{ type: 'blockContent' }],
       validation: Rule => [Rule.required().error('Content is required.')],
 
     },

@@ -1,5 +1,7 @@
 import BlockContent from '@sanity/block-content-to-react';
 import React from 'react';
+import YouTube from 'react-youtube';
+import Image from 'components/Image';
 
 const BlockContentRenderer = ({ blockContent }) => {
   const serializers = {
@@ -28,10 +30,26 @@ const BlockContentRenderer = ({ blockContent }) => {
             return <p className='text-xl pb-2'>{props.children}</p>;
         }
       },
+      youtube: ({ node }) => {
+        const { url } = node;
+        const videoId = new URL(url).searchParams.get("v");
+        return <YouTube videoId={videoId} className='flex justify-center aspect-video max-w-screen p-2' />;
+      },
+
+      externalLink: ({ node }) => {
+        const { title, url } = node;
+        return (
+          <a href={url} target="_blank" rel="noopener noreferrer">
+            {title}
+          </a>
+        );
+      },
     },
   };
 
-  return <BlockContent blocks={blockContent} serializers={serializers} />;
+  // Extract text from blockContent and pass it to BlockContent
+  const content = blockContent.flatMap(contentItem => contentItem.text || []);
+  return <BlockContent blocks={content} serializers={serializers} />;
 };
 
 export default BlockContentRenderer;

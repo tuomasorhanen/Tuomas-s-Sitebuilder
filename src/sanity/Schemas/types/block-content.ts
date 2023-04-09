@@ -28,6 +28,7 @@ const blockContent = defineField({
             { title: 'H6', value: 'h6' },
             { title: 'Quote', value: 'blockquote' },
           ],
+          lists: [{ title: 'Bullet', value: 'bullet' }],
           marks: {
             decorators: [
               { value: 'strong', title: 'Strong' },
@@ -37,7 +38,6 @@ const blockContent = defineField({
               },
               { value: 'underline', title: 'Underline' },
               { value: 'code', title: 'Code' },
-              { value: 'lineBreak', title: 'Line Break' },
             ],
             annotations: [
               {
@@ -52,10 +52,45 @@ const blockContent = defineField({
                   },
                 ],
               },
+              {
+                title: 'Internal Link',
+                name: 'internalLink',
+                type: 'reference',
+                to: [{ type: 'post' }, { type: 'page' }], // Adjust this to match your internal document types
+              },
             ],
           },
         },
         lineBreak,
+        {
+          name: 'youtube',
+          title: 'YouTube Video',
+          type: 'object',
+          fields: [
+            {
+              name: 'url',
+              title: 'YouTube Video URL',
+              type: 'url',
+            },
+          ],
+        },
+        {
+          name: 'externalLink',
+          title: 'External Link',
+          type: 'object',
+          fields: [
+            {
+              name: 'title',
+              title: 'Title',
+              type: 'string',
+            },
+            {
+              name: 'url',
+              title: 'URL',
+              type: 'url',
+            },
+          ],
+        },
       ],
     },
   ],
