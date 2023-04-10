@@ -4,7 +4,7 @@ import HeadingAndTitle from './Heading and Title/HeadingAndTitle';
 import HeroSection from './hero/HeroSection';
 import CustomButton from './landingPage/CustomButton';
 import UiElement from './UI elements/uiElements';
-import GallerySection from './carousel/CarouselSection';
+import CarouselSection from './carousel/CarouselSection';
 
 type IMapContentProps = {
   content: IHero[] | IHeadingAndTitle[] | ICarousel[];
@@ -26,7 +26,7 @@ const MapContent = ({ content}: IMapContentProps) => {
           case 'customButton':
             return <CustomButton key={item._key} {...item} />;
           case 'carousel':
-            return <GallerySection key={item._key} {...item} />;
+            return <CarouselSection key={item._key} {...item} />;
           default:
             break;
         }

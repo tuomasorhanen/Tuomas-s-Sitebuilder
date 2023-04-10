@@ -30,6 +30,7 @@ export type IPage = {
 };
 
 type ICallToAction = {
+  _key: any;
   _id: string;
   _type: string;
   callToAction: string;
@@ -78,6 +79,7 @@ export type IHero = {
 
 export type ICarousel = {
   _id: string;
+  _key: string;
   _type: string;
   title: string;
   slidesPerView: number;
@@ -95,6 +97,7 @@ export type ICarousel = {
 
 export type ISimpleImage = {
   _id: string;
+  _key: string;
   _type: string;
   image: ISanityImage;
 }

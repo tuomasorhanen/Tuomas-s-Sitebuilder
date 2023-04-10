@@ -11,11 +11,11 @@ SwiperCore.use([Navigation]);
 const CarouselSection = (props: ICarousel) => {
   const { items, slidesPerView, spaceBetween, navigation, loop, autoplay, speed, delay, disableOnInteraction } = props;
 
-  const renderCarouselItem = (item: ICarousel | ISimpleImage | IHero) => {
+  const renderCarouselItem = (item: ICarousel | ISimpleImage | IHero, index: number) => {
     if (item._type === 'simpleImage') {
-      return <ImageGallery {...(item as ISimpleImage)} />;
+      return <ImageGallery key={`imageGallery-${index}`} {...(item as ISimpleImage)} />;
     } else if (item._type === 'hero') {
-      return <HeroSection {...(item as IHero)} />;
+      return <HeroSection key={`heroSection-${index}`} {...(item as IHero)} />;
     } else {
       return <></>;
     }
@@ -33,11 +33,11 @@ const CarouselSection = (props: ICarousel) => {
         speed={speed}
         autoplay={autoplay ? { delay, disableOnInteraction } : false}
         modules={[Navigation, Autoplay]}>
-        {items.map(item => (
-          <SwiperSlide key={item._id}>
-            <div className="flex justify-center py-2">{renderCarouselItem(item)}</div>
-          </SwiperSlide>
-        ))}
+ {itemsArray.map((item, index) => (
+        <SwiperSlide key={item._key}>
+          <div className="flex justify-center py-2">{renderCarouselItem(item, index)}</div>
+        </SwiperSlide>
+      ))}
       </Swiper>
     </div>
   );
