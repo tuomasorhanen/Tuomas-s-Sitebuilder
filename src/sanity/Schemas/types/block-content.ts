@@ -1,8 +1,7 @@
 import { RiFileTextLine } from 'react-icons/ri';
-import { defineField } from 'sanity';
 import lineBreak from './lineBreak';
 
-const blockContent = defineField({
+const blockContent = {
   name: 'blockContent',
   title: 'Block Content',
   description: 'Text Block',
@@ -32,10 +31,7 @@ const blockContent = defineField({
           marks: {
             decorators: [
               { value: 'strong', title: 'Strong' },
-              {
-                value: 'em',
-                title: 'Italic',
-              },
+              { value: 'em', title: 'Italic' },
               { value: 'underline', title: 'Underline' },
               { value: 'code', title: 'Code' },
             ],
@@ -51,12 +47,6 @@ const blockContent = defineField({
                     type: 'url',
                   },
                 ],
-              },
-              {
-                title: 'Internal Link',
-                name: 'internalLink',
-                type: 'reference',
-                to: [{ type: 'post' }, { type: 'page' }], // Adjust this to match your internal document types
               },
             ],
           },
@@ -74,23 +64,6 @@ const blockContent = defineField({
             },
           ],
         },
-        {
-          name: 'externalLink',
-          title: 'External Link',
-          type: 'object',
-          fields: [
-            {
-              name: 'title',
-              title: 'Title',
-              type: 'string',
-            },
-            {
-              name: 'url',
-              title: 'URL',
-              type: 'url',
-            },
-          ],
-        },
       ],
     },
   ],
@@ -101,6 +74,6 @@ const blockContent = defineField({
       };
     },
   },
-});
+};
 
 export default blockContent;

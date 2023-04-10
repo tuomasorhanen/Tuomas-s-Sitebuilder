@@ -35,20 +35,10 @@ const BlockContentRenderer = ({ blockContent }) => {
         const videoId = new URL(url).searchParams.get("v");
         return <YouTube videoId={videoId} className='flex justify-center aspect-video max-w-screen p-2' />;
       },
-
-      externalLink: ({ node }) => {
-        const { title, url } = node;
-        return (
-          <a href={url} target="_blank" rel="noopener noreferrer">
-            {title}
-          </a>
-        );
-      },
     },
   };
 
-  // Extract text from blockContent and pass it to BlockContent
-  const content = blockContent.flatMap(contentItem => contentItem.text || []);
+  const content = blockContent && blockContent.flatMap(contentItem => contentItem.text || []);
   return <BlockContent blocks={content} serializers={serializers} />;
 };
 

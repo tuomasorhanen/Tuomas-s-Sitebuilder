@@ -6,8 +6,7 @@ const BlogReferenceSection = (props: IPost) => {
   const { excerpt, mainImage, readingTime, title, person, slug } = props;
 
   return (
-    <div key={props._key} className="py-16">
-      <div className="borderstyle shadow-lg">
+      <div key={props._key} className="borderstyle shadow-lg">
         <Image {...mainImage} alt="" className="h-48 w-full object-cover" />
         <div className="py-4 px-6">
           <Link href={`/blog/${slug.current}`}>
@@ -24,7 +23,6 @@ const BlogReferenceSection = (props: IPost) => {
           </div>
         </div>
       </div>
-    </div>
   );
 };
 

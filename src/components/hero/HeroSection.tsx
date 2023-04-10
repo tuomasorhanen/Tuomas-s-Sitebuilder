@@ -30,16 +30,16 @@ const HeroSection = (props: IHero) => {
     case 'hero-grid-carousel':
       return (
         <div key={props._key} className="w-full py-20">
-          <div className="grid h-full md:grid-cols-3 md:grid-rows-4 border-4">
+          <div className="grid h-full border-4 md:grid-cols-3 md:grid-rows-4">
             <div className="col-span-2 row-span-4 h-full border">
-              {image && <Image {...image} className="w-full h-full object-cover" alt="" opacity={opacity} />}
+              {image && <Image {...image} className="h-full w-full object-cover" alt="" opacity={opacity} />}
             </div>
-            <div className="col-span-1 row-span-4 md:row-span-3 border px-4 py-12 flex justify-center">
+            <div className="col-span-1 row-span-4 flex justify-center border px-4 py-12 md:row-span-3">
               <BlockContentRenderer blockContent={blockContent} />
             </div>
-            <div className="col-span-1 row-span-4 md:row-span-1 border p-4 flex justify-center h-full items-center flex-wrap">
+            <div className="col-span-1 row-span-4 flex h-full flex-wrap items-center justify-center border p-4 md:row-span-1">
               {buttons.map(btn => (
-                <ButtonRenderer key={btn.navigateToPage || btn.navigateToUrl} btn={btn}/>
+                <ButtonRenderer key={btn.navigateToPage || btn.navigateToUrl} btn={btn} />
               ))}{' '}
             </div>
           </div>
