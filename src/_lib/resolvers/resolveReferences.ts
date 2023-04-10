@@ -10,6 +10,33 @@ const resolveReferences = async (page: IPage) => {
       const { _type } = item;
 
       switch (_type) {
+        case 'carousel':
+          item.items = await Promise.all(
+            item.items.map(async (carouselItem: any) => {
+              if (carouselItem._type === 'hero' && carouselItem.buttons) {
+                carouselItem.buttons = await Promise.all(
+                  carouselItem.buttons.map(async (button: any) => {
+                    const { _ref } = button;
+                    if (_ref) {
+                      const buttonQry = groq`*[_id == '${_ref}']{
+                        callToAction,
+                        navigateToPage,
+                        linkType,
+                        navigateToUrl,
+                        image
+                      }[0]`;
+                      const buttonData = await client.fetch(buttonQry);
+                      return buttonData;
+                    } else {
+                      return button;
+                    }
+                  })
+                );
+              }
+              return carouselItem;
+            })
+          );
+          break;
         case 'grid':
           item.items = await Promise.all(
             item.items.map(async (gridItem: any) => {

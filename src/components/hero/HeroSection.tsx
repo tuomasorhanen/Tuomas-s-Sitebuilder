@@ -11,103 +11,53 @@ const HeroSection = (props: IHero) => {
       return (
         <div
           key={props._key}
-          className="relative flex aspect-video max-h-screen w-full items-center justify-center sm:-mt-24">
+          className="relative flex aspect-video max-h-screen w-full items-center justify-center sm:-mt-8">
           <div className="absolute left-0 top-0 z-10 h-full w-full">
             {image && <Image {...image} className="h-full w-full object-cover" alt="" opacity={opacity} />}
           </div>
           <div className="absolute left-0 top-0 z-20 h-full w-full "></div>
           <div className="z-30 max-w-5xl text-center">
             <BlockContentRenderer blockContent={blockContent} />
-            <div className='flex justify-center mb-2 mt-6'>
-            {buttons.map(btn => (
-              <ButtonRenderer key={btn.navigateToPage || btn.navigateToUrl} btn={btn} />
-            ))}{' '}
+            <div className="mb-2 mt-6 flex justify-center">
+              {buttons.map(btn => (
+                <ButtonRenderer key={btn.navigateToPage || btn.navigateToUrl} btn={btn} />
+              ))}
+              {''}
+            </div>
+          </div>
+        </div>
+      );
+    case 'hero-grid-carousel':
+      return (
+        <div key={props._key} className="w-full py-20">
+          <div className="grid h-full md:grid-cols-3 md:grid-rows-4 border-4">
+            <div className="col-span-2 row-span-4 h-full border">
+              {image && <Image {...image} className="w-full h-full object-cover" alt="" opacity={opacity} />}
+            </div>
+            <div className="col-span-1 row-span-4 md:row-span-3 border px-4 py-12 flex justify-center">
+              <BlockContentRenderer blockContent={blockContent} />
+            </div>
+            <div className="col-span-1 row-span-4 md:row-span-1 border p-4 flex justify-center h-full items-center flex-wrap">
+              {buttons.map(btn => (
+                <ButtonRenderer key={btn.navigateToPage || btn.navigateToUrl} btn={btn}/>
+              ))}{' '}
             </div>
           </div>
         </div>
       );
     case 'image-right':
       return (
-        <div key={props._key} className="flex flex-col py-16 md:flex-row">
-          <div className="flex items-center justify-center md:w-1/2">
-            <div className="text-center">
-              <BlockContentRenderer blockContent={blockContent} />
-            <div className='flex justify-center mb-2 mt-6'>
-            {buttons.map(btn => (
-              <ButtonRenderer key={btn.navigateToPage || btn.navigateToUrl} btn={btn} />
-            ))}{' '}
-            </div>
+        <section key={props._key} className="grid max-w-screen-lg grid-cols-2 items-center gap-8 p-8 py-32">
+          <div className="col-span-2 mx-auto sm:col-span-1 ">
+            <BlockContentRenderer blockContent={blockContent} />
+            <div className="mb-2 mt-6">
+              {buttons.map(btn => (
+                <ButtonRenderer key={btn.navigateToPage || btn.navigateToUrl} btn={btn} />
+              ))}{' '}
             </div>
           </div>
-          <div className="relative md:w-1/2">
-            {image && <Image {...image} className="h-full w-full object-cover" alt="" />}
-          </div>
-        </div>
-      );
-    case 'image-left':
-      return (
-        <div key={props._key} className="flex flex-col py-16 md:flex-row">
-          <div className="relative md:w-1/2">
-            {image && <Image {...image} className="h-full w-full object-cover" alt="" />}
-          </div>
-          <div className="flex items-center justify-center md:w-1/2">
-            <div className="z-10 text-center">
-              <BlockContentRenderer blockContent={blockContent} />
-            <div className='flex justify-center mb-2 mt-6'>
-            {buttons.map(btn => (
-              <ButtonRenderer key={btn.navigateToPage || btn.navigateToUrl} btn={btn} />
-            ))}{' '}
-            </div>
-            </div>
-          </div>
-        </div>
-      );
-    case 'hero-slash-bg':
-      return (
-        <div key={props._key} className="">
-          <div className="relative isolate overflow-hidden bg-gradient-to-b from-indigo-100/20 py-16">
-            <div
-              className="bg-highlight absolute inset-y-0 right-1/2 -z-10 -mr-96 w-[200%] origin-top-right skew-x-[-30deg] shadow-xl shadow-indigo-900/10 sm:-mr-80 lg:-mr-96"
-              aria-hidden="true"
-            />
-            <div className="mx-auto max-w-7xl px-6 py-32 lg:px-8">
-              <div className="xl:grid-cols-1 xl:grid-rows-1 xl:gap-x-8 mx-auto max-w-2xl md:mx-0 md:grid md:max-w-none md:grid-cols-2 md:gap-x-16 md:gap-y-6">
-                <div className="xl:col-end-1 xl:row-start-1 mt-6 max-w-xl lg:mt-0">
-                  <BlockContentRenderer blockContent={blockContent} />
-                  <div className='flex justify-center mb-2 mt-6'>
-            {buttons.map(btn => (
-              <ButtonRenderer key={btn.navigateToPage || btn.navigateToUrl} btn={btn} />
-            ))}{' '}
-            </div>
-                </div>
-                {image && (
-                  <Image
-                    {...image}
-                    className="xl:row-span-2 xl:row-end-2 xl:mt-36 mt-10 aspect-[6/5] w-full max-w-lg rounded-lg object-cover sm:mt-16 lg:mt-0 lg:max-w-none"
-                    alt=""
-                  />
-                )}
-              </div>
-            </div>
-            <div className="absolute inset-x-0 bottom-0 -z-10 h-24 bg-gradient-to-t sm:h-32" />
-          </div>
-        </div>
-      );
-    case 'hero-right-simple':
-      return (
-        <section key={props._key} className="">
-          <div className="xs:px-20 mx-auto max-w-screen-md px-4 py-16 sm:grid-cols-12 sm:gap-8 sm:py-16 md:grid lg:gap-0">
-            <div className="place-self-center sm:col-span-7">
-              <BlockContentRenderer blockContent={blockContent} />
-            <div className='flex justify-center mb-2 mt-6'>
-            {buttons.map(btn => (
-              <ButtonRenderer key={btn.navigateToPage || btn.navigateToUrl} btn={btn} />
-            ))}{' '}
-            </div>
-            </div>
-            <div className="hidden sm:col-span-5 md:mt-0 md:block">
-              {image && <Image {...image} className="rounded-lg" alt="" />}
-            </div>
+          <div className="hidden sm:col-span-1 sm:block">
+            {image && <Image {...image} className=" object-cover" alt="" />}
           </div>
         </section>
       );

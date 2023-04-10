@@ -28,9 +28,8 @@ const Hero = {
         list: [
           { title: 'image-bg', value: 'image-bg' },
           { title: 'image-right', value: 'image-right' },
-          { title: 'image-left', value: 'image-left' },
-          { title: 'hero-slash-bg', value: 'hero-slash-bg' },
-          { title: 'hero-right-simple', value: 'hero-right-simple' },
+          { title: 'hero-grid-carousel', value: 'hero-grid-carousel' },
+
         ],
         validation: Rule => [Rule.required().error('A layout is required.')],
       },

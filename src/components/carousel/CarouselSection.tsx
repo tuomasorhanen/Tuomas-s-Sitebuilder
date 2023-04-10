@@ -1,18 +1,21 @@
-import { ICarousel, ISimpleImage} from '_lib/types';
+import { ICarousel, IHero, ISimpleImage } from '_lib/types';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Navigation } from 'swiper';
+import SwiperCore, { Autoplay, Navigation } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import ImageGallery from './ImageGallery';
+import HeroSection from 'components/hero/HeroSection';
 
 SwiperCore.use([Navigation]);
 
 const CarouselSection = (props: ICarousel) => {
-  const {items} = props;
+  const { items, slidesPerView, spaceBetween, navigation, loop, autoplay, speed, delay, disableOnInteraction } = props;
 
-  const renderCarouselItem = (item: ICarousel | ISimpleImage) => {
+  const renderCarouselItem = (item: ICarousel | ISimpleImage | IHero) => {
     if (item._type === 'simpleImage') {
-      return <ImageGallery {...item as ISimpleImage} />;
+      return <ImageGallery {...(item as ISimpleImage)} />;
+    } else if (item._type === 'hero') {
+      return <HeroSection {...(item as IHero)} />;
     } else {
       return <></>;
     }
@@ -20,25 +23,24 @@ const CarouselSection = (props: ICarousel) => {
 
   const itemsArray = Array.isArray(items) ? items : [items];
 
-    return (
-      <div className=''>
+  return (
+    <div className="">
       <Swiper
-      slidesPerView={3}
-      spaceBetween={8}
-      navigation
-      loop={true}
-      className="mySwiper"
-    >
-      {items.map((item) => (
-        <SwiperSlide key={item._id}>
-          <div className="flex justify-center py-2">
-          {renderCarouselItem(item)}
-          </div>
-        </SwiperSlide>
-      ))}
-    </Swiper>
-  </div>
-    );
-  };
+        slidesPerView={slidesPerView}
+        spaceBetween={spaceBetween}
+        navigation={navigation}
+        loop={loop}
+        speed={speed}
+        autoplay={autoplay ? { delay, disableOnInteraction } : false}
+        modules={[Navigation, Autoplay]}>
+        {items.map(item => (
+          <SwiperSlide key={item._id}>
+            <div className="flex justify-center py-2">{renderCarouselItem(item)}</div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
+  );
+};
 
 export default CarouselSection;

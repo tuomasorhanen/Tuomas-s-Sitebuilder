@@ -6,7 +6,7 @@ const ButtonRenderer = ({ btn }) => {
     return (
       <Link key={btn.navigateToPage} href={btn.navigateToPage || '/home'}>
         {btn.image ? (
-          <Image {...btn.image} alt="" className="h-12 w-12 object-cover" />
+          <Image {...btn.image} alt="" className="h-16 w-16 object-cover mx-2" />
         ) : (
           <span className="button">{btn.callToAction}</span>
         )}
@@ -16,7 +16,7 @@ const ButtonRenderer = ({ btn }) => {
     return (
       <a key={btn.navigateToUrl} href={btn.navigateToUrl} >
         {btn.image ? (
-          <Image {...btn.image} alt="" className="h-12 w-12 object-cover" />
+          <Image {...btn.image} alt="" className="h-16 w-16 object-cover mx-2" />
         ) : (
           <span className="button">{btn.callToAction}</span>
         )}

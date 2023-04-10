@@ -72,16 +72,26 @@ export type IHero = {
   blockContent?: any;
   image?: ISanityImage;
   buttons?: ICallToAction[];
-  layout: 'image-bg' | 'image-right' | 'image-left' | 'hero-slash-bg' | 'hero-right-simple';
+  layout: 'image-bg' | 'image-right' | 'hero-grid-carousel';
   opacity?: number;
 };
 
 export type ICarousel = {
   _id: string;
   _type: string;
-  items: ISimpleImage[];
-  layout: 'simpleImage';
+  title: string;
+  slidesPerView: number;
+  spaceBetween: number;
+  navigation: boolean;
+  loop: boolean;
+  autoplay: boolean;
+  speed: number;
+  delay: number;
+  disableOnInteraction: boolean;
+  items: (ISimpleImage | IHero)[];
+  layout: 'simpleImage' | 'hero';
 };
+
 
 export type ISimpleImage = {
   _id: string;
