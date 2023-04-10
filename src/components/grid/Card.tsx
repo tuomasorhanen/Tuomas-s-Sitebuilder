@@ -26,7 +26,7 @@ const Card = (props: ICard) => {
             </div>
           )}
           <div className="-mt-6 flex justify-center">
-            {buttons.map(btn => (
+            {buttons && buttons.map(btn => (
               <ButtonRenderer key={btn.navigateToPage || btn.navigateToUrl} btn={btn} />
             ))}
           </div>
