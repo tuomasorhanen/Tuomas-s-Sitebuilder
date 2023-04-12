@@ -27,7 +27,7 @@ const isDark = theme === 'dark';
               <svg viewBox="0 0 1440 317">
                 <path fillOpacity="0.2" d="M0,224L360,288L720,192L1080,288L1440,128L1440,320L1080,320L720,320L360,320L0,320Z"></path>
                 <svg  viewBox="0 0 1440 190" className="absolute top-0 left-0">
-                  <path fill={isDark ? 'var(--primary-color-dark' : 'var(--primary-color-light)'} fillOpacity="1" d="M0,256L360,224L720,128L1080,192L1440,192L1440,320L1080,320L720,320L360,320L0,320Z"></path>
+                  <path fill={isDark ? 'var(--bg-color-dark' : 'var(--bg-color-light)'} fillOpacity="1" d="M0,256L360,224L720,128L1080,192L1440,192L1440,320L1080,320L720,320L360,320L0,320Z"></path>
                 </svg>
               </svg>
             </div>

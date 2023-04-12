@@ -7,7 +7,6 @@ const ButtonRenderer = (props: ICallToAction) => {
 
   const buttonStyle = {
     backgroundColor: `var(--${backgroundColor}-color-light)`,
-    color: 'white',
   };
 
   if (linkType === 'internal') {

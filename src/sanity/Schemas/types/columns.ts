@@ -18,23 +18,27 @@ const columns = defineField({
         list: [
           {
             title: '1 columns',
-            value: '12',
+            value: '1',
           },
           {
             title: '2 columns',
-            value: '6',
+            value: '2',
           },
           {
             title: '3 columns',
-            value: '4',
-          },
-          {
-            title: '4 columns',
             value: '3',
           },
           {
+            title: '4 columns',
+            value: '4',
+          },
+          {
+            title: '5 columns',
+            value: '5',
+          },
+          {
             title: '6 columns',
-            value: '2',
+            value: '6',
           },
         ],
       },
@@ -48,23 +52,27 @@ const columns = defineField({
         list: [
           {
             title: '1 columns',
-            value: '12',
+            value: '1',
           },
           {
             title: '2 columns',
-            value: '6',
+            value: '2',
           },
           {
             title: '3 columns',
-            value: '4',
-          },
-          {
-            title: '4 columns',
             value: '3',
           },
           {
+            title: '4 columns',
+            value: '4',
+          },
+          {
+            title: '5 columns',
+            value: '5',
+          },
+          {
             title: '6 columns',
-            value: '2',
+            value: '6',
           },
         ],
       },
@@ -78,31 +86,35 @@ const columns = defineField({
         list: [
           {
             title: '1 columns',
-            value: '12',
+            value: '1',
           },
           {
             title: '2 columns',
-            value: '6',
+            value: '2',
           },
           {
             title: '3 columns',
-            value: '4',
-          },
-          {
-            title: '4 columns',
             value: '3',
           },
           {
+            title: '4 columns',
+            value: '4',
+          },
+          {
+            title: '5 columns',
+            value: '5',
+          },
+          {
             title: '6 columns',
-            value: '2',
+            value: '6',
           },
         ],
       },
     },
   ],
   initialValue: {
-    small: '12',
-    medium: '6',
+    small: '1',
+    medium: '3',
     large: '4',
   },
 });

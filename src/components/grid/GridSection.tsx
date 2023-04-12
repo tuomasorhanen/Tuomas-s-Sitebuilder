@@ -1,7 +1,6 @@
 import { IBall, ICard, IGrid, IHero, IPerson, IPost } from '_lib/types';
 import HeroSection from 'components/hero/HeroSection';
 import { useEffect, useState } from 'react';
-
 import Ball from './Ball';
 import Card from './Card';
 import BlogReferenceSection from 'components/blog/BlogReferenceSection';
@@ -28,6 +27,35 @@ const PersonItem = (item: IPerson) => {
 const GridSection = (props: GridSectionProps) => {
   const { columns, items } = props;
 
+  const [columnStyles, setColumnStyles] = useState({});
+
+  useEffect(() => {
+    const handleResize = () => {
+      const screenWidth = window.innerWidth;
+      let numColumns = 1;
+
+      if (screenWidth >= 1920) {
+        numColumns = parseInt(columns.large);
+      } else if (screenWidth >= 1194) {
+        numColumns = parseInt(columns.medium);
+      } else {
+        numColumns = parseInt(columns.small);
+      }
+
+      setColumnStyles({ gridTemplateColumns: `repeat(${numColumns}, 1fr)` });
+      
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [columns]);
+
+  const itemsArray = Array.isArray(items) ? items : [items];
+
   const renderGridItem = (item: ICard | IHero | IBall | IPost | IPerson) => {
     if (item._type === 'card') {
       return CardItem(item as ICard);
@@ -44,36 +72,11 @@ const GridSection = (props: GridSectionProps) => {
     }
   };
 
-  const itemsArray = Array.isArray(items) ? items : [items];
-
-  const [columnStyles, setColumnStyles] = useState({});
-
-  useEffect(() => {
-    const handleResize = () => {
-      const screenWidth = window.innerWidth;
-
-      if (screenWidth >= 1920) {
-        setColumnStyles({ gridColumnEnd: `span ${columns.large}` });
-      } else if (screenWidth >= 1194) {
-        setColumnStyles({ gridColumnEnd: `span ${columns.medium}` });
-      } else {
-        setColumnStyles({ gridColumnEnd: `span ${columns.small}` });
-      }
-    };
-
-    handleResize();
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, [columns]);
-
   return (
-    <section className="">
-      <div className="grid grid-cols-12 gap-8 max-w-screen-lg mx-auto p-8">
+    <section>
+      <div className="grid gap-8 max-w-screen-lg mx-auto p-8" style={columnStyles}>
         {itemsArray.map(item => (
-          <div key={item._key} style={columnStyles}>
+          <div key={item._key}>
             {renderGridItem(item)}
           </div>
         ))}

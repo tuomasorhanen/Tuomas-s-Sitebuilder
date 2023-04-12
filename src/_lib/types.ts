@@ -130,9 +130,9 @@ export type IGrid = {
 };
 
 export type IColumns = {
-  small: '12' | '6' | '4' | '3' | '2';
-  medium: '12' | '6' | '4' | '3' | '2';
-  large: '12' | '6' | '4' | '3' | '2';
+  small: string;
+  medium: string;
+  large: string;
 };
 
 export type IHeadingAndTitle = {
