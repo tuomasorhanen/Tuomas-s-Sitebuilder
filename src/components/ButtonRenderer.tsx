@@ -2,6 +2,7 @@ import Image from 'components/Image';
 import Link from 'next/link';
 
 const ButtonRenderer = ({ btn }) => {
+
   if (btn.linkType === 'internal') {
     return (
       <Link key={btn._key} href={btn.navigateToPage || '/home'}>

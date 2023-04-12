@@ -11,7 +11,7 @@ const Ball = (props: IBall) => {
         className="aspect-square rounded-full customgradient shadow-lg text-center"
         style={{ opacity: overlayOpacity }}>
         <div className="flex items-center justify-center h-full text-bg">
-          <BlockContentRenderer blockContent={blockContent} />
+        <BlockContentRenderer blockContent={blockContent && blockContent} />
         </div>
       </div>
     </div>

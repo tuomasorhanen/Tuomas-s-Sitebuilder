@@ -17,12 +17,11 @@ const HeroSection = (props: IHero) => {
           </div>
           <div className="absolute left-0 top-0 z-20 h-full w-full "></div>
           <div className="z-30 max-w-5xl text-center">
-            <BlockContentRenderer blockContent={blockContent} />
+          <BlockContentRenderer blockContent={blockContent && blockContent} />
             <div className="mb-2 mt-6 flex justify-center">
-              {buttons.map(btn => (
+              {buttons && buttons.map(btn => (
                 <ButtonRenderer key={btn.navigateToPage || btn.navigateToUrl} btn={btn} />
               ))}
-              {''}
             </div>
           </div>
         </div>
@@ -35,10 +34,10 @@ const HeroSection = (props: IHero) => {
               {image && <Image {...image} className="h-full w-full object-cover" alt="" opacity={opacity} />}
             </div>
             <div className="col-span-1 row-span-4 flex justify-center border px-4 py-12 md:row-span-3">
-              <BlockContentRenderer blockContent={blockContent} />
+              <BlockContentRenderer blockContent={blockContent && blockContent} />
             </div>
             <div className="col-span-1 row-span-4 flex h-full flex-wrap items-center justify-center border p-4 md:row-span-1">
-              {buttons.map(btn => (
+              {buttons && buttons.map(btn => (
                 <ButtonRenderer key={btn.navigateToPage || btn.navigateToUrl} btn={btn} />
               ))}{' '}
             </div>
@@ -49,9 +48,9 @@ const HeroSection = (props: IHero) => {
       return (
         <section key={props._key} className="grid max-w-screen-lg grid-cols-2 items-center gap-8 p-8 py-32">
           <div className="col-span-2 mx-auto sm:col-span-1 ">
-            <BlockContentRenderer blockContent={blockContent} />
+          <BlockContentRenderer blockContent={blockContent && blockContent} />
             <div className="mb-2 mt-6">
-              {buttons.map(btn => (
+              {buttons && buttons.map(btn => (
                 <ButtonRenderer key={btn.navigateToPage || btn.navigateToUrl} btn={btn} />
               ))}{' '}
             </div>
