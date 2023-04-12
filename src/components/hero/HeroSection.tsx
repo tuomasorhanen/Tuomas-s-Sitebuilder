@@ -20,7 +20,7 @@ const HeroSection = (props: IHero) => {
           <BlockContentRenderer blockContent={blockContent && blockContent} />
             <div className="mb-2 mt-6 flex justify-center">
               {buttons && buttons.map(btn => (
-                <ButtonRenderer key={btn.navigateToPage || btn.navigateToUrl} btn={btn} />
+                <ButtonRenderer key={btn._key} {...btn} />
               ))}
             </div>
           </div>
@@ -38,7 +38,7 @@ const HeroSection = (props: IHero) => {
             </div>
             <div className="col-span-1 row-span-4 flex h-full flex-wrap items-center justify-center border p-4 md:row-span-1">
               {buttons && buttons.map(btn => (
-                <ButtonRenderer key={btn.navigateToPage || btn.navigateToUrl} btn={btn} />
+                <ButtonRenderer key={btn._key} {...btn} />
               ))}{' '}
             </div>
           </div>
@@ -51,7 +51,7 @@ const HeroSection = (props: IHero) => {
           <BlockContentRenderer blockContent={blockContent && blockContent} />
             <div className="mb-2 mt-6">
               {buttons && buttons.map(btn => (
-                <ButtonRenderer key={btn.navigateToPage || btn.navigateToUrl} btn={btn} />
+                <ButtonRenderer key={btn._key} {...btn} />
               ))}{' '}
             </div>
           </div>

@@ -7,8 +7,8 @@ const CustomButton = (props: ICustomButton) => {
 
   return (
     <div key={props._key} className="flex h-full items-center justify-center">
-      {buttons.map(btn => (
-        <ButtonRenderer key={btn.navigateToPage || btn.navigateToUrl} btn={btn} />
+      {buttons && buttons.map(btn => (
+        <ButtonRenderer key={btn._key} {...btn} />
       ))}
     </div>
   );

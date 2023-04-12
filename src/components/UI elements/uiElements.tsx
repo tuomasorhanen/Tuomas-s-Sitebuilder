@@ -33,33 +33,14 @@ const isDark = theme === 'dark';
             </div>
           </div>
         );
-        case 'window':
+        case 'image-divider':
           return (
-            <div className="flex flex-col items-center relative max-h-96 lg:max-h-fit overflow-hidden -z-30">
-              <div className="w-full overflow-hidden relative">
-                <svg viewBox="0 0 1440 250" preserveAspectRatio="xMidYMin slice" className="absolute top-0 left-0 w-full">
-                  <path fill="(--bg-color)" d="M0,64L360,96L720,48L1080,96L1440,112L1440,0L1080,0L720,0L360,0L0,0Z"></path>
-                </svg>
-                <svg viewBox="0 0 1440 250" preserveAspectRatio="xMidYMin slice" className="w-full">
-                  <path fillOpacity="0.2" d="M0,93L360,29L720,125L1080,29L1440,189L1440,0L1080,0L720,0L360,0L0,0Z"></path>
-                </svg>
-              </div>
-              <div className="absolute top-0 left-0 -z-10 w-full">
+            <div className="w-full h-64">
                 {image && (
-                  <Image {...image} className="w-full object-cover" alt="" />
+                  <Image {...image} className="w-full object-cover h-full" alt="" />
                 )}
-              </div>
-              <div className="w-full overflow-hidden relative">
-                <svg viewBox="0 0 1440 65" preserveAspectRatio="xMidYMax slice" className="absolute bottom-0 left-0 w-full">
-                  <path fill="(--bg-color" d="M0,24L360,8L720,72L1080,8L1440,40L1440,72L1080,72L720,72L360,72L0,72Z"></path>
-                </svg>
-                <svg viewBox="0 150 1440 137" preserveAspectRatio="xMidYMax slice" className="w-full">
-                  <path fillOpacity="0.2" d="M0,224L360,288L720,192L1080,288L1440,128L1440,317L1080,317L720,317L360,317L0,317Z"></path>
-                </svg>
-              </div>
             </div>
           );
-
     default:
       return <></>;
   }

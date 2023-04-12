@@ -1,25 +1,32 @@
 import Image from 'components/Image';
+import { ICallToAction } from '_lib/types';
 import Link from 'next/link';
 
-const ButtonRenderer = ({ btn }) => {
+const ButtonRenderer = (props: ICallToAction) => {
+  const { _key, callToAction, linkType, backgroundColor, image, navigateToPage, navigateToUrl } = props;
 
-  if (btn.linkType === 'internal') {
+  const buttonStyle = {
+    backgroundColor: `var(--${backgroundColor}-color-light)`,
+    color: 'white',
+  };
+
+  if (linkType === 'internal') {
     return (
-      <Link key={btn._key} href={btn.navigateToPage || '/home'}>
-        {btn.image ? (
-          <Image {...btn.image} alt="" className="h-16 w-16 object-cover mx-2" />
+      <Link key={_key} href={navigateToPage || '/home'}>
+        {image ? (
+          <Image {...image} alt="" className={`h-16 w-16 object-cover mx-2`} />
         ) : (
-          <span key={btn._key} className="button">{btn.callToAction}</span>
+          <span key={_key} className={`button`} style={buttonStyle}>{callToAction}</span>
         )}
       </Link>
     );
-  } else if (btn.linkType === 'external') {
+  } else if (linkType === 'external') {
     return (
-      <a key={btn._key} href={btn.navigateToUrl} >
-        {btn.image ? (
-          <Image {...btn.image} alt="" className="h-16 w-16 object-cover mx-2" />
+      <a key={_key} href={navigateToUrl} style={buttonStyle}>
+        {image ? (
+          <Image {...image} alt="" className={`h-16 w-16 object-cover mx-2`} />
         ) : (
-          <span key={btn._key} className="button">{btn.callToAction}</span>
+          <span key={_key} className={`button`} style={buttonStyle}>{callToAction}</span>
         )}
       </a>
     );

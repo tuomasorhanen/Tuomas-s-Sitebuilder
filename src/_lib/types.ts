@@ -29,7 +29,7 @@ export type IPage = {
   content?: IHeadingAndTitle[] | IHero[] | IGrid[] | IUiElement[] | IPerson[];
 };
 
-type ICallToAction = {
+export type ICallToAction = {
   _key: any;
   _id: string;
   _type: string;
@@ -39,12 +39,13 @@ type ICallToAction = {
   linkType: string;
   buttonContent: string;
   image?: ISanityImage;
+  backgroundColor?: string;
 };
 
 export interface IUiElement {
   _key: string;
   _type: 'uiElement';
-  style: 'wave' | "transparent-overlap" | 'window';
+  style: 'wave' | "transparent-overlap" | 'image-divider';
   image?: ISanityImage;
 }
 

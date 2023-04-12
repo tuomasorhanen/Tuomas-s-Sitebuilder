@@ -28,10 +28,11 @@ const processButtons = async (cnt) => {
         const ctaQuery = groq`*[_id == '${ref}'][0]{
           callToAction,
           navigateToUrl,
-          image
+          image,
+          backgroundColor,
         }`;
         const ctaResult = await client.fetch(ctaQuery);
-        const { callToAction, navigateToUrl, image } = ctaResult;
+        const { callToAction, navigateToUrl, image, backgroundColor } = ctaResult;
         const navQuery = groq`*[_id == '${_ref}']{
               navigateToPage->
             }[0].navigateToPage
@@ -44,7 +45,8 @@ const processButtons = async (cnt) => {
           navigateToPage,
           linkType,
           navigateToUrl,
-          image
+          image,
+          backgroundColor,
         };
       }
     }

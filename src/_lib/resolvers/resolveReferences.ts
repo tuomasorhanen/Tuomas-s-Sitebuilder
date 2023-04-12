@@ -23,7 +23,8 @@ const resolveReferences = async (page: IPage) => {
                         navigateToPage,
                         linkType,
                         navigateToUrl,
-                        image
+                        image,
+                        backgroundColor
                       }[0]`;
                       const buttonData = await client.fetch(buttonQry);
                       return buttonData;

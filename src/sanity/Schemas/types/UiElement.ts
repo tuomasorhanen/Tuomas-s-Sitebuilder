@@ -18,7 +18,7 @@ const uiElement = defineField({
           { title: 'solid', value: 'solid' },
           { title: 'wave', value: 'wave' },
           { title: 'transparent-overlap', value: 'transparent-overlap' },
-          { title: 'window', value: 'window' },
+          { title: 'image-divider', value: 'image-divider' },
         ],
         validation: Rule => [Rule.required().error('A style is required.')],
       },
@@ -30,7 +30,7 @@ const uiElement = defineField({
       options: {
         hotspot: true,
       },
-      hidden: ({ parent }) => parent?.style !== 'window',
+      hidden: ({ parent }) => parent?.style !== 'image-divider',
     },
   ],
 });

@@ -75,5 +75,21 @@ export default {
       },
       hidden: ({ parent }) => parent?.buttonContent !== 'image',
     },
+    {
+      name: 'backgroundColor',
+      title: 'Background Color',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Transparent', value: 'transparent' },
+          { title: 'Primary', value: 'primary' },
+          { title: 'Secondary', value: 'secondary' },
+          { title: 'Accent', value: 'accent' },
+        ],
+        layout: 'radio',
+      },
+      hidden: ({ parent }) => parent?.buttonContent !== 'text',
+    },
+    
   ],
 };

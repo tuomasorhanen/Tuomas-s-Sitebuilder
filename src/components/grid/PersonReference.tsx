@@ -8,7 +8,7 @@ const PersonReferenceSection = (props: IPerson) => {
     <div key={props._id}>
       <div className='flex justify-center py-4'>
       {image &&
-        <Image {...image} alt="" className="h-40 w-40 rounded-full object-cover" />
+        <Image {...image} alt="" className="h-40 w-40 rounded-full object-cover border-2 borderstyle" />
       }
       </div>
       <div className="text-center">
