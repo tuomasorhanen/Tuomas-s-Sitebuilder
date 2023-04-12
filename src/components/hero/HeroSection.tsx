@@ -16,7 +16,7 @@ const HeroSection = (props: IHero) => {
             {image && <Image {...image} className="h-full w-full object-cover" alt="" opacity={opacity} />}
           </div>
           <div className="absolute left-0 top-0 z-20 h-full w-full "></div>
-          <div className="z-30 max-w-5xl text-center">
+          <div className="z-30 px-4 max-w-5xl text-center">
           <BlockContentRenderer blockContent={blockContent && blockContent} />
             <div className="mb-2 mt-6 flex justify-center">
               {buttons && buttons.map(btn => (
