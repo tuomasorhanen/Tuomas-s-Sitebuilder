@@ -7,7 +7,7 @@ const HeroSection = (props: IHero) => {
   const { blockContent, image, buttons, layout, opacity } = props;
 
   switch (layout) {
-    case 'image-bg':
+    case 'image-bg-center':
       return (
         <div
           key={props._key}
@@ -19,6 +19,46 @@ const HeroSection = (props: IHero) => {
           <div className="z-30 px-4 max-w-5xl text-center">
           <BlockContentRenderer blockContent={blockContent && blockContent} />
             <div className="mb-2 mt-6 flex justify-center">
+              {buttons && buttons.map(btn => (
+                <ButtonRenderer key={btn._key} {...btn} />
+              ))}
+            </div>
+          </div>
+        </div>
+      );
+    case 'image-bg-left':
+      return (
+        <div
+          key={props._key}
+          className="relative flex aspect-video max-h-screen w-full items-center justify-center sm:-mt-8">
+          <div className="absolute left-0 top-0 z-10 h-full w-full">
+            {image && <Image {...image} className="h-full w-full object-cover" alt="" opacity={opacity} />}
+          </div>
+          <div className="absolute left-0 top-0 z-20 h-full w-full "></div>
+          <div className=" grid grid-cols-2">
+            <div className='col-span-1 z-30 px-4 max-w-5xl'>
+          <BlockContentRenderer blockContent={blockContent && blockContent} />
+            <div className="mb-2 mt-6 flex justify-start">
+              {buttons && buttons.map(btn => (
+                <ButtonRenderer key={btn._key} {...btn} />
+              ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    case 'image-bg-right':
+      return (
+        <div
+          key={props._key}
+          className="relative flex aspect-video max-h-screen w-full items-center justify-center sm:-mt-8">
+          <div className="absolute left-0 top-0 z-10 h-full w-full">
+            {image && <Image {...image} className="h-full w-full object-cover" alt="" opacity={opacity} />}
+          </div>
+          <div className="absolute left-0 top-0 z-20 h-full w-full "></div>
+          <div className="z-30 px-4 max-w-7xl text-right">
+          <BlockContentRenderer blockContent={blockContent && blockContent} />
+            <div className="mb-2 mt-6 flex justify-end">
               {buttons && buttons.map(btn => (
                 <ButtonRenderer key={btn._key} {...btn} />
               ))}

@@ -74,7 +74,7 @@ export type IHero = {
   blockContent?: any;
   image?: ISanityImage;
   buttons?: ICallToAction[];
-  layout: 'image-bg' | 'image-right' | 'hero-grid-carousel';
+  layout: 'image-bg-center' | 'image-bg-left' | 'image-bg-right' | 'image-right' | 'hero-grid-carousel';
   opacity?: number;
 };
 

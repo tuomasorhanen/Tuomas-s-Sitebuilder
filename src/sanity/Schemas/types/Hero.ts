@@ -26,7 +26,9 @@ const Hero = {
       type: 'string',
       options: {
         list: [
-          { title: 'image-bg', value: 'image-bg' },
+          { title: 'image-bg-center', value: 'image-bg-center' },
+          { title: 'image-bg-left', value: 'image-bg-left' },
+          { title: 'image-bg-right', value: 'image-bg-right' },
           { title: 'image-right', value: 'image-right' },
           { title: 'hero-grid-carousel', value: 'hero-grid-carousel' },
 
