@@ -13,10 +13,11 @@ import columns from './types/columns';
 import CustomButton from './types/customButton';
 import grid from './types/grid';
 import HeadingAndTitle from './types/headingAndTitle';
-import Hero from './types/hero';
 import lineBreak from './types/lineBreak';
 import SimpleImage from './types/simpleImage';
 import uiElement from './types/uiElement';
+import bot from './Bot/bot';
+import Hero from './types/Hero';
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -28,6 +29,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     post,
     person,
     category,
+    bot,
 
     //Objects
     Ball,

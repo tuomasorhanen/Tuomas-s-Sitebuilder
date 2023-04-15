@@ -29,6 +29,15 @@ export type IPage = {
   content?: IHeadingAndTitle[] | IHero[] | IGrid[] | IUiElement[] | IPerson[];
 };
 
+export type IBot = {
+  _id: string;
+  _type: 'bot';
+  title: string; 
+  subscriptionKey: string;
+  instanceId: string; 
+  tenantId: string;
+}
+
 export type ICallToAction = {
   _key: any;
   _id: string;

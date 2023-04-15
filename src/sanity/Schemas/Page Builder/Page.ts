@@ -54,6 +54,13 @@ const Page = {
         { type: 'uiElement' },
         { type: 'grid' },
         { type: 'carousel' },
+        {
+          type: 'reference',
+          to: [
+            {type: 'bot'},
+          ]
+        }
+        
       ],
     }),
   ],
