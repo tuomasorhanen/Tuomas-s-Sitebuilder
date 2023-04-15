@@ -45,8 +45,9 @@ export type ICallToAction = {
 export interface IUiElement {
   _key: string;
   _type: 'uiElement';
-  style: 'wave' | "transparent-overlap" | 'image-divider';
+  style: 'wave' | "transparent-overlap" | 'image-divider' | 'solid-left';
   image?: ISanityImage;
+  opacity?: number;
 }
 
 export type ISanityImage = {

@@ -9,7 +9,7 @@
 }
 @layer components {
   .button {
-    @apply relative inline-block mx-2 rounded-full borderstyle py-2 px-4 shadow-xl hover:scale-105;
+    @apply relative inline-block mx-2 rounded-full py-2 px-4 shadow-xl hover:scale-105;
   }
   .borderstyle {
     @apply border border-primary-light border-b-secondary-light dark:border-r-secondary-dark dark:border-primary-dark dark:border-b-secondary-dark border-r-secondary-light;
