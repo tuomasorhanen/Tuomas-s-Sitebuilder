@@ -5,7 +5,7 @@ export const botStructure = (S: any) =>
       S.list()
         .title('Bot Documents')
         .items([
-          S.listItem().title('Bots').child(S.documentList().title('Bots').filter('_type == "bot"')),
+          S.listItem().title('Bots').child(S.documentList().title('Bots').filter('_type == "botSetup"')),
 
         ])
     );

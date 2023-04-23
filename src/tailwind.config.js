@@ -1,5 +1,4 @@
 const { theme } = require('@sanity/demo/tailwind');
-const colors = require('tailwindcss/colors');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -34,14 +33,19 @@ module.exports = {
         dark: 'var(--accent-color-dark)', // Dark accent color
       },
     },
+    fontFamily: {
+      orbitron: ['Orbitron', 'sans-serif'],
+      sora: ['Sora', 'sans-serif'],
+    },    
     screens: {
-      sm: '834px', //tablet
-      md: '1440px', //small desktop or laptop
+      sm: '700px', //tablet
+      md: '1100px', //small desktop or laptop
       lg: '1920px', // bigger desktop
     },
-    fontFamily: {
-    },
     extend: {
+      height: {
+        'h-bot': '650px',
+      },
     },
   },
   plugins: [require('flowbite/plugin')],

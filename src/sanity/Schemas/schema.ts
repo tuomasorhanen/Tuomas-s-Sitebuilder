@@ -16,8 +16,9 @@ import HeadingAndTitle from './types/headingAndTitle';
 import lineBreak from './types/lineBreak';
 import SimpleImage from './types/simpleImage';
 import uiElement from './types/uiElement';
-import bot from './Bot/bot';
 import Hero from './types/Hero';
+import botSetup from './Bot/botSetup';
+import Bot from './types/bot';
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -29,9 +30,10 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     post,
     person,
     category,
-    bot,
+    botSetup,
 
     //Objects
+    Bot,
     Ball,
     blockContent,
     Card,

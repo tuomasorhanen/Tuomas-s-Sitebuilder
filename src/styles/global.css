@@ -2,11 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap');
+
 @layer base {
   body {
-    @apply bg-bg-light dark:bg-bg-dark text-text-light dark:text-text-dark text-xl;
+    @apply bg-bg-light dark:bg-bg-dark text-text-light dark:text-text-dark text-xl font-sora;
   }
 }
+
 @layer components {
   .button {
     @apply relative inline-block mx-2 rounded-full py-2 px-4 shadow-xl hover:scale-105;
@@ -16,6 +20,43 @@
   }
   .customgradient {
     @apply bg-gradient-to-br from-primary-light to-secondary-light dark:from-primary-dark dark:to-secondary-dark;
+  }
+  .webchat__send-box__main {
+    display: none !important;
+  }
+  .rhobot-webchat *::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .rhobot-webchat * {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .perspective {
+    perspective: 1000px;
+  }
+
+  .card {
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+  }
+
+  .card:hover {
+    transform: rotateY(180deg);
+  }
+
+  .card-face {
+    position: absolute;
+    backface-visibility: hidden;
+  }
+
+  .card-face-front {
+    z-index: 2;
+  }
+
+  .card-face-back {
+    transform: rotateY(180deg);
+    overflow: hidden;
   }
 }
 

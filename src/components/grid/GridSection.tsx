@@ -33,10 +33,12 @@ const GridSection = (props: GridSectionProps) => {
     const handleResize = () => {
       const screenWidth = window.innerWidth;
       let numColumns = 1;
-
+ 
       if (screenWidth >= 1920) {
+        numColumns = parseInt(columns.extraLarge);
+      } else if (screenWidth >= 1100) {
         numColumns = parseInt(columns.large);
-      } else if (screenWidth >= 1194) {
+      } else if (screenWidth >= 700) {
         numColumns = parseInt(columns.medium);
       } else {
         numColumns = parseInt(columns.small);

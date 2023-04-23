@@ -10,19 +10,22 @@ const resolveReferences = async (page: IPage) => {
       const { _type } = item;
 
       switch (_type) {
-        case 'reference':
-          if (item._ref) {
-            const botQry = groq`*[_id == '${item._ref}']{
-              _type,
-              title,
-              tenantId,
-              instanceId,
-              subscriptionKey
-            }[0]`;
-            const botData = await client.fetch(botQry);
-            return botData;
-          }
-          break;
+        case 'bot':
+  const { _ref } = item.bot;
+  if (_ref) {
+    const botQry = groq`*[_id == '${_ref}']{
+      _id,
+      _type,
+      title,
+      subscriptionKey,
+      instanceId,
+      tenantId
+    }[0]`;
+    const botData = await client.fetch(botQry);
+    item.bot = botData;
+  }
+  break;
+
         case 'carousel':
           item.items = await Promise.all(
             item.items.map(async (carouselItem: any) => {

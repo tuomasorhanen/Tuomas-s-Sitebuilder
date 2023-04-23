@@ -29,13 +29,23 @@ export type IPage = {
   content?: IHeadingAndTitle[] | IHero[] | IGrid[] | IUiElement[] | IPerson[];
 };
 
-export type IBot = {
+export type IBotSetup = {
+  _key: string;
   _id: string;
-  _type: 'bot';
+  _type: string;
   title: string; 
   subscriptionKey: string;
   instanceId: string; 
   tenantId: string;
+  layout: 'bot-center' | 'bot-image-bg'
+}
+export type IBot = {
+  _key: string;
+  _id: string;
+  _type: string;
+  layout: 'bot-center' | 'bot-image-bg'
+  bot: IBotSetup;
+  image?: ISanityImage;
 }
 
 export type ICallToAction = {
@@ -105,7 +115,6 @@ export type ICarousel = {
   layout: 'simpleImage' | 'hero';
 };
 
-
 export type ISimpleImage = {
   _id: string;
   _key: string;
@@ -120,7 +129,7 @@ export type ICard = {
   blockContent: any;
   image?: ISanityImage;
   buttons?: ICallToAction[];
-  layout: 'simple' | 'image-top';
+  layout: 'simple' | 'image-top' | 'image-reveal';
 };
 
 export type IBall = {
@@ -143,6 +152,7 @@ export type IColumns = {
   small: string;
   medium: string;
   large: string;
+  extraLarge: string;
 };
 
 export type IHeadingAndTitle = {

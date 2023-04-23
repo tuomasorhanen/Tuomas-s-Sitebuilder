@@ -1,6 +1,6 @@
 export default {
-    name: 'bot',
-    title: 'Bot',
+    name: 'botSetup',
+    title: 'Bot Setup',
     type: 'document',
     fields: [
       {
