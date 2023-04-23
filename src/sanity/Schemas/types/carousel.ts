@@ -18,17 +18,17 @@ const Carousel = defineField({
     {
       name: 'slidesPerView',
       title: 'Slides Per View',
-      type: 'number',
-      description: 'Items per row for desktop',
-      options: {
-        list: [
-          { title: '1 per view', value: 1 },
-          { title: '2 per view', value: 2 },
-          { title: '3 per view', value: 3 },
-          { title: '4 per view', value: 4 },
-          { title: '5 per view', value: 5 },
-        ],
-      },
+      type: 'columns',
+    },
+    {
+      name: 'centeredSlides',
+      title: 'Centered Slides',
+      type: 'boolean',
+    },
+    {
+      name: 'pagination',
+      title: 'Pagination',
+      type: 'boolean',
     },
     {
       name: 'spaceBetween',
@@ -81,6 +81,20 @@ const Carousel = defineField({
       initialValue: false,
       hidden: ({ parent }) => !parent.autoplay,
     },
+    {
+    name: 'effect',
+    title: 'Effect',
+    type: 'string',
+    options: {
+      list: [
+        { title: 'fade', value: 'fade' },
+        { title: 'coverflow', value: 'coverflow' },
+        { title: 'flip', value: 'flip' },
+        { title: 'cards', value: 'cards' },
+        { title: 'creative', value: 'creative' },
+      ],
+    },
+  },
     {
       name: 'items',
       title: 'Items',

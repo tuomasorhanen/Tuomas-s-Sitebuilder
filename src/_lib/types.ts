@@ -103,13 +103,16 @@ export type ICarousel = {
   _key: string;
   _type: string;
   title: string;
-  slidesPerView: number;
+  slidesPerView: IColumns;
   spaceBetween: number;
   navigation: boolean;
+  pagination: boolean;
   loop: boolean;
   autoplay: boolean;
+  centeredSlides: boolean;
   speed: number;
   delay: number;
+  effect: "slide" | "fade" | "cube" | "coverflow" | "flip" | "creative" | "cards";
   disableOnInteraction: boolean;
   items: (ISimpleImage | IHero)[];
   layout: 'simpleImage' | 'hero';
