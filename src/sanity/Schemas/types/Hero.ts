@@ -31,6 +31,7 @@ const Hero = {
           { title: 'image-bg-right', value: 'image-bg-right' },
           { title: 'image-right', value: 'image-right' },
           { title: 'hero-grid-carousel', value: 'hero-grid-carousel' },
+          { title: 'circle-overlap-left', value: 'circle-overlap-left' },
 
         ],
         validation: Rule => [Rule.required().error('A layout is required.')],

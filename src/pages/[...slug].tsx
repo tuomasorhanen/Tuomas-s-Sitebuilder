@@ -23,21 +23,15 @@ const IndexPage = (props: IPageProps) => {
       <Header items={menu} settings={settings} />
       <MapContent content={content}/>
       <style jsx global>{`
-        :root {
-          --bg-color-light: ${settings.bgColorLight.hex};
-          --text-color-light: ${settings.textColorLight.hex};
-          --primary-color-light: ${settings.primaryColorLight.hex};
-          --secondary-color-light: ${settings.secondaryColorLight.hex};
-          --accent-color-light: ${settings.accentColorLight.hex};
+  :root {
+    --bg-color-light: ${settings.bgColorLight.hex};
+    --text-color-light: ${settings.textColorLight.hex};
+    --accent-color: ${settings.accentColor.hex};
+    --bg-color-dark: ${settings.bgColorDark.hex};
+    --text-color-dark: ${settings.textColorDark.hex};
+  }
+`}</style>
 
-          --bg-color-dark: ${settings.bgColorDark.hex};
-          --text-color-dark: ${settings.textColorDark.hex};
-          --primary-color-dark: ${settings.primaryColorDark.hex};
-          --secondary-color-dark: ${settings.secondaryColorDark.hex};
-          --accent-color-dark: ${settings.accentColorDark.hex};
-        }
-
-      `}</style>
     </>
   );
 };

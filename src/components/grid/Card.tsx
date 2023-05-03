@@ -43,6 +43,20 @@ const Card = (props: ICard) => {
           </div>
         </div>
       );
+      case 'image-top-rounded-full':
+      return (
+        <div key={props._key} className='pb-16'>
+      <Image {...image} className="mx-auto h-32 w-32 rounded-full object-cover shadow-xl z-10" alt="" />
+      <figure className="-mt-16 rounded-lg shadow-2xl border-2 dark:border-gray-800 hover:scale-110 hover:border-none">
+        <div className="mx-auto p-2 pt-20 pb-8 text-center">
+        <BlockContentRenderer blockContent={blockContent && blockContent} />
+        </div>
+      </figure>
+          <div className="-mt-8 flex justify-center">
+            {buttons && buttons.map(btn => <ButtonRenderer key={btn._key} {...btn} />)}
+          </div>
+        </div>
+      );
       case 'image-reveal':
         return (
               <div className="perspective">

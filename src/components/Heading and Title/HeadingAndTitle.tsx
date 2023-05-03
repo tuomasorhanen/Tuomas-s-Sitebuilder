@@ -7,7 +7,7 @@ const HeadingAndTitle = (props: IHeadingAndTitle) => {
 
   return (
     <div key={props._key} className="py-16 ">
-      <div className="mx-auto max-w-screen-sm px-4 text-center">
+      <div className="mx-auto max-w-screen-md px-4 text-center">
       <BlockContentRenderer blockContent={blockContent && blockContent} />
       </div>
     </div>

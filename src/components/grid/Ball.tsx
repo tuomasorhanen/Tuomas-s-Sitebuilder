@@ -8,12 +8,12 @@ const Ball = (props: IBall) => {
   return (
     <div key={props._key} className="mx-auto max-w-screen-lg">
       <div
-        className="aspect-square rounded-full customgradient shadow-lg text-center"
+        className=" aspect-square rounded-full customgradient shadow-lg text-center"
         style={{ opacity: overlayOpacity }}>
-        <div className="flex items-center justify-center h-full text-bg">
+        <div className="flex items-center justify-center h-full">
         <BlockContentRenderer blockContent={blockContent && blockContent} />
         </div>
-      </div>
+        </div>
     </div>
   );
 };

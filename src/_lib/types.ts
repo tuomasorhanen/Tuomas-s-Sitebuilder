@@ -1,16 +1,11 @@
 export type ISiteSettings = {
+  accentColor: IColor;
   _id: string;
   title: string;
   description: string;
   logo: ISanityImage;
-  accentColorLight: IColor;
-  secondaryColorLight: IColor;
-  primaryColorLight: IColor;
   textColorLight: IColor;
   bgColorLight: IColor;
-  accentColorDark: IColor;
-  secondaryColorDark: IColor;
-  primaryColorDark: IColor;
   textColorDark: IColor;
   bgColorDark: IColor;
 };
@@ -59,6 +54,11 @@ export type ICallToAction = {
   buttonContent: string;
   image?: ISanityImage;
   backgroundColor?: string;
+  textColor?: string;
+  customColor?: boolean;
+  chosenCustomColor?: IColor;
+  border?: boolean;
+  borderColor: string
 };
 
 export interface IUiElement {
@@ -94,7 +94,7 @@ export type IHero = {
   blockContent?: any;
   image?: ISanityImage;
   buttons?: ICallToAction[];
-  layout: 'image-bg-center' | 'image-bg-left' | 'image-bg-right' | 'image-right' | 'hero-grid-carousel';
+  layout: 'image-bg-center' | 'image-bg-left' | 'image-bg-right' | 'image-right' | 'hero-grid-carousel' | 'circle-overlap-left';
   opacity?: number;
 };
 
@@ -123,6 +123,7 @@ export type ISimpleImage = {
   _key: string;
   _type: string;
   image: ISanityImage;
+  style: "square" | "logo-cloud"
 }
 
 export type ICard = {
@@ -132,7 +133,7 @@ export type ICard = {
   blockContent: any;
   image?: ISanityImage;
   buttons?: ICallToAction[];
-  layout: 'simple' | 'image-top' | 'image-reveal';
+  layout: 'simple' | 'image-top' | 'image-reveal' | 'image-top-rounded-full';
 };
 
 export type IBall = {

@@ -27,12 +27,20 @@ const processButtons = async (cnt) => {
         const ref = cnt.buttons[j]._ref;
         const ctaQuery = groq`*[_id == '${ref}'][0]{
           callToAction,
+          navigateToPage,
+          linkType,
           navigateToUrl,
           image,
           backgroundColor,
+          textColor,
+          customColor,
+          chosenCustomColor,
+          buttonContent,
+          border,
+          borderColor,
         }`;
         const ctaResult = await client.fetch(ctaQuery);
-        const { callToAction, navigateToUrl, image, backgroundColor } = ctaResult;
+        const { callToAction, navigateToUrl, image, backgroundColor, textColor, customColor, chosenCustomColor, buttonContent, border, borderColor } = ctaResult;
         const navQuery = groq`*[_id == '${_ref}']{
               navigateToPage->
             }[0].navigateToPage
@@ -47,6 +55,12 @@ const processButtons = async (cnt) => {
           navigateToUrl,
           image,
           backgroundColor,
+          textColor,
+          customColor,
+          chosenCustomColor,
+          buttonContent,
+          border,
+          borderColor,
         };
       }
     }

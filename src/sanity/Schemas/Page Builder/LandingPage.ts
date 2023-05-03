@@ -76,20 +76,67 @@ export default {
       hidden: ({ parent }) => parent?.buttonContent !== 'image',
     },
     {
+      name: 'customColor',
+      title: 'Custom Color',
+      type: 'boolean',
+    },
+    {
+      name: 'chosenCustomColor',
+      title: 'Choose Custom Color',
+      type: 'color',
+      hidden: ({ parent }) => !parent.customColor,
+    },
+    {
       name: 'backgroundColor',
       title: 'Background Color',
       type: 'string',
       options: {
         list: [
-          { title: 'Transparent', value: 'transparent' },
-          { title: 'Primary', value: 'primary' },
-          { title: 'Secondary', value: 'secondary' },
+          { title: 'Light', value: 'light' },
+          { title: 'Dark', value: 'dark' },
           { title: 'Accent', value: 'accent' },
+          { title: 'Transparent', value: 'transparent' },
+          { title: 'Custom', value: 'custom' },
         ],
         layout: 'radio',
       },
       hidden: ({ parent }) => parent?.buttonContent !== 'text',
     },
-    
+    {
+      name: 'textColor',
+      title: 'Text Color',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Light', value: 'light' },
+          { title: 'Dark', value: 'dark' },
+          { title: 'Accent', value: 'accent' },
+          { title: 'Transparent', value: 'transparent' },
+          { title: 'Custom', value: 'custom' },
+        ],
+        layout: 'radio',
+      },
+      hidden: ({ parent }) => parent?.buttonContent !== 'text',
+    },
+    {
+      name: 'border',
+      title: 'Border',
+      type: 'boolean',
+    },
+    {
+      name: 'borderColor',
+      title: 'Border Color',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Light', value: 'light' },
+          { title: 'Dark', value: 'dark' },
+          { title: 'Accent', value: 'accent' },
+          { title: 'Custom', value: 'custom' },
+        ],
+        layout: 'radio',
+      },
+      hidden: ({ parent }) => !parent.border,
+    },
   ],
 };

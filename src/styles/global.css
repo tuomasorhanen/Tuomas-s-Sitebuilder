@@ -13,13 +13,13 @@
 
 @layer components {
   .button {
-    @apply relative inline-block mx-2 rounded-full py-2 px-4 shadow-xl hover:scale-105;
+    @apply relative inline-block mx-2 rounded-full py-2 px-2 sm:px-4 shadow-xl hover:scale-105;
+    background-color: var(--button-bg-color, var(--bg-color-light));
+    color: var(--button-text-color, var(--text-color-light));
+    border: 2px solid var(--bg-color-dark);
   }
   .borderstyle {
-    @apply border border-primary-light border-b-secondary-light dark:border-r-secondary-dark dark:border-primary-dark dark:border-b-secondary-dark border-r-secondary-light;
-  }
-  .customgradient {
-    @apply bg-gradient-to-br from-primary-light to-secondary-light dark:from-primary-dark dark:to-secondary-dark;
+    @apply border border-bg-dark dark:border-bg-light;
   }
   .webchat__send-box__main {
     display: none !important;

@@ -20,17 +20,8 @@ module.exports = {
         light: 'var(--text-color-light)', // Light text color
         dark: 'var(--text-color-dark)', // Dark text color
       },
-      primary: {
-        light: 'var(--primary-color-light)', // Light primary theme color
-        dark: 'var(--primary-color-dark)', // Dark primary theme color
-      },
-      secondary: {
-        light: 'var(--secondary-color-light)', // Light secondary theme color
-        dark: 'var(--secondary-color-dark)', // Dark secondary theme color
-      },
       accent: {
-        light: 'var(--accent-color-light)', // Light accent color
-        dark: 'var(--accent-color-dark)', // Dark accent color
+        DEFAULT: 'var(--accent-color)', // Accent color
       },
     },
     fontFamily: {

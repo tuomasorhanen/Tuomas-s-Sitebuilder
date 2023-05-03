@@ -41,7 +41,7 @@ const Header = (props: IMenuProps & { settings: ISiteSettings }) => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Call the function manually to apply the correct background color immediately.
+    handleScroll();
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -60,7 +60,7 @@ const Header = (props: IMenuProps & { settings: ISiteSettings }) => {
             <Image
               {...settings.logo}
               alt={settings.title}
-              className="mx-10 rounded-full shadow-lg max-h-20 w-20"
+              className="mx-10 max-h-20 w-20"
             />
           </Link>
           <div className="z-40 hidden sm:block" id="navbar-default">
@@ -91,7 +91,7 @@ const Header = (props: IMenuProps & { settings: ISiteSettings }) => {
           <Image
             {...settings.logo}
               alt={settings.title}
-              className="mx-10 rounded-full shadow-lg h-16 w-16"
+              className="mx-10 h-16 w-16"
             />
           </Navbar.Brand>
         </div>

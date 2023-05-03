@@ -3,17 +3,36 @@ import { ICallToAction } from '_lib/types';
 import Link from 'next/link';
 
 const ButtonRenderer = (props: ICallToAction) => {
-  const { _key, callToAction, linkType, backgroundColor, image, navigateToPage, navigateToUrl } = props;
+  const { _key, callToAction, linkType, backgroundColor, textColor, image, navigateToPage, navigateToUrl, customColor, chosenCustomColor, border, borderColor } = props;
 
-  const buttonStyle = {
-    backgroundColor: `var(--${backgroundColor}-color-light)`,
+  const getCssVar = (color: string) => {
+    switch (color) {
+      case 'light':
+        return 'var(--bg-color-light)';
+      case 'dark':
+        return 'var(--bg-color-dark)';
+      case 'accent':
+        return 'var(--accent-color)';
+      default:
+        return color;
+    }
   };
+
+  // Customize button styles based on the properties
+  const buttonStyle: any = {
+    backgroundColor: customColor && chosenCustomColor ? chosenCustomColor.hex : getCssVar(backgroundColor),
+    color: getCssVar(textColor),
+  };
+
+  if (border) {
+    buttonStyle.border = `1px solid ${getCssVar(borderColor)}`;
+  }
 
   if (linkType === 'internal') {
     return (
       <Link key={props._key} href={navigateToPage || '/home'}>
         {image ? (
-          <Image {...image} alt="" className={`h-16 w-16 object-cover mx-2`} />
+          <Image {...image} alt="" className={`h-16 w-16 object-cover mx-2 hover:scale-105`} />
         ) : (
           <span key={props._key} className={`button`} style={buttonStyle}>{callToAction}</span>
         )}
@@ -23,7 +42,7 @@ const ButtonRenderer = (props: ICallToAction) => {
     return (
       <a key={props._key} href={navigateToUrl} style={buttonStyle}>
         {image ? (
-          <Image {...image} alt="" className={`h-16 w-16 object-cover mx-2`} />
+          <Image {...image} alt="" className={`h-16 w-16 object-cover mx-2 hover:scale-105`} />
         ) : (
           <span key={props._key} className={`button`} style={buttonStyle}>{callToAction}</span>
         )}
