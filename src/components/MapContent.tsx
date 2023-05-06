@@ -1,14 +1,13 @@
-import { ICarousel, IHeadingAndTitle, IHero } from '_lib/types';
+import { IHeadingAndTitle, IHero } from '_lib/types';
 import GridSection from './grid/GridSection';
 import HeadingAndTitle from './Heading and Title/HeadingAndTitle';
 import HeroSection from './hero/HeroSection';
 import CustomButton from './landingPage/CustomButton';
 import UiElement from './UI elements/uiElements';
-import CarouselSection from './carousel/CarouselSection';
-import BotSection from './bot/BotSection';
+
 
 type IMapContentProps = {
-  content: IHero[] | IHeadingAndTitle[] | ICarousel[];
+  content: IHero[] | IHeadingAndTitle[];
 };
 
 const MapContent = ({ content}: IMapContentProps) => {
@@ -26,10 +25,6 @@ const MapContent = ({ content}: IMapContentProps) => {
             return <UiElement key={item._key} {...item} />;
           case 'customButton':
             return <CustomButton key={item._key} {...item} />;
-          case 'carousel':
-            return <CarouselSection key={item._key} {...item} />;
-            case 'bot':
-              return <BotSection key={item._key} {...item} />;
           default:
             break;
         }

@@ -76,7 +76,7 @@ const resolveLinks = async page => {
     if (cnt._type == 'hero' || cnt._type == 'customButton') {
       cnt = await processButtons(cnt);
       page.content[i] = cnt;
-    } else if (cnt._type == 'grid'|| cnt._type == 'carousel') {
+    } else if (cnt._type == 'grid') {
       for (let k = 0; k < cnt.items.length; k++) {
         let item = cnt.items[k];
         if (item._type == 'card' || item._type == 'hero') {

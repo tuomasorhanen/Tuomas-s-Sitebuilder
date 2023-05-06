@@ -24,25 +24,6 @@ export type IPage = {
   content?: IHeadingAndTitle[] | IHero[] | IGrid[] | IUiElement[] | IPerson[];
 };
 
-export type IBotSetup = {
-  _key: string;
-  _id: string;
-  _type: string;
-  title: string; 
-  subscriptionKey: string;
-  instanceId: string; 
-  tenantId: string;
-  layout: 'bot-center' | 'bot-image-bg'
-}
-export type IBot = {
-  _key: string;
-  _id: string;
-  _type: string;
-  layout: 'bot-center' | 'bot-image-bg'
-  bot: IBotSetup;
-  image?: ISanityImage;
-}
-
 export type ICallToAction = {
   _key: any;
   _id: string;
@@ -94,28 +75,8 @@ export type IHero = {
   blockContent?: any;
   image?: ISanityImage;
   buttons?: ICallToAction[];
-  layout: 'image-bg-center' | 'image-bg-left' | 'image-bg-right' | 'image-right' | 'hero-grid-carousel' | 'circle-overlap-left';
+  layout: 'image-bg-center' | 'image-bg-left' | 'image-bg-right' | 'image-right' | 'circle-overlap-left';
   opacity?: number;
-};
-
-export type ICarousel = {
-  _id: string;
-  _key: string;
-  _type: string;
-  title: string;
-  slidesPerView: IColumns;
-  spaceBetween: number;
-  navigation: boolean;
-  pagination: boolean;
-  loop: boolean;
-  autoplay: boolean;
-  centeredSlides: boolean;
-  speed: number;
-  delay: number;
-  effect: "slide" | "fade" | "cube" | "coverflow" | "flip" | "creative" | "cards";
-  disableOnInteraction: boolean;
-  items: (ISimpleImage | IHero)[];
-  layout: 'simpleImage' | 'hero';
 };
 
 export type ISimpleImage = {

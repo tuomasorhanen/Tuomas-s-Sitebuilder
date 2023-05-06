@@ -10,7 +10,6 @@
     @apply bg-bg-light dark:bg-bg-dark text-text-light dark:text-text-dark text-xl font-sora;
   }
 }
-
 @layer components {
   .button {
     @apply relative inline-block mx-2 rounded-full py-2 px-2 sm:px-4 shadow-xl hover:scale-105;
@@ -21,39 +20,23 @@
   .borderstyle {
     @apply border border-bg-dark dark:border-bg-light;
   }
-  .webchat__send-box__main {
-    display: none !important;
-  }
-  .rhobot-webchat *::-webkit-scrollbar {
-    display: none;
-  }
-  
-  .rhobot-webchat * {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
   .perspective {
     perspective: 1000px;
   }
-
   .card {
     transform-style: preserve-3d;
     transition: transform 0.5s;
   }
-
   .card:hover {
     transform: rotateY(180deg);
   }
-
   .card-face {
     position: absolute;
     backface-visibility: hidden;
   }
-
   .card-face-front {
     z-index: 2;
   }
-
   .card-face-back {
     transform: rotateY(180deg);
     overflow: hidden;

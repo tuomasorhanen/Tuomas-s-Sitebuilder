@@ -8,7 +8,6 @@ import category from './Blog/category';
 import Ball from './types/ball';
 import blockContent from './types/block-content';
 import Card from './types/card';
-import Carousel from './types/carousel';
 import columns from './types/columns';
 import CustomButton from './types/customButton';
 import grid from './types/grid';
@@ -17,8 +16,6 @@ import lineBreak from './types/lineBreak';
 import SimpleImage from './types/simpleImage';
 import uiElement from './types/uiElement';
 import Hero from './types/Hero';
-import botSetup from './Bot/botSetup';
-import Bot from './types/bot';
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -30,14 +27,11 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     post,
     person,
     category,
-    botSetup,
 
     //Objects
-    Bot,
     Ball,
     blockContent,
     Card,
-    Carousel,
     columns,
     CustomButton,
     grid,

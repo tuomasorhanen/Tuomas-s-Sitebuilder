@@ -13,15 +13,15 @@ module.exports = {
     darkMode: 'class',
     colors: {
       bg: {
-        light: 'var(--bg-color-light)', // Light background color
-        dark: 'var(--bg-color-dark)', // Dark background color
+        light: 'var(--bg-color-light)',
+        dark: 'var(--bg-color-dark)', 
       },
       text: {
-        light: 'var(--text-color-light)', // Light text color
-        dark: 'var(--text-color-dark)', // Dark text color
+        light: 'var(--text-color-light)', 
+        dark: 'var(--text-color-dark)', 
       },
       accent: {
-        DEFAULT: 'var(--accent-color)', // Accent color
+        DEFAULT: 'var(--accent-color)',
       },
     },
     fontFamily: {
@@ -34,9 +34,6 @@ module.exports = {
       lg: '1920px', // bigger desktop
     },
     extend: {
-      height: {
-        'h-bot': '650px',
-      },
     },
   },
   plugins: [require('flowbite/plugin')],

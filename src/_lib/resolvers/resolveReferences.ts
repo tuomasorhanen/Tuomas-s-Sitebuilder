@@ -10,50 +10,6 @@ const resolveReferences = async (page: IPage) => {
       const { _type } = item;
 
       switch (_type) {
-        case 'bot':
-  const { _ref } = item.bot;
-  if (_ref) {
-    const botQry = groq`*[_id == '${_ref}']{
-      _id,
-      _type,
-      title,
-      subscriptionKey,
-      instanceId,
-      tenantId
-    }[0]`;
-    const botData = await client.fetch(botQry);
-    item.bot = botData;
-  }
-  break;
-
-        case 'carousel':
-          item.items = await Promise.all(
-            item.items.map(async (carouselItem: any) => {
-              if (carouselItem._type === 'hero' && carouselItem.buttons) {
-                carouselItem.buttons = await Promise.all(
-                  carouselItem.buttons.map(async (button: any) => {
-                    const { _ref } = button;
-                    if (_ref) {
-                      const buttonQry = groq`*[_id == '${_ref}']{
-                        callToAction,
-                        navigateToPage,
-                        linkType,
-                        navigateToUrl,
-                        image,
-                        backgroundColor
-                      }[0]`;
-                      const buttonData = await client.fetch(buttonQry);
-                      return buttonData;
-                    } else {
-                      return button;
-                    }
-                  })
-                );
-              }
-              return carouselItem;
-            })
-          );
-          break;
         case 'grid':
           item.items = await Promise.all(
             item.items.map(async (gridItem: any) => {
