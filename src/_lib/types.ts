@@ -125,6 +125,7 @@ export type IHeadingAndTitle = {
   _type: string;
   _key: string;
   blockContent: any;
+  style: 'centered' | 'overlap-bellow';
 };
 
 export type IPost = {

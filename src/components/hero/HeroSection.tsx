@@ -24,7 +24,7 @@ const HeroSection = (props: IHero) => {
       );
     case 'circle-overlap-left':
       return (
-        <div key={props._key} className=" pb-16 md:relative md:z-10 md:px-16 bg-bg-dark dark:bg-bg-light text-text-dark dark:text-text-light">
+        <div key={props._key} className=" pb-16 md:relative md:z-10 md:px-16">
           <div className="md:mx-auto md:grid md:max-w-screen-lg md:grid-cols-3 md:gap-8 md:px-8">
             <div className="relative md:col-span-1 md:mx-auto md:-my-8">
               <div className="mx-auto max-w-md px-4 mt-8 md:mt-0 md:h-full md:max-w-3xl md:p-0">

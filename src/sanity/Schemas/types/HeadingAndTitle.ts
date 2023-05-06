@@ -13,6 +13,18 @@ const HeadingAndTitle = {
       of: [{ type: 'blockContent' }],
       validation: Rule => [Rule.required().error('content is required.')],
     },
+    {
+      name: 'style',
+      title: 'Style',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'centered', value: 'centered' },
+          { title: 'overlap-bellow', value: 'overlap-bellow' },
+        ],
+        validation: Rule => [Rule.required().error('A style is required.')],
+      },
+    },
   ],
 };
 

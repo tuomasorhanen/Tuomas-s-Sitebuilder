@@ -30,21 +30,21 @@ const ButtonRenderer = (props: ICallToAction) => {
 
   if (linkType === 'internal') {
     return (
-      <Link key={props._key} href={navigateToPage || '/home'}>
+      <Link href={navigateToPage || '/home'}>
         {image ? (
           <Image {...image} alt="" className={`h-16 w-16 object-cover mx-2 hover:scale-105`} />
         ) : (
-          <span key={props._key} className={`button`} style={buttonStyle}>{callToAction}</span>
+          <span className={`button`} style={buttonStyle}>{callToAction}</span>
         )}
       </Link>
     );
   } else if (linkType === 'external') {
     return (
-      <a key={props._key} href={navigateToUrl} style={buttonStyle}>
+      <a href={navigateToUrl} style={buttonStyle}>
         {image ? (
           <Image {...image} alt="" className={`h-16 w-16 object-cover mx-2 hover:scale-105`} />
         ) : (
-          <span key={props._key} className={`button`} style={buttonStyle}>{callToAction}</span>
+          <span className={`button`} style={buttonStyle}>{callToAction}</span>
         )}
       </a>
     );
