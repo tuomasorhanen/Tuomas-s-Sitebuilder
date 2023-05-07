@@ -42,7 +42,18 @@ export type ICallToAction = {
   borderColor: string
 };
 
-export interface IUiElement {
+export type ICalendly = {
+  _key: string;
+  _id: string;
+  _type: string;
+  title: string;
+  calendlyLink: string;
+  layout: 'calendly-right' | 'calendly-left' | 'calendly-popup';
+  blockContent?: any;
+  buttons?: ICallToAction[];
+}
+
+export type IUiElement = {
   _key: string;
   _type: 'uiElement';
   style: 'wave' | "transparent-overlap" | 'image-divider' | 'solid-left';

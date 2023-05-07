@@ -53,6 +53,7 @@ const Page = {
         { type: 'customButton' },
         { type: 'uiElement' },
         { type: 'grid' },
+        { type: 'calendly' },
       ],
     }),
   ],

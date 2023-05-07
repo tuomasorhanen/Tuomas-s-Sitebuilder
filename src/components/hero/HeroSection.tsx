@@ -25,19 +25,19 @@ const HeroSection = (props: IHero) => {
     case 'circle-overlap-left':
       return (
         <div key={props._key} className=" pb-16 md:relative md:z-10 md:px-16">
-          <div className="md:mx-auto md:grid md:max-w-screen-lg md:grid-cols-3 md:gap-8 md:px-8">
+          <div className="md:mx-auto md:grid md:max-w-7xl md:grid-cols-3 md:gap-8 md:px-8">
             <div className="relative md:col-span-1 md:mx-auto md:-my-8">
-              <div className="mx-auto max-w-md px-4 mt-8 md:mt-0 md:h-full md:max-w-3xl md:p-0">
+              <div className="hidden md:block mx-auto max-w-md px-4 mt-8 md:mt-0 md:h-full md:max-w-3xl md:p-0">
                 {image && (
-                  <Image {...image} className="aspect-square w-96 rounded-full object-cover" alt="" opacity={opacity} />
+                  <Image {...image} className="aspect-square w-80 rounded-full object-cover" alt="" opacity={opacity} />
                 )}
                 <div className="flex justify-center pt-8">
                   {buttons && buttons.map(btn => <ButtonRenderer key={btn._key} {...btn} />)}
                 </div>
               </div>
             </div>
-            <div className="md:col-span-2 md:m-0 md:pl-8">
-              <div className="mx-auto max-w-4xl px-6 pt-8 text-center md:px-0 md:py-12 md:text-left">
+            <div className="md:col-span-2">
+              <div className="mx-auto max-w-4xl px-6 pt-16 md:pt-8 text-center md:text-left">
                 <div>
                   <BlockContentRenderer blockContent={blockContent && blockContent} />
                 </div>
@@ -88,7 +88,7 @@ const HeroSection = (props: IHero) => {
       );
     case 'image-right':
       return (
-        <section key={props._key} className="grid max-w-screen-lg grid-cols-2 items-center gap-8 p-8 py-32">
+        <section key={props._key} className="grid max-w-7xl grid-cols-2 items-center gap-8 p-8 py-32">
           <div className="col-span-2 mx-auto sm:col-span-1 ">
             <BlockContentRenderer blockContent={blockContent && blockContent} />
             <div className="mb-2 mt-6">

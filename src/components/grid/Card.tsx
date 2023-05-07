@@ -23,7 +23,7 @@ const Card = (props: ICard) => {
   switch (layout) {
     case 'simple':
       return (
-        <div key={props._key} className="borderstyle bg-bg-light p-6 shadow-2xl dark:bg-bg-dark">
+        <div key={props._key} className="borderstyle bg-bg-dark p-6 shadow-2xl dark:bg-bg-light text-text-dark dark:text-text-light rounded-lg">
           <BlockContentRenderer blockContent={blockContent && blockContent} />
         </div>
       );

@@ -76,7 +76,7 @@ const GridSection = (props: GridSectionProps) => {
 
   return (
     <section>
-      <div className="grid gap-8 max-w-screen-lg mx-auto p-8" style={columnStyles}>
+      <div className="grid gap-8 max-w-7xl mx-auto p-8" style={columnStyles}>
         {itemsArray.map(item => (
           <div key={item._key}>
             {renderGridItem(item)}

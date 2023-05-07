@@ -6,7 +6,7 @@ const Ball = (props: IBall) => {
   const overlayOpacity = opacity ? opacity / 100 : 1;
 
   return (
-    <div key={props._key} className="mx-auto max-w-screen-lg">
+    <div key={props._key} className="mx-auto">
       <div
         className=" aspect-square rounded-full customgradient shadow-lg text-center"
         style={{ opacity: overlayOpacity }}>

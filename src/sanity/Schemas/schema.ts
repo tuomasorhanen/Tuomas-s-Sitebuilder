@@ -16,6 +16,7 @@ import lineBreak from './types/lineBreak';
 import SimpleImage from './types/simpleImage';
 import uiElement from './types/uiElement';
 import Hero from './types/Hero';
+import Calendly from './types/calendly';
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -39,6 +40,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     Hero,
     lineBreak,
     SimpleImage,
-    uiElement
+    uiElement,
+    Calendly,
   ],
 };

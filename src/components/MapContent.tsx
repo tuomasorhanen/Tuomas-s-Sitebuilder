@@ -4,6 +4,7 @@ import HeadingAndTitle from './Heading and Title/HeadingAndTitle';
 import HeroSection from './hero/HeroSection';
 import CustomButton from './landingPage/CustomButton';
 import UiElement from './UI elements/uiElements';
+import CalendlySection from './calendly/CalendlySection';
 
 
 type IMapContentProps = {
@@ -25,6 +26,8 @@ const MapContent = ({ content}: IMapContentProps) => {
             return <UiElement key={item._key} {...item} />;
           case 'customButton':
             return <CustomButton key={item._key} {...item} />;
+          case 'calendly':
+            return <CalendlySection key={item._key} {...item} />;
           default:
             break;
         }
